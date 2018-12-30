@@ -1,0 +1,5 @@
+# Local file history
+/.history/
+
+# direnv cache for Nix shells
+/.direnv/
