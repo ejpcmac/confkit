@@ -24,7 +24,7 @@ by Nix, such as FreeBSD.
 
 3. Add `confkit` as submodule:
 
-        $ git submodule add https://github.com/ejpcmac/conkit.git
+        $ git submodule add https://github.com/ejpcmac/confkit.git
 
     If you are not using Git to track your configuration, do instead:
 
