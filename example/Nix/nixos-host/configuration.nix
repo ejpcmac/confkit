@@ -30,12 +30,15 @@ in
   ];
 
   boot = {
-    loader = {
-      # Use the systemd-boot EFI boot loader.
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot/efi";
-    };
+    # TODO: Enable Grub for BIOS or systemd-boot for EFI.
+    # loader.grub.device = "/dev/sda";
+
+    # loader = {
+    #   # Use the systemd-boot EFI boot loader.
+    #   systemd-boot.enable = true;
+    #   efi.canTouchEfiVariables = true;
+    #   efi.efiSysMountPoint = "/boot/efi";
+    # };
 
     initrd.luks.devices = [
       { name = "nixos"; device = "/dev/sda3"; preLVM = true; allowDiscards = true; }
@@ -112,7 +115,7 @@ in
   services = {
     ntp.enable = true;
     printing.enable = true;
-    smartd = { enable = true; notifications.x11.enable = true; };
+    # smartd = { enable = true; notifications.x11.enable = true; };
     xserver = { layout = "fr"; xkbVariant = "bepo"; };
   };
 }
