@@ -57,11 +57,6 @@ in
     defaultLocale = "fr_FR.UTF-8";
   };
 
-  services.xserver = {
-    layout = "fr";
-    xkbVariant = "bepo";
-  };
-
   time.timeZone = "Europe/Paris";
 
   sound = {
@@ -118,5 +113,6 @@ in
     ntp.enable = true;
     printing.enable = true;
     smartd = { enable = true; notifications.x11.enable = true; };
+    xserver = { layout = "fr"; xkbVariant = "bepo"; };
   };
 }

@@ -51,28 +51,28 @@ in
 
     shellAliases = {
       # Coloured `tree`, `grep` and `ls`
-      tree = mkDefault "tree -C";
-      grep = mkDefault "grep --color=auto";
-      ls = mkDefault (
+      tree = "tree -C";
+      grep = "grep --color=auto";
+      ls =
         if stdenv.isLinux then "ls -h --color=auto"
         else if stdenv.isDarwin then "/bin/ls -Gh"
-        else "ls -Gh");
+        else "ls -Gh";
 
       # Shortcuts for `ls`
-      ll = mkDefault "ls -l";
-      la = mkDefault "ls -A";
-      lla = mkDefault "ls -Al";
+      ll = "ls -l";
+      la = "ls -A";
+      lla = "ls -Al";
 
       # Human-readable `df` and `du`
-      df = mkDefault "df -h";
-      du = mkDefault "du -h";
+      df = "df -h";
+      du = "du -h";
 
       # Keep compressed version when using `unxz`
-      unxz = mkDefault "unxz -kv";
+      unxz = "unxz -kv";
 
       # Handy nixos-rebuild aliases
-      nor = mkDefault nixos-rebuild;
-      nors = mkDefault "nix build --no-link -f ${nixosPath} config.system.build.toplevel && ${nixos-rebuild} switch";
+      nor = nixos-rebuild;
+      nors = "nix build --no-link -f ${nixosPath} config.system.build.toplevel && ${nixos-rebuild} switch";
     };
   };
 }
