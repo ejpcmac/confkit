@@ -51,7 +51,6 @@ in
 
   networking = {
     hostName = "nixos-host";
-    wireless.enable = true;
   };
 
   i18n = {
