@@ -21,7 +21,7 @@ in
       naturalScrolling = mkDefault true;
     };
 
-    # Use Gnome 3 as desktop manager.
+    # Use GNOME 3 as desktop manager.
     displayManager.gdm.enable = mkDefault true;
     desktopManager.gnome3.enable = mkDefault true;
   };
