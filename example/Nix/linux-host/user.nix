@@ -4,9 +4,9 @@
 
 { config, lib, pkgs, ... }:
 
-with lib;
-
 let
+  inherit (builtins) readFile;
+  inherit (lib) mkForce;
   confkit = import ../../confkit;
 in
 
