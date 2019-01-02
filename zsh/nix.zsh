@@ -22,6 +22,14 @@ alias nicr='nix-channel --remove'
 alias nicu='nix-channel --update'
 alias nicrb='nix-channel --rollback'
 
+# root channels
+alias snic='sudo nix-channel'
+alias snicl='sudo nix-channel --list'
+alias snica='sudo nix-channel --add'
+alias snicr='sudo nix-channel --remove'
+alias snicu='sudo nix-channel --update'
+alias snicrb='sudo nix-channel --rollback'
+
 # nix-build
 alias nb='nix-build'
 
@@ -45,3 +53,10 @@ alias hs='home-manager switch'
 alias hp='home-manager packages'
 alias hn='home-manager news'
 alias hgen='home-manager generations'
+
+# NixOS rebuild
+alias snors="sudo __nors";
+__nors() {
+    nix build --no-link -f '<nipkpgs/nixos>' config.system.build.toplevel &&
+    nixos-rebuild switch
+}
