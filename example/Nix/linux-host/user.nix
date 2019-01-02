@@ -4,9 +4,9 @@
 
 { config, lib, pkgs, ... }:
 
-with lib;
-
 let
+  inherit (builtins) readFile;
+  inherit (lib) mkForce;
   confkit = import ../../confkit;
 in
 
@@ -34,7 +34,7 @@ in
     wget
     xz
 
-    signal-desktop
+    # signal-desktop
   ];
 
   home.file = {

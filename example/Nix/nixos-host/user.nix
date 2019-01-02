@@ -2,16 +2,14 @@
 ## Home configuration for user@nixos-host
 ##
 
-{ config, lib, pkgs, ... }:
-
-with lib;
+{ config, pkgs, ... }:
 
 {
   imports = [ ../common/home.nix ];
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    signal-desktop
+    # signal-desktop
   ];
 
   # Specific Git configuration

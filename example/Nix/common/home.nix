@@ -55,6 +55,7 @@ in
   programs.git = {
     userName = "User Name";
     userEmail = "user.name@example.com";
+    # signing.signByDefault = false;
     signing.key = "<key>";
   };
 
@@ -77,8 +78,8 @@ in
       ];
     };
 
-    shellAliases = {
-      tmux = "direnv exec / tmux";
-    };
+    # shellAliases = {
+    #   tmux = "direnv exec / tmux";
+    # };
   };
 }
