@@ -34,7 +34,7 @@ in
     wget
     xz
 
-    signal-desktop
+    # signal-desktop
   ];
 
   home.file = {

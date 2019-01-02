@@ -68,11 +68,13 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    # Utilities
     curl
     dcfldd
     emv
     git
     git-lfs
+    gnome3.gnome-session
     gnupg
     htop
     iftop
@@ -92,13 +94,14 @@ in
     xz
     zip
 
+    # Applications
     firefox
     keepassx2
     libreoffice
     quodlibet
-    thunderbird
 
-    gnome3.gnome-session
+    # GNOME extensions
+    gnomeExtensions.topicons-plus
   ];
 
   # Uninstall unneeded gnome applications.
