@@ -19,9 +19,6 @@ alias gpg-cs='gpg --check-sigs'
 alias e='code .'
 alias oc='code ~/.config_files'
 alias ocd='cd ~/.config_files'
-alias pgst='pg_ctl -l "$PGDATA/server.log" start'
-alias pgsp='pg_ctl stop'
-alias pgswitch='killall postgres && pgst'
 alias di='diceware --fr -s 8'
 
 # Easter Eggs

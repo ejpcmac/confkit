@@ -28,6 +28,7 @@ in
     ".zsh/aliases.zsh".source = confkit.file "zsh/aliases.zsh";
     # ".zsh/asdf.zsh".source = confkit.file "zsh/asdf.zsh";
     # ".zsh/ceedling.zsh".source = confkit.file "zsh/ceedling.zsh";
+    # ".zsh/dev.zsh".source = confkit.file "zsh/dev.zsh";
     # ".zsh/direnv.zsh".source = confkit.file "zsh/direnv.zsh";
     # ".zsh/docker.zsh".source = confkit.file "zsh/docker.zsh";
     # ".zsh/elixir.zsh".source = confkit.file "zsh/elixir.zsh";
