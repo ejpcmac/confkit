@@ -2,14 +2,18 @@
 # Aliases & Functions #
 #######################
 
-# Files
-alias gmod='chmod -R u=rwX,go=rX'
-alias gmodg='chmod -R ug=rwX,o=rX'
+# Configuration
+alias oc='code ~/.config_files'
+alias ocd='cd ~/.config_files'
 
 # Zsh
 alias rz='source ~/.zshrc'
 alias zu='upgrade_oh_my_zsh && update-zsh-plugins'
 alias zi='install-zsh-plugins'
+
+# Files
+alias gmod='chmod -R u=rwX,go=rX'
+alias gmodg='chmod -R ug=rwX,o=rX'
 
 # GPG
 alias gpg-e='gpg --edit-key'
@@ -17,8 +21,6 @@ alias gpg-cs='gpg --check-sigs'
 
 # Miscellanous
 alias e='code .'
-alias oc='code ~/.config_files'
-alias ocd='cd ~/.config_files'
 alias di='diceware --fr -s 8'
 
 # Easter Eggs
