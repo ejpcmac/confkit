@@ -8,7 +8,7 @@
 
 ### New features
 
-* [Zsh/dev] Introduce a module for developer-focused aliases
+* [Zsh/dev] Introduce a module for developer-focused aliases and functions
 
 ## v0.0.3
 
