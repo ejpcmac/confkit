@@ -18,6 +18,21 @@ alias pgswitch='killall postgres && pgst'
 ## Functions
 ##
 
+## VSCode
+
+code-nofmt() {
+    mkdir -p .vscode
+    cat > .vscode/settings.json << 'EOF'
+{
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false
+}
+EOF
+}
+
+## Certificate creatiton
+
 gencert() {
     if [[ $# -ne 2 ]]; then
         echo "usage: gencert <ca_file> <server_file>"
