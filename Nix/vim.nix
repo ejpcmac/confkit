@@ -15,25 +15,36 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkDefault;
+  inherit (lib) mkDefault mkOption types optionalString;
   inherit (pkgs) stdenv;
 
-  # Embed the color theme in the configuration.
-  vimConfig = readFile ../vim/vimrc + readFile ../vim/colors/wellsokai.vim;
+  cfg = config.programs.vim;
+  vimConfig =
+    readFile ../vim/vimrc
+    # Embed the color theme in the configuration.
+    + readFile ../vim/colors/wellsokai.vim
+    + optionalString cfg.useBepoKeybindings (readFile ../vim/bepo.vim);
 in
 
 {
-  environment.systemPackages = if stdenv.isLinux then [
-    (pkgs.vim_configurable.customize {
-      name = "vim";
-      vimrcConfig.customRC = vimConfig;
-    })
-  ] else [];
+  options.programs.vim.useBepoKeybindings = mkOption {
+    type = types.bool;
+    default = false;
+  };
 
-  programs.vim = if stdenv.isDarwin then {
-    enable = true;
-    vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
-  } else {
-    defaultEditor = mkDefault true;
+  config = {
+    environment.systemPackages = if stdenv.isLinux then [
+      (pkgs.vim_configurable.customize {
+        name = "vim";
+        vimrcConfig.customRC = vimConfig;
+      })
+    ] else [];
+
+    programs.vim = if stdenv.isDarwin then {
+      enable = true;
+      vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
+    } else {
+      defaultEditor = mkDefault true;
+    };
   };
 }
