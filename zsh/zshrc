@@ -22,6 +22,9 @@ export LANG="fr_FR.UTF-8"
 # nano comme éditeur par défaut
 export EDITOR="vim"
 
+# N’utiliser que /etc/ranger/rc.conf et ~/.config/ranger/rc.conf
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
 # Couleurs de `ls` (BSD)
 # a     black
 # b     red
