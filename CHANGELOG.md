@@ -20,6 +20,10 @@
 * [ranger] Add a ranger configuration
 * [Nix/Vim] Add the `programs.vim.useBepoKeybindings` option
 
+### Enhancements
+
+* [tmux] Add session management commands
+
 ## v0.0.3
 
 * [Zsh/Nix] Add s-prefixed aliases to sudo `nic*` and `nors`
