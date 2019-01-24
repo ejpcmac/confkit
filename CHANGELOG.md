@@ -5,10 +5,20 @@
 ### Breaking changes
 
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
+* [tmux] Update the pane navigation to be a bit more Vim-like
+* [Nix/xserver] Remove common configuration
 
 ### New features
 
+* [Zsh/Aliases] Add `ra` for `ranger`
 * [Zsh/dev] Introduce a module for developer-focused aliases and functions
+    * PostgreSQL aliases
+    * Shortcut to disable formatting locally in VSCode
+    * Certificate generation
+* [Zsh/Elixir] Add `mcvf` pour `mix compile --verbose --force`
+* [Vim] Add BÉPO mappings
+* [ranger] Add a ranger configuration
+* [Nix/Vim] Add the `programs.vim.useBepoKeybindings` option
 
 ## v0.0.3
 
