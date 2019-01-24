@@ -20,6 +20,7 @@ alias gpg-e='gpg --edit-key'
 alias gpg-cs='gpg --check-sigs'
 
 # Miscellanous
+alias ra='ranger'
 alias e='code .'
 alias di='diceware --fr -s 8'
 
