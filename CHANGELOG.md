@@ -6,6 +6,7 @@
 
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
 * [tmux] Update the pane navigation to be a bit more Vim-like
+    * Use `C-<ctsr>` to move btween panes and `C-<qn>` to move between windows
 * [Nix/xserver] Remove common configuration
 
 ### New features
