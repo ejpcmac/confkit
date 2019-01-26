@@ -19,6 +19,11 @@ alias gmodg='chmod -R ug=rwX,o=rX'
 alias gpg-e='gpg --edit-key'
 alias gpg-cs='gpg --check-sigs'
 
+# Emacs
+alias ec='emacsclient'
+alias ecc='emacsclient -c'
+alias ect='emacsclient -nw'
+
 # Miscellanous
 alias ra='ranger'
 alias e='code .'

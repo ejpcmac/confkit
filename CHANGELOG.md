@@ -12,7 +12,7 @@
 
 ### New features
 
-* [Zsh/Aliases] Add `ra` for `ranger`
+* [Zsh/Aliases] Add `ra` for `ranger` and `ec[c|t]` for `emacsclient [-c|-nw]`
 * [Zsh/dev] Introduce a module for developer-focused aliases and functions
     * PostgreSQL aliases
     * Shortcut to disable formatting locally in VSCode
