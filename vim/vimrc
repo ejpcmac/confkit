@@ -35,3 +35,6 @@ set backspace=indent,eol,start
 " Enable modelines
 set modeline
 set modelines=5
+
+" Use <C-l> to center the cursor
+noremap <C-l> z.
