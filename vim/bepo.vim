@@ -1,6 +1,10 @@
 " Remapping du clavier adapté au BÉPO
 " https://bepo.fr/wiki/Vim
 
+" Adaptations locales :
+" - T/S pour défiler vers le bas/haut
+" - J n’est pas remappé (toujours join)
+
 " {W} -> [É]
 " ——————————
 " On remappe W sur É :
@@ -27,18 +31,17 @@ noremap s k
 " {CR} = « haut / bas de l'écran »
 noremap C H
 noremap R L
-" {TS} = « joindre / aide »
-noremap T J
-noremap S K
+" {TS} = « défilement vers le bas / haut » (Non strictement inversé)
+noremap T <C-d>
+noremap S <C-u>
 " Corollaire : repli suivant / précédent
 noremap zs zj
 noremap zt zk
 
 " {HJKL} <- [CTSR]
 " ————————————————
-" {J} = « Jusqu'à »            (j = suivant, J = précédant)
+" {J} = « Jusqu'à »            (j = suivant, J n’est pas remappé)
 noremap j t
-noremap J T
 " {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
 noremap l c
 noremap L C
