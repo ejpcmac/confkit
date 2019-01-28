@@ -4,6 +4,9 @@
 
 ### Breaking changes
 
+* [Zsh/zshrc] Automatically choose the editor in the out-of-Nix ssystem `zshrc`.
+    The default editor is Emacs, using the deamon. If it is not available or the
+    daemon is not started, falls back to vim, then nano, then ee, then vi.
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
 * [tmux] Update the pane navigation to be a bit more Vim-like
     * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between

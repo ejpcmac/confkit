@@ -19,8 +19,8 @@ compinit
 # Langue française et encodage UTF-8
 export LANG="fr_FR.UTF-8"
 
-# nano comme éditeur par défaut
-export EDITOR="vim"
+# Script pour déterminer l’éditeur à utiliser
+export EDITOR="editor-script"
 
 # N’utiliser que /etc/ranger/rc.conf et ~/.config/ranger/rc.conf
 export RANGER_LOAD_DEFAULT_RC=FALSE
@@ -87,6 +87,38 @@ alias du='du -h'
 
 # Garder la version compressée pour unxz
 alias unxz='unxz -kv'
+
+#############
+# Fonctions #
+#############
+
+editor-script() {
+    # Si Emacs n’est pas installé ou que le démon n’est pas démarré, on utilise
+    # Vim, nano, ee ou vi.
+    if [ -x "$(command -v vim)" ]; then
+        alternate_editor=vim
+    elif [ -x "$(command -v nano)" ]; then
+        alternate_editor=nano
+    elif [ -x "$(command -v ee)" ]; then
+        alternate_editor=ee
+    else
+        alternate_editor=vi
+    fi
+
+    # Si emacs est installé, on essaie de seconnecter au démon, se repliant
+    # sur l’éditeur alternatif en cas d’échec.
+    if [ -x "$(command -v emacsclient)" ]; then
+        if [ -z "$1" ]; then
+            emacsclient --create-frame --alternate-editor $alternate_editor
+        else
+            emacsclient --alternate-editor $alternate_editor $@
+        fi
+    else
+        $alternate_editor $@
+    fi
+
+    unset alternate_editor
+}
 
 ##################
 # Options de zsh #
