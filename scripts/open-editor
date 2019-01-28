@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Select an alternate editor in case Emacs is not available.
+if [ -x "$(command -v vim)" ]; then
+    alternate_editor=vim
+elif [ -x "$(command -v nano)" ]; then
+    alternate_editor=nano
+elif [ -x "$(command -v ee)" ]; then
+    alternate_editor=ee
+else
+    alternate_editor=vi
+fi
+
+# If Emacs is available, try to connect to the daemon. If it is not started or
+# Emacs is not available, fall back to the alternate editor.
+if [ -x "$(command -v emacsclient)" ]; then
+    if [ -z "$1" ]; then
+        emacsclient --create-frame --alternate-editor $alternate_editor
+    else
+        emacsclient --alternate-editor $alternate_editor $@
+    fi
+else
+    $alternate_editor $@
+fi

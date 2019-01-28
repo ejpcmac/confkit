@@ -4,9 +4,10 @@
 
 ### Breaking changes
 
-* [Zsh/zshrc] Automatically choose the editor in the out-of-Nix ssystem `zshrc`.
+* [Zsh/zshrc] Automatically choose the editor in the out-of-Nix system `zshrc`.
     The default editor is Emacs, using the deamon. If it is not available or the
-    daemon is not started, falls back to vim, then nano, then ee, then vi.
+    daemon is not started, falls back to vim, then nano, then ee, then vi. For
+    this to work, `scripts/open-editor` must be installed in `/usr/bin`.
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
 * [tmux] Update the pane navigation to be a bit more Vim-like
     * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between
@@ -15,6 +16,8 @@
 
 ### New features
 
+* [scripts/open-editor] Add a script to open an editor. Trys Emacs, Vim, nano,
+    ee and vi.
 * [Zsh/Aliases] Add `ra` for `ranger` and `ec[c|t]` for `emacsclient [-c|-nw]`
 * [Zsh/dev] Introduce a module for developer-focused aliases and functions
     * PostgreSQL aliases
