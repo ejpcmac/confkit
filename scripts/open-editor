@@ -11,14 +11,11 @@ else
     alternate_editor=vi
 fi
 
-# If Emacs is available, try to connect to the daemon. If it is not started or
-# Emacs is not available, fall back to the alternate editor.
+# If Emacs is available, try to connect to the daemon and open a new console
+# frame. If it is not started or Emacs is not available, fall back to the
+# alternate editor.
 if [ -x "$(command -v emacsclient)" ]; then
-    if [ -z "$1" ]; then
-        emacsclient --create-frame --alternate-editor $alternate_editor
-    else
-        emacsclient --alternate-editor $alternate_editor $@
-    fi
+    emacsclient --tty --alternate-editor $alternate_editor $@
 else
     $alternate_editor $@
 fi
