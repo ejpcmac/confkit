@@ -3,7 +3,7 @@
 #######################
 
 # Configuration
-alias oc='code ~/.config_files'
+alias oc='emacsclient --create-frame --no-wait ~/.config_files'
 alias ocd='cd ~/.config_files'
 
 # Zsh

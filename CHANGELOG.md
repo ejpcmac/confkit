@@ -8,6 +8,7 @@
     The default editor is Emacs, using the deamon. If it is not available or the
     daemon is not started, falls back to vim, then nano, then ee, then vi. For
     this to work, `scripts/open-editor` must be installed in `/usr/bin`.
+* [Zsh/Aliases] Use Emacs to edit the configuration
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
 * [tmux] Update the pane navigation to be a bit more Vim-like
     * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between
