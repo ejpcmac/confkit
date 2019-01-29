@@ -21,8 +21,8 @@ alias gpg-cs='gpg --check-sigs'
 
 # Emacs
 alias ec='emacsclient'
-alias ecc='emacsclient -c'
-alias ect='emacsclient -nw'
+alias ecc='emacsclient --create-frame --no-wait'
+alias ect='emacsclient --tty'
 
 # Miscellanous
 alias ra='ranger'
