@@ -73,11 +73,14 @@ alias mrlca='mix release.clean --implode'
 alias mfw='mix firmware'
 alias mb='mix burn'
 alias mfwb='mix firmware.burn'
-alias mfwp='mix firmware.push --user-dir priv/ssh'
-alias mdfwp='mix do firmware, firmware.push --user-dir priv/ssh'
 alias mdgfw='mix do deps.get, firmware'
 alias mdgfwb='mix do deps.get, firmware.burn'
-alias mdgfwp='mix do deps.get, firmware, firmware.push --user-dir priv/ssh'
+
+# Declare it as a function to propagate the environment variables to both mix
+# and the upload script.
+mfwp() {
+    mix firmware && ./upload.sh $@
+}
 
 # Docs
 alias mhdf='mix hex.docs fetch'

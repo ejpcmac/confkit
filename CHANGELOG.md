@@ -31,6 +31,7 @@
 
 ### Enhancements
 
+* [Zsh/Elixir] Update the Nerves aliases to push firmwares
 * [tmux] Add session management commands
 
 ## v0.0.3
