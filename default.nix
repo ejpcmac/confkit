@@ -9,7 +9,6 @@
     root = ./Nix/root.nix;
     tmux = ./Nix/tmux.nix;
     vim = ./Nix/vim.nix;
-    xserver = ./Nix/xserver.nix;
     zsh = ./Nix/zsh.nix;
   };
 }

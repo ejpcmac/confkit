@@ -34,6 +34,7 @@ alias mnn='mix nerves.new'
 alias mdua='mix do deps.update --all, deps.unlock --unused'
 
 # Compilation and tests
+alias mcvf='mix compile --verbose --force'
 alias mtt='mix test --trace'
 alias mtw='mix test.watch --stale'
 alias mttw='mix test.watch --stale --trace'
@@ -72,11 +73,14 @@ alias mrlca='mix release.clean --implode'
 alias mfw='mix firmware'
 alias mb='mix burn'
 alias mfwb='mix firmware.burn'
-alias mfwp='mix firmware.push --user-dir priv/ssh'
-alias mdfwp='mix do firmware, firmware.push --user-dir priv/ssh'
 alias mdgfw='mix do deps.get, firmware'
 alias mdgfwb='mix do deps.get, firmware.burn'
-alias mdgfwp='mix do deps.get, firmware, firmware.push --user-dir priv/ssh'
+
+# Declare it as a function to propagate the environment variables to both mix
+# and the upload script.
+mfwp() {
+    mix firmware && ./upload.sh $@
+}
 
 # Docs
 alias mhdf='mix hex.docs fetch'

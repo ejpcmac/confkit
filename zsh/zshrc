@@ -19,8 +19,12 @@ compinit
 # Langue française et encodage UTF-8
 export LANG="fr_FR.UTF-8"
 
-# nano comme éditeur par défaut
-export EDITOR="vim"
+# Script pour déterminer l’éditeur à utiliser
+# `scripts/open-editor` doit être installé dans `/usr/bin`.
+export EDITOR="open-editor"
+
+# N’utiliser que /etc/ranger/rc.conf et ~/.config/ranger/rc.conf
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Couleurs de `ls` (BSD)
 # a     black

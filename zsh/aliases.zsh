@@ -2,26 +2,31 @@
 # Aliases & Functions #
 #######################
 
-# Files
-alias gmod='chmod -R u=rwX,go=rX'
-alias gmodg='chmod -R ug=rwX,o=rX'
+# Configuration
+alias oc='emacsclient --create-frame --no-wait ~/.config_files'
+alias ocd='cd ~/.config_files'
 
 # Zsh
 alias rz='source ~/.zshrc'
 alias zu='upgrade_oh_my_zsh && update-zsh-plugins'
 alias zi='install-zsh-plugins'
 
+# Files
+alias gmod='chmod -R u=rwX,go=rX'
+alias gmodg='chmod -R ug=rwX,o=rX'
+
 # GPG
 alias gpg-e='gpg --edit-key'
 alias gpg-cs='gpg --check-sigs'
 
+# Emacs
+alias ec='emacsclient'
+alias ecc='emacsclient --create-frame --no-wait'
+alias ect='emacsclient --tty'
+
 # Miscellanous
+alias ra='ranger'
 alias e='code .'
-alias oc='code ~/.config_files'
-alias ocd='cd ~/.config_files'
-alias pgst='pg_ctl -l "$PGDATA/server.log" start'
-alias pgsp='pg_ctl stop'
-alias pgswitch='killall postgres && pgst'
 alias di='diceware --fr -s 8'
 
 # Easter Eggs

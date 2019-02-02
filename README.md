@@ -66,6 +66,6 @@ In `Nix/`, you have now several directories:
 
 ## License
 
-Copyright © 2018 Jean-Philippe Cugnet
+Copyright © 2018-2019 Jean-Philippe Cugnet
 
 [Do what the fuck you want to](LICENSE) with this project.
