@@ -10,7 +10,7 @@
     this to work, `scripts/open-editor` must be installed in `/usr/bin`.
 * [Zsh/Aliases] Use Emacs to edit the configuration
 * [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module
-* [tmux] Update the pane navigation to be a bit more Vim-like
+* [Tmux] Update the pane navigation to be a bit more Vim-like
     * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between
       windows
 * [Nix/xserver] Remove common configuration
@@ -31,8 +31,10 @@
 
 ### Enhancements
 
+* [Zsh/Git] Make `gclean` avoid cleaning `.direnv/` if it is not at the root
 * [Zsh/Elixir] Update the Nerves aliases to push firmwares
-* [tmux] Add session management commands
+* [Tmux] Add session management commands
+* [Vim] Use `<C-l>` to center the cursor
 
 ## v0.0.3
 
