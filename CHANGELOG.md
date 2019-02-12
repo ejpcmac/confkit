@@ -1,5 +1,11 @@
 # Changelog
 
+## develop
+
+### New features
+
+* [tridactyl] Add basic BÉPO keybindings
+
 ## v0.0.4
 
 ### Breaking changes
