@@ -28,5 +28,3 @@ bind o fillcmdline tabopen
 bind gn tabnew
 bind gb tabprev
 bind gé tabnext
-
-set editorcmd /run/current-system/sw/bin/emacsclient --create-frame
