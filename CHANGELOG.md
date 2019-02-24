@@ -5,6 +5,8 @@
 ### New features
 
 * [tridactyl] Add basic BÉPO keybindings
+* [pms] Add a pms configuration with BÉPO keybindings
+* [Zsh/ImageMagick] Add functions for working with ImageMagick
 
 ## v0.0.4
 
