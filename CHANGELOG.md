@@ -2,10 +2,15 @@
 
 ## develop
 
+### Breaking changes
+
+* [ranger] Use `\\` to unmount as user, `\!` as root
+
 ### New features
 
-* [tridactyl] Add basic BÉPO keybindings
 * [pms] Add a pms configuration with BÉPO keybindings
+* [ranger] Add an alias (`\u`) to mount using `udisksctl`
+* [tridactyl] Add basic BÉPO keybindings
 * [Zsh/ImageMagick] Add functions for working with ImageMagick
 
 ## v0.0.4
