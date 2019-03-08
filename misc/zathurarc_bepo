@@ -1,25 +1,35 @@
 # Adaptation à BÉPO
 
 # hjkl → ctsr
+unmap h
+unmap j
+unmap k
+unmap l
 map t scroll down
 map s scroll up
 map c scroll left
 map r scroll right
 
 # JK → TS
+unmap J
+unmap K
 map T navigate next
 map S navigate previous
-
 
 # r → p
 map p rotate rotate-cw
 
 # R → u
+unmap R
 map u reload
 
 # b ↔ a car le a est plus accessible
 map b adjust_window best-fit
 map a adjust_window width
+
+# f → e car plus accessible
+unmap f
+map e follow
 
 # Mode Index
 map [index] t navigate_index down
