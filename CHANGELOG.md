@@ -11,6 +11,7 @@
 * [pms] Add a pms configuration with BÉPO keybindings
 * [ranger] Add an alias (`\u`) to mount using `udisksctl`
 * [tridactyl] Add basic BÉPO keybindings
+* [Zathura] Add a configuration for BÉPO
 * [Zsh/ImageMagick] Add functions for working with ImageMagick
 
 ## v0.0.4
