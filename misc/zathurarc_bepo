@@ -10,11 +10,15 @@ map s scroll up
 map c scroll left
 map r scroll right
 
-# JK → TS
+# JK → alt + ts (et TS pour <C-d> / <C-u>)
 unmap J
 unmap K
-map T navigate next
-map S navigate previous
+map <A-t> navigate next
+map <A-s> navigate previous
+map T scroll half-down
+map S scroll half-up
+
+map <C-l> scroll top
 
 # r → p
 map p rotate rotate-cw
