@@ -20,6 +20,9 @@ map S navigate previous
 map C scroll page-top
 map R scroll page-bottom
 
+# Pour les utilisateurs d’Emacs
+map <C-l> scroll page-top
+
 # r → p
 map p rotate rotate-cw
 
