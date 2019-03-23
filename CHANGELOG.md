@@ -14,6 +14,10 @@
 * [Zathura] Add a configuration for BÉPO
 * [Zsh/ImageMagick] Add functions for working with ImageMagick
 
+### Enhancements
+
+* [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
+
 ## v0.0.4
 
 ### Breaking changes
