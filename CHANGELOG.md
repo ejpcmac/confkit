@@ -17,6 +17,7 @@
 ### Enhancements
 
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
+* [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
 
 ## v0.0.4
 
