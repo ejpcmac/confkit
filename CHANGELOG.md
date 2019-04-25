@@ -12,6 +12,7 @@
 * [ranger] Add an alias (`\u`) to mount using `udisksctl`
 * [tridactyl] Add basic BÉPO keybindings
 * [Zathura] Add a configuration for BÉPO
+* [Zsh/Django] Add aliases for Django
 * [Zsh/ImageMagick] Add functions for working with ImageMagick
 
 ### Enhancements
