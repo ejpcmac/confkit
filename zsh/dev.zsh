@@ -10,7 +10,7 @@
 alias devcert='generate-ca-and-server --auto ca server 2048'
 
 # PostgreSQL (for use with Nix)
-alias pgst='pg_ctl -l "$PGDATA/server.log" start'
+alias pgst='pg_ctl -o "-k $PGDATA" -l "$PGDATA/server.log" start'
 alias pgsp='pg_ctl stop'
 alias pgswitch='killall postgres && pgst'
 
