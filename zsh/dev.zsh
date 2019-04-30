@@ -14,6 +14,10 @@ alias pgst='pg_ctl -o "-k $PGDATA" -l "$PGDATA/server.log" start'
 alias pgsp='pg_ctl stop'
 alias pgswitch='killall postgres && pgst'
 
+# MongoDB (for use with Nix)
+alias mongost='mongod --config mongod.conf --fork'
+alias mongosp='mongo admin --eval "db.shutdownServer()"'
+
 ##
 ## Functions
 ##
