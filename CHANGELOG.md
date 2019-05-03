@@ -17,6 +17,8 @@
 
 ### Enhancements
 
+* [Zsh/dev] Update `pgst` to put the socket in $PGDATA
+* [Zsh/dev] Add aliases to start-stop a local MongoDB instance
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
 * [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
 
