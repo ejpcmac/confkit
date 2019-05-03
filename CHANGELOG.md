@@ -20,6 +20,10 @@
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
 * [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
 
+### Bug fixes
+
+* [Tmux] Make the configuration compatible with Tmux 2.9
+
 ## v0.0.4
 
 ### Breaking changes
