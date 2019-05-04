@@ -17,6 +17,7 @@
 
 ### Enhancements
 
+* [Nix/Tmux] Install tmuxinator automatically
 * [Zsh/dev] Update `pgst` to put the socket in $PGDATA
 * [Zsh/dev] Add aliases to start-stop a local MongoDB instance
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
