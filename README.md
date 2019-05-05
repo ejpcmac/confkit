@@ -62,6 +62,11 @@ Link:
 * on every platform for every user, `~/.config/nixpkgs/home.nix` to
         `/path/to/host/user.nix`.
 
+## [Contributing](CONTRIBUTING.md)
+
+Before contributing to this project, please read the
+[CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 Copyright © 2018-2019 Jean-Philippe Cugnet
