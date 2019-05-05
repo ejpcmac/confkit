@@ -8,6 +8,7 @@
     nix = ./Nix/nix.nix;
     root = ./Nix/root.nix;
     tmux = ./Nix/tmux.nix;
+    utilities = ./Nix/utilities.nix;
     vim = ./Nix/vim.nix;
     zsh = ./Nix/zsh.nix;
   };

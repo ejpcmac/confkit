@@ -8,6 +8,7 @@
 
 ### New features
 
+* [Nix/Utilities] Add some useful system packages
 * [pms] Add a pms configuration with BÉPO keybindings
 * [ranger] Add an alias (`\u`) to mount using `udisksctl`
 * [tridactyl] Add basic BÉPO keybindings
