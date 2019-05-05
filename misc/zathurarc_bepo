@@ -1,0 +1,47 @@
+# Adaptation à BÉPO
+
+# hjkl → ctsr
+unmap h
+unmap j
+unmap k
+unmap l
+map t scroll down
+map s scroll up
+map c scroll left
+map r scroll right
+
+# HJKL → CTSR
+unmap H
+unmap J
+unmap K
+unmap L
+map T navigate next
+map S navigate previous
+map C scroll page-top
+map R scroll page-bottom
+
+# Pour les utilisateurs d’Emacs
+map <C-l> scroll page-top
+
+# r → p
+map p rotate rotate-cw
+
+# R → u
+map u reload
+
+# b ↔ a car le a est plus accessible
+map b adjust_window best-fit
+map a adjust_window width
+
+# f → e car plus accessible
+unmap f
+map e follow
+
+# Mode Index
+map [index] t navigate_index down
+map [index] s navigate_index up
+map [index] r navigate_index expand
+map [index] c navigate_index collapse
+
+map [index] R navigate_index expand-all
+map [index] C navigate_index collapse-all

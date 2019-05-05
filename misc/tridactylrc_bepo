@@ -1,0 +1,30 @@
+" Remapping adapté au BÉPO
+
+" hint sur e pour plus d’ergonomie
+bind e hint
+bind E hint -b
+
+" [HJKL] -> [CTSR]
+bind t scrollline 10
+bind s scrollline -10
+bind c scrollpx -200
+bind r scrollpx 200
+
+bind T scrollpage 0.5
+bind S scrollpage -0.5
+bind C back
+bind R forward
+
+" [CTSR] -> [HJKL]
+unbind j
+bind k fillcmdline tab
+bind K fillcmdline taball
+bind h fillcmdline open search
+bind H fillcmdline tabopen search
+bind l reload
+
+bind o fillcmdline tabopen
+
+bind gn tabnew
+bind gb tabprev
+bind gé tabnext

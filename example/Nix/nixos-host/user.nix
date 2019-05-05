@@ -1,13 +1,14 @@
-##
-## Home configuration for user@nixos-host
-##
+################################################################################
+##                                                                            ##
+##                   Home configuration for user@nixos-host                   ##
+##                                                                            ##
+################################################################################
 
 { config, pkgs, ... }:
 
 {
   imports = [ ../common/home.nix ];
 
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # signal-desktop
   ];

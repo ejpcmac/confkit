@@ -1,5 +1,37 @@
 # Changelog
 
+## v0.0.5
+
+### Breaking changes
+
+* [ranger] Rename `ranger/rc.conf` to `ranger/bepo_rc.conf`
+* [ranger] Use `\\` to unmount as user, `\!` as root
+* [Zsh/Aliases] Change `oc` and `ocd` to use `~/config`
+
+### New features
+
+* [Nix/Utilities] Add some useful system packages
+* [pms] Add a pms configuration with BÉPO keybindings
+* [ranger] Add an alias (`\u`) to mount using `udisksctl`
+* [tridactyl] Add basic BÉPO keybindings
+* [Zathura] Add a configuration for BÉPO
+* [Zsh/Django] Add aliases for Django
+* [Zsh/ImageMagick] Add functions for working with ImageMagick
+
+### Enhancements
+
+* [Nix/Tmux] Install tmuxinator automatically
+* [Zsh/dev] Update `pgst` to put the socket in $PGDATA
+* [Zsh/dev] Add aliases to start-stop a local MongoDB instance
+* [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
+* [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
+* [Zsh/ZFS] Add `zlk` and `zulk` for `zfs [un]load-key`
+* [Zsh/ZFS] Add a few aliases for `zpool`
+
+### Bug fixes
+
+* [Tmux] Make the configuration compatible with Tmux 2.9
+
 ## v0.0.4
 
 ### Breaking changes

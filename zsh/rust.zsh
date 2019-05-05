@@ -14,7 +14,16 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Setup
 alias rget='curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path'
-alias cia='cargo install cargo-update cargo-outdated cargo-audit cargo-geiger cargo-testify cargo-watch cargo-vendor'
+alias cia='cargo install \
+    cargo-update \
+    cargo-generate \
+    cargo-outdated \
+    cargo-binutils \
+    cargo-audit \
+    cargo-geiger \
+    cargo-testify \
+    cargo-watch \
+    cargo-vendor'
 
 # Rustup
 alias ru='rustup update'
@@ -43,6 +52,8 @@ alias cbl='cargo build --release --target=x86_64-unknown-linux-musl'
 alias ccp='cargo clippy'
 alias cr='cargo run'
 alias ct='cargo test'
+alias cs='cargo size --bin'
+alias csr='cargo size --release --bin'
 alias ctw='cargo testify -- --color always'
 alias ccl='cargo clean'
 alias cdoc='cargo doc'
