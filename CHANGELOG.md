@@ -5,6 +5,7 @@
 ### Breaking changes
 
 * [ranger] Use `\\` to unmount as user, `\!` as root
+* [Zsh/Aliases] Change `oc` and `ocd` to use `~/config`
 
 ### New features
 
