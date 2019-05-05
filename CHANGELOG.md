@@ -24,6 +24,7 @@
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
 * [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
 * [Zsh/ZFS] Add `zlk` and `zulk` for `zfs [un]load-key`
+* [Zsh/ZFS] Add a few aliases for `zpool`
 
 ### Bug fixes
 

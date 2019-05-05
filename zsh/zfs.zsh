@@ -2,6 +2,7 @@
 # ZFS Aliases #
 ###############
 
+# zfs
 alias z='zfs'
 alias zl='zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
 alias zls='zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
@@ -17,3 +18,10 @@ alias zm='zfs mount'
 alias zum='zfs unmount'
 alias zlk='zfs load-key'
 alias zulk='zfs unload-key'
+
+# zpool
+alias zp='zpool'
+alias zpl='zpool list'
+alias zps='zpool status'
+alias zpg='zpool get'
+alias zpst='zpool set'
