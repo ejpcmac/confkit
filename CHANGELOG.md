@@ -1,6 +1,6 @@
 # Changelog
 
-## develop
+## v0.0.5
 
 ### Breaking changes
 
