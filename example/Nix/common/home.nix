@@ -1,6 +1,8 @@
-##
-## Common home configuration
-##
+################################################################################
+##                                                                            ##
+##                         Common home configuration                          ##
+##                                                                            ##
+################################################################################
 
 { config, pkgs, ... }:
 
@@ -14,14 +16,22 @@ in
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  home.stateVersion = "18.09";  # Did you read the comment?
+  home.stateVersion = "19.03";  # Did you read the comment?
 
   imports = with confkit.modules; [ git ];
+
+  ############################################################################
+  ##                             User packages                              ##
+  ############################################################################
 
   home.packages = with pkgs; [
     bashInteractive
     # direnv
   ];
+
+  ############################################################################
+  ##                          Custom configuration                          ##
+  ############################################################################
 
   home.file = {
     # Zsh aliases and environments
@@ -30,10 +40,12 @@ in
     # ".zsh/ceedling.zsh".source = confkit.file "zsh/ceedling.zsh";
     # ".zsh/dev.zsh".source = confkit.file "zsh/dev.zsh";
     # ".zsh/direnv.zsh".source = confkit.file "zsh/direnv.zsh";
+    # ".zsh/django.zsh".source = confkit.file "zsh/django.zsh";
     # ".zsh/docker.zsh".source = confkit.file "zsh/docker.zsh";
     # ".zsh/elixir.zsh".source = confkit.file "zsh/elixir.zsh";
     ".zsh/git.zsh".source = confkit.file "zsh/git.zsh";
     # ".zsh/haskell.zsh".source = confkit.file "zsh/haskell.zsh";
+    # ".zsh/imagemagick.zsh".source = confkit.file "zsh/imagemagick.zsh";
     ".zsh/nix.zsh".source = confkit.file "zsh/nix.zsh";
     # ".zsh/ocaml.zsh".source = confkit.file "zsh/ocaml.zsh";
     # ".zsh/rust.zsh".source = confkit.file "zsh/rust.zsh";
@@ -44,10 +56,16 @@ in
 
     # Non-natively handled configuration files
     # ".screenrc".source = confkit.file "misc/screenrc";
+
+    # TODO: Replace <fpr> with your GPG key fingerprint.
     ".gnupg/gpg.conf".text = ''
-        default-key <key>
+        default-key <fpr>
       '' + readFile (confkit.file "misc/gpg.conf");
   };
+
+  ############################################################################
+  ##                                 Programs                               ##
+  ############################################################################
 
   programs.home-manager = {
     enable = true;
@@ -56,8 +74,8 @@ in
   programs.git = {
     userName = "User Name";
     userEmail = "user.name@example.com";
-    # signing.signByDefault = false;
-    signing.key = "<key>";
+    # signing.signByDefault = true;
+    signing.key = "<fpr>";
   };
 
   programs.zsh = {
