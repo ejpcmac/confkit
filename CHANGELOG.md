@@ -1,9 +1,10 @@
 # Changelog
 
-## develop
+## v0.0.5
 
 ### Breaking changes
 
+* [ranger] Rename `ranger/rc.conf` to `ranger/bepo_rc.conf`
 * [ranger] Use `\\` to unmount as user, `\!` as root
 * [Zsh/Aliases] Change `oc` and `ocd` to use `~/config`
 

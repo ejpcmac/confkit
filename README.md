@@ -12,14 +12,14 @@ by Nix, such as FreeBSD.
 
 1. Create a directory for your own configuration files:
 
-        $ mkdir -m 700 ~/.config_files
+        $ mkdir -m 700 ~/config
 
     You can choose another name for the directory, but `oc` and `ocd` aliases
     are defined to use this directory.
 
 2. Optionally initialise a Git repository to track your configuration:
 
-        $ cd ~/.config_files
+        $ cd ~/config
         $ git init
 
 3. Add `confkit` as submodule:
@@ -48,21 +48,24 @@ In `Nix/`, you have now several directories:
     machines hostnames, then edit their system configuration. Don’t forget to
     configure your users if you are on NixOS.
 
-2. In `common/home.nix`, replace `<key>` with your PGP key hash and configure
+2. In `common/home.nix`, replace `<fpr>` with your PGP key hash and configure
     your name and email for Git. You can also enable here diverse Zsh modules.
 
 ### Installation
 
-1. In NixOS hosts configuration directories, link `hardware-configuration.nix`
-    to `/etc/nixos/hardware-configuration.nix` so that it can be found by Nix.
+Link:
 
-2. Link:
-    * on NixOS, `/etc/nixos/configuration.nix` to
+* on NixOS, `/etc/nixos/configuration.nix` to
         `/path/to/nixos-host/configuration.nix`,
-    * on macOS, `~/.nixpkgs/darwin-configuration.nix` to
+* on macOS, `~/.nixpkgs/darwin-configuration.nix` to
         `/path/to/darwin-host/darwin-configuration.nix`,
-    * on every platform for every user, `~/.config/nixpkgs/home.nix` to
+* on every platform for every user, `~/.config/nixpkgs/home.nix` to
         `/path/to/host/user.nix`.
+
+## [Contributing](CONTRIBUTING.md)
+
+Before contributing to this project, please read the
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
