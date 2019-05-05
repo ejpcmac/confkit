@@ -23,6 +23,7 @@
 * [Zsh/dev] Add aliases to start-stop a local MongoDB instance
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`
 * [Zsh/Rust] Add `cs` and `csr` for `cargo size [--release] --bin`
+* [Zsh/ZFS] Add `zlk` and `zulk` for `zfs [un]load-key`
 
 ### Bug fixes
 
