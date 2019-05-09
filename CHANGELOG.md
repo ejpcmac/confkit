@@ -1,5 +1,11 @@
 # Changelog
 
+## develop
+
+### Enhancements
+
+* [ranger/bepo] Add `È` to edit as root
+
 ## v0.0.5
 
 ### Breaking changes
