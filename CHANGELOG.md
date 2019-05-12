@@ -4,6 +4,7 @@
 
 ### Enhancements
 
+* [Nix/Utilities] Add `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
 
 ## v0.0.5

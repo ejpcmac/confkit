@@ -27,6 +27,7 @@
     ranger
     rsync
     screenfetch
+    smartmontools
     sshfs
     testdisk
     trash-cli
