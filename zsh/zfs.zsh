@@ -19,6 +19,10 @@ alias zum='zfs unmount'
 alias zlk='zfs load-key'
 alias zulk='zfs unload-key'
 
+# sudo operations
+alias szm='sudo zfs mount'
+alias szum='sudo zfs unmount'
+
 # zpool
 alias zp='zpool'
 alias zpl='zpool list'

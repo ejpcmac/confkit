@@ -6,6 +6,7 @@
 
 * [Nix/Utilities] Add `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
+* [Zsh/ZFS] Add aliases for `sudo` operations
 
 ## v0.0.5
 
