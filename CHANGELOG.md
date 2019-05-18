@@ -7,6 +7,7 @@
 * [Nix/Utilities] Add `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
 * [Zsh/ZFS] Add aliases for `sudo` operations
+* [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
 
 ## v0.0.5
 
