@@ -26,3 +26,8 @@ alias docl='docker container ls'
 alias docla='docker container ls --all'
 alias docr='docker container rm'
 alias docp='docker container prune'
+
+# Docker volume management
+alias dovl='docker volume ls'
+alias dovr='docker volume rm'
+alias dovp='docker volume prune'
