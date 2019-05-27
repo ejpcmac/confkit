@@ -11,6 +11,7 @@
     bat
     curl
     dcfldd
+    dnsutils
     emv
     git
     git-lfs

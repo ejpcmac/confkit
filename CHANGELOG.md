@@ -4,7 +4,7 @@
 
 ### Enhancements
 
-* [Nix/Utilities] Add `smartmontools`
+* [Nix/Utilities] Add `dnsutils` and `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
 * [Zsh/Docker] Add volume management aliases
 * [Zsh/ZFS] Add aliases for `sudo` operations
