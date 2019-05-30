@@ -21,8 +21,17 @@ alias zlk='zfs load-key'
 alias zulk='zfs unload-key'
 
 # sudo operations
+alias szc='sudo zfs create'
+alias szs='sudo zfs snapshot'
+alias szsr='sudo zfs snapshot -r'
+alias szd='sudo zfs destroy'
+alias szmv='sudo zfs rename'
+alias szst='sudo zfs set'
+alias szih='sudo zfs inherit'
 alias szm='sudo zfs mount'
 alias szum='sudo zfs unmount'
+alias szlk='sudo zfs load-key'
+alias szulk='sudo zfs unload-key'
 
 # zpool
 alias zp='zpool'
