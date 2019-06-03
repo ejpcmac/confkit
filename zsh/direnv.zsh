@@ -24,7 +24,11 @@ alias dr='direnv reload'
 alias dcl='find .direnv -name "env-*" -and -not -name `readlink .direnv/default` -exec rm -rf {} +'
 alias drs='rm -rf .direnv'
 alias dar='direnv deny && rm -rf .direnv'
-alias dl='find ~/Programmes ~/Documents -name .direnv'
+
+# This one is a helper to locate all the cached Nix shells. The directories you
+# want to look at are likely to differ from these ones, so it is only provided
+# as an example you may want to override.
+alias dl='find ~/Informatique ~/Documents -name .direnv'
 
 ##
 ## Helpers

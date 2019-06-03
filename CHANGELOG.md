@@ -2,6 +2,11 @@
 
 ## develop
 
+### Breaking changes
+
+* [Zsh/direnv] Make `dl` look at `~/Informatique` instead of `~/Programmes` and
+    add a comment to make clear it is provided as an example
+
 ### Enhancements
 
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
