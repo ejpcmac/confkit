@@ -9,6 +9,8 @@
 
 ### Enhancements
 
+* [Nix/Utilities] Add `vulnix`, a utility to look for vulnerable packages in the
+    Nix store
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`

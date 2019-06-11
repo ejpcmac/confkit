@@ -34,6 +34,7 @@
     trash-cli
     tree
     unzip
+    vulnix
     watch
     wget
     xz
