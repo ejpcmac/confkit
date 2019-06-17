@@ -14,6 +14,8 @@
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`
+* [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
+    theme switches
 * [Zsh/Docker] Add volume management aliases
 * [Zsh/ZFS] Add aliases for `sudo` operations
 * [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
