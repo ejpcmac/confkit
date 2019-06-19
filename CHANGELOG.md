@@ -7,11 +7,15 @@
 * [Zsh/direnv] Make `dl` look at `~/Informatique` instead of `~/Programmes` and
     add a comment to make clear it is provided as an example
 
-### Enhancements
+### New features
 
+* [Zsh/Aliases] Add the `random-string <num_chars>` function
 * [Nix/Utilities] Add `vulnix`, a utility to look for vulnerable packages in the
     Nix store
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
+
+### Enhancements
+
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal

@@ -33,6 +33,21 @@ alias di='diceware --fr -s 8'
 alias love='echo ❤️'
 
 ##
+## Functions
+##
+
+# Random string generation
+random-string() {
+    if [[ $# -ne 1 ]]; then
+        echo "usage: random-string <num_chars>"
+        return 1
+    fi
+
+    tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' < /dev/random \
+        | head -c $1; echo
+}
+
+##
 ## Oh My Zsh plugin management (TODO: Nixify)
 ##
 
