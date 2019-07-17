@@ -20,11 +20,13 @@
     iftop
     imagemagick
     killall
+    lshw
     lsof
     mkpasswd
     mosh
     openssh
     p7zip
+    pciutils
     ranger
     rsync
     screenfetch
@@ -34,6 +36,7 @@
     trash-cli
     tree
     unzip
+    usbutils
     vulnix
     watch
     wget
