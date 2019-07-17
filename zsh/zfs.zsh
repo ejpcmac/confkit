@@ -43,3 +43,6 @@ alias zpl='zpool list'
 alias zps='zpool status'
 alias zpg='zpool get'
 alias zpst='zpool set'
+
+# watch operations
+alias wzps='watch -n 1 zpool status'
