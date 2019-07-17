@@ -9,13 +9,14 @@
 
 ### New features
 
-* [Zsh/Aliases] Add the `random-string <num_chars>` function
 * [Nix/Utilities] Add `vulnix`, a utility to look for vulnerable packages in the
     Nix store
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
+* [Zsh/Aliases] Add the `random-string <num_chars>` function
 
 ### Enhancements
 
+* [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
@@ -23,6 +24,7 @@
 * [Zsh/Docker] Add start / stop aliases
 * [Zsh/Docker] Add `--sig-proxy=false` to the `docker attach` alias
 * [Zsh/Docker] Add volume management aliases
+* [Zsh/Nix] Create the `$TMPDIR` before to rebuild in `snors`
 * [Zsh/ZFS] Add aliases for `sudo` operations
 * [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
 * [Zsh/ZFS] Add watch operations
