@@ -19,6 +19,7 @@
     htop
     iftop
     imagemagick
+    inxi
     killall
     lshw
     lsof
