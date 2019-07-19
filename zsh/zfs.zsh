@@ -23,6 +23,7 @@ alias zulk='zfs unload-key'
 # watch operations
 alias wzl='watch -n 1 zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
 alias wzl2='watch -n 1 zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,readonly,exec,setuid,devices,mounted,keystatus'
+alias wzls='watch -n 1 zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 
 # sudo operations
 alias szc='sudo zfs create'
