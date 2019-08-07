@@ -20,12 +20,12 @@ alias zum='zfs unmount'
 alias zlk='zfs load-key'
 alias zulk='zfs unload-key'
 
-# watch operations
+# zfs watch operations
 alias wzl='watch -n 1 zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
 alias wzl2='watch -n 1 zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,readonly,exec,setuid,devices,mounted,keystatus'
 alias wzls='watch -n 1 zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 
-# sudo operations
+# zfs sudo operations
 alias szc='sudo zfs create'
 alias szs='sudo zfs snapshot'
 alias szsr='sudo zfs snapshot -r'
@@ -42,8 +42,23 @@ alias szulk='sudo zfs unload-key'
 alias zp='zpool'
 alias zpl='zpool list'
 alias zps='zpool status'
+alias zpi='zpool import'
+alias zpe='zpool export'
+alias zpc='zpool create'
+alias zpcc='zpool create -O atime=off -O checksum=sha512 -O compression=lz4 -O normalization=formD'
+alias zpd='zpool destroy'
 alias zpg='zpool get'
 alias zpst='zpool set'
+alias zpsc='zpool scrub'
 
-# watch operations
+# zpool watch operations
 alias wzps='watch -n 1 zpool status'
+
+# zpool sudo operations
+alias szpi='sudo zpool import'
+alias szpe='sudo zpool export'
+alias szpc='sudo zpool create'
+alias szpcc='sudo zpool create -O atime=off -O checksum=sha512 -O compression=lz4 -O normalization=formD'
+alias szpd='sudo zpool destroy'
+alias szpst='sudo zpool set'
+alias szpsc='sudo zpool scrub'

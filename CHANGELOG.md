@@ -29,6 +29,7 @@
 * [Zsh/ZFS] Add aliases for `sudo` operations
 * [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
 * [Zsh/ZFS] Add watch operations
+* [Zsh/ZFS] Add more `zpool` aliases
 
 ## v0.0.5
 
