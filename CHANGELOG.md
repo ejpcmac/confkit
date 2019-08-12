@@ -13,6 +13,7 @@
     Nix store
 * [Nix/Utilities] Add `dnsutils` and `smartmontools`
 * [Zsh/Aliases] Add the `random-string <num_chars>` function
+* [Zsh/Git] Add setup and aliases for `hub`, the GitHub CLI
 
 ### Enhancements
 

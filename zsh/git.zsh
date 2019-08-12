@@ -12,3 +12,20 @@ alias gmff='git merge --ff-only'
 alias grbp='git rebase -p'
 alias gli='git clean -dxn -e ".direnv/" -e "/config/"'
 alias gclean='git clean -idx -e ".direnv/" -e "/config/"'
+
+##
+## GitHub CLI
+##
+
+
+# Setup
+export HUB_PROTOCOL=https
+
+# Aliases
+alias hcl='hub clone --recurse-submodules'
+alias hi='hub issue'
+alias hic='hub issue create'
+
+his() {
+    hub issue show $@ | bat -l md
+}
