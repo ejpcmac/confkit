@@ -59,3 +59,31 @@ alias snors="sudo su -c \"\
     mkdir -p /run/user/0 && \
     nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch\""
+
+##
+## Helpers to preview the changes to the package list prior to rebuild.
+##
+## Usage:
+##
+## 1. Run `csp` to create the cache. Note that it will not list what is
+##    currently installed on your system. It will instead evaluate what will be
+##    your system after a rebuild.
+##
+## 2. Update your configuration and/or your channels.
+##
+## 3. Run `dsp` to print a diff between the cached version and the version that
+##    would be applied by a rebuild.
+##
+
+alias esp='eval-system-packages'
+alias eval-system-packages="nix-instantiate --strict --json --eval -E \
+    'builtins.map (p: p.name) (import <nixpkgs/nixos> {}).config.environment.systemPackages' \
+    | jq -r '.[]' \
+    | sort -u"
+
+alias csp='cache-system-packages'
+alias cache-system-packages='eval-system-packages > ~/.cache/system-packages'
+
+alias dsp='diff-system-packages'
+alias diff-system-packages="eval-system-packages \
+    | colordiff -y ~/.cache/system-packages -"

@@ -9,6 +9,7 @@
 {
   environment.systemPackages = with pkgs; [
     bat
+    colordiff
     curl
     dcfldd
     dnsutils
@@ -20,6 +21,7 @@
     iftop
     imagemagick
     inxi
+    jq
     killall
     lshw
     lsof
