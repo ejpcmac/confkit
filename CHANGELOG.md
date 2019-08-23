@@ -19,7 +19,7 @@
 ### Enhancements
 
 * [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`
-* [Nix/Utilities] Add `inxi`, `lshw`, `pciutils` and `usbutils`
+* [Nix/Utilities] Add `inxi`, `lshw`, `parted`, `pciutils` and `usbutils`
 * [Nix/Utilities] Add `jq` and `colordiff`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`

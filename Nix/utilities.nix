@@ -29,6 +29,7 @@
     mosh
     openssh
     p7zip
+    parted
     pciutils
     ranger
     rsync
