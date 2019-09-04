@@ -29,6 +29,8 @@
 * [Zsh/Docker] Add `--sig-proxy=false` to the `docker attach` alias
 * [Zsh/Docker] Add volume management aliases
 * [Zsh/Nix] Create the `$TMPDIR` before to rebuild in `snors`
+* [Zsh/Rust] Change `cia`: remove `cargo-vendor`, `cargo-geiger` and
+    `cargo-audit`, add `cargo-crev`
 * [Zsh/ZFS] Add aliases for `sudo` operations
 * [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
 * [Zsh/ZFS] Add watch operations

@@ -18,12 +18,10 @@ alias cia='cargo install \
     cargo-update \
     cargo-generate \
     cargo-outdated \
+    cargo-crev \
     cargo-binutils \
-    cargo-audit \
-    cargo-geiger \
     cargo-testify \
-    cargo-watch \
-    cargo-vendor'
+    cargo-watch'
 
 # Rustup
 alias ru='rustup update'
