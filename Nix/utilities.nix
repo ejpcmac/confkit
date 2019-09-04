@@ -31,6 +31,7 @@
     p7zip
     parted
     pciutils
+    qpdf
     ranger
     rsync
     screenfetch

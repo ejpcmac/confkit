@@ -11,7 +11,6 @@
 
 * [Nix/Utilities] Add `vulnix`, a utility to look for vulnerable packages in the
     Nix store
-* [Nix/Utilities] Add `dnsutils` and `smartmontools`
 * [Zsh/Aliases] Add the `random-string <num_chars>` function
 * [Zsh/Git] Add setup and aliases for `hub`, the GitHub CLI
 * [Zsh/Nix] Add aliases to diff the package list before (configuration) updates
@@ -20,7 +19,8 @@
 
 * [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`
 * [Nix/Utilities] Add `inxi`, `lshw`, `parted`, `pciutils` and `usbutils`
-* [Nix/Utilities] Add `jq` and `colordiff`
+* [Nix/Utilities] Add `dnsutils` and `smartmontools`
+* [Nix/Utilities] Add `colordiff`, `jq` and `qpdf`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
