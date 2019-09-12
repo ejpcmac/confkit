@@ -45,20 +45,21 @@ alias zps='zpool status'
 alias zpi='zpool import'
 alias zpe='zpool export'
 alias zpc='zpool create'
-alias zpcc='zpool create -O atime=off -O checksum=sha512 -O compression=lz4 -O normalization=formD'
+alias zpcc='zpool create -O acltype=posixacl -O atime=off -O checksum=sha512 -O compression=lz4 -O dnodesize=auto -O normalization=formD -O xattr=sa'
 alias zpd='zpool destroy'
 alias zpg='zpool get'
 alias zpst='zpool set'
 alias zpsc='zpool scrub'
 
 # zpool watch operations
+alias wzpl='watch -n 1 zpool list'
 alias wzps='watch -n 1 zpool status'
 
 # zpool sudo operations
 alias szpi='sudo zpool import'
 alias szpe='sudo zpool export'
 alias szpc='sudo zpool create'
-alias szpcc='sudo zpool create -O atime=off -O checksum=sha512 -O compression=lz4 -O normalization=formD'
+alias szpcc='sudo zpool create -O acltype=posixacl -O atime=off -O checksum=sha512 -O compression=lz4 -O dnodesize=auto -O normalization=formD -O xattr=sa'
 alias szpd='sudo zpool destroy'
 alias szpst='sudo zpool set'
 alias szpsc='sudo zpool scrub'
