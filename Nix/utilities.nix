@@ -14,6 +14,7 @@
     dcfldd
     dnsutils
     emv
+    file
     git
     git-lfs
     gnupg

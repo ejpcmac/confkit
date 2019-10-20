@@ -19,9 +19,8 @@
 ### Enhancements
 
 * [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`
-* [Nix/Utilities] Add `inxi`, `lshw`, `parted`, `pciutils` and `usbutils`
-* [Nix/Utilities] Add `dnsutils` and `smartmontools`
-* [Nix/Utilities] Add `colordiff`, `jq` and `qpdf`
+* [Nix/Utilities] Add `colordiff`, `dnsutils`, `file`, `inxi`, `jq`, `lshw`,
+    `parted`, `pciutils`, `qpdf`, `smartmontools` and `usbutils`
 * [ranger/bepo] Add `È` to edit as root
 * [ranger/bepo] Add `gt` to go to `/tmp`
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
