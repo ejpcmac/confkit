@@ -41,6 +41,7 @@
     testdisk
     trash-cli
     tree
+    trickle
     unzip
     usbutils
     vulnix
