@@ -14,6 +14,7 @@
     dcfldd
     dnsutils
     emv
+    ffmpeg
     file
     git
     git-lfs
