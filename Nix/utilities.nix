@@ -39,10 +39,11 @@
     screenfetch
     smartmontools
     sshfs
+    telnet
     testdisk
+    traceroute
     trash-cli
     tree
-    trickle
     unzip
     usbutils
     vulnix
