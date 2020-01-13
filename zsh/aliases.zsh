@@ -12,8 +12,8 @@ alias zu='upgrade_oh_my_zsh && update-zsh-plugins'
 alias zi='install-zsh-plugins'
 
 # Files
-alias gmod='chmod -R u=rwX,go=rX'
-alias gmodg='chmod -R ug=rwX,o=rX'
+alias gmod='__smod 0755 0644'
+alias gmodg='__smod 0775 0664'
 
 # GPG
 alias gpg-e='gpg --edit-key'
@@ -36,6 +36,22 @@ alias love='echo ❤️'
 ##
 ## Functions
 ##
+
+# Files
+__smod() {
+    if [ $# -ne 3 ]; then
+        echo "usage: __smod <dmod> <fmod> <dir>"
+        return 1
+    fi
+
+    local dmod=$1
+    local fmod=$2
+    local dir=$3
+
+    find $dir -type d -print0 | xargs -0 chmod $dmod
+    find $dir -type f -print0 | xargs -0 chmod $fmod
+}
+
 
 # Random string generation
 random-string() {
