@@ -69,6 +69,6 @@ Before contributing to this project, please read the
 
 ## License
 
-Copyright © 2018-2019 Jean-Philippe Cugnet
+Copyright © 2018-2020 Jean-Philippe Cugnet
 
 [Do what the fuck you want to](LICENSE) with this project.
