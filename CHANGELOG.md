@@ -1,6 +1,6 @@
 # Changelog
 
-## develop
+## v0.0.6
 
 ### Breaking changes
 
@@ -26,9 +26,8 @@
 * [ranger/bepo] Add `gt` to go to `/tmp`
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
     theme switches
-* [Zsh/Aliases] Add `wnet` for `watch -n 1 nmcli`
-* [Zsh/Aliases] `gmod` and `gmodg` now work as expected with falsely execatables
-    files
+* [Zsh/Aliases] Add `wn` for `watch -n 1 nmcli`
+* [Zsh/Aliases] `gmod` and `gmodg` now work as expected, setting 644 for files
 * [Zsh/Docker] Add start / stop aliases
 * [Zsh/Docker] Add `--sig-proxy=false` to the `docker attach` alias
 * [Zsh/Docker] Add volume management aliases
