@@ -1,5 +1,44 @@
 # Changelog
 
+## v0.0.6
+
+### Breaking changes
+
+* [ranger/bepo] Open the current directory with Emacs on `e`
+* [Zsh/direnv] Make `dl` look at `~/Informatique` instead of `~/Programmes` and
+    add a comment to make clear it is provided as an example
+
+### New features
+
+* [Nix/Utilities] Add `vulnix`, a utility to look for vulnerable packages in the
+    Nix store
+* [Zsh/Aliases] Add the `random-string <num_chars>` function
+* [Zsh/Git] Add setup and aliases for `hub`, the GitHub CLI
+* [Zsh/Nix] Add aliases to diff the package list before (configuration) updates
+
+### Enhancements
+
+* [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`
+* [Nix/Utilities] Add `colordiff`, `dnsutils`, `file`, `ffmpeg`, `inxi`, `jq`,
+    `lshw`, `parted`, `pciutils`, `qpdf`, `smartmontools`, `telnet`,
+    `traceroute` and `usbutils`
+* [ranger/bepo] Add `È` to edit as root
+* [ranger/bepo] Add `gt` to go to `/tmp`
+* [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
+    theme switches
+* [Zsh/Aliases] Add `wn` for `watch -n 1 nmcli`
+* [Zsh/Aliases] `gmod` and `gmodg` now work as expected, setting 644 for files
+* [Zsh/Docker] Add start / stop aliases
+* [Zsh/Docker] Add `--sig-proxy=false` to the `docker attach` alias
+* [Zsh/Docker] Add volume management aliases
+* [Zsh/Nix] Create the `$TMPDIR` before to rebuild in `snors`
+* [Zsh/Rust] Change `cia`: remove `cargo-vendor`, `cargo-geiger` and
+    `cargo-audit`, add `cargo-crev`
+* [Zsh/ZFS] Add aliases for `sudo` operations
+* [Zsh/ZFS] Add `zl2` as a `zfs list` alias with different options than `zl`
+* [Zsh/ZFS] Add watch operations
+* [Zsh/ZFS] Add more `zpool` aliases
+
 ## v0.0.5
 
 ### Breaking changes

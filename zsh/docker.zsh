@@ -10,8 +10,10 @@ alias doclean='rm ~/Library/Containers/com.docker.docker/Data/com.docker.driver.
 
 # General aliases
 alias doi='docker info'
-alias doa='docker attach'
+alias doa='docker attach --sig-proxy=false'
 alias dor='docker run'
+alias dost='docker start'
+alias dosp='docker stop'
 
 # Docker image management
 alias doil='docker image ls'
@@ -26,3 +28,8 @@ alias docl='docker container ls'
 alias docla='docker container ls --all'
 alias docr='docker container rm'
 alias docp='docker container prune'
+
+# Docker volume management
+alias dovl='docker volume ls'
+alias dovr='docker volume rm'
+alias dovp='docker volume prune'
