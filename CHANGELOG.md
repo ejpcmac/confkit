@@ -1,5 +1,11 @@
 # Changelog
 
+## develop
+
+### Enhancements
+
+* [Zsh/ZFS] Add a reservation when creating a pool with `zpcc`
+
 ## v0.0.6
 
 ### Breaking changes
