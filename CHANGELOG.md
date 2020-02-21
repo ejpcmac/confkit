@@ -5,6 +5,7 @@
 ### Enhancements
 
 * [ranger/bepo] Add `fa` and `fc` to archive and compress (with xz -9) a file
+* [Zsh/Aliases] Add `sra` for `sudo ranger`
 * [Zsh/ZFS] Add a reservation when creating a pool with `zpcc`
 
 ## v0.0.6
