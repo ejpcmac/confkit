@@ -4,6 +4,7 @@
 
 ### Enhancements
 
+* [ranger/bepo] Add `fa` and `fc` to archive and compress (with xz -9) a file
 * [Zsh/ZFS] Add a reservation when creating a pool with `zpcc`
 
 ## v0.0.6
