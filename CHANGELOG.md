@@ -7,6 +7,7 @@
 * [ranger/bepo] Add `fa` and `fx` to archive and extract with tar
 * [ranger/bepo] Add `fc`, `fdd` and `fdk` to compress with `xz -9` and
     decompress in-place or keeping the compressed file
+* [ranger/bepo] Add `fz` and `fdz` to archive and extract with zip
 * [Zsh/Aliases] Add `sra` for `sudo ranger`
 * [Zsh/ZFS] Add a reservation when creating a pool with `zpcc`
 
