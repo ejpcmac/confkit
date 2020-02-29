@@ -10,6 +10,7 @@
 * [ranger/bepo] Add `fz` and `fdz` to archive and extract with zip
 * [Zsh/Aliases] Add `sra` for `sudo ranger`
 * [Zsh/ZFS] Add a reservation when creating a pool with `zpcc`
+* [Zsh/ZFS] Set `ashift=12` when creating a pool with `zpcc`
 * [Zsh/ZFS] Add a `recordsize` column to `zl2`
 
 ## v0.0.6
