@@ -5,7 +5,7 @@
 # zfs
 alias z='zfs'
 alias zl='zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
-alias zl2='zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,readonly,exec,setuid,devices,mounted,keystatus'
+alias zl2='zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,recordsize,readonly,exec,setuid,devices,mounted,keystatus'
 alias zls='zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 alias zc='zfs create'
 alias zs='zfs snapshot'
@@ -22,7 +22,7 @@ alias zulk='zfs unload-key'
 
 # zfs watch operations
 alias wzl='watch -n 1 zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
-alias wzl2='watch -n 1 zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,readonly,exec,setuid,devices,mounted,keystatus'
+alias wzl2='watch -n 1 zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,recordsize,readonly,exec,setuid,devices,mounted,keystatus'
 alias wzls='watch -n 1 zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 
 # zfs sudo operations
