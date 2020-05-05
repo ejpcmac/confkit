@@ -13,6 +13,7 @@
 
 let
   inherit (lib) mkDefault;
+  inherit (lib.trivial) release;
   inherit (pkgs) stdenv;
 
   tmuxConfig = builtins.readFile ../misc/tmux.conf;
@@ -21,15 +22,19 @@ in
 {
   environment.systemPackages = [ pkgs.tmuxinator ];
 
-  programs.tmux = if stdenv.isDarwin then {
+  programs.tmux = {
     enable = true;
+  } // (if stdenv.isDarwin then {
     tmuxConfig = mkDefault (tmuxConfig + ''
         bind-key -T copy-mode Enter send-keys -X copy-pipe-and-cancel "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace pbcopy"
       '');
+  } else if release == "20.03" then {
+    extraConfig = mkDefault (tmuxConfig + ''
+        bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
+      '');
   } else {
-    enable = true;
     extraTmuxConf = mkDefault (tmuxConfig + ''
         bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
       '');
-  };
+  });
 }
