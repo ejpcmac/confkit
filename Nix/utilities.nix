@@ -46,7 +46,8 @@
     tree
     unzip
     usbutils
-    vulnix
+    # TODO: Uncomment once python-ZODB is not broken anymore on NixOS 20.03.
+    # vulnix
     watch
     wget
     xz

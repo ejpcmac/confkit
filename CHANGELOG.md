@@ -2,6 +2,11 @@
 
 ## develop
 
+### Breaking changes
+
+* [Nix/Utilities] Comment out `vulnix` since one of its dependencies
+    (`python-ZODB`) is broken on NixOS 20.03
+
 ### Enhancements
 
 * [Nix/root] Security : Do not use external dependencies
