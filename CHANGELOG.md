@@ -2,9 +2,15 @@
 
 ## develop
 
+### Breaking changes
+
+* [Nix/Utilities] Comment out `vulnix` since one of its dependencies
+    (`python-ZODB`) is broken on NixOS 20.03
+
 ### Enhancements
 
 * [Nix/root] Security : Do not use external dependencies
+* [Nix/tmux] Use `tmux.extraConfig` from NixOS 20.03
 * [ranger/bepo] Add `fa` and `fx` to archive and extract with tar
 * [ranger/bepo] Add `fc`, `fdd` and `fdk` to compress with `xz -9` and
     decompress in-place or keeping the compressed file
