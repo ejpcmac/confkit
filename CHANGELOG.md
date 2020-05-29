@@ -1,5 +1,11 @@
 # Changelog
 
+## develop
+
+### Enhancements
+
+* [Zsh/Elixir] Add `mck` for `mix check`
+
 ## v0.0.7
 
 ### Breaking changes

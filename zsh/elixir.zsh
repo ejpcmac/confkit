@@ -40,6 +40,7 @@ alias mtw='mix test.watch --stale'
 alias mttw='mix test.watch --stale --trace'
 
 # Static analysers
+alias mck='mix check'
 alias mgr='mix gradualizer'
 
 # Archives
