@@ -2,6 +2,13 @@
 
 ## develop
 
+### Changes
+
+* [Nix/Environment] Do not `mkdir /run/user/0` before `nixos-rebuild switch`
+* [Zsh/Nix] Do not `mkdir /run/user/0` in `snors`. This behaviour was here for a
+    personal `TMPDIR` configuration, which I do not need anymore. Removing this
+    also follows my will to avoid personal configuration in `confkit`.
+
 ### Enhancements
 
 * [Zsh/Elixir] Add `mck` for `mix check`

@@ -56,7 +56,6 @@ alias hgen='home-manager generations'
 
 # NixOS rebuild
 alias snors="sudo su -c \"\
-    mkdir -p /run/user/0 && \
     nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch\""
 
