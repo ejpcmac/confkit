@@ -12,6 +12,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [Zsh/Elixir] Add `mck` for `mix check`.
 * [ranger/bepo] Add `\.` for `fusermount -u %s`.
+* [ranger] Add a QWERTY/AZERTY configuration, derived from both the default
+    `rc.conf` and the BÉPO configuration from `confkit`.
 
 ### Changed
 
