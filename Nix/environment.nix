@@ -72,7 +72,7 @@ in
 
       # Handy nixos-rebuild aliases
       nor = nixos-rebuild;
-      nors = "mkdir -p /run/user/0 && nix build --no-link -f ${nixosPath} config.system.build.toplevel && ${nixos-rebuild} switch";
+      nors = "nix build --no-link -f ${nixosPath} config.system.build.toplevel && ${nixos-rebuild} switch";
     };
   };
 }
