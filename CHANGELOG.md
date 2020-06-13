@@ -27,6 +27,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     change : `<ENTER>` now behaves as `r`, opening directories and files.
     Renaming from scratch is done with `hé` (like `cw` in the standard one).
 
+### Removed
+
+* [Tmux] Remove the Tmux 2.3 configuration.
+
 ## [0.0.7] - 2020-05-06
 
 ### Added
