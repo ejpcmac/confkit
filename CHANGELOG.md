@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 * [Zsh/Elixir] Add `mck` for `mix check`.
+* [ranger/bepo] Add `\.` for `fusermount -u %s`.
 
 ### Changed
 
