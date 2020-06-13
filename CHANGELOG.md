@@ -26,6 +26,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     by adding and converting new shortcuts from upstream `rc.conf`. One notable
     change : `<ENTER>` now behaves as `r`, opening directories and files.
     Renaming from scratch is done with `hé` (like `cw` in the standard one).
+* [Tmux] Remap the pane navigation keybindings for QWERTY/AZERTY. The previous
+    one was optimised for BÉPO. The BÉPO keybindings are now in
+    `tmux_bepo.conf`.
 
 ### Removed
 
