@@ -10,6 +10,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [Nix/Tmux] Add the `programs.tmux.useBepoKeybindings` option to opt-in for
+    BÉPO-optimised keybindings.
 * [Zsh/Elixir] Add `mck` for `mix check`.
 * [ranger/bepo] Add `\.` for `fusermount -u %s`.
 * [ranger] Add a QWERTY/AZERTY configuration, derived from both the default
