@@ -22,6 +22,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     was here for a personal `TMPDIR` configuration, which I do not need anymore.
     Removing this also follows my will to avoid personal configuration in
     `confkit`.
+* [ranger] Make the BÉPO configuration on par with the QWERTY/AZERTY one, mostly
+    by adding and converting new shortcuts from upstream `rc.conf`. One notable
+    change : `<ENTER>` now behaves as `r`, opening directories and files.
+    Renaming from scratch is done with `hé` (like `cw` in the standard one).
 
 ## [0.0.7] - 2020-05-06
 
