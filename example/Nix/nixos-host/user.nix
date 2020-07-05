@@ -49,6 +49,7 @@ in
     ".zsh/nix.zsh".source = confkit.file "zsh/nix.zsh";
     # ".zsh/ocaml.zsh".source = confkit.file "zsh/ocaml.zsh";
     # ".zsh/rust.zsh".source = confkit.file "zsh/rust.zsh";
+    # ".zsh/xen.zsh".source = confkit.file "zsh/xen.zsh";
     # ".zsh/zfs.zsh".source = confkit.file "zsh/zfs.zsh";
 
     # Zsh themes
