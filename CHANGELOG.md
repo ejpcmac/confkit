@@ -15,6 +15,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * [Example] Simplify and update the example.
+* [Example] Use the `home-manager` NixOS module.
 
 ## [0.0.8] - 2020-06-14
 

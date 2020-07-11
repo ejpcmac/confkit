@@ -26,4 +26,13 @@
       hashedPassword = "$6$U6PDUk3gTcaZHXey$mrJfd.oAt.lIMgrwJAmYWfIKKiTrOpFYx/4iIpMhQO/xSuLccWPnEPrR901VQUztvzZHgBg2RFoIkxUbt4x0X/";
     };
   };
+
+  # Import the home-manager NixOS module.
+  imports = [ ../../home-manager/nixos ];
+
+  # Configure home-manager for each user.
+  home-manager.users = {
+    root = import ../../confkit/Nix/root.nix;
+    user = import ./user.nix;
+  };
 }
