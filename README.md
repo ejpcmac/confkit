@@ -15,14 +15,15 @@ untrue.
 
 1. Create a directory for your own configuration files:
 
-        $ mkdir -m 700 ~/config
+        $ sudo mkdir -m 700 /config
+        $ sudo chown $UID:$GID /config
 
     You can choose another name for the directory, but `oc` and `ocd` aliases
     are defined to use this directory.
 
 2. Optionally initialise a Git repository to track your configuration:
 
-        $ cd ~/config
+        $ cd /config
         $ git init
 
 3. Add `confkit` and `home-manager` as submodules:
@@ -43,7 +44,7 @@ untrue.
 
 5. Copy the example in your own configuration:
 
-        $ cd ~/config
+        $ cd /config
         $ cp -r confkit/example/* .
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
@@ -70,7 +71,7 @@ configuration.
 ### Installation
 
 On NixOS, link `/etc/nixos/configuration.nix` to
-`/path/to/config/Nix/<hostname>/configuration.nix`.
+`/config/Nix/<hostname>/configuration.nix`.
 
 ## [Contributing](CONTRIBUTING.md)
 

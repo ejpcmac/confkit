@@ -17,6 +17,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Nix] Separate system and user configuration modules. System modules are now
     in `Nix/system*` and available under `confkit.system`, and user modules are
     in `Nix/user` and available under `confkit.user`.
+* [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
+    instead of `~/config`.
 * [Example] Simplify and update the example.
 * [Example] Use the `home-manager` NixOS module.
 

@@ -3,8 +3,8 @@
 #######################
 
 # Configuration
-alias oc='emacsclient --create-frame --no-wait ~/config'
-alias ocd='cd ~/config'
+alias oc='emacsclient --create-frame --no-wait /config'
+alias ocd='cd /config'
 
 # Zsh
 alias rz='source ~/.zshrc'
