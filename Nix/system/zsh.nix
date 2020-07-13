@@ -15,8 +15,8 @@ let
   inherit (lib) mkDefault optionalString;
   inherit (pkgs) stdenv;
 
-  shellInit = readFile ../zsh/config/config.zsh
-    + optionalString stdenv.isDarwin (readFile ../zsh/config/macos.zsh);
+  shellInit = readFile ../../zsh/config/config.zsh
+    + optionalString stdenv.isDarwin (readFile ../../zsh/config/macos.zsh);
 in
 
 {
@@ -28,7 +28,7 @@ in
       enableCompletion = mkDefault true;
 
       interactiveShellInit = mkDefault shellInit;
-      promptInit = mkDefault (readFile ../zsh/config/prompt.zsh);
+      promptInit = mkDefault (readFile ../../zsh/config/prompt.zsh);
     }; in
     if stdenv.isDarwin then zsh-common // {
       enableBashCompletion = mkDefault true;

@@ -20,10 +20,10 @@ let
 
   cfg = config.programs.vim;
   vimConfig =
-    readFile ../vim/vimrc
+    readFile ../../vim/vimrc
     # Embed the color theme in the configuration.
-    + readFile ../vim/colors/wellsokai.vim
-    + optionalString cfg.useBepoKeybindings (readFile ../vim/bepo.vim);
+    + readFile ../../vim/colors/wellsokai.vim
+    + optionalString cfg.useBepoKeybindings (readFile ../../vim/bepo.vim);
 in
 
 {

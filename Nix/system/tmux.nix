@@ -19,8 +19,8 @@ let
 
   cfg = config.programs.tmux;
   tmuxConfig = if cfg.useBepoKeybindings
-               then readFile ../misc/tmux_bepo.conf
-               else readFile ../misc/tmux.conf;
+               then readFile ../../misc/tmux_bepo.conf
+               else readFile ../../misc/tmux.conf;
 in
 
 {

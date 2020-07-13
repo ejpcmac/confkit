@@ -3,13 +3,18 @@
 
   # TODO: Generate automatically.
   modules = {
-    environment = ./Nix/environment.nix;
-    git = ./Nix/git.nix;
-    nix = ./Nix/nix.nix;
-    root = ./Nix/root.nix;
-    tmux = ./Nix/tmux.nix;
-    utilities = ./Nix/utilities.nix;
-    vim = ./Nix/vim.nix;
-    zsh = ./Nix/zsh.nix;
+    system = {
+      environment = ./Nix/system/environment.nix;
+      nix = ./Nix/system/nix.nix;
+      tmux = ./Nix/system/tmux.nix;
+      utilities = ./Nix/system/utilities.nix;
+      vim = ./Nix/system/vim.nix;
+      zsh = ./Nix/system/zsh.nix;
+    };
+
+    user = {
+      git = ./Nix/user/git.nix;
+      root = ./Nix/user/root.nix;
+    };
   };
 }

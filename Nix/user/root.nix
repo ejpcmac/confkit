@@ -11,8 +11,8 @@
 {
   home.file = {
     # Zsh aliases and environments
-    ".zsh/aliases.zsh".source = ../zsh/aliases.zsh;
-    ".zsh/nix.zsh".source = ../zsh/nix.zsh;
+    ".zsh/aliases.zsh".source = ../../zsh/aliases.zsh;
+    ".zsh/nix.zsh".source = ../../zsh/nix.zsh;
   };
 
   programs.home-manager = {
