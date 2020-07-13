@@ -57,15 +57,15 @@ configuration.
    different `Nix/<hostname>/configuration.nix`.
 
 2. Edit your system configuration to match your needs. Don’t forget to configure
-   your users in `Nix/<hostname>/users.nix`.
+   your users in `Nix/<hostname>/users/default.nix`.
 
-3. Copy / rename as necessary `Nix/<hostname>/user.nix` to create `home-manager`
-   configurations for your users. Don’t forget to update their imports in
-   `Nix/<hostname>/users.nix`.
+3. Copy / rename as necessary `Nix/<hostname>/users/user` to create
+   `home-manager` configurations for your users. Don’t forget to update their
+   imports in `Nix/<hostname>/users/default.nix`.
 
-4. In `Nix/<hostname>/<username>.nix`, replace `<fpr>` with your PGP key hash
-   and configure your name and email for Git. You can also enable here diverse
-   Zsh modules by uncommenting them.
+4. In `Nix/<hostname>/users/<username>/default.nix`, replace `<fpr>` with your
+   PGP key hash and configure your name and email for Git. You can also enable
+   here diverse Zsh modules by uncommenting them.
 
 ### Installation
 

@@ -8,7 +8,7 @@
 
 let
   inherit (builtins) readFile;
-  confkit = import ../../confkit;
+  confkit = import ../../../../confkit;
 in
 
 {
@@ -18,7 +18,7 @@ in
   # should.
   home.stateVersion = "20.03";  # Did you read the comment?
 
-  imports = with confkit.modules; [ git ];
+  imports = with confkit.modules.user; [ git ];
 
   ############################################################################
   ##                             User packages                              ##

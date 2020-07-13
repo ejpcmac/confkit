@@ -17,10 +17,12 @@ in
   # should.
   system.stateVersion = "20.03";  # Did you read the comment?
 
-  imports = with confkit.modules; [
+  imports = with confkit.modules.system; [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./users.nix
+
+    # Configuration for the users.
+    ./users
 
     # confkit modules
     environment
@@ -95,14 +97,32 @@ in
   };
 
   ############################################################################
-  ##                              Environment                               ##
+  ##                            System packages                             ##
   ############################################################################
 
-  # NOTE: This is not useful if you are using the ranger configuration.
-  environment.variables = {
-    # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf
-    RANGER_LOAD_DEFAULT_RC = "FALSE";
-  };
+  environment.systemPackages = with pkgs; [
+    # Utilities
+    ntfs3g
+    openssl
+    pandoc
+    redshift-plasma-applet
+    wine
+
+    # TeXLive can be useful for tools like Pandoc or Org.
+    texlive.combined.scheme-full
+
+    # Applications
+    firefox
+    gimp
+    gwenview
+    kate
+    keepassx2
+    konversation
+    libreoffice
+    mpv
+    okular
+    thunderbird
+  ];
 
   ############################################################################
   ##                                 Fonts                                  ##
@@ -130,34 +150,6 @@ in
       useEmbeddedBitmaps = true;
     };
   };
-
-  ############################################################################
-  ##                            System packages                             ##
-  ############################################################################
-
-  environment.systemPackages = with pkgs; [
-    # Utilities
-    ntfs3g
-    openssl
-    pandoc
-    redshift-plasma-applet
-    wine
-
-    # TeXLive can be useful for tools like Pandoc or Org.
-    texlive.combined.scheme-full
-
-    # Applications
-    firefox
-    gimp
-    gwenview
-    kate
-    keepassx2
-    konversation
-    libreoffice
-    mpv
-    okular
-    thunderbird
-  ];
 
   ############################################################################
   ##                                 Programs                               ##
@@ -223,9 +215,19 @@ in
   ##                          Custom configuration                          ##
   ############################################################################
 
-  # NOTE: This is only useful if your are typing on bepo.
-  environment.etc = {
-    "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
-    "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
+  environment = {
+    etc = {
+      # TODO: Uncomment one of the following lines.
+      # "ranger/rc.conf".source = confkit.file "ranger/rc.conf";
+      # "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
+      "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
+      "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
+    };
+
+    # NOTE: This is not useful if you are using the default ranger configuration.
+    variables = {
+      # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf
+      RANGER_LOAD_DEFAULT_RC = "FALSE";
+    };
   };
 }
