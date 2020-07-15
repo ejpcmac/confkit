@@ -90,6 +90,9 @@ You can rewrite it to:
 
 ### Added
 
+* [NixOS/ranger] Add the option `confkit.ranger.enable` to install the
+    configuration for `ranger`. You can use bindings optimised for BÉPO
+    keyboards by setting `confkit.ranger.bepo = true;`.
 * [Zsh/Xen] Add aliases for Xen.
 
 ### Changed
