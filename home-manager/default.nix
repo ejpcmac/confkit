@@ -1,5 +1,5 @@
 {
   imports = [
-    ./git.nix
+    ./modules/git.nix
   ];
 }

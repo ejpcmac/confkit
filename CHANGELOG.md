@@ -15,10 +15,10 @@ reworked to behave like a NixOS or `home-manager` module. This will enable more
 fine-grained control about what `confkit` adds to your configuration thanks to
 new options.
 
-Starting this version, each configuration module need to be enabled by setting
-`confkit.<module>.enable = true;` in your configuration. You can also import all
-modules directly via `Nix/system/default.nix` for NixOS and
-`Nix/user/default.nix` for home-manager.
+Starting this version, `confkit` provides a NixOS module in `confkit/nixos` and
+a `home-manager` module in `confkit/home-manager`, adding `confkit.*` options to
+your configurations. Each configuration module need to be enable by setting
+`confkit.<module>.enable = true;` in your configuration.
 
 For instance, if you had a NixOS configuration like this:
 
@@ -51,7 +51,7 @@ You can now update it to:
 ```nix
 {
   # Now you just need to import the confkit NixOS module.
-  imports = [ ../../confkit/Nix/system ];
+  imports = [ ../../confkit/nixos ];
 
   # You can then enable and configure confkit configuration modules.
   confkit = {
@@ -82,7 +82,7 @@ You can rewrite it to:
 
 ```nix
 {
-  imports = [ ../../confkit/Nix/user ];
+  imports = [ ../../confkit/home-manager ];
 
   confkit.git.enable = true;
 }
@@ -95,7 +95,9 @@ You can rewrite it to:
 ### Changed
 
 * [Nix] Convert to a NixOS / home-manager module system. All modules now need to
-    be enabled by setting `confkit.<module>.enable = true;`.
+    be enabled by setting `confkit.<module>.enable = true;`. These new
+    configuration options are made available by importing `confkit/nixos` or
+    `confkit/home-manager`.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Example] Simplify and update the example.
