@@ -9,31 +9,38 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkDefault;
+  inherit (lib) mkEnableOption mkIf mkDefault;
+  cfg = config.confkit.git;
 in
 
 {
-  programs.git = {
-    enable = true;
+  options.confkit.git = {
+    enable = mkEnableOption "the confkit configuration for Git";
+  };
 
-    signing = {
-      gpgPath = mkDefault "gpg2";
-      signByDefault = mkDefault true;
-    };
+  config = mkIf cfg.enable {
+    programs.git = {
+      enable = true;
 
-    extraConfig = mkDefault {
-      merge.ff = false;
-      pull.rebase = "preserve";
-      mergetool.keepBackup = false;
+      signing = {
+        gpgPath = mkDefault "gpg2";
+        signByDefault = mkDefault true;
+      };
 
-      "gitflow \"feature.finish\"".no-ff = true;
-      "gitflow \"release.finish\"".sign = true;
-      "gitflow \"hotfix.finish\"".sign = true;
+      extraConfig = mkDefault {
+        merge.ff = false;
+        pull.rebase = "preserve";
+        mergetool.keepBackup = false;
 
-      "filter \"lfs\"" = {
-        required = true;
-        clean = "git-lfs clean -- %f";
-        smudge = "git-lfs smudge -- %f";
+        "gitflow \"feature.finish\"".no-ff = true;
+        "gitflow \"release.finish\"".sign = true;
+        "gitflow \"hotfix.finish\"".sign = true;
+
+        "filter \"lfs\"" = {
+          required = true;
+          clean = "git-lfs clean -- %f";
+          smudge = "git-lfs smudge -- %f";
+        };
       };
     };
   };

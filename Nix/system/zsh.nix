@@ -12,34 +12,42 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkDefault optionalString;
+  inherit (lib) mkEnableOption mkIf mkDefault optionalString;
   inherit (pkgs) stdenv;
+
+  cfg = config.confkit.zsh;
 
   shellInit = readFile ../../zsh/config/config.zsh
     + optionalString stdenv.isDarwin (readFile ../../zsh/config/macos.zsh);
 in
 
 {
-  environment.shells = [ pkgs.zsh ];
+  options.confkit.zsh = {
+    enable = mkEnableOption "the confkit configuration for Zsh";
+  };
 
-  programs.zsh =
-    let zsh-common = {
-      enable = true;
-      enableCompletion = mkDefault true;
+  config = mkIf cfg.enable {
+    environment.shells = [ pkgs.zsh ];
 
-      interactiveShellInit = mkDefault shellInit;
-      promptInit = mkDefault (readFile ../../zsh/config/prompt.zsh);
-    }; in
-    if stdenv.isDarwin then zsh-common // {
-      enableBashCompletion = mkDefault true;
+    programs.zsh =
+      let zsh-common = {
+        enable = true;
+        enableCompletion = mkDefault true;
 
-      variables = {
-        # nix-darwin sets default values that override the ones set in the
-        # shellInit script. We must set them again here.
-        HISTORY = mkDefault "10000";
-        SAVEHIST = mkDefault "10000";
-        HISTFILE = mkDefault "$HOME/.zsh_history";
-      };
-    }
-    else zsh-common;
+        interactiveShellInit = mkDefault shellInit;
+        promptInit = mkDefault (readFile ../../zsh/config/prompt.zsh);
+      }; in
+      if stdenv.isDarwin then zsh-common // {
+        enableBashCompletion = mkDefault true;
+
+        variables = {
+          # nix-darwin sets default values that override the ones set in the
+          # shellInit script. We must set them again here.
+          HISTORY = mkDefault "10000";
+          SAVEHIST = mkDefault "10000";
+          HISTFILE = mkDefault "$HOME/.zsh_history";
+        };
+      }
+      else zsh-common;
+  };
 }

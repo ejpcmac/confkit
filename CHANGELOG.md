@@ -8,15 +8,94 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Highlights
+
+The way `confkit` modules are imported in the configuration has been completely
+reworked to behave like a NixOS or `home-manager` module. This will enable more
+fine-grained control about what `confkit` adds to your configuration thanks to
+new options.
+
+Starting this version, each configuration module need to be enabled by setting
+`confkit.<module>.enable = true;` in your configuration. You can also import all
+modules directly via `Nix/system/default.nix` for NixOS and
+`Nix/user/default.nix` for home-manager.
+
+For instance, if you had a NixOS configuration like this:
+
+```nix
+let
+  confkit = import ../../confkit;
+in
+
+{
+  # With this method you had no control about what a module includes: it is
+  # there or not.
+  imports = with confkit.modules; [
+    environment
+    nix
+    tmux
+    utilities
+    vim
+    zsh
+  ];
+
+  # Some modules already provided a configuration option to change the
+  # keybindings, but adding these to programs.<module>, which is not clear.
+  programs.tmux.useBepoKeybindings = true;
+  programs.vim.useBepoKeybindings = true;
+}
+```
+
+You can now update it to:
+
+```nix
+{
+  # Now you just need to import the confkit NixOS module.
+  imports = [ ../../confkit/Nix/system ];
+
+  # You can then enable and configure confkit configuration modules.
+  confkit = {
+    environment.enable = true;
+    nix.enable = true;
+    tmux = { enable = true; bepo = true; }; # Note the bepo setting here.
+    utilities.enable = true;
+    vim = { enable = true; bepo = true; };
+    zsh.enable = true;
+  };
+}
+```
+
+Configuration related to user homes is provided as a `home-manager` module. If
+you were writing this:
+
+```nix
+let
+  confkit = ../../confkit;
+in
+
+{
+  imports = with confkit.modules; [ git ];
+}
+```
+
+You can rewrite it to:
+
+```nix
+{
+  imports = [ ../../confkit/Nix/user ];
+
+  confkit.git.enable = true;
+}
+```
+
 ### Added
 
 * [Zsh/Xen] Add aliases for Xen.
 
 ### Changed
 
-* [Nix] Separate system and user configuration modules. System modules are now
-    in `Nix/system*` and available under `confkit.system`, and user modules are
-    in `Nix/user` and available under `confkit.user`.
+* [Nix] Convert to a NixOS / home-manager module system. All modules now need to
+    be enabled by setting `confkit.<module>.enable = true;`.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Example] Simplify and update the example.

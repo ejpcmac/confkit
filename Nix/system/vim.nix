@@ -6,6 +6,7 @@
 ## * Enable syntax coloring                                                   ##
 ## * Auto indent, using 2 spaces                                              ##
 ## * Use the Wellsokai color theme                                            ##
+## * Optionally use keybindings optimised for BÉPO keyboards                  ##
 ##                                                                            ##
 ## For an exhaustive list of options, please see `../vim/vimrc`               ##
 ##                                                                            ##
@@ -15,24 +16,36 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkDefault mkOption types optionalString;
+  inherit (lib) mkEnableOption mkOption mkIf mkDefault types optionalString;
   inherit (pkgs) stdenv;
 
-  cfg = config.programs.vim;
+  cfg = config.confkit.vim;
+
   vimConfig =
     readFile ../../vim/vimrc
     # Embed the color theme in the configuration.
     + readFile ../../vim/colors/wellsokai.vim
-    + optionalString cfg.useBepoKeybindings (readFile ../../vim/bepo.vim);
+    + optionalString cfg.bepo (readFile ../../vim/bepo.vim);
 in
 
 {
-  options.programs.vim.useBepoKeybindings = mkOption {
-    type = types.bool;
-    default = false;
+  options.confkit.vim = {
+    enable = mkEnableOption "the confkit configuration for Vim";
+
+    defaultEditor = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Wether to set Vim as the default editor.";
+    };
+
+    bepo = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Use keybindings optimised for BÉPO keyboards.";
+    };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     environment.systemPackages = if stdenv.isLinux then [
       (pkgs.vim_configurable.customize {
         name = "vim";
@@ -44,7 +57,7 @@ in
       enable = true;
       vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
     } else {
-      defaultEditor = mkDefault true;
+      defaultEditor = cfg.defaultEditor;
     };
   };
 }
