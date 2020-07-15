@@ -93,6 +93,9 @@ You can rewrite it to:
 * [NixOS/ranger] Add the option `confkit.ranger.enable` to install the
     configuration for `ranger`. You can use bindings optimised for BÉPO
     keyboards by setting `confkit.ranger.bepo = true;`.
+* [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
+    Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
+    the `confkit.zsh.plugins` configuration option.
 * [Zsh/Xen] Add aliases for Xen.
 
 ### Changed
