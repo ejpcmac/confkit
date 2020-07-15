@@ -101,6 +101,11 @@ You can rewrite it to:
 * [Example] Simplify and update the example.
 * [Example] Use the `home-manager` NixOS module.
 
+### Removed
+
+* [Nix] Remove the `confkit.modules.*` modules from `confkit/default.nix` since
+    they are not needed for the new module system.
+
 ## [0.0.8] - 2020-06-14
 
 ### Added
