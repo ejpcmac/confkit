@@ -1,4 +1,4 @@
-####### Environment variables and base aliases #################################
+####### Configuration for the shell ############################################
 ##                                                                            ##
 ## * Make `tree`, `grep` and `ls` colourful                                   ##
 ## * Set custom colours for `ls`                                              ##
@@ -16,15 +16,15 @@ let
   inherit (lib) mkEnableOption mkIf mkDefault;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.environment;
+  cfg = config.confkit.shell;
 
   nixos-rebuild = if stdenv.isDarwin then "darwin-rebuild" else "nixos-rebuild";
   nixosPath = if stdenv.isDarwin then "'<darwin>'" else "\"<nixpkgs/nixos>\"";
 in
 
 {
-  options.confkit.environment = {
-    enable = mkEnableOption "environment variables and base aliases";
+  options.confkit.shell = {
+    enable = mkEnableOption "the shell configuration from confkit";
   };
 
   config = mkIf cfg.enable {

@@ -72,9 +72,9 @@ You have to update it to:
 
   # You can then enable and configure confkit configuration modules.
   confkit = {
-    environment.enable = true;
     nix.enable = true;
     ranger = { enable = true; bepo = true; }; # New module, yay!
+    shell.enable = true; # environment has been renamed to shell.
     tmux = { enable = true; bepo = true; }; # Note the bepo setting here.
     utilities.enable = true;
     vim = { enable = true; bepo = true; };
@@ -220,6 +220,7 @@ You have to update it to:
     be enabled by setting `confkit.<module>.enable = true;`. These new
     configuration options are made available by importing `confkit/nixos` or
     `confkit/home-manager`.
+* [NixOS/environment] Rename to shell.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Example] Simplify and update the example.
