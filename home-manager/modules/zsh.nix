@@ -22,7 +22,7 @@ in
 
     plugins = mkOption {
       type = types.listOf types.str;
-      default = [ "aliases" ];
+      default = [ "aliases" "nix" ];
       example = [ "aliases" "git" "nix" ];
       description = ''
         The list of plugins to enable.

@@ -1,8 +1,7 @@
 ####### Configuration for Nix ##################################################
 ##                                                                            ##
-## * Use the standard Nix package                                             ##
 ## * Enable store optimisation and sandboxing on non-Darwin hosts             ##
-## * Keep derivations and outputs for developers                              ##
+## * Keep derivations and build outputs (good for developers)                 ##
 ## * Use all the cores to build deviravions                                   ##
 ## * Automatically delete generations older than 30 days every day at 21:00   ##
 ##                                                                            ##
@@ -24,7 +23,6 @@ in
 
   config = mkIf cfg.enable {
     nix = {
-      package = mkDefault pkgs.nix;
       # TODO: Enable on Darwin when it is available.
       useSandbox = mkDefault (! stdenv.isDarwin);
       buildCores = mkDefault 0;

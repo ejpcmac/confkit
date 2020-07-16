@@ -31,6 +31,7 @@ in
     bepo = mkOption {
       type = types.bool;
       default = false;
+      example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
   };

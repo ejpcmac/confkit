@@ -35,12 +35,14 @@ in
     defaultEditor = mkOption {
       type = types.bool;
       default = true;
+      example = false;
       description = "Wether to set Vim as the default editor.";
     };
 
     bepo = mkOption {
       type = types.bool;
       default = false;
+      example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
   };
