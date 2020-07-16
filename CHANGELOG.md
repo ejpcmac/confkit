@@ -221,6 +221,8 @@ You have to update it to:
     configuration options are made available by importing `confkit/nixos` or
     `confkit/home-manager`.
 * [NixOS/environment] Rename to shell.
+* [NixOS/shell] Do not pre-build the configuration when running `nors`.
+* [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Example] Simplify and update the example.
