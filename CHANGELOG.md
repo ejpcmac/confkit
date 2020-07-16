@@ -10,15 +10,17 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Highlights
 
-The way `confkit` modules are imported in the configuration has been completely
-reworked to behave like a NixOS or `home-manager` module. This will enable more
-fine-grained control about what `confkit` adds to your configuration thanks to
-new options.
+The way `confkit` modules and files are imported in the configuration has been
+completely reworked to behave like a NixOS or `home-manager` module. This will
+enable more fine-grained control about what `confkit` adds to your configuration
+thanks to new options.
 
 Starting this version, `confkit` provides a NixOS module in `confkit/nixos` and
 a `home-manager` module in `confkit/home-manager`, adding `confkit.*` options to
 your configurations. Each configuration module need to be enable by setting
-`confkit.<module>.enable = true;` in your configuration.
+`confkit.<module>.enable = true;` in your configuration. Furthermore, the old
+`confkit.*` modules and the `confkit.file` function have been removed in favor
+of the new configuration modules.
 
 For instance, if you had a NixOS configuration like this:
 
@@ -43,6 +45,21 @@ in
   # keybindings, but adding these to programs.<module>, which is not clear.
   programs.tmux.useBepoKeybindings = true;
   programs.vim.useBepoKeybindings = true;
+
+  # Some configuration, yet available in confkit, was not available through a
+  # module. It instead relied on manual import by the end user, like for the
+  # ranger configuration.
+  environment = {
+    etc = {
+      "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
+      "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
+    };
+
+    variables = {
+      # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf
+      RANGER_LOAD_DEFAULT_RC = "FALSE";
+    };
+  };
 }
 ```
 
@@ -57,6 +74,7 @@ You have to update it to:
   confkit = {
     environment.enable = true;
     nix.enable = true;
+    ranger = { enable = true; bepo = true; }; # New module, yay!
     tmux = { enable = true; bepo = true; }; # Note the bepo setting here.
     utilities.enable = true;
     vim = { enable = true; bepo = true; };
@@ -74,7 +92,59 @@ let
 in
 
 {
+  # Standard module import.
   imports = with confkit.modules; [ git ];
+
+  # Lots of confkit.file linked manually.
+  home.file = {
+    # These are Zsh plugins.
+    ".zsh/aliases.zsh".source = confkit.file "zsh/aliases.zsh";
+    ".zsh/git.zsh".source = confkit.file "zsh/git.zsh";
+    ".zsh/imagemagick.zsh".source = confkit.file "zsh/imagemagick.zsh";
+    ".zsh/nix.zsh".source = confkit.file "zsh/nix.zsh";
+
+    # Zsh themes.
+    ".zsh-custom/themes/bazik.zsh-theme".source = confkit.file "zsh/themes/bazik.zsh-theme";
+
+    # Some GPG configuration with manual concatenation.
+    ".gnupg/gpg.conf".text = ''
+        default-key <some fpr>
+      '' + readFile (confkit.file "misc/gpg.conf");
+  };
+
+  xdg.configFile = {
+    "pms/pms.conf".source = confkit.file "misc/pms_bepo.conf";
+    "zathura/zathurarc".source = confkit.file "misc/zathurarc_bepo";
+    "tridactyl/tridactylrc".text =
+      readFile (confkit.file "misc/tridactylrc_bepo")
+      + "\nset editorcmd ${pkgs.emacs}/bin/emacsclient --create-frame";
+  };
+
+  programs.git = {
+    userName = "John Doe";
+    userEmail = "john.doe@example.com";
+    # Redundancy for the fingerprint.
+    signing.key = "<some fpr>";
+  };
+
+  # Some boilerplate.
+  programs.zsh = {
+    enable = true;
+    initExtra = readFile (confkit.file "zsh/config/home_init.zsh");
+
+    oh-my-zsh = {
+      enable = true;
+
+      custom = "$HOME/.zsh-custom";
+      theme = "bazik";
+
+      plugins = [
+        "git"
+        "nix-shell"
+        "sudo"
+      ];
+    };
+  };
 }
 ```
 
@@ -84,7 +154,36 @@ You have to update it to:
 {
   imports = [ ../../confkit/home-manager ];
 
-  confkit.git.enable = true;
+  confkit = {
+    # The home-manager module provides an identity attribute set to gather
+    # information that can be used by other modules.
+    identity = {
+      name = "John Doe";               # Used by confkit.git.
+      email = "john.doe@example.com";  # Used by confkit.git.
+      gpgKey = "<some fpr>";           # Used by confkit.git and confkit.gpg.
+    };
+
+    git.enable = true;
+    gpg.enable = true;
+    pms = { enable = true; bepo = true; };
+    zathura = { enable = true; bepo = true; };
+
+    tridactly = {
+      enable = true;
+      bepo = true;
+      editor = "${pkgs.emacs}/bin/emacsclient --create-frame";
+    };
+
+    zsh = {
+      enable = true;
+
+      # Manual confkit.file calls are replaced by a plugin list.
+      plugins = [ "aliases" "git" "imagemagick" "nix" ];
+    };
+  };
+
+  # nix-shell and sudo are imported confkit, just add the other ones.
+  programs.zsh.oh-my-zsh.plugins = [ "git" ];
 }
 ```
 
@@ -130,6 +229,9 @@ You have to update it to:
 
 * [Nix] Remove the `confkit.modules.*` modules from `confkit/default.nix` since
     they are not needed for the new module system.
+* [Nix] Remove the `confkit.file` function from `confkit/default.nix` since all
+    installed files are now handled by the new configuration options from the
+    NixOS and `home-manager` modules.
 * [GPG] Remove `misc/gpg.conf` since it has been converted to a Nix module in
     `home-manager/modules/gpg.nix`.
 
