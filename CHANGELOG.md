@@ -46,7 +46,7 @@ in
 }
 ```
 
-You can now update it to:
+You have to update it to:
 
 ```nix
 {
@@ -78,7 +78,7 @@ in
 }
 ```
 
-You can rewrite it to:
+You have to update it to:
 
 ```nix
 {
@@ -90,27 +90,27 @@ You can rewrite it to:
 
 ### Added
 
-* [NixOS/ranger] Add the option `confkit.ranger.enable` to install the
-    configuration for `ranger`. You can use bindings optimised for BÉPO
-    keyboards by setting `confkit.ranger.bepo = true;`.
+* [NixOS/ranger] Add the option `confkit.ranger.enable` to install `ranger` with
+    a configuration. You can use bindings optimised for BÉPO keyboards by
+    setting `confkit.ranger.bepo = true;`.
 * [home-manager/identity] Add the `confkit.identity` attribute set to define
     globally your `name`, `email` and `gpgKey` so they can be used by other
     configuration modules. Now the Git and GPG modules are using it.
-* [home-manager/gpg] Add the option `confkit.gpg.enable` to install the GPG
+* [home-manager/GPG] Add the option `confkit.gpg.enable` to install the GPG
     configuration from `confkit`.
 * [home-manager/pms] Add the option `confkit.pms.enable` to install `pms` with a
     configuration. As there is only a configuration for BÉPO keyboards at the
     time, it is also mandatory to set `confkit.pms.bepo = true;`.
 * [home-manager/screen] Add the option `confkit.screen.enable` to install a
     basic configuration for `screen`, just setting the `termcapinfo`.
-* [home-manager/tridactyl] Add the option `confkit.tridactyl.enable` to install
+* [home-manager/Tridactyl] Add the option `confkit.tridactyl.enable` to install
     the configuration for Tridactyl. As there is only a configuration for BÉPO
     keyboards at the time, it is also mandatory to set `confkit.tridatctyl.bepo
     = true;`.
-* [home-manager/zathura] Add the option `confkit.zathura.enable` to install
+* [home-manager/Zathura] Add the option `confkit.zathura.enable` to install
     Zathura with a configuration. You can use bindings optimised for BÉPO
     keyboards by setting `confkit.zathura.bepo = true;`.
-* [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
+* [home-manager/Zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.
 * [Zsh/Xen] Add aliases for Xen.
