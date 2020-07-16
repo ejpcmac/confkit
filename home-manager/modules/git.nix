@@ -32,19 +32,19 @@ in
         signByDefault = mkDefault true;
       };
 
-      extraConfig = mkDefault {
-        merge.ff = false;
-        pull.rebase = "preserve";
-        mergetool.keepBackup = false;
+      extraConfig = {
+        merge.ff = mkDefault false;
+        pull.rebase = mkDefault "preserve";
+        mergetool.keepBackup = mkDefault false;
 
-        "gitflow \"feature.finish\"".no-ff = true;
-        "gitflow \"release.finish\"".sign = true;
-        "gitflow \"hotfix.finish\"".sign = true;
+        "gitflow \"feature.finish\"".no-ff = mkDefault true;
+        "gitflow \"release.finish\"".sign = mkDefault true;
+        "gitflow \"hotfix.finish\"".sign = mkDefault true;
 
         "filter \"lfs\"" = {
-          required = true;
-          clean = "git-lfs clean -- %f";
-          smudge = "git-lfs smudge -- %f";
+          required = mkDefault true;
+          clean = mkDefault "git-lfs clean -- %f";
+          smudge = mkDefault "git-lfs smudge -- %f";
         };
       };
     };
