@@ -98,6 +98,9 @@ You can rewrite it to:
     configuration modules. Now the Git and GPG modules are using it.
 * [home-manager/gpg] Add the option `confkit.gpg.enable` to install the GPG
     configuration from `confkit`.
+* [home-manager/pms] Add the option `confkit.pms.enable` to install `pms` with a
+    configuration. As there is only a configuration for BÉPO keyboards at the
+    time, it is also mandatory to set `confkit.pms.bepo = true;`.
 * [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.
