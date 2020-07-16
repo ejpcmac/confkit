@@ -5,6 +5,7 @@
     ./modules/identity.nix
     ./modules/pms.nix
     ./modules/screen.nix
+    ./modules/tridactyl.nix
     ./modules/zsh.nix
   ];
 }
