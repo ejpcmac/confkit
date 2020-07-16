@@ -4,11 +4,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, pkgs, ... }:
-
-let
-  confkit = import ../../confkit;
-in
+{ config, lib, pkgs, ... }:
 
 {
   # This value determines the NixOS release with which your system is to be
@@ -17,21 +13,37 @@ in
   # should.
   system.stateVersion = "20.03";  # Did you read the comment?
 
-  imports = with confkit.modules.system; [
+  imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     # Configuration for the users.
     ./users
 
-    # confkit modules
-    environment
-    nix
-    tmux
-    utilities
-    vim
-    zsh
+    # Import the confkit NixOS module to get ready-to-use configurations for
+    # several tools.
+    ../../confkit/nixos
   ];
+
+  ############################################################################
+  ##                                confkit                                 ##
+  ############################################################################
+
+  confkit = {
+    nix.enable = true;
+    ranger.enable = true;
+    shell.enable = true;
+    tmux.enable = true;
+    utilities.enable = true;
+    vim.enable = true;
+    zsh.enable = true;
+
+    # If you are typing on a BÉPO keyboard, you might want to enable these
+    # options:
+    # ranger.bepo = true;
+    # tmux.bepo = true;
+    # vim.bepo = true;
+  };
 
   ############################################################################
   ##                          Boot & File systems                           ##
@@ -157,10 +169,6 @@ in
 
   programs = {
     ssh.startAgent = true;
-
-    # TODO: Remove this line if you are not typing on BÉPO.
-    tmux.useBepoKeybindings = true;
-    vim.useBepoKeybindings = true;
   };
 
   ############################################################################
@@ -188,7 +196,7 @@ in
       # TODO: Configure.
       # Configure the keyboard layout.
       layout = "fr";
-      xkbVariant = "bepo";
+      # xkbVariant = "bepo";
 
       # Enable touchpad support with natural scrolling.
       libinput = {
@@ -209,25 +217,5 @@ in
     # Currently, we also need to disable this service to avoid ModemManager to
     # be respawn after rebooting.
     "dbus-org.freedesktop.ModemManager1".enable = false;
-  };
-
-  ############################################################################
-  ##                          Custom configuration                          ##
-  ############################################################################
-
-  environment = {
-    etc = {
-      # TODO: Uncomment one of the following lines.
-      # "ranger/rc.conf".source = confkit.file "ranger/rc.conf";
-      # "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
-      "ranger/rc.conf".source = confkit.file "ranger/bepo_rc.conf";
-      "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
-    };
-
-    # NOTE: This is not useful if you are using the default ranger configuration.
-    variables = {
-      # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf
-      RANGER_LOAD_DEFAULT_RC = "FALSE";
-    };
   };
 }

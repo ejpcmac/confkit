@@ -32,7 +32,7 @@
 
   # Configure home-manager for each user.
   home-manager.users = {
-    root = import ../../../confkit/Nix/user/root.nix;
+    root = import ../../../confkit/home-manager/configs/root.nix;
     user = import ./user;
   };
 }

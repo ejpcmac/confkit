@@ -48,7 +48,7 @@ untrue.
         $ cp -r confkit/example/* .
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
-configuration.
+configuration using `confkit`.
 
 ### Initial configuration
 
@@ -64,9 +64,11 @@ configuration.
    `home-manager` configurations for your users. Don’t forget to update their
    imports in `Nix/<hostname>/users/default.nix`.
 
-4. In `Nix/<hostname>/users/<username>/default.nix`, replace `<fpr>` with your
-   PGP key hash and configure your name and email for Git. You can also enable
-   here diverse Zsh modules by uncommenting them.
+4. In `Nix/<hostname>/users/<username>/default.nix`, configure your identity
+   information via `confkit.identity`, so it can be used by the `confkit.git`
+   module. If you are using GPG, you can also define `confkit.identity.gpgKey`
+   and enable the `confkit.gpg` module: it will also enable Git commit signing
+   out of the box!
 
 ### Installation
 
