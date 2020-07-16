@@ -1,5 +1,6 @@
 ####### Configuration for GPG ##################################################
 ##                                                                            ##
+## * Configure the default key from confkit.identity                          ##
 ## * Always ask level and expiration when certifying a key                    ##
 ## * Configure the keyserver                                                  ##
 ## * Automatically retreive keys                                              ##
