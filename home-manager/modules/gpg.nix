@@ -1,0 +1,33 @@
+####### Configuration for GPG ##################################################
+##                                                                            ##
+## * Always ask level and expiration when certifying a key                    ##
+## * Configure the keyserver                                                  ##
+## * Automatically retreive keys                                              ##
+##                                                                            ##
+################################################################################
+
+{ config, lib, pkgs, ... }:
+
+let
+  inherit (lib) mkEnableOption mkIf mkDefault;
+  cfg = config.confkit.gpg;
+in
+
+{
+  options.confkit.gpg = {
+    enable = mkEnableOption "the confkit home configuration for GPG";
+  };
+
+  config = mkIf cfg.enable {
+    programs.gpg = {
+      enable = true;
+
+      settings = {
+        ask-cert-level = mkDefault true;
+        ask-cert-expire = mkDefault true;
+        keyserver-options = mkDefault "no-honor-keyserver-url auto-key-retrieve";
+        keyserver = mkDefault "hkps://hkps.pool.sks-keyservers.net";
+      };
+    };
+  };
+}

@@ -93,6 +93,8 @@ You can rewrite it to:
 * [NixOS/ranger] Add the option `confkit.ranger.enable` to install the
     configuration for `ranger`. You can use bindings optimised for BÉPO
     keyboards by setting `confkit.ranger.bepo = true;`.
+* [home-manager/gpg] Add the option `confkit.gpg.enable` to install the GPG
+    configuration from `confkit`.
 * [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.
@@ -113,6 +115,8 @@ You can rewrite it to:
 
 * [Nix] Remove the `confkit.modules.*` modules from `confkit/default.nix` since
     they are not needed for the new module system.
+* [GPG] Remove `misc/gpg.conf` since it has been converted to a Nix module in
+    `home-manager/modules/gpg.nix`.
 
 ## [0.0.8] - 2020-06-14
 
