@@ -2,18 +2,6 @@
 # Nix Aliases #
 ###############
 
-# nix-env
-alias ne='nix-env'
-alias ns='nix-env -qaP'
-alias ni='nix-env --install'
-alias nun='nix-env --uninstall'
-alias nu='nix-env --upgrade'
-alias nrb='nix-env --rollback'
-alias neq='nix-env --query'
-alias ngl='nix-env --list-generations'
-alias ngs='nix-env --switch-generation'
-alias ngd='nix-env --delete-generations'
-
 # nix-channel
 alias nic='nix-channel'
 alias nicl='nix-channel --list'
@@ -29,6 +17,22 @@ alias snica='sudo nix-channel --add'
 alias snicr='sudo nix-channel --remove'
 alias snicu='sudo nix-channel --update'
 alias snicrb='sudo nix-channel --rollback'
+
+# NixOS rebuild
+alias snors="sudo nixos-rebuild switch"
+alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
+    nixos-rebuild switch"
+alias sbnors="sudo su -c \"\
+    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
+    nixos-rebuild switch\""
+
+# home-manager
+alias h='home-manager'
+alias hb='home-manager build'
+alias hs='home-manager switch'
+alias hp='home-manager packages'
+alias hn='home-manager news'
+alias hgen='home-manager generations'
 
 # nix-build
 alias nb='nix-build'
@@ -46,21 +50,17 @@ alias ngco='nix-collect-garbage --delete-older-than 30d'
 # nix-store
 alias nso='nix-store --optimise -v'
 
-# home-manager
-alias h='home-manager'
-alias hb='home-manager build'
-alias hs='home-manager switch'
-alias hp='home-manager packages'
-alias hn='home-manager news'
-alias hgen='home-manager generations'
-
-# NixOS rebuild
-alias snors="sudo nixos-rebuild switch"
-alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch"
-alias sbnors="sudo su -c \"\
-    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch\""
+# nix-env
+alias ne='nix-env'
+alias ns='nix-env -qaP'
+alias ni='nix-env --install'
+alias nun='nix-env --uninstall'
+alias nu='nix-env --upgrade'
+alias nrb='nix-env --rollback'
+alias neq='nix-env --query'
+alias ngl='nix-env --list-generations'
+alias ngs='nix-env --switch-generation'
+alias ngd='nix-env --delete-generations'
 
 ##
 ## Helpers to preview the changes to the package list prior to rebuild.
