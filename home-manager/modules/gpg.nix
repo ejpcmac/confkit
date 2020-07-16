@@ -11,6 +11,7 @@
 let
   inherit (lib) mkEnableOption mkIf mkDefault;
   cfg = config.confkit.gpg;
+  identity = config.confkit.identity;
 in
 
 {
@@ -23,6 +24,7 @@ in
       enable = true;
 
       settings = {
+        default-key = mkDefault identity.gpgKey;
         ask-cert-level = mkDefault true;
         ask-cert-expire = mkDefault true;
         keyserver-options = mkDefault "no-honor-keyserver-url auto-key-retrieve";

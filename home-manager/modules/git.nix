@@ -11,19 +11,24 @@
 let
   inherit (lib) mkEnableOption mkIf mkDefault;
   cfg = config.confkit.git;
+  identity = config.confkit.identity;
 in
 
 {
   options.confkit.git = {
-    enable = mkEnableOption "the confkit configuration for Git";
+    enable = mkEnableOption "the confkit home configuration for Git";
   };
 
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
 
+      userName = mkDefault identity.name;
+      userEmail = mkDefault identity.email;
+
       signing = {
         gpgPath = mkDefault "gpg2";
+        key = mkDefault identity.gpgKey;
         signByDefault = mkDefault true;
       };
 
