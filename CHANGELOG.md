@@ -103,10 +103,13 @@ You can rewrite it to:
     time, it is also mandatory to set `confkit.pms.bepo = true;`.
 * [home-manager/screen] Add the option `confkit.screen.enable` to install a
     basic configuration for `screen`, just setting the `termcapinfo`.
-* [home-manager/tridactyl] Add the option `confkit.screen.enable` to install the
-    configuration for Tridactyl. As there is only a configuration for BÉPO
+* [home-manager/tridactyl] Add the option `confkit.tridactyl.enable` to install
+    the configuration for Tridactyl. As there is only a configuration for BÉPO
     keyboards at the time, it is also mandatory to set `confkit.tridatctyl.bepo
     = true;`.
+* [home-manager/zathura] Add the option `confkit.zathura.enable` to install
+    Zathura with a configuration. You can use bindings optimised for BÉPO
+    keyboards by setting `confkit.zathura.bepo = true;`.
 * [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.

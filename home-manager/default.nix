@@ -6,6 +6,7 @@
     ./modules/pms.nix
     ./modules/screen.nix
     ./modules/tridactyl.nix
+    ./modules/zathura.nix
     ./modules/zsh.nix
   ];
 }
