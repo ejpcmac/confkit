@@ -55,7 +55,10 @@ alias hn='home-manager news'
 alias hgen='home-manager generations'
 
 # NixOS rebuild
-alias snors="sudo su -c \"\
+alias snors="sudo nixos-rebuild switch"
+alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
+    nixos-rebuild switch"
+alias sbnors="sudo su -c \"\
     nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch\""
 

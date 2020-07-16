@@ -221,10 +221,15 @@ You have to update it to:
     configuration options are made available by importing `confkit/nixos` or
     `confkit/home-manager`.
 * [NixOS/environment] Rename to shell.
-* [NixOS/shell] Do not pre-build the configuration when running `nors`.
+* [NixOS/shell] Do not pre-build the configuration when running `nors`. The
+    previous behaviour is now usable through the `bnors` alias, available in the
+    Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix" ];` to your home
+    conifguration.
 * [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
+* [Zsh/Nix] Do not pre-build the configuration when running `snors`. The
+    previous behaviour is usable through the `sbnors` alias.
 * [Example] Simplify and update the example.
 * [Example] Use the `home-manager` NixOS module.
 
