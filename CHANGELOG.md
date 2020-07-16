@@ -226,6 +226,9 @@ You have to update it to:
     Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix" ];` to your home
     conifguration.
 * [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
+* [home-manager/Git] Make `programs.git.extraConfig` more overrideable.
+* [home-manager/Git] Enable commit signing by default only when the confkit GPG
+    module is enabled.
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Zsh/Nix] Do not pre-build the configuration when running `snors`. The

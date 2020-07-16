@@ -1,6 +1,7 @@
 ####### Configuration for Git ##################################################
 ##                                                                            ##
-## * Sign by default, using `gpg2` (including gitflow)                        ##
+## * Configure the user information from confkit.identity                     ##
+## * Sign by default (including git-flow) when confkit.gpg is enabled         ##
 ## * Always create a merge commit by default (including gitflow)              ##
 ## * Rebase on pull, preserving previous merge commits                        ##
 ##                                                                            ##
@@ -9,7 +10,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
   cfg = config.confkit.git;
   identity = config.confkit.identity;
 in
@@ -17,6 +18,16 @@ in
 {
   options.confkit.git = {
     enable = mkEnableOption "the confkit home configuration for Git";
+
+    gpgSign = mkOption {
+      type = types.bool;
+      default = config.confkit.gpg.enable;
+      example = true;
+      description = ''
+        Wether to sign commits with GPG. This defaults to true when the confkit
+        GPG module is enabled.
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -26,7 +37,7 @@ in
       userName = mkDefault identity.name;
       userEmail = mkDefault identity.email;
 
-      signing = {
+      signing = mkIf cfg.gpgSign {
         gpgPath = mkDefault "gpg2";
         key = mkDefault identity.gpgKey;
         signByDefault = mkDefault true;
