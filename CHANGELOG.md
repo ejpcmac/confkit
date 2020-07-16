@@ -93,7 +93,7 @@ You can rewrite it to:
 * [NixOS/ranger] Add the option `confkit.ranger.enable` to install the
     configuration for `ranger`. You can use bindings optimised for BÉPO
     keyboards by setting `confkit.ranger.bepo = true;`.
-* [home-manager/identity] Add the `confkit.identity` attribut set to define
+* [home-manager/identity] Add the `confkit.identity` attribute set to define
     globally your `name`, `email` and `gpgKey` so they can be used by other
     configuration modules. Now the Git and GPG modules are using it.
 * [home-manager/gpg] Add the option `confkit.gpg.enable` to install the GPG
@@ -101,6 +101,8 @@ You can rewrite it to:
 * [home-manager/pms] Add the option `confkit.pms.enable` to install `pms` with a
     configuration. As there is only a configuration for BÉPO keyboards at the
     time, it is also mandatory to set `confkit.pms.bepo = true;`.
+* [home-manager/screen] Add the option `confkit.screen.enable` to install a
+    basic configuration for `screen`, just setting the `termcapinfo`.
 * [home-manager/zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.
