@@ -230,6 +230,7 @@ You have to update it to:
     Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix" ];` to your home
     conifguration.
 * [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
+* [NixOS/Zsh] Enable syntax highlighting.
 * [home-manager/Git] Make `programs.git.extraConfig` more overrideable.
 * [home-manager/Git] Enable commit signing by default only when the confkit GPG
     module is enabled.
@@ -249,6 +250,10 @@ You have to update it to:
     NixOS and `home-manager` modules.
 * [GPG] Remove `misc/gpg.conf` since it has been converted to a Nix module in
     `home-manager/modules/gpg.nix`.
+* [Zsh/config/init.zsh] Remove as the minimum needed has been integrated in the
+    `confkit.zsh` NixOS module.
+* [Zsh/config/macos.zsh] Remove as it has been integrated in the `confkit.zsh`
+    NixOS/nix-darwin module.
 
 ## [0.0.8] - 2020-06-14
 

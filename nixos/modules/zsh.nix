@@ -1,6 +1,7 @@
 ####### Configuration for Zsh ##################################################
 ##                                                                            ##
 ## * No beeps                                                                 ##
+## * Syntax highlighting                                                      ##
 ## * Sensible and intuitive completion scheme                                 ##
 ## * Prompt like `[user@host.domain]:/path %` in green, and red for root      ##
 ## * 10 000 lines history in `~/.zsh_history` without immediate duplicates    ##
@@ -16,9 +17,6 @@ let
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.zsh;
-
-  shellInit = readFile ../../zsh/config/config.zsh
-    + optionalString stdenv.isDarwin (readFile ../../zsh/config/macos.zsh);
 in
 
 {
@@ -33,9 +31,33 @@ in
       let zsh-common = {
         enable = true;
         enableCompletion = mkDefault true;
-
-        interactiveShellInit = mkDefault shellInit;
+        syntaxHighlighting.enable = mkDefault true;
         promptInit = mkDefault (readFile ../../zsh/config/prompt.zsh);
+
+        interactiveShellInit = ''
+          # Disable beeps.
+          unsetopt beep
+          unsetopt hist_beep
+          unsetopt list_beep
+
+          # Complete to the common part and show the list of possible completion
+          # the same tab hit.
+          unsetopt list_ambiguous
+        '' + optionalString stdenv.isDarwin ''
+          # Correctly display UTF-8 with combining characters.
+          if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+              setopt combiningchars
+          fi
+        '';
+
+        setOptions = [
+          "EXTENDEDGLOB"
+          "SHARE_HISTORY"
+          "HIST_IGNORE_DUPS"
+          "HIST_EXPIRE_DUPS_FIRST"
+          "HIST_FIND_NO_DUPS"
+          "HIST_FCNTL_LOCK"
+        ];
       }; in
       if stdenv.isDarwin then zsh-common // {
         enableBashCompletion = mkDefault true;
