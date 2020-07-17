@@ -235,6 +235,7 @@ You have to update it to:
 * [home-manager/Git] Enable commit signing by default only when the confkit GPG
     module is enabled.
 * [home-manager/Zsh] Make the prompt work without Oh My Zsh
+* [home-manager/Zsh] Make Oh My Zsh an opt-in through `confkit.zsh.ohMyZsh`;
 * [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
     instead of `~/config`.
 * [Zsh/Nix] Do not pre-build the configuration when running `snors`. The
