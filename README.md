@@ -1,13 +1,14 @@
 # confkit
 
-`confkit` is a configuration framework using Nix. It is portable between NixOS,
-other GNU/Linux distributions and macOS\*. It provides Nix modules to help
-system and home configuration, including configuration for Nix, Zsh, tmux, Vim,
-GPG and more. Parts of it can also be used outside of Nix to enable support for
-systems unsupported by Nix, such as FreeBSD.
+`confkit` is an opinionated configuration framework using Nix. It provides NixOS
+and `home-manager` modules to help system and home configuration, including
+configuration for Nix, Zsh, tmux, ranger, Vim, GPG and more. Parts of it can
+also be used outside of Nix to enable support for systems unsupported by Nix,
+such as FreeBSD.
 
-\* As I am currently using it only on NixOS and FreeBSD, this statement may be
-untrue.
+You can find an example of usage in the `example/` directory. As a more
+complete, but also more complex example, you can check [my public config
+repo](https://github.com/ejpcmac/config).
 
 ## Usage
 
@@ -74,6 +75,10 @@ configuration using `confkit`.
 
 On NixOS, link `/etc/nixos/configuration.nix` to
 `/config/Nix/<hostname>/configuration.nix`.
+
+## Supported NixOS versions
+
+`confkit` currently supports NixOS 19.09 and NixOS 20.03.
 
 ## [Contributing](CONTRIBUTING.md)
 
