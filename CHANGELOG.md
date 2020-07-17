@@ -192,6 +192,8 @@ You have to update it to:
 * [NixOS/ranger] Add the option `confkit.ranger.enable` to install `ranger` with
     a configuration. You can use bindings optimised for BÉPO keyboards by
     setting `confkit.ranger.bepo = true;`.
+* [NixOS/keyboard] Add the option `confkit.keyboard.bepo` to enable
+    BÉPO-optimised keybindings by default in all modules supporting it.
 * [home-manager/identity] Add the `confkit.identity` attribute set to define
     globally your `name`, `email` and `gpgKey` so they can be used by other
     configuration modules. Now the Git and GPG modules are using it.
@@ -212,6 +214,8 @@ You have to update it to:
 * [home-manager/Zsh] Add the option `confkit.zsh.enable` to enable Zsh and Oh My
     Zsh with a configuration. Plugins from `confkit/zsh` can be enabled through
     the `confkit.zsh.plugins` configuration option.
+* [home-manager/keyboard] Add the option `confkit.keyboard.bepo` to enable
+    BÉPO-optimised keybindings by default in all modules supporting it.
 * [Zsh/Xen] Add aliases for Xen.
 
 ### Changed

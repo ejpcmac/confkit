@@ -1,5 +1,6 @@
 {
   imports = [
+    ../common/keyboard.nix
     ./modules/nix.nix
     ./modules/ranger.nix
     ./modules/shell.nix

@@ -38,11 +38,10 @@
     vim.enable = true;
     zsh.enable = true;
 
-    # If you are typing on a BÉPO keyboard, you might want to enable these
-    # options:
-    # ranger.bepo = true;
-    # tmux.bepo = true;
-    # vim.bepo = true;
+    # If you are typing on a BÉPO keyboard, you might want to enable this
+    # option. It will automatically enable BÉPO-optimised keybindings for
+    # ranger, Tmux and Vim.
+    # keyboard.bepo = true;
   };
 
   ############################################################################

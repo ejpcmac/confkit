@@ -1,5 +1,6 @@
 {
   imports = [
+    ../common/keyboard.nix
     ./modules/git.nix
     ./modules/gpg.nix
     ./modules/identity.nix

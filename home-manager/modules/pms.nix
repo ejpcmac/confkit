@@ -20,7 +20,7 @@ in
 
     bepo = mkOption {
       type = types.bool;
-      default = false;
+      default = config.confkit.keyboard.bepo;
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
