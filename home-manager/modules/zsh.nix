@@ -4,7 +4,7 @@
 ## * Enable Oh My Zsh with nix-shell and sudo plugins                         ##
 ## * Use the Bazik Oh My Zsh theme from confkit                               ##
 ## * Provide the confkit.zsh.plugins configuration option to select which     ##
-##   plugins from confkit/zsh are to be linked to $HOME/.zsh                  ##
+##   plugins from confkit/zsh are to be installed $HOME/.zsh                  ##
 ##                                                                            ##
 ################################################################################
 
