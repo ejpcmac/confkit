@@ -2,10 +2,12 @@
 ##                                                                            ##
 ## * Use C-a instead of C-b as prefix                                         ##
 ## * Use more natural keybinding for window splitting (- and |)               ##
+## * Use Vim-like pane navigation keybindings                                 ##
+## * Optionally use keybindings optimised for BÉPO keyboards                  ##
 ## * Start indexes at 1                                                       ##
 ## * Use tmuxinator                                                           ##
 ##                                                                            ##
-## For an exhaustive list of options, please see `../misc/tmux.conf`          ##
+## For an exhaustive list of options, please see `../misc/tmux[_bepo].conf`   ##
 ##                                                                            ##
 ################################################################################
 
@@ -13,23 +15,30 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkDefault mkOption types;
+  inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
   inherit (lib.trivial) release;
   inherit (pkgs) stdenv;
 
-  cfg = config.programs.tmux;
-  tmuxConfig = if cfg.useBepoKeybindings
-               then readFile ../misc/tmux_bepo.conf
-               else readFile ../misc/tmux.conf;
+  cfg = config.confkit.tmux;
+
+  tmuxConfig = if cfg.bepo
+               then readFile ../../misc/tmux_bepo.conf
+               else readFile ../../misc/tmux.conf;
 in
 
 {
-  options.programs.tmux.useBepoKeybindings = mkOption {
-    type = types.bool;
-    default = false;
+  options.confkit.tmux = {
+    enable = mkEnableOption "the confkit configuration for Tmux";
+
+    bepo = mkOption {
+      type = types.bool;
+      default = config.confkit.keyboard.bepo;
+      example = true;
+      description = "Use keybindings optimised for BÉPO keyboards.";
+    };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.tmuxinator ];
 
     programs.tmux = {

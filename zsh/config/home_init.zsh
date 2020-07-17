@@ -1,5 +1,5 @@
 ###########
-# Imports #
+# Plugins #
 ###########
 
 function export_local_bin() {
@@ -8,7 +8,7 @@ function export_local_bin() {
     fi
 }
 
-# Programmes locaux nécessaires aux imports
+# Some plugins may need local programs to work.
 export_local_bin
 
 for script ($HOME/.zsh/*.zsh); do
@@ -16,20 +16,25 @@ for script ($HOME/.zsh/*.zsh); do
 done
 unset script
 
-# Programmes locaux prioritaires sur les ajouts des imports
+# Local programs have precedence on plugins.
 export_local_bin
 
-#########################
-# Modifications locales #
-#########################
+##########
+# Prompt #
+##########
 
-# Redéfinition du PROMPT sans le domaine
+# Set the prompt color: blue in Nix shells, red for root and green otherwise.
 prompt_color() {
     if [ -n "$IN_NIX_SHELL" ]; then
         echo "$fg_bold[blue]"
+    elif [ $(id -u) -eq 0 ]; then
+        echo "$fg_bold[red]"
     else
         echo "$fg_bold[green]"
     fi
 }
 
-PROMPT='%{$(prompt_color)%}[%n@%m]:%{$reset_color%}%~ %# '
+autoload -U add-zsh-hook && add-zsh-hook precmd prompt_precmd
+function prompt_precmd() {
+    PROMPT="%{$(prompt_color)%}[%n@%m]:%{$reset_color%}%~ %# "
+}
