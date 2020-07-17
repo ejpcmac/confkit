@@ -73,12 +73,18 @@ You have to update it to:
   # You can then enable and configure confkit configuration modules.
   confkit = {
     nix.enable = true;
-    ranger = { enable = true; bepo = true; }; # New module, yay!
-    shell.enable = true; # environment has been renamed to shell.
-    tmux = { enable = true; bepo = true; }; # Note the bepo setting here.
+    ranger.enable = true; # New module, yay!
+    shell.enable = true;  # environment has been renamed to shell.
+    tmux.enable = true;
     utilities.enable = true;
-    vim = { enable = true; bepo = true; };
+    vim.enable = true;
     zsh.enable = true;
+
+    # If you are typing with the BÉPO layout, you can enable optimised
+    # keybindings for several tools in one line. It currently applies to ranger,
+    # Tmux and Vim. You can also configure this for individual tools by doing
+    # vim.bepo = true; for instance.
+    keyboard.bepo = true;
   };
 }
 ```
@@ -163,19 +169,24 @@ You have to update it to:
       gpgKey = "<some fpr>";           # Used by confkit.git and confkit.gpg.
     };
 
+    # Like in the system configuration, you now have a switch to select
+    # BÉPO-optimised keybindings here. It currently applies to pms, Zathura and
+    # Tridactyl.
+    keyboard.bepo = true;
+
     git.enable = true;
     gpg.enable = true;
-    pms = { enable = true; bepo = true; };
-    zathura = { enable = true; bepo = true; };
+    pms.enable = true;
+    zathura.enable = true;
 
     tridactly = {
       enable = true;
-      bepo = true;
       editor = "${pkgs.emacs}/bin/emacsclient --create-frame";
     };
 
     zsh = {
       enable = true;
+      ohMyZsh = true;
 
       # Manual confkit.file calls are replaced by a plugin list.
       plugins = [ "aliases" "git" "imagemagick" "nix" ];
