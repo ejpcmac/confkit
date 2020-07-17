@@ -11,7 +11,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) readFile;
+  inherit (builtins) readFile listToAttrs;
   inherit (lib) mkOption mkEnableOption mkIf mkDefault mkMerge types;
   cfg = config.confkit.zsh;
 in
@@ -61,10 +61,10 @@ in
     }
 
     {
-      home.file = map (plugin: {
-        target = ".zsh/${plugin}.zsh";
-        source = ../../zsh + "/${plugin}.zsh";
-      }) cfg.plugins;
+      home.file = listToAttrs (map (plugin: {
+        name = ".zsh/${plugin}.zsh";
+        value.source = ../../zsh + "/${plugin}.zsh";
+      }) cfg.plugins);
     }
   ]);
 }
