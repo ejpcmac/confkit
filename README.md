@@ -10,6 +10,20 @@ You can find an example of usage in the `example/` directory. As a more
 complete, but also more complex example, you can check [my public config
 repo](https://github.com/ejpcmac/config).
 
+## Stability status
+
+Since the long due refactor to a NixOS / `home-manager` module system has been
+done, `confkit` should be more stable than ever in its public interface. The
+exact configuration inside a module can still change though, and the new
+interface is still young: I may find something wrongly designed and break things
+to enhance it. That’s why `confkit` is still at 0.0.x. I need to remove some
+hacky things and the last really personal preferences from it before to move it
+to 0.1.0.
+
+If you find it useful, you can use it and even help me to reach a more stable
+state :) If I am aware of people using it, I’ll try not to introduce breaking
+changes in a too harsh way.
+
 ## Usage
 
 ### Setup
