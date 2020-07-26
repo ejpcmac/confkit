@@ -14,15 +14,15 @@
   system.stateVersion = "20.03";  # Did you read the comment?
 
   imports = [
+    # Import the confkit NixOS module to get ready-to-use configurations for
+    # several tools.
+    ../../confkit/nixos
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     # Configuration for the users.
     ./users
-
-    # Import the confkit NixOS module to get ready-to-use configurations for
-    # several tools.
-    ../../confkit/nixos
   ];
 
   ############################################################################
