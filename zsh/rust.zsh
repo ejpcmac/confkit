@@ -39,6 +39,7 @@ alias rcr='rustup component remove'
 # Cargo
 alias c='cargo'
 alias ci='cargo install'
+alias cic='cargo install --path .'
 alias cif='cargo install --force'
 alias ciu='cargo install-update --all'
 alias cun='cargo uninstall'
