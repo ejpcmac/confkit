@@ -8,13 +8,19 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [NixOS/fonts] Add the option `confkit.fonts.enable` to enable a default
+    configuration for fonts. This includes additional fonts from which you can
+    opt-out by setting `confkit.fonts.installFonts` to `false`.
+
 ### Changed
 
 * [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
-  `code`.
+    `code`.
 * [Zsh/Rust] Add `cic` to install from the current path.
 * [ranger/*] `E` now opens the current directory with `codium` instead of
-  `code`.
+    `code`.
 
 ## [0.0.9] - 2020-07-17
 
