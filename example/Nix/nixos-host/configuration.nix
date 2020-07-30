@@ -147,7 +147,6 @@
       fira-code
       inconsolata
       lato
-      meslo-lg
       opensans-ttf
       symbola
     ];
