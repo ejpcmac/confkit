@@ -16,6 +16,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* [home-manager/screen] Install `screen` when enabling the module.
 * [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
     `code`.
 * [Zsh/Rust] Add `cic` to install from the current path.
