@@ -13,7 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [NixOS/fonts] Add the option `confkit.fonts.enable` to enable a default
     configuration for fonts. This includes additional fonts from which you can
     opt-out by setting `confkit.fonts.installFonts` to `false`.
-* [Zsh/Git] Add `gi` for `git init`.
+* [Zsh/Git] Add `gi` for `git init` and `gsa` for `git submodule add`.
 * [Zsh/Git] Add more aliases for `hub` (see `zsh/git.zsh` for the full list).
 
 ### Changed

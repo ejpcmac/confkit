@@ -11,6 +11,7 @@ alias gba='git branch -avv'
 alias gfa='git fetch --all --prune --tag'
 alias gmff='git merge --ff-only'
 alias grbp='git rebase -p'
+alias gsa='git submodule add'
 alias gli='git clean -dxn -e ".direnv/" -e "/config/"'
 alias gclean='git clean -idx -e ".direnv/" -e "/config/"'
 
