@@ -18,11 +18,16 @@
     # several tools.
     ../../confkit/nixos
 
+    # Import the home-manager NixOS module to handle user configurations
+    # declaratively.
+    ../../../home-manager/nixos
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     # Configuration for the users.
-    ./users
+    ./users/root
+    ./users/user
   ];
 
   ############################################################################
@@ -30,6 +35,7 @@
   ############################################################################
 
   confkit = {
+    fonts.enable = true;
     nix.enable = true;
     ranger.enable = true;
     shell.enable = true;
@@ -42,6 +48,30 @@
     # option. It will automatically enable BÉPO-optimised keybindings for
     # ranger, Tmux and Vim.
     # keyboard.bepo = true;
+  };
+
+  ############################################################################
+  ##                         General configuration                          ##
+  ############################################################################
+
+  # TODO: Set your timezone, locale, location and console keymap.
+
+  time.timeZone = "Indian/Kerguelen";
+  i18n.defaultLocale = "fr_FR.UTF-8";
+
+  location = {
+    latitude = -49.35;
+    longitude = 70.22;
+  };
+
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "fr";
+  };
+
+  users = {
+    mutableUsers = false;
+    defaultUserShell = pkgs.zsh;
   };
 
   ############################################################################
@@ -85,88 +115,11 @@
   };
 
   ############################################################################
-  ##                         General configuration                          ##
+  ##                               Networking                               ##
   ############################################################################
-
-  # TODO: Set your timezone, locale, location and console keymap.
-
-  time.timeZone = "Indian/Kerguelen";
-  i18n.defaultLocale = "fr_FR.UTF-8";
-
-  location = {
-    latitude = -49.35;
-    longitude = 70.22;
-  };
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "fr";
-  };
 
   networking = {
     hostName = "nixos-host";
-  };
-
-  ############################################################################
-  ##                            System packages                             ##
-  ############################################################################
-
-  environment.systemPackages = with pkgs; [
-    # Utilities
-    ntfs3g
-    openssl
-    pandoc
-    redshift-plasma-applet
-    wine
-
-    # TeXLive can be useful for tools like Pandoc or Org.
-    texlive.combined.scheme-full
-
-    # Applications
-    firefox
-    gimp
-    gwenview
-    kate
-    keepassx2
-    konversation
-    libreoffice
-    mpv
-    okular
-    thunderbird
-  ];
-
-  ############################################################################
-  ##                                 Fonts                                  ##
-  ############################################################################
-
-  fonts = {
-    enableDefaultFonts = true;
-
-    fonts = with pkgs; [
-      carlito # Compatible with Calibri.
-      fira-code
-      inconsolata
-      lato
-      opensans-ttf
-      symbola
-    ];
-
-    fontconfig = {
-      enable = true;
-      antialias = true;
-      hinting = { enable = true; autohint = false; };
-      includeUserConf = false;
-      penultimate.enable = true;
-      useEmbeddedBitmaps = true;
-    };
-  };
-
-  ############################################################################
-  ##                                 Programs                               ##
-  ############################################################################
-
-  programs = {
-    ssh.startAgent = true;
   };
 
   ############################################################################
@@ -174,13 +127,12 @@
   ############################################################################
 
   services = {
-    ntp.enable = true;
+    avahi = { enable = true; nssmdns = true; };
+    chrony.enable = true;
     pcscd.enable = true;
     printing.enable = true;
-    tlp.enable = true;
-
-    avahi = { enable = true; nssmdns = true; };
     smartd = { enable = true; notifications.x11.enable = true; };
+    tlp.enable = true;
 
     redshift = {
       enable = true;
@@ -216,4 +168,40 @@
     # be respawn after rebooting.
     "dbus-org.freedesktop.ModemManager1".enable = false;
   };
+
+  ############################################################################
+  ##                                 Programs                               ##
+  ############################################################################
+
+  programs = {
+    ssh.startAgent = true;
+  };
+
+  ############################################################################
+  ##                            System packages                             ##
+  ############################################################################
+
+  environment.systemPackages = with pkgs; [
+    # Utilities
+    ntfs3g
+    openssl
+    pandoc
+    redshift-plasma-applet
+    wine
+
+    # TeXLive can be useful for tools like Pandoc or Org.
+    texlive.combined.scheme-full
+
+    # Applications
+    firefox
+    gimp
+    gwenview
+    kate
+    keepassx2
+    konversation
+    libreoffice
+    mpv
+    okular
+    thunderbird
+  ];
 }

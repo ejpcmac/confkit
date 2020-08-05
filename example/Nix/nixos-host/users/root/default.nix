@@ -1,21 +1,17 @@
 ################################################################################
 ##                                                                            ##
-##                    User declaration for user@nixos-host                    ##
+##                    User declaration for root@nixos-host                    ##
 ##                                                                            ##
 ################################################################################
 
 { config, pkgs, ... }:
 
 {
-  users.users.user = {
-    isNormalUser = true;
-    uid = 1000;
-    description = "User";
-    extraGroups = [ "wheel" "dialout" "wireshark" ];
-    # Password: user
+  users.users.root = {
+    # Password: root
     # Use `mkpasswd -m SHA-512` to generate a new password hash.
-    hashedPassword = "$6$U6PDUk3gTcaZHXey$mrJfd.oAt.lIMgrwJAmYWfIKKiTrOpFYx/4iIpMhQO/xSuLccWPnEPrR901VQUztvzZHgBg2RFoIkxUbt4x0X/";
+    hashedPassword = "$6$10ANBznle.bUMU$ex8BpjzUzYQKiOX5cYVT0v4NoPujGza0oPQEqZv.WQguj9p8MAOfiXiFkBkiY1Wt9ePe3fA4J3jw4KjG.pwDH1";
   };
 
-  home-manager.users.user = import ./home.nix;
+  home-manager.users.root = import ../../../../confkit/home-manager/configs/root.nix;
 }
