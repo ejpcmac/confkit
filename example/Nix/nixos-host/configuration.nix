@@ -20,7 +20,7 @@
 
     # Import the home-manager NixOS module to handle user configurations
     # declaratively.
-    ../../../home-manager/nixos
+    ../../home-manager/nixos
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
