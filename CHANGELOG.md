@@ -15,13 +15,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     opt-out by setting `confkit.fonts.installFonts` to `false`.
 * [Zsh/Git] Add `gi` for `git init` and `gsa` for `git submodule add`.
 * [Zsh/Git] Add more aliases for `hub` (see `zsh/git.zsh` for the full list).
+* [Zsh/Rust] Add `cic` to install from the current path.
+* [Zsh/Rust] Add `crr` for `cargo run --release`
+* [Zsh/Rust] Add `ce[r]` for `cargo embed [--release]`
 
 ### Changed
 
 * [home-manager/screen] Install `screen` when enabling the module.
 * [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
     `code`.
-* [Zsh/Rust] Add `cic` to install from the current path.
+* [Zsh/Rust] Update `cs` and `csr` to the new `cargo-binutils` interface
 * [ranger/*] `E` now opens the current directory with `codium` instead of
     `code`.
 * [Example] Reorganise the file layout and the sections inside the files.
