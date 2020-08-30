@@ -11,7 +11,7 @@ alias bsdi='freebsd-update install'
 # Ports
 alias pfu='portsnap fetch update'
 alias pm='portmaster -d'
-alias pma='portmaster -ad -x tmux'
+alias pma='portmaster -ad'
 alias pmo='portmaster -od'
 alias pmc='portmaster --clean-distfiles --clean-packages -y'
 

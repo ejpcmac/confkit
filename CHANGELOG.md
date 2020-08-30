@@ -24,6 +24,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [home-manager/screen] Install `screen` when enabling the module.
 * [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
     `code`.
+* [Zsh/FreeBSD] Remove Tmux exclusion from `pma`
 * [Zsh/Rust] Update `cs` and `csr` to the new `cargo-binutils` interface
 * [ranger/*] `E` now opens the current directory with `codium` instead of
     `code`.
