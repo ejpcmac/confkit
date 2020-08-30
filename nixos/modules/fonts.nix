@@ -1,0 +1,55 @@
+####### Configuration for the fonts ############################################
+##                                                                            ##
+## * Enable the default fonts                                                 ##
+## * Optionally install more fonts                                            ##
+## * Enable per-font rendering defaults via fontconfig-penultimate            ##
+## * Enable embedded bitmaps for fonts like Calibri                           ##
+##                                                                            ##
+################################################################################
+
+{ config, lib, pkgs, ... }:
+
+let
+  inherit (lib) mkEnableOption mkOption mkIf types;
+  cfg = config.confkit.fonts;
+in
+
+{
+  options.confkit.fonts = {
+    enable = mkEnableOption "the fonts configuration from confkit";
+
+    installFonts = mkOption {
+      type = types.bool;
+      default = true;
+      example = false;
+      description = "Wether to install some fonts.";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    fonts = {
+      enableDefaultFonts = true;
+
+      fonts = with pkgs; mkIf cfg.installFonts [
+        carlito # Compatible with Calibri.
+        eb-garamond
+        fira
+        fira-code
+        lato
+        libertine
+        noto-fonts
+        opensans-ttf
+        source-code-pro
+        source-sans-pro
+        source-serif-pro
+        symbola
+      ];
+
+      fontconfig = {
+        includeUserConf = false;
+        penultimate.enable = true; # Per-font rendering defaults.
+        useEmbeddedBitmaps = true; # Useful for fonts like Calibri.
+      };
+    };
+  };
+}

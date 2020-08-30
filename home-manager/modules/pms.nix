@@ -37,8 +37,7 @@ in
       }
     ];
 
-    home.packages = with pkgs; [ pms ];
-
+    home.packages = [ pkgs.pms ];
     xdg.configFile."pms/pms.conf".source = ../../misc/pms_bepo.conf;
   };
 }

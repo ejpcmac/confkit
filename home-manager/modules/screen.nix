@@ -17,6 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.screen ];
     home.file.".screenrc".source = ../../misc/screenrc;
   };
 }

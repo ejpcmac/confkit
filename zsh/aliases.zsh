@@ -27,7 +27,7 @@ alias ect='emacsclient --tty'
 # Miscellanous
 alias ra='ranger'
 alias sra='sudo ranger'
-alias e='code .'
+alias e='codium .'
 alias wn='watch -n 1 nmcli'
 alias di='diceware --fr -s 8'
 
