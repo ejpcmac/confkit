@@ -26,6 +26,29 @@ alias sbnors="sudo su -c \"\
     nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch\""
 
+# nixos-container
+alias ncl='nixos-container list'
+alias ncc='nixos-container create'
+alias ncd='nixos-container destroy'
+alias ncs='nixos-container status'
+alias ncst='nixos-container start'
+alias ncsp='nixos-container stop'
+alias nclo='nixos-container login'
+alias ncrlo='nixos-container root-login'
+alias ncr='nixos-container run'
+alias ncip='nixos-container show-ip'
+alias ncu='nixos-container update'
+
+# sudo nixos-container operations
+alias sncc='sudo nixos-container create'
+alias sncd='sudo nixos-container destroy'
+alias sncst='sudo nixos-container start'
+alias sncsp='sudo nixos-container stop'
+alias snclo='sudo nixos-container login'
+alias sncrlo='sudo nixos-container root-login'
+alias sncr='sudo nixos-container run'
+alias sncu='sudo nixos-container update'
+
 # home-manager
 alias h='home-manager'
 alias hb='home-manager build'
