@@ -3,8 +3,8 @@
 ## * Configure the prompt to be blue in Nix shells                            ##
 ## * Optionally enable Oh My Zsh with nix-shell and sudo plugins              ##
 ## * Use the Bazik Oh My Zsh theme from confkit                               ##
-## * Provide the confkit.zsh.plugins configuration option to select which     ##
-##   plugins from confkit/zsh are to be installed $HOME/.zsh                  ##
+## * Provide the confkit.prgorams.zsh.plugins configuration option to select  ##
+##   which plugins from confkit/zsh are to be installed $HOME/.zsh            ##
 ##                                                                            ##
 ################################################################################
 
@@ -13,11 +13,11 @@
 let
   inherit (builtins) readFile listToAttrs;
   inherit (lib) mkOption mkEnableOption mkIf mkDefault mkMerge types;
-  cfg = config.confkit.zsh;
+  cfg = config.confkit.programs.zsh;
 in
 
 {
-  options.confkit.zsh = {
+  options.confkit.programs.zsh = {
     enable = mkEnableOption "the confkit home configuration for Zsh";
 
     plugins = mkOption {
@@ -44,7 +44,7 @@ in
     {
       programs.zsh = {
         enable = true;
-        initExtra = readFile ../../zsh/config/home_init.zsh;
+        initExtra = readFile ../../../zsh/config/home_init.zsh;
 
         oh-my-zsh = mkIf cfg.ohMyZsh {
           enable = true;
@@ -56,14 +56,14 @@ in
 
       home.file = mkIf cfg.ohMyZsh {
         ".zsh-custom/themes/bazik.zsh-theme".source =
-          ../../zsh/themes/bazik.zsh-theme;
+          ../../../zsh/themes/bazik.zsh-theme;
       };
     }
 
     {
       home.file = listToAttrs (map (plugin: {
         name = ".zsh/${plugin}.zsh";
-        value.source = ../../zsh + "/${plugin}.zsh";
+        value.source = ../../../zsh + "/${plugin}.zsh";
       }) cfg.plugins);
     }
   ]);

@@ -10,7 +10,7 @@
 {
   imports = [ ./.. ];
 
-  confkit.zsh = {
+  confkit.programs.zsh = {
     enable = true;
     plugins = [ "aliases" "nix" ];
   };

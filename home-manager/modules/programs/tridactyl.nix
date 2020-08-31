@@ -9,16 +9,16 @@
 let
   inherit (builtins) readFile;
   inherit (lib) mkOption mkEnableOption mkIf optionalString types literalExample;
-  cfg = config.confkit.tridactyl;
+  cfg = config.confkit.programs.tridactyl;
 in
 
 {
-  options.confkit.tridactyl = {
+  options.confkit.programs.tridactyl = {
     enable = mkEnableOption "the confkit home configuration for Tridactyl";
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
@@ -43,7 +43,7 @@ in
     ];
 
     xdg.configFile."tridactyl/tridactylrc".text =
-      readFile ../../misc/tridactylrc_bepo
+      readFile ../../../misc/tridactylrc_bepo
       + optionalString (!isNull cfg.editor) "\nset editorcmd ${cfg.editor}";
   };
 }

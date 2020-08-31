@@ -17,13 +17,13 @@ let
   inherit (lib) mkEnableOption mkIf mkDefault;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.shell;
+  cfg = config.confkit.features.shell;
 
   nixos-rebuild = if stdenv.isDarwin then "darwin-rebuild" else "nixos-rebuild";
 in
 
 {
-  options.confkit.shell = {
+  options.confkit.features.shell = {
     enable = mkEnableOption "the shell configuration from confkit";
   };
 

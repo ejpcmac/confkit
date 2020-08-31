@@ -1,13 +1,15 @@
 {
   imports = [
     ../common/keyboard.nix
-    ./modules/git.nix
-    ./modules/gpg.nix
+
     ./modules/identity.nix
-    ./modules/pms.nix
-    ./modules/screen.nix
-    ./modules/tridactyl.nix
-    ./modules/zathura.nix
-    ./modules/zsh.nix
+
+    ./modules/programs/git.nix
+    ./modules/programs/gpg.nix
+    ./modules/programs/pms.nix
+    ./modules/programs/screen.nix
+    ./modules/programs/tridactyl.nix
+    ./modules/programs/zathura.nix
+    ./modules/programs/zsh.nix
   ];
 }

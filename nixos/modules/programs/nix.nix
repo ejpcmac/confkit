@@ -13,11 +13,11 @@ let
   inherit (lib) mkEnableOption mkIf mkDefault optionalString;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.nix;
+  cfg = config.confkit.programs.nix;
 in
 
 {
-  options.confkit.nix = {
+  options.confkit.programs.nix = {
     enable = mkEnableOption "the confkit configuration for Nix";
   };
 

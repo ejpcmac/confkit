@@ -11,12 +11,12 @@
 
 let
   inherit (lib) mkEnableOption mkIf mkDefault;
-  cfg = config.confkit.gpg;
+  cfg = config.confkit.programs.gpg;
   identity = config.confkit.identity;
 in
 
 {
-  options.confkit.gpg = {
+  options.confkit.programs.gpg = {
     enable = mkEnableOption "the confkit home configuration for GPG";
   };
 

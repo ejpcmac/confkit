@@ -1,13 +1,15 @@
 {
   imports = [
     ../common/keyboard.nix
-    ./modules/fonts.nix
-    ./modules/nix.nix
-    ./modules/ranger.nix
-    ./modules/shell.nix
-    ./modules/tmux.nix
-    ./modules/utilities.nix
-    ./modules/vim.nix
-    ./modules/zsh.nix
+
+    ./modules/features/fonts.nix
+    ./modules/features/shell.nix
+    ./modules/features/utilities.nix
+
+    ./modules/programs/nix.nix
+    ./modules/programs/ranger.nix
+    ./modules/programs/tmux.nix
+    ./modules/programs/vim.nix
+    ./modules/programs/zsh.nix
   ];
 }

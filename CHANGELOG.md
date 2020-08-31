@@ -12,6 +12,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [Zsh/Nix] Add aliases for `nixos-container`.
 
+### Changed
+
+* [NixOS] Move `confkit.{fonts,shell,utilities}` under `confkit.features`.
+* [NixOS] Move `confkit.{nix,ranger,tmux,vim,zsh}` under `confkit.programs`.
+* [home-manager] Move `confkit.{git,gpg,pms,screen,tridactyl,zathura,zsh}` under
+    `confkit.programs`.
+* [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
+    `confkit.keyboard.layout`, wich can for now be set to `null` or `"bépo"`.
+
 ## [0.0.10] - 2020-08-30
 
 ### Added

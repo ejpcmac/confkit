@@ -10,16 +10,16 @@
 let
   inherit (builtins) readFile;
   inherit (lib) mkOption mkEnableOption mkIf types;
-  cfg = config.confkit.zathura;
+  cfg = config.confkit.programs.zathura;
 in
 
 {
-  options.confkit.zathura = {
+  options.confkit.programs.zathura = {
     enable = mkEnableOption "the confkit home configuration for Zathura";
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
@@ -32,7 +32,7 @@ in
 
     programs.zathura = {
       enable = true;
-      extraConfig = mkIf cfg.bepo (readFile ../../misc/zathurarc_bepo);
+      extraConfig = mkIf cfg.bepo (readFile ../../../misc/zathurarc_bepo);
     };
   };
 }

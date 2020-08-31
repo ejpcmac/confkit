@@ -16,11 +16,11 @@ let
   inherit (lib) mkEnableOption mkIf mkDefault optionalString;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.zsh;
+  cfg = config.confkit.programs.zsh;
 in
 
 {
-  options.confkit.zsh = {
+  options.confkit.programs.zsh = {
     enable = mkEnableOption "the confkit configuration for Zsh";
   };
 
@@ -32,7 +32,7 @@ in
         enable = true;
         enableCompletion = mkDefault true;
         syntaxHighlighting.enable = mkDefault true;
-        promptInit = mkDefault (readFile ../../zsh/config/prompt.zsh);
+        promptInit = mkDefault (readFile ../../../zsh/config/prompt.zsh);
 
         interactiveShellInit = ''
           # Disable beeps.
