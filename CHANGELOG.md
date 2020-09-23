@@ -20,6 +20,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     `confkit.programs`.
 * [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
     `confkit.keyboard.layout`, wich can for now be set to `null` or `"bépo"`.
+* [Zsh/direnv] Do not setup the shell hook as using the `programs.direnv`
+    options from `home-manager` is now preferred.
+* [Zsh/direnv] Make `dl` generic and straightforward by listing allowed `.envrc`
+    directly from `$HOME/.local/share/direnv/allow`.
+* [Zsh/direnv] Update `nixify` to just `use nix` in the project `.envrc`. Please
+    use [`nix-direnv`](https://github.com/nix-community/nix-direnv) to enable
+    cached shells globally.
+* [Zsh/direnv] Remove `drs` and `dcl` aliases which are now obsolete.
 
 ## [0.0.10] - 2020-08-30
 
