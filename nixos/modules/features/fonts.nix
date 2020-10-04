@@ -11,11 +11,11 @@
 
 let
   inherit (lib) mkEnableOption mkOption mkIf types;
-  cfg = config.confkit.fonts;
+  cfg = config.confkit.features.fonts;
 in
 
 {
-  options.confkit.fonts = {
+  options.confkit.features.fonts = {
     enable = mkEnableOption "the fonts configuration from confkit";
 
     installFonts = mkOption {

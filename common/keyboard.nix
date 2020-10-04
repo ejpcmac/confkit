@@ -9,16 +9,17 @@
 
 let
   inherit (lib) mkOption types;
+  layouts = types.enum [ null "bépo" ];
 in
 
 {
   options.confkit.keyboard = {
-    bepo = mkOption {
-      type = types.bool;
-      default = false;
-      example = true;
+    layout = mkOption {
+      type = layouts;
+      default = null;
+      example = "bépo";
       description = ''
-        Wether to use keybindings optimised for BÉPO keyboards by default.
+        The keyboard layout to use for keybindings optimisation.
       '';
     };
   };

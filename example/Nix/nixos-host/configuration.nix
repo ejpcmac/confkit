@@ -35,19 +35,24 @@
   ############################################################################
 
   confkit = {
-    fonts.enable = true;
-    nix.enable = true;
-    ranger.enable = true;
-    shell.enable = true;
-    tmux.enable = true;
-    utilities.enable = true;
-    vim.enable = true;
-    zsh.enable = true;
+    features = {
+      fonts.enable = true;
+      shell.enable = true;
+      utilities.enable = true;
+    };
+
+    programs = {
+      nix.enable = true;
+      ranger.enable = true;
+      tmux.enable = true;
+      vim.enable = true;
+      zsh.enable = true;
+    };
 
     # If you are typing on a BÉPO keyboard, you might want to enable this
     # option. It will automatically enable BÉPO-optimised keybindings for
     # ranger, Tmux and Vim.
-    # keyboard.bepo = true;
+    # keyboard.layout = "bépo";
   };
 
   ############################################################################

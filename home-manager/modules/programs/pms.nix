@@ -11,16 +11,16 @@
 
 let
   inherit (lib) mkOption mkEnableOption mkIf types;
-  cfg = config.confkit.pms;
+  cfg = config.confkit.programs.pms;
 in
 
 {
-  options.confkit.pms = {
+  options.confkit.programs.pms = {
     enable = mkEnableOption "the confkit home configuration for pms";
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
@@ -38,6 +38,6 @@ in
     ];
 
     home.packages = [ pkgs.pms ];
-    xdg.configFile."pms/pms.conf".source = ../../misc/pms_bepo.conf;
+    xdg.configFile."pms/pms.conf".source = ../../../misc/pms_bepo.conf;
   };
 }

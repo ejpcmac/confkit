@@ -6,6 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.11] - 2020-10-04
+
+### Added
+
+* [Zsh/Nix] Add aliases for `nixos-container`.
+
+### Changed
+
+* [NixOS] Move `confkit.{fonts,shell,utilities}` under `confkit.features`.
+* [NixOS] Move `confkit.{nix,ranger,tmux,vim,zsh}` under `confkit.programs`.
+* [home-manager] Move `confkit.{git,gpg,pms,screen,tridactyl,zathura,zsh}` under
+    `confkit.programs`.
+* [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
+    `confkit.keyboard.layout`, wich can for now be set to `null` or `"bépo"`.
+* [Zsh/direnv] Do not setup the shell hook as using the `programs.direnv`
+    options from `home-manager` is now preferred.
+* [Zsh/direnv] Make `dl` generic and straightforward by listing allowed `.envrc`
+    directly from `$HOME/.local/share/direnv/allow`.
+* [Zsh/direnv] Update `nixify` to just `use nix` in the project `.envrc`. Please
+    use [`nix-direnv`](https://github.com/nix-community/nix-direnv) to enable
+    cached shells globally.
+* [Zsh/direnv] Remove `drs` and `dcl` aliases which are now obsolete.
+
 ## [0.0.10] - 2020-08-30
 
 ### Added
@@ -16,16 +39,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Git] Add `gi` for `git init` and `gsa` for `git submodule add`.
 * [Zsh/Git] Add more aliases for `hub` (see `zsh/git.zsh` for the full list).
 * [Zsh/Rust] Add `cic` to install from the current path.
-* [Zsh/Rust] Add `crr` for `cargo run --release`
-* [Zsh/Rust] Add `ce[r]` for `cargo embed [--release]`
+* [Zsh/Rust] Add `crr` for `cargo run --release`.
+* [Zsh/Rust] Add `ce[r]` for `cargo embed [--release]`.
 
 ### Changed
 
 * [home-manager/screen] Install `screen` when enabling the module.
 * [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
     `code`.
-* [Zsh/FreeBSD] Remove Tmux exclusion from `pma`
-* [Zsh/Rust] Update `cs` and `csr` to the new `cargo-binutils` interface
+* [Zsh/FreeBSD] Remove Tmux exclusion from `pma`.
+* [Zsh/Rust] Update `cs` and `csr` to the new `cargo-binutils` interface.
 * [ranger/*] `E` now opens the current directory with `codium` instead of
     `code`.
 * [Example] Reorganise the file layout and the sections inside the files.
@@ -487,6 +510,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/ejpcmac/confkit/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/ejpcmac/confkit/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/ejpcmac/confkit/compare/v0.0.7...v0.0.8

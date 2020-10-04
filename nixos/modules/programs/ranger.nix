@@ -21,16 +21,16 @@
 
 let
   inherit (lib) mkOption mkEnableOption mkIf types;
-  cfg = config.confkit.ranger;
+  cfg = config.confkit.programs.ranger;
 in
 
 {
-  options.confkit.ranger = {
+  options.confkit.programs.ranger = {
     enable = mkEnableOption "the confkit configuration for ranger";
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
@@ -43,8 +43,8 @@ in
       etc = {
         "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
         "ranger/rc.conf".source = if cfg.bepo
-                                  then ../../ranger/bepo_rc.conf
-                                  else ../../ranger/rc.conf;
+                                  then ../../../ranger/bepo_rc.conf
+                                  else ../../../ranger/rc.conf;
       };
 
       # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf

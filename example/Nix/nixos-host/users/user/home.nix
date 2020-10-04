@@ -22,6 +22,8 @@
   ############################################################################
 
   confkit = {
+    # keyoard.layout = "bépo";
+
     identity = {
       # TODO: Update your information.
       name = "John Doe";
@@ -29,30 +31,32 @@
       # gpgKey = "<some fpr>";
     };
 
-    git.enable = true;
-    # gpg.enable = true;
-    # screen.enable = true;
+    programs = {
+      git.enable = true;
+      # gpg.enable = true;
+      # screen.enable = true;
 
-    zsh = {
-      enable = true;
-      plugins = [
-        "aliases"
-        # "asdf"
-        # "ceedling"
-        # "dev"
-        # "direnv"
-        # "django"
-        # "docker"
-        # "elixir"
-        "git"
-        # "haskell"
-        # "imagemagick"
-        "nix"
-        # "ocaml"
-        # "rust"
-        # "xen"
-        # "zfs"
-      ];
+      zsh = {
+        enable = true;
+        plugins = [
+          "aliases"
+          # "asdf"
+          # "ceedling"
+          # "dev"
+          # "direnv"
+          # "django"
+          # "docker"
+          # "elixir"
+          "git"
+          # "haskell"
+          # "imagemagick"
+          "nix"
+          # "ocaml"
+          # "rust"
+          # "xen"
+          # "zfs"
+        ];
+      };
     };
   };
 

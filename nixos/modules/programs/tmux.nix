@@ -19,20 +19,20 @@ let
   inherit (lib.trivial) release;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.tmux;
+  cfg = config.confkit.programs.tmux;
 
   tmuxConfig = if cfg.bepo
-               then readFile ../../misc/tmux_bepo.conf
-               else readFile ../../misc/tmux.conf;
+               then readFile ../../../misc/tmux_bepo.conf
+               else readFile ../../../misc/tmux.conf;
 in
 
 {
-  options.confkit.tmux = {
+  options.confkit.programs.tmux = {
     enable = mkEnableOption "the confkit configuration for Tmux";
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };

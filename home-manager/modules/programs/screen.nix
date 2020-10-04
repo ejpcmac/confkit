@@ -8,16 +8,16 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.confkit.screen;
+  cfg = config.confkit.programs.screen;
 in
 
 {
-  options.confkit.screen = {
+  options.confkit.programs.screen = {
     enable = mkEnableOption "the confkit home configuration for screen";
   };
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.screen ];
-    home.file.".screenrc".source = ../../misc/screenrc;
+    home.file.".screenrc".source = ../../../misc/screenrc;
   };
 }

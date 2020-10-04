@@ -8,11 +8,11 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.confkit.utilities;
+  cfg = config.confkit.features.utilities;
 in
 
 {
-  options.confkit.utilities = {
+  options.confkit.features.utilities = {
     enable = mkEnableOption {
       description = "Wether to install a bunch of command-line utilities";
     };

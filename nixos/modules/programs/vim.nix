@@ -19,17 +19,17 @@ let
   inherit (lib) mkEnableOption mkOption mkIf mkDefault types optionalString;
   inherit (pkgs) stdenv;
 
-  cfg = config.confkit.vim;
+  cfg = config.confkit.programs.vim;
 
   vimConfig =
-    readFile ../../vim/vimrc
+    readFile ../../../vim/vimrc
     # Embed the color theme in the configuration.
-    + readFile ../../vim/colors/wellsokai.vim
-    + optionalString cfg.bepo (readFile ../../vim/bepo.vim);
+    + readFile ../../../vim/colors/wellsokai.vim
+    + optionalString cfg.bepo (readFile ../../../vim/bepo.vim);
 in
 
 {
-  options.confkit.vim = {
+  options.confkit.programs.vim = {
     enable = mkEnableOption "the confkit configuration for Vim";
 
     defaultEditor = mkOption {
@@ -41,7 +41,7 @@ in
 
     bepo = mkOption {
       type = types.bool;
-      default = config.confkit.keyboard.bepo;
+      default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
