@@ -42,7 +42,6 @@ in
         source-code-pro
         source-sans-pro
         source-serif-pro
-        symbola
       ];
 
       fontconfig = {
