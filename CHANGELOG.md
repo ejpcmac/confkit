@@ -20,11 +20,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* [NixOS] Move `confkit.{fonts,shell,utilities}` under `confkit.features`.
-* [NixOS] Move `confkit.{nix,ranger,tmux,vim,zsh}` under `confkit.programs`.
-* [home-manager] Move `confkit.{git,gpg,pms,screen,tridactyl,zathura,zsh}` under
+* **BREAKING**: [NixOS] Move `confkit.{fonts,shell,utilities}` under
+    `confkit.features`.
+* **BREAKING**: [NixOS] Move `confkit.{nix,ranger,tmux,vim,zsh}` under
     `confkit.programs`.
-* [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
+* **BREAKING**: [home-manager] Move
+    `confkit.{git,gpg,pms,screen,tridactyl,zathura,zsh}` under
+    `confkit.programs`.
+* **BREAKING**: [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
     `confkit.keyboard.layout`, wich can for now be set to `null` or `"bépo"`.
 * [Zsh/direnv] Do not setup the shell hook as using the `programs.direnv`
     options from `home-manager` is now preferred.
@@ -33,6 +36,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/direnv] Update `nixify` to just `use nix` in the project `.envrc`. Please
     use [`nix-direnv`](https://github.com/nix-community/nix-direnv) to enable
     cached shells globally.
+
+### Removed
+
 * [Zsh/direnv] Remove `drs` and `dcl` aliases which are now obsolete.
 
 ## [0.0.10] - 2020-08-30
@@ -50,13 +56,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* **BREAKING**: [Zsh/aliases] `e` Now opens the current directory with `codium`
+    instead of `code`.
+* **BREAKING**: [ranger/*] `E` now opens the current directory with `codium`
+    instead of `code`.
 * [home-manager/screen] Install `screen` when enabling the module.
-* [Zsh/aliases] `e` Now opens the current directory with `codium` instead of
-    `code`.
 * [Zsh/FreeBSD] Remove Tmux exclusion from `pma`.
 * [Zsh/Rust] Update `cs` and `csr` to the new `cargo-binutils` interface.
-* [ranger/*] `E` now opens the current directory with `codium` instead of
-    `code`.
 * [Example] Reorganise the file layout and the sections inside the files.
 * [Example] Use Chrony to sync the time instead of the NTP reference
     implementation.
@@ -286,39 +292,40 @@ You have to update it to:
 
 ### Changed
 
-* [Nix] Convert to a NixOS / home-manager module system. All modules now need to
-    be enabled by setting `confkit.<module>.enable = true;`. These new
-    configuration options are made available by importing `confkit/nixos` or
-    `confkit/home-manager`.
-* [NixOS/environment] Rename to shell.
-* [NixOS/shell] Do not pre-build the configuration when running `nors`. The
-    previous behaviour is now usable through the `bnors` alias, available in the
-    Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix" ];` to your home
-    conifguration.
+* **BREAKING**: [Nix] Convert to a NixOS / home-manager module system. All
+    modules now need to be enabled by setting `confkit.<module>.enable = true;`.
+    These new configuration options are made available by importing
+    `confkit/nixos` or `confkit/home-manager`.
+* **BREAKING**: [NixOS/environment] Rename to shell.
+* **BREAKING**: [NixOS/shell] Do not pre-build the configuration when running
+    `nors`. The previous behaviour is now usable through the `bnors` alias,
+    available in the Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix"
+    ];` to your home conifguration.
+* **BREAKING**: [home-manager/Zsh] Make Oh My Zsh an opt-in through
+  `confkit.zsh.ohMyZsh`.
+* **BREAKING**: [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be
+    in `/config` instead of `~/config`.
+* **BREAKING**: [Zsh/Nix] Do not pre-build the configuration when running
+    `snors`. The previous behaviour is usable through the `sbnors` alias.
 * [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
 * [NixOS/Zsh] Enable syntax highlighting.
 * [home-manager/Git] Make `programs.git.extraConfig` more overrideable.
 * [home-manager/Git] Enable commit signing by default only when the confkit GPG
     module is enabled.
 * [home-manager/Zsh] Make the prompt work without Oh My Zsh.
-* [home-manager/Zsh] Make Oh My Zsh an opt-in through `confkit.zsh.ohMyZsh`.
 * [home-manager/root] Use the `confkit.zsh` module.
-* [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be in `/config`
-    instead of `~/config`.
-* [Zsh/Nix] Do not pre-build the configuration when running `snors`. The
-    previous behaviour is usable through the `sbnors` alias.
 * [Example] Simplify and update the example.
 * [Example] Use the `home-manager` NixOS module.
 
 ### Removed
 
-* [Nix] Remove the `confkit.modules.*` modules from `confkit/default.nix` since
-    they are not needed for the new module system.
-* [Nix] Remove the `confkit.file` function from `confkit/default.nix` since all
-    installed files are now handled by the new configuration options from the
-    NixOS and `home-manager` modules.
-* [GPG] Remove `misc/gpg.conf` since it has been converted to a Nix module in
-    `home-manager/modules/gpg.nix`.
+* **BREAKING**: [Nix] Remove the `confkit.modules.*` modules from
+    `confkit/default.nix` since they are not needed for the new module system.
+* **BREAKING**: [Nix] Remove the `confkit.file` function from
+    `confkit/default.nix` since all installed files are now handled by the new
+    configuration options from the NixOS and `home-manager` modules.
+* **BREAKING**: [GPG] Remove `misc/gpg.conf` since it has been converted to a
+    Nix module in `home-manager/modules/gpg.nix`.
 * [Zsh/config/init.zsh] Remove as the minimum needed has been integrated in the
     `confkit.zsh` NixOS module.
 * [Zsh/config/macos.zsh] Remove as it has been integrated in the `confkit.zsh`
@@ -337,17 +344,19 @@ You have to update it to:
 
 ### Changed
 
-* [Nix/Environment] Do not create `/run/user/0` before to rebuild in `nors`.
-* [Zsh/Nix] Do create `/run/user/0` before to rebuild in `snors`. This behaviour
-    was here for a personal `TMPDIR` configuration, which I do not need anymore.
-    Removing this also follows my will to avoid personal configuration in
-    `confkit`.
-* [ranger] Make the BÉPO configuration on par with the QWERTY/AZERTY one, mostly
-    by adding and converting new shortcuts from upstream `rc.conf`. One notable
-    change : `<ENTER>` now behaves as `r`, opening directories and files.
-    Renaming from scratch is done with `hé` (like `cw` in the standard one).
-* [Tmux] Remap the pane navigation keybindings for QWERTY/AZERTY. The previous
-    one was optimised for BÉPO. The BÉPO keybindings are now in
+* **BREAKING**: [Nix/Environment] Do not create `/run/user/0` before to rebuild
+    in `nors`.
+* **BREAKING**: [Zsh/Nix] Do create `/run/user/0` before to rebuild in `snors`.
+    This behaviour was here for a personal `TMPDIR` configuration, which I do
+    not need anymore. Removing this also follows my will to avoid personal
+    configuration in `confkit`.
+* **BREAKING**: [ranger] Make the BÉPO configuration on par with the
+    QWERTY/AZERTY one, mostly by adding and converting new shortcuts from
+    upstream `rc.conf`. One notable change : `<ENTER>` now behaves as `r`,
+    opening directories and files. Renaming from scratch is done with `hé` (like
+    `cw` in the standard one).
+* **BREAKING**: [Tmux] Remap the pane navigation keybindings for QWERTY/AZERTY.
+    The previous one was optimised for BÉPO. The BÉPO keybindings are now in
     `tmux_bepo.conf`.
 
 ### Removed
@@ -406,13 +415,13 @@ You have to update it to:
 
 ### Changed
 
+* **BREAKING**: [Zsh/direnv] Make `dl` look at `~/Informatique` instead of
+    `~/Programmes` and add a comment to make clear it is provided as an example.
+* **BREAKING**: [ranger/bepo] Open the current directory with Emacs on `e`.
 * [Nix/Environment] Create the `$TMPDIR` before to rebuild in `nors`.
 * [Zsh/Nix] Create the `$TMPDIR` before to rebuild in `snors`.
-* [Zsh/direnv] Make `dl` look at `~/Informatique` instead of `~/Programmes` and
-    add a comment to make clear it is provided as an example.
 * [Zsh/Rust] Change `cia`: remove `cargo-vendor`, `cargo-geiger` and
     `cargo-audit`, add `cargo-crev`.
-* [ranger/bepo] Open the current directory with Emacs on `e`.
 * [Tmux] Use the color 231 instead of 15 for white to avoid issue with terminal
     theme switches.
 
@@ -438,13 +447,13 @@ You have to update it to:
 
 ### Changed
 
-* [Nix/Tmux] Install tmuxinator automatically.
-* [Zsh/Aliases] Change `oc` and `ocd` to use `~/config` instead of
+* **BREAKING**: [Zsh/Aliases] Change `oc` and `ocd` to use `~/config` instead of
     `~/config_files`.
+* **BREAKING**: [ranger] Rename `ranger/rc.conf` to `ranger/bepo_rc.conf`.
+* **BREAKING**: [ranger/bepo] Use `\\` to unmount as user, `\!` as root.
+* [Nix/Tmux] Install tmuxinator automatically.
 * [Zsh/dev] Update `pgst` to put the socket in $PGDATA.
 * [Zsh/Rust] Add cargo-generate and cargo-binutils installation to `cia`.
-* [ranger] Rename `ranger/rc.conf` to `ranger/bepo_rc.conf`.
-* [ranger/bepo] Use `\\` to unmount as user, `\!` as root.
 
 ### Fixed
 
@@ -471,20 +480,21 @@ You have to update it to:
 
 ### Changed
 
-* [Zsh/zshrc] Automatically choose the editor in the out-of-Nix system `zshrc`.
-    The default editor is Emacs, using the deamon. If it is not available or the
-    daemon is not started, falls back to vim, then nano, then ee, then vi. For
-    this to work, `scripts/open-editor` must be installed in `/usr/bin`.
-* [Zsh/Aliases] Use Emacs to edit the configuration.
-* [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module.
-* [Zsh/Elixir] Update the Nerves aliases to push firmwares.
-* [Tmux] Update the pane navigation to be a bit more Vim-like.
+* **BREAKING**: [Zsh/zshrc] Automatically choose the editor in the out-of-Nix
+    system `zshrc`. The default editor is Emacs, using the deamon. If it is not
+    available or the daemon is not started, falls back to vim, then nano, then
+    ee, then vi. For this to work, `scripts/open-editor` must be installed in
+    `/usr/bin`.
+* **BREAKING**: [Zsh/Aliases] Use Emacs to edit the configuration.
+* **BREAKING**: [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module.
+* **BREAKING**: [Tmux] Update the pane navigation to be a bit more Vim-like.
     * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between
       windows.
+* [Zsh/Elixir] Update the Nerves aliases to push firmwares.
 
 ### Removed
 
-* [Nix/xserver] Remove common configuration.
+* **BREAKING**: [Nix/xserver] Remove common configuration.
 
 ### Fixed
 
