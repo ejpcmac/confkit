@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [Zsh/Rust] Add `cicl` to install from the current path a statically-linked
+    binary, using the `x86_64-unknown-linux-musl` target like in `cbl`.
+
 ### Removed
 
 * [NixOS/fonts] Remove Symbola since it has an unfree license.
