@@ -13,9 +13,21 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Rust] Add `cicl` to install from the current path a statically-linked
     binary, using the `x86_64-unknown-linux-musl` target like in `cbl`.
 
+### Changed
+
+* **BREAKING**: [Zsh/Elixir] Update Distillery aliases for use with Distillery
+    2.1+. This means `mrl[n|p|s|c|ca]` are now `mdrl[n|p|s|c|ca]`—note the
+    added `d`—and call `mix distillery.release*`. An `mrl` alias has been kept
+    for use with the built-in releases from Elixir 1.9+.
+
 ### Removed
 
 * [NixOS/fonts] Remove Symbola since it has an unfree license.
+
+### Fixed
+
+* [Zsh/Elixir] Remove the `--verbose` flag from `mrl` so it works with the
+    built-in `mix release` from Elixir 1.9+.
 
 ## [0.0.11] - 2020-10-04
 

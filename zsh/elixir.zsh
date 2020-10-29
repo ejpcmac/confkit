@@ -62,13 +62,16 @@ alias phx='iex --sname app@localhost -S mix phx.server'
 alias ms='elixir --sname app@localhost -S mix setup'
 alias mrs='elixir --sname app@localhost -S mix reset'
 
+# Releases
+alias mrl='mix release'
+
 # Distillery
-alias mrl='mix release --verbose'
-alias mrln='mix release --verbose --no-tar'
-alias mrlp='mix release --verbose --env=preprod --no-tar'
-alias mrls='mix release --verbose --env=freebsd'
-alias mrlc='mix release.clean'
-alias mrlca='mix release.clean --implode'
+alias mdrl='mix distillery.release --verbose'
+alias mdrln='mix distillery.release --verbose --no-tar'
+alias mdrlp='mix distillery.release --verbose --env=preprod --no-tar'
+alias mdrls='mix distillery.release --verbose --env=freebsd'
+alias mdrlc='mix distillery.release.clean'
+alias mdrlca='mix distillery.release.clean --implode'
 
 # Nerves
 alias mfw='mix firmware'
