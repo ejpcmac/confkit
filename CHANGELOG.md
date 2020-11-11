@@ -240,6 +240,27 @@ instance, let’s say you want to extend the server profile with PostgreSQL:
 }
 ```
 
+#### Bootloader configuration
+
+To ease the configuration for simple bootloader cases, `confkit` provides a new
+`bootloader` feature with higher-level concepts:
+
+```nix
+{
+  confkit = {
+    features = {
+      bootloader = {
+        enable = true;
+        platform = "uefi"; # Can be "uefi" or "bios".
+        bootloader = "systemd-boot"; # Can be "grub" or "systemd-boot".
+        # device = "/dev/sda"; # Needed when using GRUB.
+        # timeout = 1; # <- This is the default value.
+      };
+    };
+  };
+}
+```
+
 ### Added
 
 * [NixOS/Profile] Introduce `confkit.profile`, a module for out-of-the-box
@@ -249,7 +270,8 @@ instance, let’s say you want to extend the server profile with PostgreSQL:
 * [NixOS/Features/Base] Add a `base` feature which make user immutable and use
     Zsh as default shell.
 * [NixOS/Features/Bootloader] Add a `bootloader` feature with an out-of-the-box
-    bootloader configuration.
+    bootloader configuration depending on the platform (BIOS/UEFI) and program
+    (GRUB/systemd-boot) to use.
 * [NixOS/Features/FileSystems] Add a `filesystems` feature which configures base
     system filesystems/subvolumes with ZFS/btrfs. It is also possible to
     opt-in for a root on tmpfs by setting

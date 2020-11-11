@@ -18,15 +18,22 @@ in
     enable = mkEnableOption "the boot configuration from confkit";
 
     platform = mkOption {
-      type = types.enum [ "uefi" ];
+      type = types.enum [ "bios" "uefi" ];
       example = "uefi";
       description = "The firmware platform";
     };
 
     program = mkOption {
-      type = types.enum [ "systemd-boot" ];
+      type = types.enum [ "grub" "systemd-boot" ];
       example = "systemd-boot";
       description = "The bootloader program to use";
+    };
+
+    device = mkOption {
+      type = types.str;
+      default = "";
+      example = "/dev/sdb";
+      description = "The device on which to write the MBR";
     };
 
     timeout = mkOption {
@@ -38,14 +45,33 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.loader = {
-      systemd-boot.enable = cfg.program == "systemd-boot";
-      timeout = cfg.timeout;
+    assertions = [
+      (mkIf (cfg.program == "grub") {
+        assertion = cfg.device != "";
+        message = ''
+          You must set confkit.features.bootloader.device when using GRUB.
+        '';
+      })
 
-      efi = mkIf (cfg.platform == "uefi") {
-        canTouchEfiVariables = mkDefault true;
-        efiSysMountPoint = mkDefault "/boot";
+      (mkIf (cfg.program == "systemd-boot") {
+        assertion = cfg.platform == "uefi";
+        message = ''
+          systemd-boot only works on the UEFI platform.
+            Please set confkit.features.bootloader.platform to "uefi".
+        '';
+      })
+    ];
+
+    boot.loader = {
+      grub = mkIf (cfg.program == "grub") {
+        enable = true;
+        device = cfg.device;
+        efiSupport = cfg.platform == "uefi";
       };
+
+      systemd-boot.enable = cfg.program == "systemd-boot";
+      efi.canTouchEfiVariables = cfg.platform == "uefi";
+      timeout = cfg.timeout;
     };
   };
 }
