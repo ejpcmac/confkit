@@ -8,8 +8,257 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Highlights
+
+This new release brings a lot of new features in the NixOS configuration module,
+as highlighted in the following subsections. See the full changelog after the
+highlights for other minor changes.
+
+#### Configuration profiles
+
+`confkit` now comes with out-of-the-box configuration profiles. You just have to
+describe your machine type and usage to opt-in for the corresponding
+configuration:
+
+```nix
+{
+  confkit = {
+    profile = {
+      # Type can be "physical", "virtual", "container", "laptop".
+      type = [ "physical" "laptop" ];
+
+      # Usage can be "server" or "workstation".
+      usage = [ "workstation" ];
+    };
+  };
+}
+```
+
+See the configurations in `nixos/modules/profile/` for full details. You’ll note
+that the `workstation` usage does not come with a pre-configured desktop
+environment. This is on purpose. Configuration for such environment may come as
+new *features* in future releases.
+
+You can extend these profiles in your own configuration framework by creating a
+conditional configuration module:
+
+```nix
+{ config, lib, pkgs, ... }:
+
+{
+  # Install Firefox on all your workstations.
+  config = lib.mkIf (builtins.elem "workstation" config.confkit.profile.usage) {
+    environment.systemPackages = [ pkgs.firefox ];
+  };
+}
+```
+
+If you have other machine types or usages, you can also register new types and
+usages:
+
+```nix
+{
+  confkit.extensions = {
+    additionalTypes = [ "mainframe" "satellite" ];
+    additionalUsages = [ "home" ];
+  };
+}
+```
+
+You can then define conditional configuration modules like for built-in types
+and usages.
+
+#### Machine info
+
+In addition to configuration profiles, you can also now put relevent information
+about your machine directly in your `confkit` configuration:
+
+```nix
+{
+  confkit = {
+    info = {
+      name = "nixos-host";
+      machineId = "c6dc57dbf4e9384215c6d0e6616d2ff2";
+      location = "kerguelen";
+    };
+  };
+}
+```
+
+If `name` is set, `confkit` configures `networking.hostName` for you. If
+`machineId` is set, `confkit` sets the content of `/etc/machine-id` to it
+declaratively, and also derives `networking.hostId` from its 8 fisrt characters.
+The `location` is currently not used in `confkit` itself, but you can use this
+information in your own configuration framework to perform location-dependant
+configuration, for instance:
+
+```nix
+{ config, lib, pkgs, ... }:
+
+{
+  config = lib.mkIf (config.confkit.info.location == "kerguelen") {
+    location = {
+      latitude = -49.35;
+      longitude = 70.22;
+    };
+
+    time.timeZone = "Indian/Kerguelen";
+  };
+}
+```
+
+#### File systems configuration
+
+In addition to the configuration profiles, `confkit` now ships with a
+configuration for file systems intended for ZFS and btrfs users, inspired by
+Graham Christensen’s [ZFS Datasets for
+NixOS](https://grahamc.com/blog/nixos-on-zfs) article. It is an opt-in feature,
+yet fully integrated with the profiles system, and comes in two flavours :
+*persistent root* and *root on tmpfs*.
+
+The persistent version uses the following layout:
+
+```
+root
+├── local
+│   ├── config (/config) (only on workstations)
+│   ├── nix (/nix)
+│   ├── tmp (/tmp)
+│   └── var
+│       ├── cache (/var/cache)
+│       └── tmp (/var/tmp)
+├── system
+│   ├── ROOT (/)
+│   ├── var (/var)
+│   │   ├── db (/var/db)
+│   │   ├── lib (/var/lib)
+│   │   ├── log (/var/log)
+│   │   └── spool (/var/spool)
+│   └── root (/root)
+└── user
+    └── home (/home)
+```
+
+The `/config` mountpoint only exists in the *workstation* profile, because you
+might prefer to use NixOps to push the configuration on other hosts. `/home` is
+only configured for btrfs as you might want to `zfs set mountpoint=/home` so
+that all its child datasets are manager directly by the ZFS subsystem.
+
+When opting for / on tmpfs, confkit uses the following layout:
+
+```
+root
+├── local
+│   ├── config (/config) (only on workstations)
+│   └── nix (/nix)
+├── system
+│   ├── data
+│   │   ├── systemd (/persist/systemd)
+│   │   ├── journal (/var/log/journal) (no symlink possible)
+│   │   ├── utmp (/persist/utmp)
+│   │   ├── chrony (/persist/chrony) (only on physical machines)
+│   │   ├── sshd (/persist/sshd) (only on servers)
+│   │   ...
+│   └── root (/root)
+└── user
+    └── home (/home)
+```
+
+In this case, each service that needs persistence has its own dataset or
+subvolume in `root/system/data/<service>`. It is generally mounted at
+`/persist/<service>`, and the service configured to use this place. If the
+service cannot be configured, a symlink to this directory / files is created
+using `tmpfiles`. Finally, if the symlink is not an option, the dataset or
+subvolume is mounted at the mandatory location.
+
+This layout is fully integrated with the new `confkit` profile system: each
+profile that configures services that needs persistence also configures the
+relevent datasets. Please note that missing datasets are not created at the
+moment, so you may need to create them yourself.
+
+You can enable this new feature as follows:
+
+```nix
+{ config, lib, pkgs, ... }:
+
+{
+  confkit = {
+    features =
+      fileSystems = {
+        enable = true;  # Enable the configuration for file systems.
+        fs = "zfs";     # Select the file system to use for the OS (ZFS/btrfs).
+
+        # This partition is mounted on /boot. You do not need to set this
+        # option if you use the default value.
+        # bootPartition = "/dev/disk/by-label/boot";
+
+        # By default, confkit assumes the system zpool name is the host name,
+        # but you can override this behaviour.
+        # zfs.zpool = config.networking.hostName;
+
+        # If you are using btrfs, you need to set this option to some value.
+        # btrfs.device = "/dev/disk/by-label/nixos";
+
+        # You can also opt-in for /tmp on tmpfs, or even / on tmpfs.
+        # tmpOnTmpfs = true;
+        # rootOnTmpfs = true;
+      };
+    };
+  };
+}
+```
+
+You can extend this feature by adding new filesystem-agnostic datasets. For
+instance, let’s say you want to extend the server profile with PostgreSQL:
+
+```nix
+{ config, lib, pkgs, ... }:
+
+{
+  config = lib.mkIf (builtins.elem "server" config.confkit.profile.usage) {
+    # Configure PostgreSQL to use a custom data directory.
+    services.postgresql = {
+      enable = true;
+      dataDir = "/persist/postgresql/11";
+    };
+
+    fileSystems = {
+      # Configure a persistent file system for PostgreSQL data.
+      "/persist/postgresql" = pkgs.lib.confkit.mkFs config {
+        # Translated to "<zpool>/system/data/postgresql" for ZFS and
+        # "subvol=/system/data/todo" for btrfs.
+        volumePath = "/system/data/postgresql";
+
+        # These are the default values for other parameters you can pass to
+        # mkFs.
+        # options = [ "noatime" "nodev" "noexec" "nosuid" ];
+        # neededForBoot = false;
+      };
+    };
+  };
+}
+```
+
 ### Added
 
+* [NixOS/Profile] Introduce `confkit.profile`, a module for out-of-the-box
+    configuration profiles.
+* [NixOS/Info] Introduce `confkit.info`, a configuration module to configure the
+    machine name, ID and location.
+* [NixOS/Features/Base] Add a `base` feature which make user immutable and use
+    Zsh as default shell.
+* [NixOS/Features/Bootloader] Add a `bootloader` feature with an out-of-the-box
+    bootloader configuration.
+* [NixOS/Features/FileSystems] Add a `filesystems` feature which configures base
+    system filesystems/subvolumes with ZFS/btrfs. It is also possible to
+    opt-in for a root on tmpfs by setting
+    `confkit.features.filesystems.rootOnTmpfs` to true. In this case,
+    per-application filesystems are configured and mounted under `/persist`.
+    Configuration profiles from `confkit.profile` are aware of these options.
+* [NixOS/Features/Intel] Add an `intel` feature which currently enables CPU
+    microcode updates.
+* [NixOS/Features/ZFS] Add a `zfs` feature which enables auto-snapshotting,
+    auto-scrubbing and install Sanoid/Syncoid.
 * [Zsh/Rust] Add `cicl` to install from the current path a statically-linked
     binary, using the `x86_64-unknown-linux-musl` target like in `cbl`.
 

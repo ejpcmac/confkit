@@ -35,10 +35,36 @@
   ############################################################################
 
   confkit = {
+    info = {
+      name = "nixos-host";
+      machineId = "c6dc57dbf4e9384215c6d0e6616d2ff2";
+      location = "kerguelen";
+    };
+
+    profile = {
+      type = [ "physical" "laptop" ];
+      usage = [ "workstation" ];
+    };
+
     features = {
+      base.enable = true;
       fonts.enable = true;
+      intel.enable = true;
       shell.enable = true;
       utilities.enable = true;
+      zfs.enable = true;
+
+      bootloader = {
+        enable = true;
+        platform = "uefi";
+        program = "systemd-boot";
+      };
+
+      fileSystems = {
+        enable = true;
+        fs = "zfs";
+        rootOnTmpfs = true;
+      };
     };
 
     programs = {
@@ -59,72 +85,15 @@
   ##                         General configuration                          ##
   ############################################################################
 
-  # TODO: Set your timezone, locale, location and console keymap.
+  # TODO: Set your timezone, locale, console keymap and location.
 
   time.timeZone = "Indian/Kerguelen";
   i18n.defaultLocale = "fr_FR.UTF-8";
+  console.keyMap = "fr";
 
   location = {
     latitude = -49.35;
     longitude = 70.22;
-  };
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "fr";
-  };
-
-  users = {
-    mutableUsers = false;
-    defaultUserShell = pkgs.zsh;
-  };
-
-  ############################################################################
-  ##                          Boot & File systems                           ##
-  ############################################################################
-
-  boot = {
-    loader = {
-      # TODO: Uncomment this line if you are using a legacy BIOS system.
-      # grub.device = "/dev/sda";
-
-      # TODO: Uncomment this block if you are using an EFI system.
-      # # Use the systemd-boot EFI boot loader.
-      # systemd-boot.enable = true;
-      # efi.canTouchEfiVariables = true;
-      # efi.efiSysMountPoint = "/boot";
-
-      timeout = 1;
-    };
-
-    cleanTmpDir = true;
-  };
-
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
-
-  ############################################################################
-  ##                                Hardware                                ##
-  ############################################################################
-
-  hardware = {
-    brightnessctl.enable = true;
-    cpu.intel.updateMicrocode = true;
-    pulseaudio.enable = true;
-    u2f.enable = true;
-  };
-
-  sound = {
-    # Enable ALSA sound.
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
-  ############################################################################
-  ##                               Networking                               ##
-  ############################################################################
-
-  networking = {
-    hostName = "nixos-host";
   };
 
   ############################################################################
@@ -133,11 +102,6 @@
 
   services = {
     avahi = { enable = true; nssmdns = true; };
-    chrony.enable = true;
-    pcscd.enable = true;
-    printing.enable = true;
-    smartd = { enable = true; notifications.x11.enable = true; };
-    tlp.enable = true;
 
     redshift = {
       enable = true;
@@ -146,18 +110,10 @@
     };
 
     xserver = {
-      enable = true;
-
       # TODO: Configure.
       # Configure the keyboard layout.
       layout = "fr";
       # xkbVariant = "bepo";
-
-      # Enable touchpad support with natural scrolling.
-      libinput = {
-        enable = true;
-        naturalScrolling = true;
-      };
 
       # Use Plasma 5 as desktop manager.
       displayManager.sddm.enable = true;
@@ -188,7 +144,6 @@
 
   environment.systemPackages = with pkgs; [
     # Utilities
-    ntfs3g
     openssl
     pandoc
     redshift-plasma-applet
