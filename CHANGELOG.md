@@ -10,9 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Highlights
 
-This new release brings a lot of new features in the NixOS configuration module,
-as highlighted in the following subsections. See the full changelog after the
-highlights for other minor changes.
+In addition to supporting NixOS 20.09, this new release brings a lot of new
+features in the NixOS configuration module, as highlighted in the following
+subsections. See the full changelog after the highlights for other minor
+changes.
 
 #### Configuration profiles
 
@@ -294,10 +295,16 @@ To ease the configuration for simple bootloader cases, `confkit` provides a new
 
 ### Removed
 
+* [NixOS] Drop support for NixOS 19.09.
 * [NixOS/fonts] Remove Symbola since it has an unfree license.
 
 ### Fixed
 
+* [NixOS/Features/Fonts] Add support to NixOS 20.09 by enabling penultimate only
+    on NixOS 20.03.
+* [NixOS/Programs/Tmux] Fix support on NixOS 20.09 by removing the conditional
+    on using `tmux.extraConfig` which was valid for NixOS 20.03 only. This drops
+    support for NixOS 19.09.
 * [Zsh/Elixir] Remove the `--verbose` flag from `mrl` so it works with the
     built-in `mix release` from Elixir 1.9+.
 
@@ -664,8 +671,6 @@ You have to update it to:
 
 ### Changed
 
-* [Nix/tmux] Add support for NixOS 20.03 by using `tmux.extraConfig`. NixOS
-    19.09 is still supported.
 * [Zsh/ZFS] Set `reservation=1G` when creating a pool with `zpcc`.
 * [Zsh/ZFS] Set `ashift=12` when creating a pool with `zpcc`.
 * [Zsh/ZFS] Add a `recordsize` column to `zl2`.
@@ -674,6 +679,11 @@ You have to update it to:
 
 * [Nix/Utilities] Comment out `vulnix` since one of its dependencies
     (`python-ZODB`) is broken on NixOS 20.03.
+
+### Fixed
+
+* [Nix/tmux] Add support for NixOS 20.03 by using `tmux.extraConfig`. NixOS
+    19.09 is still supported.
 
 ### Security
 

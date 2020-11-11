@@ -2,7 +2,6 @@
 ##                                                                            ##
 ## * Enable the default fonts                                                 ##
 ## * Optionally install more fonts                                            ##
-## * Enable per-font rendering defaults via fontconfig-penultimate            ##
 ## * Enable embedded bitmaps for fonts like Calibri                           ##
 ##                                                                            ##
 ################################################################################
@@ -46,9 +45,10 @@ in
 
       fontconfig = {
         includeUserConf = false;
-        penultimate.enable = true; # Per-font rendering defaults.
         useEmbeddedBitmaps = true; # Useful for fonts like Calibri.
-      };
+      } // (if lib.trivial.release == "20.03" then {
+        penultimate.enable = true; # Per-font rendering defaults.
+      } else {});
     };
   };
 }
