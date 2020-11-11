@@ -139,10 +139,11 @@ root
     └── home (/home)
 ```
 
-The `/config` mountpoint only exists in the *workstation* profile, because you
+The `/config` mountpoint only exists in the `workstation` profile, because you
 might prefer to use NixOps to push the configuration on other hosts. `/home` is
-only configured for btrfs as you might want to `zfs set mountpoint=/home` so
-that all its child datasets are manager directly by the ZFS subsystem.
+only configured for btrfs as for ZFS you might want to `zfs set
+mountpoint=/home` so that all its child datasets are manager directly by the ZFS
+subsystem.
 
 When opting for / on tmpfs, confkit uses the following layout:
 
@@ -183,7 +184,7 @@ You can enable this new feature as follows:
 
 {
   confkit = {
-    features =
+    features = {
       fileSystems = {
         enable = true;  # Enable the configuration for file systems.
         fs = "zfs";     # Select the file system to use for the OS (ZFS/btrfs).
