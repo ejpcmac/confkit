@@ -300,9 +300,9 @@ To ease the configuration for simple bootloader cases, `confkit` provides a new
 
 ### Fixed
 
-* [NixOS/Features/Fonts] Add support to NixOS 20.09 by enabling penultimate only
-    on NixOS 20.03.
-* [NixOS/Programs/Tmux] Fix support on NixOS 20.09 by removing the conditional
+* [NixOS/Features/Fonts] Add support for NixOS 20.09 by enabling penultimate
+    only on NixOS 20.03.
+* [NixOS/Programs/Tmux] Add support for NixOS 20.09 by removing the conditional
     on using `tmux.extraConfig` which was valid for NixOS 20.03 only. This drops
     support for NixOS 19.09.
 * [Zsh/Elixir] Remove the `--verbose` flag from `mrl` so it works with the
