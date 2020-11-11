@@ -47,12 +47,8 @@ in
       tmuxConfig = mkDefault (tmuxConfig + ''
           bind-key -T copy-mode Enter send-keys -X copy-pipe-and-cancel "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace pbcopy"
         '');
-    } else if release == "20.03" then {
-      extraConfig = mkDefault (tmuxConfig + ''
-          bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
-        '');
     } else {
-      extraTmuxConf = mkDefault (tmuxConfig + ''
+      extraConfig = mkDefault (tmuxConfig + ''
           bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
         '');
     });
