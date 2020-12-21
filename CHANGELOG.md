@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* [Zsh/ZFS] Show `canmount` property in `zl2` and `wzl2`.
+
 ### Fixed
 
 * [NixOS/Features/FileSystems] Fix the persistence for Chrony when `rootOnTmpfs`
