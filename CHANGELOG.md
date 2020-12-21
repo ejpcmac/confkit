@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+* [NixOS/Features/FileSystems] Fix the persistence for Chrony when `rootOnTmpfs`
+    is set to `true`. The service from NixOS 20.09 wanted to set some properties
+    to `/var/lib/chrony`, which was a symlink before this fix. As it does not
+    work anymore with a symlink to `/persist/chrony`, we now mount directly the
+    persistence file system to `/var/lib/chrony`.
+
 ## [0.0.12] - 2020-11-11
 
 ### Highlights
@@ -825,6 +835,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[Unreleased]: https://github.com/ejpcmac/confkit/compare/master...develop
 [0.0.12]: https://github.com/ejpcmac/confkit/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/ejpcmac/confkit/compare/v0.0.9...v0.0.10
