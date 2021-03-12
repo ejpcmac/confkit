@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * [Zsh/ZFS] Show `canmount` property in `zl2` and `wzl2`.
+* [Zsh/ZFS] Set the compression to `zstd` in `[s]zpcc`.
 
 ### Fixed
 
