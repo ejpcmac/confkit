@@ -841,7 +841,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[Unreleased]: https://github.com/ejpcmac/confkit/compare/master...develop
+[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
 [0.0.12]: https://github.com/ejpcmac/confkit/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/ejpcmac/confkit/compare/v0.0.9...v0.0.10
