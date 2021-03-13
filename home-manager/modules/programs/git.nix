@@ -44,6 +44,7 @@ in
       };
 
       extraConfig = {
+        init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
         pull.rebase = mkDefault "preserve";
         mergetool.keepBackup = mkDefault false;
