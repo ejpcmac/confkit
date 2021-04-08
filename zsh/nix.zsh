@@ -20,11 +20,17 @@ alias snicrb='sudo nix-channel --rollback'
 
 # NixOS rebuild
 alias snors="sudo nixos-rebuild switch"
+alias snorb="sudo nixos-rebuild boot"
 alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch"
+alias bnorb="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
+    nixos-rebuild boot"
 alias sbnors="sudo su -c \"\
     nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
     nixos-rebuild switch\""
+alias sbnorb="sudo su -c \"\
+    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
+    nixos-rebuild boot\""
 
 # nixos-container
 alias ncl='nixos-container list'

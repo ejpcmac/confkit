@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [NixOS/Features/Shell] Add `norb` as an alias to `nixos-rebuild boot`.
+* [Zsh/Nix] Add `bnorb`, `snorb` and `sbnorb` as equivalent to `bnors`, `snors`
+  and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
+
 ### Changed
 
 * [home-manager/Git] Set the default branch name to `main`.

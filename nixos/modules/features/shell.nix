@@ -59,6 +59,7 @@ in
         # Handy nixos-rebuild aliases
         nor = nixos-rebuild;
         nors = "${nixos-rebuild} switch";
+        norb = "${nixos-rebuild} boot";
 
         # Handy nix-channel aliases
         nic = "nix-channel";
