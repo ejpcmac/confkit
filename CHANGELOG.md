@@ -20,6 +20,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/ZFS] Show `canmount` property in `zl2` and `wzl2`.
 * [Zsh/ZFS] Set the compression to `zstd` in `[s]zpcc`.
 
+### Removed
+
+* [NixOS] Drop support for NixOS 20.03.
+
 ### Fixed
 
 * [NixOS/Features/FileSystems] Fix the persistence for Chrony when `rootOnTmpfs`

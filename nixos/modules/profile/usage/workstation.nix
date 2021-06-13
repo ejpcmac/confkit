@@ -82,9 +82,7 @@ in
 
     hardware = {
       pulseaudio.enable = true;
-    } // (if lib.trivial.release == "20.03" then {
-      u2f.enable = true;
-    } else {});
+    };
 
     sound = {
       # Enable ALSA sound.
