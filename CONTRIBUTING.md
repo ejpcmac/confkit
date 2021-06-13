@@ -1,9 +1,9 @@
 # Contributing to confkit
 
 For branching management, this project uses
-[git-flow](https://github.com/petervanderdoes/gitflow-avh). The `master` branch
-is reserved for releases: the development process occurs on `develop` and
-feature branches. **Please never commit to master.**
+[git-flow](https://github.com/petervanderdoes/gitflow-avh). The `main` branch is
+reserved for releases: the development process occurs on `develop` and feature
+branches. **Please never commit to `main`.**
 
 ## Setup
 

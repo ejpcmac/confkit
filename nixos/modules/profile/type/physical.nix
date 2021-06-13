@@ -23,17 +23,8 @@ in
     ########################################################################
 
     fileSystems = mkIf (fs.enable && fs.rootOnTmpfs) {
-      "/persist/chrony" = mkFs { volumePath = "/system/data/chrony"; };
+      "/var/lib/chrony" = mkFs { volumePath = "/system/data/chrony"; };
     };
-
-    ########################################################################
-    ##                            Persistence                             ##
-    ########################################################################
-
-    systemd.tmpfiles.rules = mkIf fs.rootOnTmpfs [
-      "z /persist/chrony 755 chrony chrony - -"
-      "L+ /var/lib/chrony - - - - /persist/chrony"
-    ];
 
     ########################################################################
     ##                              Services                              ##

@@ -12,6 +12,7 @@
 
 let
   inherit (lib) mkIf;
+  inherit (lib.trivial) release;
 
   hostName = config.networking.hostName;
   layout = config.confkit.keyboard.layout;
@@ -71,7 +72,7 @@ in
     ##                           Kernel modules                           ##
     ########################################################################
 
-    boot = {
+    boot = mkIf (release == "20.09") {
       extraModulePackages = with config.boot.kernelPackages; [ exfat-nofuse ];
       kernelModules = [ "exfat" ];
     };
@@ -82,9 +83,7 @@ in
 
     hardware = {
       pulseaudio.enable = true;
-    } // (if lib.trivial.release == "20.03" then {
-      u2f.enable = true;
-    } else {});
+    };
 
     sound = {
       # Enable ALSA sound.
@@ -119,8 +118,11 @@ in
         # Enable touchpad support with natural scrolling.
         libinput = {
           enable = true;
+        } // (if release == "20.09" then {
           naturalScrolling = true;
-        };
+        } else {
+          touchpad.naturalScrolling = true;
+        });
       };
     };
 

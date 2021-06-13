@@ -46,9 +46,7 @@ in
       fontconfig = {
         includeUserConf = false;
         useEmbeddedBitmaps = true; # Useful for fonts like Calibri.
-      } // (if lib.trivial.release == "20.03" then {
-        penultimate.enable = true; # Per-font rendering defaults.
-      } else {});
+      };
     };
   };
 }

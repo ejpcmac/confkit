@@ -6,6 +6,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.13] - 2021-06-13
+
+### Added
+
+* [NixOS/Features/Shell] Add `norb` as an alias to `nixos-rebuild boot`.
+* [Zsh/Nix] Add `bnorb`, `snorb` and `sbnorb` as equivalent to `bnors`, `snors`
+  and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
+
+### Changed
+
+* [home-manager/Git] Set the default branch name to `main`.
+* [Zsh/ZFS] Show `canmount` property in `zl2` and `wzl2`.
+* [Zsh/ZFS] Set the compression to `zstd` in `[s]zpcc`.
+
+### Removed
+
+* [NixOS] Drop support for NixOS 20.03.
+
+### Fixed
+
+* [NixOS] Add support for NixOS 21.05.
+* [NixOS/Features/FileSystems] Fix the persistence for Chrony when `rootOnTmpfs`
+    is set to `true`. The service from NixOS 20.09 wanted to set some properties
+    to `/var/lib/chrony`, which was a symlink before this fix. As it does not
+    work anymore with a symlink to `/persist/chrony`, we now mount directly the
+    persistence file system to `/var/lib/chrony`.
+
 ## [0.0.12] - 2020-11-11
 
 ### Highlights
@@ -825,6 +852,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.13]: https://github.com/ejpcmac/confkit/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/ejpcmac/confkit/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/ejpcmac/confkit/compare/v0.0.9...v0.0.10
