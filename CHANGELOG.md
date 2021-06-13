@@ -26,6 +26,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+* [NixOS] Add support for NixOS 21.05.
 * [NixOS/Features/FileSystems] Fix the persistence for Chrony when `rootOnTmpfs`
     is set to `true`. The service from NixOS 20.09 wanted to set some properties
     to `/var/lib/chrony`, which was a symlink before this fix. As it does not
