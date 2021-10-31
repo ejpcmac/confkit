@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [Nix/Utilities] Re-add `vulnix` since it works properly on NixOS 21.05.
+
 ## [0.0.13] - 2021-06-13
 
 ### Added
