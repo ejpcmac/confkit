@@ -55,14 +55,12 @@ To make a change, please use this workflow:
     *Note: always open an issue and ask before starting a big feature, to avoid
     it not beeing merged and your time lost.*
 
-3. Work on your feature (don’t forget to write typespecs and tests; you can
-    check your coverage with `mix coveralls.html` and open
-    `cover/excoveralls.html`):
+3. Work on your feature:
 
         # Some work
-        $ git commit -am "My first change"
+        $ git commit -am "feat: add something"
         # Some work
-        $ git commit -am "My second change"
+        $ git commit -am "refactor: change something"
         ...
 
 4. When your feature is ready, feel free to use
@@ -87,3 +85,9 @@ To make a change, please use this workflow:
 
 6. Open a pull request to merge your branch into the `develop` branch on the
     main repository.
+
+## Commit style
+
+This project uses [Conventional
+Commits](https://www.conventionalcommits.org/en/v1.0.0/). Please follow these
+rules when naming your commits.
