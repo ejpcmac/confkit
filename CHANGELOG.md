@@ -14,6 +14,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
+    bepo_afnor`.
 * [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
 
 ## [0.0.13] - 2021-06-13
@@ -22,7 +24,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [NixOS/Features/Shell] Add `norb` as an alias to `nixos-rebuild boot`.
 * [Zsh/Nix] Add `bnorb`, `snorb` and `sbnorb` as equivalent to `bnors`, `snors`
-  and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
+    and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
 
 ### Changed
 

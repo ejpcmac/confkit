@@ -113,7 +113,7 @@ in
         # Configure the keyboard layout if it has been set in
         # confkit.keyboard.layout.
         layout = mkIf (layout == "bépo") "fr";
-        xkbVariant = mkIf (layout == "bépo") "bepo";
+        xkbVariant = mkIf (layout == "bépo") "bepo_afnor";
 
         # Enable touchpad support with natural scrolling.
         libinput = {
