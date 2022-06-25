@@ -2,6 +2,7 @@
 ##                                                                            ##
 ## * Enable TLP                                                               ##
 ## * Install brightnessctl and cpupower                                       ##
+## * Install the udev rules for brightnessctl                                 ##
 ## * Make cpupower usable by non-root users                                   ##
 ##                                                                            ##
 ################################################################################
@@ -35,6 +36,7 @@
 
     services = {
       tlp.enable = lib.mkDefault true;
+      udev.packages = [ pkgs.brightnessctl ];
     };
 
     ########################################################################

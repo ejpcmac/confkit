@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* [NixOS/Profiles/Laptop] Install udev rules for `brightnessctl`.
 * [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
     bepo_afnor`.
 * [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
