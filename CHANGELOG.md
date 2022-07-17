@@ -6,12 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.0.14] - 2022-07-17
 
 ### Added
 
 * [NixOS] Add support for NixOS 22.05.
-* [Nix/Utilities] Re-add `vulnix` since it works properly on NixOS 21.05.
+* [Nix/Utilities] Re-add `vulnix` since it works properly on NixOS 21.05+.
 
 ### Changed
 
@@ -870,7 +870,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
+[0.0.14]: https://github.com/ejpcmac/confkit/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/ejpcmac/confkit/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/ejpcmac/confkit/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
