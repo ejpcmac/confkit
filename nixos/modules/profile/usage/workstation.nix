@@ -69,15 +69,6 @@ in
     ];
 
     ########################################################################
-    ##                           Kernel modules                           ##
-    ########################################################################
-
-    boot = mkIf (release == "20.09") {
-      extraModulePackages = with config.boot.kernelPackages; [ exfat-nofuse ];
-      kernelModules = [ "exfat" ];
-    };
-
-    ########################################################################
     ##                              Hardware                              ##
     ########################################################################
 
@@ -118,11 +109,8 @@ in
         # Enable touchpad support with natural scrolling.
         libinput = {
           enable = true;
-        } // (if release == "20.09" then {
-          naturalScrolling = true;
-        } else {
           touchpad.naturalScrolling = true;
-        });
+        };
       };
     };
 

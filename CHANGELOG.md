@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [NixOS] Add support for NixOS 22.05.
 * [Nix/Utilities] Re-add `vulnix` since it works properly on NixOS 21.05.
 
 ### Changed
@@ -18,6 +19,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
     bepo_afnor`.
 * [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
+
+### Removed
+
+* [NixOS] Drop support for NixOS 20.09, 21.05 and 21.11.
 
 ## [0.0.13] - 2021-06-13
 

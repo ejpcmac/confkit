@@ -37,7 +37,7 @@ in
         lato
         libertine
         noto-fonts
-        opensans-ttf
+        open-sans
         source-code-pro
         source-sans-pro
         source-serif-pro

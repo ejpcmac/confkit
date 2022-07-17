@@ -34,6 +34,7 @@ in
       htop
       iftop
       imagemagick
+      inetutils
       inxi
       jq
       killall
@@ -50,7 +51,6 @@ in
       screenfetch
       smartmontools
       sshfs
-      telnet
       testdisk
       traceroute
       trash-cli

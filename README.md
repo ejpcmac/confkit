@@ -57,7 +57,7 @@ changes in a too harsh way.
    instance:
 
         $ cd home-manager
-        $ git checkout release-20.03
+        $ git checkout release-22.05
 
 5. Copy the example in your own configuration:
 
@@ -94,7 +94,7 @@ On NixOS, link `/etc/nixos/configuration.nix` to
 
 ## Supported NixOS versions
 
-`confkit` currently supports NixOS 20.09 and NixOS 21.05.
+`confkit` currently supports NixOS 22.05.
 
 ## [Contributing](CONTRIBUTING.md)
 
