@@ -34,6 +34,7 @@ in
       htop
       iftop
       imagemagick
+      inetutils
       inxi
       jq
       killall
@@ -50,15 +51,13 @@ in
       screenfetch
       smartmontools
       sshfs
-      telnet
       testdisk
       traceroute
       trash-cli
       tree
       unzip
       usbutils
-      # TODO: Uncomment once python-ZODB is not broken anymore on NixOS 20.03.
-      # vulnix
+      vulnix
       watch
       wget
       xz

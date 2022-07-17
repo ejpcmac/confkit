@@ -6,13 +6,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.14] - 2022-07-17
+
+### Added
+
+* [NixOS] Add support for NixOS 22.05.
+* [Nix/Utilities] Re-add `vulnix` since it works properly on NixOS 21.05+.
+
+### Changed
+
+* [NixOS/Profiles/Laptop] Install udev rules for `brightnessctl`.
+* [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
+    bepo_afnor`.
+* [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
+
+### Removed
+
+* [NixOS] Drop support for NixOS 20.09, 21.05 and 21.11.
+
 ## [0.0.13] - 2021-06-13
 
 ### Added
 
 * [NixOS/Features/Shell] Add `norb` as an alias to `nixos-rebuild boot`.
 * [Zsh/Nix] Add `bnorb`, `snorb` and `sbnorb` as equivalent to `bnors`, `snors`
-  and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
+    and `sbnors`, but for `nixos-rebuild boot` instead of `nixos-rebuild switch`.
 
 ### Changed
 
@@ -852,6 +870,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.14]: https://github.com/ejpcmac/confkit/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/ejpcmac/confkit/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/ejpcmac/confkit/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/ejpcmac/confkit/compare/v0.0.10...v0.0.11
