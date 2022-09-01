@@ -12,6 +12,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [Zsh/Git] Add aliases for `git worktree`.
 
+### Removed
+
+* [Zsh/Nix] Remove `nix-env` aliases since using `nix-env` is a bad practice.
+
 ## [0.0.14] - 2022-07-17
 
 ### Added
