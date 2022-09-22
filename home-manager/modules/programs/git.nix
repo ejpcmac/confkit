@@ -43,10 +43,15 @@ in
         signByDefault = mkDefault true;
       };
 
+      aliases = {
+        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+      };
+
       extraConfig = {
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
         pull.rebase = mkDefault "preserve";
+        rebase.autosquash = mkDefault true;
         mergetool.keepBackup = mkDefault false;
 
         "gitflow \"feature.finish\"".no-ff = mkDefault true;
