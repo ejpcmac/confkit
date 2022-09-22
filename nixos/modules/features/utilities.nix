@@ -28,6 +28,7 @@ in
       emv
       ffmpeg
       file
+      fzf
       git
       git-lfs
       gnupg
