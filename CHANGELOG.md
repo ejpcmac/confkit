@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [home-manager/Git] Configure for autosquash in rebase and add a `git fixup`
     alias.
 * [Zsh/Git] Add aliases for `git worktree`.
+* [Zsh/Git] Add an alias for `git fixup`.
 
 ### Removed
 
