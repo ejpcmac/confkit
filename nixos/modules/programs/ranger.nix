@@ -41,7 +41,7 @@ in
       systemPackages = [ pkgs.ranger ];
 
       etc = {
-        "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
+        "ranger/scope.sh".source = ../../../ranger/scope.sh;
         "ranger/commands.py".source = ../../../ranger/commands.py;
         "ranger/rc.conf".source = if cfg.bepo
                                   then ../../../ranger/bepo_rc.conf

@@ -26,6 +26,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [Zsh/Nix] Remove `nix-env` aliases since using `nix-env` is a bad practice.
 
+### Fixed
+
+* [ranger] Do not leak memory when previewing ods / odp files.
+
 ## [0.0.14] - 2022-07-17
 
 ### Added
