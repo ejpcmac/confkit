@@ -21,6 +21,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `gs` lists directories under the current directory, and cd to the selected
         one;
     * `*` lists files under the current directory, and selects the selected one.
+* [ranger] Add `w` to open the current directory in `pcmanfm`.
 
 ### Removed
 
