@@ -9,7 +9,7 @@ class fd(ranger.Command):
         path = self.arg(2)
         extra_args = "--hidden --no-ignore" if self.arg(3) else ""
 
-        command = f"fd --type {type_} {extra_args} . {path} | fzf"
+        command = f"fd --type {type_} --follow {extra_args} . {path} | fzf"
 
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, _ = fzf.communicate()
