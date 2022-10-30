@@ -42,6 +42,7 @@ in
 
       etc = {
         "ranger/scope.sh".source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
+        "ranger/commands.py".source = ../../../ranger/commands.py;
         "ranger/rc.conf".source = if cfg.bepo
                                   then ../../../ranger/bepo_rc.conf
                                   else ../../../ranger/rc.conf;

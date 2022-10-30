@@ -15,6 +15,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     alias.
 * [Zsh/Git] Add aliases for `git worktree`.
 * [Zsh/Git] Add an alias for `git fixup`.
+* [ranger] Add commands to move and search using `fd` and `fzf`:
+    * `x` lists directories under `~`, and cd to the selected one;
+    * `X` does the same, including hidden and ignored files;
+    * `gs` lists directories under the current directory, and cd to the selected
+        one;
+    * `*` lists files under the current directory, and selects the selected one.
 
 ### Removed
 
