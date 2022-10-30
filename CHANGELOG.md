@@ -10,7 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-* [NixOS/Features/Utilities] Add `fzf`.
+* [NixOS/Features/Utilities] Add `fd`, `fzf` and `ripgrep`.
 * [home-manager/Git] Configure for autosquash in rebase and add a `git fixup`
     alias.
 * [Zsh/Git] Add aliases for `git worktree`.

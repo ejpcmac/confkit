@@ -27,6 +27,7 @@ in
       dnsutils
       emv
       ffmpeg
+      fd
       file
       fzf
       git
@@ -48,6 +49,7 @@ in
       parted
       pciutils
       qpdf
+      ripgrep
       rsync
       screenfetch
       smartmontools
