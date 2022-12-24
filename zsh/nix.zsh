@@ -79,18 +79,6 @@ alias ngco='nix-collect-garbage --delete-older-than 30d'
 # nix-store
 alias nso='nix-store --optimise -v'
 
-# nix-env
-alias ne='nix-env'
-alias ns='nix-env -qaP'
-alias ni='nix-env --install'
-alias nun='nix-env --uninstall'
-alias nu='nix-env --upgrade'
-alias nrb='nix-env --rollback'
-alias neq='nix-env --query'
-alias ngl='nix-env --list-generations'
-alias ngs='nix-env --switch-generation'
-alias ngd='nix-env --delete-generations'
-
 ##
 ## Helpers to preview the changes to the package list prior to rebuild.
 ##

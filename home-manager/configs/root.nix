@@ -10,6 +10,8 @@
 {
   imports = [ ./.. ];
 
+  home.stateVersion = "22.05";
+
   confkit.programs.zsh = {
     enable = true;
     plugins = [ "aliases" "nix" ];
