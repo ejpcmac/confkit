@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [NixOS] Add support for NixOS 22.11.
 * [NixOS/Features/Utilities] Add `fd`, `fzf` and `ripgrep`.
 * [home-manager/Git] Configure for autosquash in rebase and add a `git fixup`
     alias.
@@ -22,6 +23,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
         one;
     * `*` lists files under the current directory, and selects the selected one.
 * [ranger] Add `w` to open the current directory in `pcmanfm`.
+
+### Changed
+
+* [home-manager/root] Switch `home.stateVersion` to `22.05` to support NixOS
+  22.11.
 
 ### Removed
 
