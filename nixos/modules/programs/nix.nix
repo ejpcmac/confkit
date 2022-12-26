@@ -23,15 +23,16 @@ in
 
   config = mkIf cfg.enable {
     nix = {
-      # TODO: Enable on Darwin when it is available.
-      useSandbox = mkDefault (! stdenv.isDarwin);
-      buildCores = mkDefault 0;
+      settings = {
+        cores = mkDefault 0;
+        # TODO: Enable on Darwin when it is available.
+        sandbox = mkDefault (! stdenv.isDarwin);
 
-      # TODO: Enable everywhere once there is no race conditions.
-      extraOptions = mkDefault (''
-        keep-derivations = true
-        keep-outputs = true
-      '' + optionalString (! stdenv.isDarwin) "auto-optimise-store = true");
+        # TODO: Enable everywhere once there is no race conditions.
+        auto-optimise-store = mkDefault (! stdenv.isDarwin);
+        keep-derivations = mkDefault true;
+        keep-outputs = mkDefault true;
+      };
 
       gc = let gc-common = {
         automatic = mkDefault true;

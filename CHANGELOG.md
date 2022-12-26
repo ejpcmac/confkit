@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+* [NixOS/Programs/Nix] Make the settings actually work on NixOS 22.11.
+* [NixOS/Programs/Nix] Fix warnings in NixOS 22.11.
+
+### Removed
+
+* [NixOS] Remove support for NixOS 22.05.
+
 ## [0.0.15] - 2022-12-24
 
 ### Added
@@ -901,6 +912,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
 [0.0.15]: https://github.com/ejpcmac/confkit/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/ejpcmac/confkit/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/ejpcmac/confkit/compare/v0.0.12...v0.0.13
