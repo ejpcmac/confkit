@@ -8,14 +8,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Fixed
+### Changed
 
-* [NixOS/Programs/Nix] Make the settings actually work on NixOS 22.11.
-* [NixOS/Programs/Nix] Fix warnings in NixOS 22.11.
+* [home-manager/root] Switch `home.stateVersion` to `22.11`.
 
 ### Removed
 
 * [NixOS] Remove support for NixOS 22.05.
+
+### Fixed
+
+* [NixOS/Programs/Nix] Make the settings actually work on NixOS 22.11.
+* [NixOS/Programs/Nix] Fix warnings in NixOS 22.11.
 
 ## [0.0.15] - 2022-12-24
 
