@@ -94,7 +94,7 @@ On NixOS, link `/etc/nixos/configuration.nix` to
 
 ## Supported NixOS versions
 
-`confkit` currently supports NixOS 22.05.
+`confkit` currently supports NixOS 22.11.
 
 ## [Contributing](CONTRIBUTING.md)
 
