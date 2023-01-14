@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+* [NixOS/Profile/Workstation] Enable `services.udisks2`, which is now disabled
+    by default in NixOS 22.11.
+
 ## [0.0.16] - 2022-12-27
 
 ### Changed
@@ -61,8 +68,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* [NixOS/Profiles/Laptop] Install udev rules for `brightnessctl`.
-* [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
+* [NixOS/Profile/Laptop] Install udev rules for `brightnessctl`.
+* [NixOS/Profile/Workstation] Switch the bépo layout from `fr bepo` to `fr
     bepo_afnor`.
 * [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
 
@@ -916,6 +923,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
 [0.0.16]: https://github.com/ejpcmac/confkit/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/ejpcmac/confkit/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/ejpcmac/confkit/compare/v0.0.13...v0.0.14
