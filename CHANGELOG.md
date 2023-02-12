@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
+    / disabling the ZFS auto-snapshot timers.
+
 ### Fixed
 
 * [NixOS/Profile/Workstation] Enable `services.udisks2`, which is now disabled
