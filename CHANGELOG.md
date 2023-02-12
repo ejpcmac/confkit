@@ -13,6 +13,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
     / disabling the ZFS auto-snapshot timers.
 
+### Changed
+
+* **BREAKING** [NixOS/Profile/Physical] Require a `/system/data/fwupd`
+    filesystem when `confkit.features.fileSystems.enable` and
+    `confkit.features.fileSystems.rootOnTmpfs` are set to `true`.
+* [NixOS/Profile/Physical] Enable `services.fwupd`.
+
 ### Fixed
 
 * [NixOS/Profile/Workstation] Enable `services.udisks2`, which is now disabled
