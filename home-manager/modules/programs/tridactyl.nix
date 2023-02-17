@@ -44,6 +44,6 @@ in
 
     xdg.configFile."tridactyl/tridactylrc".text =
       readFile ../../../misc/tridactylrc_bepo
-      + optionalString (!isNull cfg.editor) "\nset editorcmd ${cfg.editor}";
+      + optionalString (cfg.editor != null) "\nset editorcmd ${cfg.editor}";
   };
 }
