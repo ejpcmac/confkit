@@ -50,7 +50,7 @@ in
       extraConfig = {
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
-        pull.rebase = mkDefault "preserve";
+        pull.rebase = mkDefault "merges";
         rebase.autosquash = mkDefault true;
         mergetool.keepBackup = mkDefault false;
 
