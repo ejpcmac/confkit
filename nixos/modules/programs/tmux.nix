@@ -16,7 +16,6 @@
 let
   inherit (builtins) readFile;
   inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
-  inherit (lib.trivial) release;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.tmux;

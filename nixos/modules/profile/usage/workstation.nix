@@ -12,7 +12,6 @@
 
 let
   inherit (lib) mkIf;
-  inherit (lib.trivial) release;
 
   hostName = config.networking.hostName;
   layout = config.confkit.keyboard.layout;

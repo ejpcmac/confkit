@@ -6,10 +6,10 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkOption mkIf mkDefault types;
+  inherit (lib) mkEnableOption mkOption mkIf types;
   cfg = config.confkit.features.bootloader;
 in
 

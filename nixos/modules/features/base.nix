@@ -8,7 +8,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.confkit.features.base;
 in
 

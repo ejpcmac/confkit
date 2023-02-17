@@ -4,7 +4,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # This value determines the NixOS release with which your system is to be

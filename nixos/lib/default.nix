@@ -1,5 +1,4 @@
 let
-  inherit (builtins) elem;
   defaultFsOptions = [ "noatime" "nodev" "noexec" "nosuid" ];
 in
 

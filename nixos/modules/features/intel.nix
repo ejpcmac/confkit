@@ -4,7 +4,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf;
@@ -16,7 +16,7 @@ in
     enable = mkEnableOption "configuration for intel processors";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     hardware.cpu.intel.updateMicrocode = true;
   };
 }

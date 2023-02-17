@@ -7,7 +7,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
