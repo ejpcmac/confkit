@@ -9,8 +9,12 @@
 
 { config, lib, pkgs, ... }:
 
+let
+  inherit (lib) mkDefault mkIf;
+in
+
 {
-  config = lib.mkIf (builtins.elem "laptop" config.confkit.profile.type) {
+  config = mkIf (builtins.elem "laptop" config.confkit.profile.type) {
 
     ########################################################################
     ##                              Security                              ##
@@ -35,7 +39,7 @@
     ########################################################################
 
     services = {
-      tlp.enable = lib.mkDefault true;
+      tlp.enable = mkDefault true;
       udev.packages = [ pkgs.brightnessctl ];
     };
 

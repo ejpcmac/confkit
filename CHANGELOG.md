@@ -28,6 +28,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     by default in NixOS 22.11.
 * [home-manager/Git] Set `pull.rebase = "merges"` instead of the deprecated
     `pull.rebase = "preserve"`.
+* Add missing `mkDefault`.
 
 ## [0.0.16] - 2022-12-27
 

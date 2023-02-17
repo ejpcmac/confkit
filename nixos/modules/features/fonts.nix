@@ -9,7 +9,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption;
   inherit (lib.types) bool;
   cfg = config.confkit.features.fonts;
 in
@@ -45,8 +45,8 @@ in
       ];
 
       fontconfig = {
-        includeUserConf = false;
-        useEmbeddedBitmaps = true; # Useful for fonts like Calibri.
+        includeUserConf = mkDefault false;
+        useEmbeddedBitmaps = mkDefault true; # Useful for fonts like Calibri.
       };
     };
   };

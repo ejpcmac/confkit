@@ -9,7 +9,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkDefault mkIf;
   fs = config.confkit.features.fileSystems;
   zfs = config.confkit.features.zfs;
   mkFs = pkgs.lib.confkit.mkFs config;
@@ -32,12 +32,12 @@ in
 
     services = {
       openssh = {
-        enable = true;
-        passwordAuthentication = false;
-        hostKeys = mkIf fs.rootOnTmpfs [
+        enable = mkDefault true;
+        passwordAuthentication = mkDefault false;
+        hostKeys = mkIf fs.rootOnTmpfs (mkDefault [
           { path = "/persist/ssh/ssh_host_ed25519_key"; type = "ed25519"; }
           { path = "/persist/ssh/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
-        ];
+        ]);
       };
     };
 
@@ -46,7 +46,7 @@ in
     ########################################################################
 
     programs = {
-      mosh.enable = true;
+      mosh.enable = mkDefault true;
     };
 
     ########################################################################

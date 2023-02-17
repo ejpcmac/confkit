@@ -38,36 +38,36 @@ in
 
       shellAliases = {
         # Coloured `tree`, `grep` and `ls`
-        tree = "tree -C";
-        grep = "grep --color=auto";
+        tree = mkDefault "tree -C";
+        grep = mkDefault "grep --color=auto";
         ls =
           if stdenv.isLinux then "ls -h --color=auto"
           else if stdenv.isDarwin then "/bin/ls -Gh"
           else "ls -Gh";
 
         # Human-readable `df` and `du`
-        df = "df -h";
-        du = "du -h";
+        df = mkDefault "df -h";
+        du = mkDefault "du -h";
 
         # Shortcuts for `ls`
-        ll = "ls -l";
-        la = "ls -A";
-        lla = "ls -Al";
+        ll = mkDefault "ls -l";
+        la = mkDefault "ls -A";
+        lla = mkDefault "ls -Al";
 
         # Keep compressed version when using `unxz`
-        unxz = "unxz -kv";
+        unxz = mkDefault "unxz -kv";
 
         # Handy nixos-rebuild aliases
-        nor = nixos-rebuild;
-        nors = "${nixos-rebuild} switch";
-        norb = "${nixos-rebuild} boot";
+        nor = mkDefault nixos-rebuild;
+        nors = mkDefault "${nixos-rebuild} switch";
+        norb = mkDefault "${nixos-rebuild} boot";
 
         # Handy nix-channel aliases
-        nic = "nix-channel";
-        nicl = "nix-channel --list";
-        nica = "nix-channel --add";
-        nicr = "nix-channel --remove";
-        nicu = "nix-channel --update";
+        nic = mkDefault "nix-channel";
+        nicl = mkDefault "nix-channel --list";
+        nica = mkDefault "nix-channel --add";
+        nicr = mkDefault "nix-channel --remove";
+        nicu = mkDefault "nix-channel --update";
       };
     };
   };

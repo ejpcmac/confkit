@@ -41,7 +41,7 @@ in
     ########################################################################
 
     environment.shellAliases = {
-      disable-zfs-snapshots = ''
+      disable-zfs-snapshots = mkDefault ''
         sudo systemctl stop zfs-snapshot-frequent.timer && \
         sudo systemctl stop zfs-snapshot-hourly.timer && \
         sudo systemctl stop zfs-snapshot-daily.timer && \
@@ -49,7 +49,7 @@ in
         sudo systemctl stop zfs-snapshot-monthly.timer
       '';
 
-      enable-zfs-snapshots = ''
+      enable-zfs-snapshots = mkDefault ''
         sudo systemctl start zfs-snapshot-frequent.timer && \
         sudo systemctl start zfs-snapshot-hourly.timer && \
         sudo systemctl start zfs-snapshot-daily.timer && \

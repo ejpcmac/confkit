@@ -7,7 +7,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.features.intel;
 in
 
@@ -17,6 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.cpu.intel.updateMicrocode = true;
+    hardware.cpu.intel.updateMicrocode = mkDefault true;
   };
 }
