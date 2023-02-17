@@ -10,7 +10,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.pms;
 in
 
@@ -19,7 +20,7 @@ in
     enable = mkEnableOption "the confkit home configuration for pms";
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";

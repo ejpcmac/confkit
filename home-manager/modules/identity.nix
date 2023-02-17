@@ -9,27 +9,28 @@
 { lib, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption;
+  inherit (lib.types) nullOr str;
 in
 
 {
   options.confkit.identity = {
     name = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       example = "John Doe";
       description = "Your name.";
     };
 
     email = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       example = "john.doe@example.com";
       description = "Your email.";
     };
 
     gpgKey = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       description = "Your GPG Key fingerprint.";
     };

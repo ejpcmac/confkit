@@ -9,7 +9,8 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.zathura;
 in
 
@@ -18,7 +19,7 @@ in
     enable = mkEnableOption "the confkit home configuration for Zathura";
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";

@@ -8,8 +8,9 @@
 { lib, ... }:
 
 let
-  inherit (lib) mkOption types;
-  layouts = types.enum [ null "bépo" ];
+  inherit (lib) mkOption;
+  inherit (lib.types) enum;
+  layouts = enum [ null "bépo" ];
 in
 
 {

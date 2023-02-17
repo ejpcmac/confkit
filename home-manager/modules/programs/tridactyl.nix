@@ -8,7 +8,8 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) literalExample mkEnableOption mkIf mkOption optionalString types;
+  inherit (lib) literalExample mkEnableOption mkIf mkOption optionalString;
+  inherit (lib.types) bool nullOr str;
   cfg = config.confkit.programs.tridactyl;
 in
 
@@ -17,14 +18,14 @@ in
     enable = mkEnableOption "the confkit home configuration for Tridactyl";
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
     };
 
     editor = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       example = literalExample "${pkgs.emacs}/bin/emacsclient --create-frame";
       description = "The editorcmd Tridactyl setting.";

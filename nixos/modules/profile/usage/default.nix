@@ -1,22 +1,24 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption;
+  inherit (lib.types) enum listOf str;
+
   usages = [ "server" "workstation" ];
   additionalUsages = config.confkit.extensions.profile.additionalUsages;
-  usage = types.enum (usages ++ additionalUsages);
+  usage = enum (usages ++ additionalUsages);
 in
 
 {
   options.confkit.profile.usage = mkOption {
-    type = types.listOf usage;
+    type = listOf usage;
     default = [ ];
     example = [ "workstation" ];
     description = "The machine usage.";
   };
 
   options.confkit.extensions.profile.additionalUsages = mkOption {
-    type = types.listOf types.str;
+    type = listOf str;
     default = [ ];
     example = [ "home" ];
     description = ''

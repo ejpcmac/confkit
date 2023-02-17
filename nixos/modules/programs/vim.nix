@@ -16,7 +16,8 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkDefault mkEnableOption mkIf mkOption optionalString types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption optionalString;
+  inherit (lib.types) bool;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.vim;
@@ -33,14 +34,14 @@ in
     enable = mkEnableOption "the confkit configuration for Vim";
 
     defaultEditor = mkOption {
-      type = types.bool;
+      type = bool;
       default = true;
       example = false;
       description = "Wether to set Vim as the default editor.";
     };
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";

@@ -10,7 +10,8 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkDefault mkEnableOption mkIf mkOption types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.git;
   identity = config.confkit.identity;
 in
@@ -20,7 +21,7 @@ in
     enable = mkEnableOption "the confkit home configuration for Git";
 
     gpgSign = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.programs.gpg.enable;
       example = true;
       description = ''

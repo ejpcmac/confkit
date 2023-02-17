@@ -9,7 +9,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool enum str;
   inherit (pkgs.lib.confkit) defaultFsOptions;
 
   mkFs = pkgs.lib.confkit.mkFs config;
@@ -22,20 +23,20 @@ in
       enable = mkEnableOption "configuration for file systems";
 
       fs = mkOption {
-        type = types.enum [ "zfs" "btrfs" ];
+        type = enum [ "zfs" "btrfs" ];
         example = "zfs";
         description = "The filesystem to use for the OS.";
       };
 
       rootOnTmpfs = mkOption {
-        type = types.bool;
+        type = bool;
         default = false;
         example = true;
         description = "Wether to mount / on tmpfs.";
       };
 
       tmpOnTmpfs = mkOption {
-        type = types.bool;
+        type = bool;
         default = false;
         example = true;
         description = ''
@@ -45,21 +46,21 @@ in
       };
 
       bootPartition = mkOption {
-        type = types.str;
+        type = str;
         default = "/dev/disk/by-label/boot";
         example = "/dev/sda1";
         description = "The boot partition.";
       };
 
       zfs.zpool = mkOption {
-        type = types.str;
+        type = str;
         default = config.networking.hostName;
         example = "rpool";
         description = "The system zpool name.";
       };
 
       btrfs.device = mkOption {
-        type = types.str;
+        type = str;
         example = "/dev/disk/by-label/NixOS";
         description = "The system btrfs device.";
       };
