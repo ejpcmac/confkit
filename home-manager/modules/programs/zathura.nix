@@ -9,7 +9,7 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkOption mkEnableOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption types;
   cfg = config.confkit.programs.zathura;
 in
 

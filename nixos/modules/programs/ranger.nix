@@ -20,7 +20,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption types;
   cfg = config.confkit.programs.ranger;
 in
 

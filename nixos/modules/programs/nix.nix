@@ -10,7 +10,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.nix;

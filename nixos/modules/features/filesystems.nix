@@ -9,7 +9,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption types;
   inherit (pkgs.lib.confkit) defaultFsOptions;
 
   mkFs = pkgs.lib.confkit.mkFs config;

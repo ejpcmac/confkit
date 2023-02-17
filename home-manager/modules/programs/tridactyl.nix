@@ -8,7 +8,7 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkOption mkEnableOption mkIf optionalString types literalExample;
+  inherit (lib) literalExample mkEnableOption mkIf mkOption optionalString types;
   cfg = config.confkit.programs.tridactyl;
 in
 

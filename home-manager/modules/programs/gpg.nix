@@ -10,7 +10,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.programs.gpg;
   identity = config.confkit.identity;
 in

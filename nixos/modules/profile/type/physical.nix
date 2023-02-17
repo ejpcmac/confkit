@@ -9,7 +9,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) mkDefault mkIf;
 
   fs = config.confkit.features.fileSystems;
   mkFs = pkgs.lib.confkit.mkFs config;

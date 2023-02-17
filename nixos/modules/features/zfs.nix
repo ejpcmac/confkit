@@ -8,7 +8,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.features.zfs;
 in
 

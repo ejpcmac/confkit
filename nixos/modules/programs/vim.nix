@@ -16,7 +16,7 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkEnableOption mkOption mkIf mkDefault types optionalString;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption optionalString types;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.vim;

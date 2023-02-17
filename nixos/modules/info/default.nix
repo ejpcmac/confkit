@@ -10,7 +10,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkOption mkIf mkDefault types;
+  inherit (lib) mkDefault mkIf mkOption types;
   cfg = config.confkit.info;
   machineId = cfg.machineId;
 in

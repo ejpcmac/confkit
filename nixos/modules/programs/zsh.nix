@@ -13,7 +13,7 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkEnableOption mkIf mkDefault optionalString;
+  inherit (lib) mkDefault mkEnableOption mkIf optionalString;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.zsh;

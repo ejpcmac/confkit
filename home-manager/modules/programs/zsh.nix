@@ -12,7 +12,7 @@
 
 let
   inherit (builtins) readFile listToAttrs;
-  inherit (lib) mkOption mkEnableOption mkIf mkDefault mkMerge types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkMerge mkOption types;
   cfg = config.confkit.programs.zsh;
 in
 

@@ -10,7 +10,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption types;
   cfg = config.confkit.programs.git;
   identity = config.confkit.identity;
 in

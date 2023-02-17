@@ -9,7 +9,7 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption types;
   cfg = config.confkit.features.bootloader;
 in
 
