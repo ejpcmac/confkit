@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     filesystem when `confkit.features.fileSystems.enable` and
     `confkit.features.fileSystems.rootOnTmpfs` are set to `true`.
 * [NixOS/Profile/Physical] Enable `services.fwupd`.
+* [NixOS/Profile/Workstation] Mount `/config` with `exec=on`.
 * Format the files with `nixpkgs-fmt`.
 
 ### Fixed

@@ -28,7 +28,10 @@ in
     ########################################################################
 
     fileSystems = mkIf fs.enable {
-      "/config" = mkFs { volumePath = "/local/config"; };
+      "/config" = mkFs {
+        volumePath = "/local/config";
+        options = [ "noatime" "nodev" "nosuid" ];
+      };
 
       "/persist/cups" = mkIf fs.rootOnTmpfs (mkFs {
         volumePath = "/system/data/cups";
