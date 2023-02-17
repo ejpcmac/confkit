@@ -21,9 +21,10 @@ let
 
   cfg = config.confkit.programs.tmux;
 
-  tmuxConfig = if cfg.bepo
-               then readFile ../../../misc/tmux_bepo.conf
-               else readFile ../../../misc/tmux.conf;
+  tmuxConfig =
+    if cfg.bepo
+    then readFile ../../../misc/tmux_bepo.conf
+    else readFile ../../../misc/tmux.conf;
 in
 
 {
@@ -45,12 +46,12 @@ in
       enable = true;
     } // (if stdenv.isDarwin then {
       tmuxConfig = mkDefault (tmuxConfig + ''
-          bind-key -T copy-mode Enter send-keys -X copy-pipe-and-cancel "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace pbcopy"
-        '');
+        bind-key -T copy-mode Enter send-keys -X copy-pipe-and-cancel "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace pbcopy"
+      '');
     } else {
       extraConfig = mkDefault (tmuxConfig + ''
-          bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
-        '');
+        bind-key -T copy-mode Enter send-keys -X copy-selection-and-cancel
+      '');
     });
   };
 }

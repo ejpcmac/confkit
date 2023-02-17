@@ -34,15 +34,18 @@ in
         keep-outputs = mkDefault true;
       };
 
-      gc = let gc-common = {
-        automatic = mkDefault true;
-        options = mkDefault "--delete-older-than 30d";
-      }; in
-      if stdenv.isDarwin then gc-common // {
-        interval = mkDefault { Hour = 21; Minute = 0; };
-      } else gc-common // {
-        dates = mkDefault "21:00";
-      };
+      gc =
+        let
+          gc-common = {
+            automatic = mkDefault true;
+            options = mkDefault "--delete-older-than 30d";
+          };
+        in
+        if stdenv.isDarwin then gc-common // {
+          interval = mkDefault { Hour = 21; Minute = 0; };
+        } else gc-common // {
+          dates = mkDefault "21:00";
+        };
     };
   };
 }

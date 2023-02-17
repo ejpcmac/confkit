@@ -28,37 +28,39 @@ in
     environment.shells = [ pkgs.zsh ];
 
     programs.zsh =
-      let zsh-common = {
-        enable = true;
-        enableCompletion = mkDefault true;
-        syntaxHighlighting.enable = mkDefault true;
-        promptInit = mkDefault (readFile ../../../zsh/config/prompt.zsh);
+      let
+        zsh-common = {
+          enable = true;
+          enableCompletion = mkDefault true;
+          syntaxHighlighting.enable = mkDefault true;
+          promptInit = mkDefault (readFile ../../../zsh/config/prompt.zsh);
 
-        interactiveShellInit = ''
-          # Disable beeps.
-          unsetopt beep
-          unsetopt hist_beep
-          unsetopt list_beep
+          interactiveShellInit = ''
+            # Disable beeps.
+            unsetopt beep
+            unsetopt hist_beep
+            unsetopt list_beep
 
-          # Complete to the common part and show the list of possible completion
-          # the same tab hit.
-          unsetopt list_ambiguous
-        '' + optionalString stdenv.isDarwin ''
-          # Correctly display UTF-8 with combining characters.
-          if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
-              setopt combiningchars
-          fi
-        '';
+            # Complete to the common part and show the list of possible completion
+            # the same tab hit.
+            unsetopt list_ambiguous
+          '' + optionalString stdenv.isDarwin ''
+            # Correctly display UTF-8 with combining characters.
+            if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+                setopt combiningchars
+            fi
+          '';
 
-        setOptions = [
-          "EXTENDEDGLOB"
-          "SHARE_HISTORY"
-          "HIST_IGNORE_DUPS"
-          "HIST_EXPIRE_DUPS_FIRST"
-          "HIST_FIND_NO_DUPS"
-          "HIST_FCNTL_LOCK"
-        ];
-      }; in
+          setOptions = [
+            "EXTENDEDGLOB"
+            "SHARE_HISTORY"
+            "HIST_IGNORE_DUPS"
+            "HIST_EXPIRE_DUPS_FIRST"
+            "HIST_FIND_NO_DUPS"
+            "HIST_FCNTL_LOCK"
+          ];
+        };
+      in
       if stdenv.isDarwin then zsh-common // {
         enableBashCompletion = mkDefault true;
 

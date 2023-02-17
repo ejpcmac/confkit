@@ -61,10 +61,12 @@ in
     }
 
     {
-      home.file = listToAttrs (map (plugin: {
-        name = ".zsh/${plugin}.zsh";
-        value.source = ../../../zsh + "/${plugin}.zsh";
-      }) cfg.plugins);
+      home.file = listToAttrs (map
+        (plugin: {
+          name = ".zsh/${plugin}.zsh";
+          value.source = ../../../zsh + "/${plugin}.zsh";
+        })
+        cfg.plugins);
     }
   ]);
 }

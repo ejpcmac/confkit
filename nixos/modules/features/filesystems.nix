@@ -83,15 +83,17 @@ in
       ## Always present file systems ##
       #################################
 
-      "/" = if cfg.rootOnTmpfs then {
-        device = "tmpfs";
-        fsType = "tmpfs";
-        options = [ "mode=755" ];
-      } else (mkFs {
-        volumePath = "/system/ROOT";
-        neededForBoot = true;
-        options = [ "defaults" ];
-      });
+      "/" =
+        if cfg.rootOnTmpfs then {
+          device = "tmpfs";
+          fsType = "tmpfs";
+          options = [ "mode=755" ];
+        } else
+          (mkFs {
+            volumePath = "/system/ROOT";
+            neededForBoot = true;
+            options = [ "defaults" ];
+          });
 
       "/boot" = {
         device = cfg.bootPartition;

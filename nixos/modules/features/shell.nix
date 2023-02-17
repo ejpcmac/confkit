@@ -29,11 +29,12 @@ in
 
   config = mkIf cfg.enable {
     environment = {
-      variables = if stdenv.isDarwin then {
-        LSCOLORS = mkDefault "exfxcxdxbxabadBhFhehgh";
-      } else {
-        LS_COLORS = mkDefault "di=34:ln=35:so=32:pi=33:ex=31:bd=30;41:cd=30;43:su=1;31;47:sg=1;35;47:tw=34;47:ow=36;47";
-      };
+      variables =
+        if stdenv.isDarwin then {
+          LSCOLORS = mkDefault "exfxcxdxbxabadBhFhehgh";
+        } else {
+          LS_COLORS = mkDefault "di=34:ln=35:so=32:pi=33:ex=31:bd=30;41:cd=30;43:su=1;31;47:sg=1;35;47:tw=34;47:ow=36;47";
+        };
 
       shellAliases = {
         # Coloured `tree`, `grep` and `ls`

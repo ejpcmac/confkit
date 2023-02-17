@@ -31,7 +31,7 @@ in
     ##                            Persistence                             ##
     ########################################################################
 
-    systemd.tmpfiles.rules =  [
+    systemd.tmpfiles.rules = [
       "L+ /var/lib/fwupd - - - - /persist/fwupd"
     ];
 

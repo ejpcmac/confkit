@@ -26,9 +26,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    warnings = if !cfg.bepo then [
-      "There is currently no non-BÉPO configuration for zathura in confkit."
-    ] else [];
+    warnings =
+      if !cfg.bepo then [
+        "There is currently no non-BÉPO configuration for zathura in confkit."
+      ] else [ ];
 
     programs.zathura = {
       enable = true;

@@ -11,7 +11,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  home.stateVersion = "22.11";  # Did you read the comment?
+  home.stateVersion = "22.11"; # Did you read the comment?
 
   # Import the confkit home-manager module to get ready-to-use configurations
   # for several tools.

@@ -10,14 +10,14 @@ in
 {
   options.confkit.profile.type = mkOption {
     type = types.listOf type;
-    default = [];
+    default = [ ];
     example = [ "physical" "laptop" ];
     description = "The machine type.";
   };
 
   options.confkit.extensions.profile.additionalTypes = mkOption {
     type = types.listOf types.str;
-    default = [];
+    default = [ ];
     example = [ "mainframe" ];
     description = ''
       Additional machine types to accept in confkit.

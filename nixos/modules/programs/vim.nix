@@ -48,18 +48,20 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = if stdenv.isLinux then [
-      (pkgs.vim_configurable.customize {
-        name = "vim";
-        vimrcConfig.customRC = vimConfig;
-      })
-    ] else [];
+    environment.systemPackages =
+      if stdenv.isLinux then [
+        (pkgs.vim_configurable.customize {
+          name = "vim";
+          vimrcConfig.customRC = vimConfig;
+        })
+      ] else [ ];
 
-    programs.vim = if stdenv.isDarwin then {
-      enable = true;
-      vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
-    } else {
-      defaultEditor = cfg.defaultEditor;
-    };
+    programs.vim =
+      if stdenv.isDarwin then {
+        enable = true;
+        vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
+      } else {
+        defaultEditor = cfg.defaultEditor;
+      };
   };
 }
