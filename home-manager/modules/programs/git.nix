@@ -52,6 +52,7 @@ in
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
         pull.rebase = mkDefault "merges";
+        push.autoSetupRemote = mkDefault true;
         rebase.autosquash = mkDefault true;
         mergetool.keepBackup = mkDefault false;
 

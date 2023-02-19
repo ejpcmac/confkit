@@ -20,6 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     `confkit.features.fileSystems.rootOnTmpfs` are set to `true`.
 * [NixOS/Profile/Physical] Enable `services.fwupd`.
 * [NixOS/Profile/Workstation] Mount `/config` with `exec=on`.
+* [home-manager/Git] Set `push.autoSetupRemote = true`.
 * Format the files with `nixpkgs-fmt`.
 
 ### Fixed
