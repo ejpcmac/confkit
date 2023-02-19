@@ -12,6 +12,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
     / disabling the ZFS auto-snapshot timers.
+* [Zsh/ZFS] Add `zl3` / `wzl3` as a `zfs list` alias with a different property
+    set than `zl` / `zl2`. Mainly suited for big screens.
 
 ### Changed
 
