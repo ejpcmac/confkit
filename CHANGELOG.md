@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     / disabling the ZFS auto-snapshot timers.
 * [Zsh/ZFS] Add `zl3` / `wzl3` as a `zfs list` alias with a different property
     set than `zl` / `zl2`. Mainly suited for big screens.
+* [Zsh/ZFS] Add specialised `zfs list` aliases:
+    * `zlsp` / `wzlsp`: “ZFS List SPace” for `zfs list -o space`,
+    * `zlas` / `wzlas`: “ZFS List Auto-Snapshot” for listing sizes and
+        auto-snapshot info.
 
 ### Changed
 
