@@ -5,7 +5,7 @@
 # zfs
 alias z='zfs'
 alias zl='zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
-alias zl2='zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,recordsize,readonly,exec,setuid,devices,canmount,mounted,keystatus'
+alias zl2='zfs list -o name,usedbydataset,usedbysnapshots,compression,compressratio,recordsize,readonly,exec,setuid,canmount,mounted,keystatus'
 alias zl3='zfs list -o name,available,used,usedbydataset,usedbysnapshots,com.sun:auto-snapshot,compression,compressratio,recordsize,readonly,exec,setuid,canmount,mounted,mountpoint'
 alias zls='zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 alias zc='zfs create'
@@ -23,7 +23,7 @@ alias zulk='zfs unload-key'
 
 # zfs watch operations
 alias wzl='watch -n 1 zfs list -o name,used,available,referenced,usedbysnapshots,compressratio,mountpoint'
-alias wzl2='watch -n 1 zfs list -o name,used,usedbysnapshots,quota,compression,compressratio,recordsize,readonly,exec,setuid,devices,canmount,mounted,keystatus'
+alias wzl2='watch -n 1 zfs list -o name,usedbydataset,usedbysnapshots,compression,compressratio,recordsize,readonly,exec,setuid,canmount,mounted,keystatus'
 alias wzl3='watch -n 1 zfs list -o name,available,used,usedbydataset,usedbysnapshots,com.sun:auto-snapshot,compression,compressratio,recordsize,readonly,exec,setuid,canmount,mounted,mountpoint'
 alias wzls='watch -n 1 zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
 

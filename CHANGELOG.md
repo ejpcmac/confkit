@@ -23,7 +23,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [NixOS/Profile/Physical] Enable `services.fwupd`.
 * [NixOS/Profile/Workstation] Mount `/config` with `exec=on`.
 * [home-manager/Git] Set `push.autoSetupRemote = true`.
-* Format the files with `nixpkgs-fmt`.
+* [Nix] Format the files with `nixpkgs-fmt`.
+* [Zsh/ZFS] Update `zl2` / `wzl2`: change `used` by `usedbydataset`, and remove
+    `quota` and `devices`.
 
 ### Fixed
 
