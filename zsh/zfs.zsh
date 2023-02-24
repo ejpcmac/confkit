@@ -10,6 +10,7 @@ alias zl3='zfs list -o name,available,used,usedbydataset,usedbysnapshots,com.sun
 alias zlsp='zfs list -o space'
 alias zlas='zfs list -o name,usedbydataset,usedbysnapshots,com.sun:auto-snapshot,readonly'
 alias zls='zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
+alias zlb='zfs list -r -d 1 -t bookmark -o name,refer'
 alias zc='zfs create'
 alias zs='zfs snapshot'
 alias zsr='zfs snapshot -r'
@@ -30,6 +31,7 @@ alias wzl3='watch -n 1 zfs list -o name,available,used,usedbydataset,usedbysnaps
 alias wzlsp='watch -n 1 zfs list -o space'
 alias wzlas='zfs list -o name,usedbydataset,usedbysnapshots,com.sun:auto-snapshot,readonly'
 alias wzls='watch -n 1 zfs list -r -d 1 -t snapshot -o name,used,refer,compressratio'
+alias wzlb='watch -n 1 zfs list -r -d 1 -t bookmark -o name,refer'
 
 # zfs sudo operations
 alias szc='sudo zfs create'

@@ -19,6 +19,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `zlsp` / `wzlsp`: “ZFS List SPace” for `zfs list -o space`,
     * `zlas` / `wzlas`: “ZFS List Auto-Snapshot” for listing sizes and
         auto-snapshot info.
+    * `zlb` / `wzlb`: “ZFS List Bookmarks” to list the bookmarks for the given
+        dataset.
 
 ### Changed
 
