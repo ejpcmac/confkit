@@ -31,6 +31,11 @@ in
         keyserver-options = mkDefault "no-honor-keyserver-url auto-key-retrieve";
         keyserver = mkDefault "hkps://hkps.pool.sks-keyservers.net";
       };
+
+      scdaemonSettings = {
+        # This allows GPG to work with PC/SC.
+        disable-ccid = mkDefault true;
+      };
     };
   };
 }
