@@ -21,6 +21,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
         auto-snapshot info.
     * `zlb` / `wzlb`: “ZFS List Bookmarks” to list the bookmarks for the given
         dataset.
+* [Zsh/ZFS] Add `[s]zpp[d]` for `[sudo] zpool checkpoint [-d]`
 
 ### Changed
 
