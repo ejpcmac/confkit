@@ -32,6 +32,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [NixOS/Profile/Workstation] Mount `/config` with `exec=on`.
 * [home-manager/Git] Set `push.autoSetupRemote = true`.
 * [Nix] Format the files with `nixpkgs-fmt`.
+* [ranger] Make compression / decompression shortcuts (`fa` / `fx` / `fz` /
+    `fdz`) able to work on multiple archives.
 * [Zsh/ZFS] Update `zl2` / `wzl2`: change `used` by `usedbydataset`, and remove
     `quota` and `devices`.
 
