@@ -18,6 +18,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Nix] `nso` is now `nix store optimise` instead of `nix-store --optimise
     -v`.
 
+### Removed
+
+* [Zsh/Nix] Remove `ngcd` for `nix-garbage-collect -d` since it is a destructive
+  operation, and too similar to `ngco` (older than 30 days) and `ngc` (no
+  deletions).
+
 ## [0.0.17] - 2023-04-23
 
 ### Added

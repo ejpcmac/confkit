@@ -92,7 +92,6 @@ alias niss='nix-instantiate shell.nix --indirect --add-root $PWD/shell.drv'
 
 # nix-collect-garbage
 alias ngc='nix-collect-garbage'
-alias ngcd='nix-collect-garbage -d'
 alias ngco='nix-collect-garbage --delete-older-than 30d'
 
 ##
