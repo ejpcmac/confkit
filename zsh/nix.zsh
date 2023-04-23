@@ -43,16 +43,6 @@ alias snicrb='sudo nix-channel --rollback'
 # NixOS rebuild
 alias snors="sudo nixos-rebuild switch"
 alias snorb="sudo nixos-rebuild boot"
-alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch"
-alias bnorb="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild boot"
-alias sbnors="sudo su -c \"\
-    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch\""
-alias sbnorb="sudo su -c \"\
-    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild boot\""
 
 # nixos-container
 alias ncl='nixos-container list'
@@ -85,39 +75,6 @@ alias hp='home-manager packages'
 alias hn='home-manager news'
 alias hgen='home-manager generations'
 
-# nix-shell
-alias nis='nix-shell'
-alias nisp='nix-shell --pure'
-alias niss='nix-instantiate shell.nix --indirect --add-root $PWD/shell.drv'
-
 # nix-collect-garbage
 alias ngc='nix-collect-garbage'
 alias ngco='nix-collect-garbage --delete-older-than 30d'
-
-##
-## Helpers to preview the changes to the package list prior to rebuild.
-##
-## Usage:
-##
-## 1. Run `csp` to create the cache. Note that it will not list what is
-##    currently installed on your system. It will instead evaluate what will be
-##    your system after a rebuild.
-##
-## 2. Update your configuration and/or your channels.
-##
-## 3. Run `dsp` to print a diff between the cached version and the version that
-##    would be applied by a rebuild.
-##
-
-alias esp='eval-system-packages'
-alias eval-system-packages="nix-instantiate --strict --json --eval -E \
-    'builtins.map (p: p.name) (import <nixpkgs/nixos> {}).config.environment.systemPackages' \
-    | jq -r '.[]' \
-    | sort -u"
-
-alias csp='cache-system-packages'
-alias cache-system-packages='eval-system-packages > ~/.cache/system-packages'
-
-alias dsp='diff-system-packages'
-alias diff-system-packages="eval-system-packages \
-    | colordiff -y ~/.cache/system-packages -"

@@ -20,9 +20,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
+* [Zsh/Nix] Remove `nis`, `nisp` and `niss` aliases for `nix-shell`.
+* [Zsh/Nix] Remove `bnorb`, `bnors`, `sbnorb` and `sbnorb`, which are not needed
+    anymore to show the progression while building a NixOS system with flakes.
+* [Zsh/Nix] Remove `esp`, `csp` and `dsp` which can be achieved by using `nix
+    profile diff-closures`.
 * [Zsh/Nix] Remove `ngcd` for `nix-garbage-collect -d` since it is a destructive
-  operation, and too similar to `ngco` (older than 30 days) and `ngc` (no
-  deletions).
+    operation, and too similar to `ngco` (older than 30 days) and `ngc` (no
+    deletions).
 
 ## [0.0.17] - 2023-04-23
 
