@@ -11,7 +11,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 * [Zsh/Nix] Add aliases for the “new” `nix` command line.
-
+* [Zsh/Nix] Add `diff-system` and `diff-home` to show the diff for system / home
+    using `nix profile diff-closures`.
 ### Changed
 
 * **BREAKING** [NixOS/Profile/Workstation] Link `/etc/nixos/flake.nix` instead

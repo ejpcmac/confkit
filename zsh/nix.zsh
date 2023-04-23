@@ -78,3 +78,7 @@ alias hgen='home-manager generations'
 # nix-collect-garbage
 alias ngc='nix-collect-garbage'
 alias ngco='nix-collect-garbage --delete-older-than 30d'
+
+# Diff between versions
+alias diff-system='nix profile diff-closures --profile /nix/var/nix/profiles/system'
+alias diff-home='nix profile diff-closures --profile /nix/var/nix/profiles/per-user/$USER/home-manager'
