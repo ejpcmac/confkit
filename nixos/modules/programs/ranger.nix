@@ -20,7 +20,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.ranger;
 in
 
@@ -29,7 +30,7 @@ in
     enable = mkEnableOption "the confkit configuration for ranger";
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
@@ -43,9 +44,10 @@ in
       etc = {
         "ranger/scope.sh".source = ../../../ranger/scope.sh;
         "ranger/commands.py".source = ../../../ranger/commands.py;
-        "ranger/rc.conf".source = if cfg.bepo
-                                  then ../../../ranger/bepo_rc.conf
-                                  else ../../../ranger/rc.conf;
+        "ranger/rc.conf".source =
+          if cfg.bepo
+          then ../../../ranger/bepo_rc.conf
+          else ../../../ranger/rc.conf;
       };
 
       # Only use /etc/ranger/rc.conf and ~/.config/ranger/rc.conf

@@ -7,10 +7,10 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.programs.gpg;
   identity = config.confkit.identity;
 in
@@ -30,6 +30,11 @@ in
         ask-cert-expire = mkDefault true;
         keyserver-options = mkDefault "no-honor-keyserver-url auto-key-retrieve";
         keyserver = mkDefault "hkps://hkps.pool.sks-keyservers.net";
+      };
+
+      scdaemonSettings = {
+        # This allows GPG to work with PC/SC.
+        disable-ccid = mkDefault true;
       };
     };
   };

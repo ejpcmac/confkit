@@ -7,10 +7,11 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf mkDefault types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.git;
   identity = config.confkit.identity;
 in
@@ -20,7 +21,7 @@ in
     enable = mkEnableOption "the confkit home configuration for Git";
 
     gpgSign = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.programs.gpg.enable;
       example = true;
       description = ''
@@ -44,13 +45,14 @@ in
       };
 
       aliases = {
-        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+        fixup = mkDefault "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
       };
 
       extraConfig = {
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
-        pull.rebase = mkDefault "preserve";
+        pull.rebase = mkDefault "merges";
+        push.autoSetupRemote = mkDefault true;
         rebase.autosquash = mkDefault true;
         mergetool.keepBackup = mkDefault false;
 

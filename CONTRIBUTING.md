@@ -86,6 +86,10 @@ To make a change, please use this workflow:
 6. Open a pull request to merge your branch into the `develop` branch on the
     main repository.
 
+## Coding style
+
+Please format your code with `nixpkgs-fmt`.
+
 ## Commit style
 
 This project uses [Conventional

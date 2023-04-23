@@ -5,11 +5,12 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkOption mkEnableOption mkIf types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) bool;
   cfg = config.confkit.programs.zathura;
 in
 
@@ -18,7 +19,7 @@ in
     enable = mkEnableOption "the confkit home configuration for Zathura";
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
@@ -26,9 +27,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    warnings = if !cfg.bepo then [
-      "There is currently no non-BÉPO configuration for zathura in confkit."
-    ] else [];
+    warnings =
+      if !cfg.bepo then [
+        "There is currently no non-BÉPO configuration for zathura in confkit."
+      ] else [ ];
 
     programs.zathura = {
       enable = true;

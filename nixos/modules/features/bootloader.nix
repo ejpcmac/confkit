@@ -6,10 +6,11 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkOption mkIf mkDefault types;
+  inherit (lib) mkEnableOption mkIf mkOption;
+  inherit (lib.types) enum ints str;
   cfg = config.confkit.features.bootloader;
 in
 
@@ -18,26 +19,26 @@ in
     enable = mkEnableOption "the boot configuration from confkit";
 
     platform = mkOption {
-      type = types.enum [ "bios" "uefi" ];
+      type = enum [ "bios" "uefi" ];
       example = "uefi";
       description = "The firmware platform";
     };
 
     program = mkOption {
-      type = types.enum [ "grub" "systemd-boot" ];
+      type = enum [ "grub" "systemd-boot" ];
       example = "systemd-boot";
       description = "The bootloader program to use";
     };
 
     device = mkOption {
-      type = types.str;
+      type = str;
       default = "";
       example = "/dev/sdb";
       description = "The device on which to write the MBR";
     };
 
     timeout = mkOption {
-      type = types.ints.unsigned;
+      type = ints.unsigned;
       default = 1;
       example = 5;
       description = "The bootloader timeout";

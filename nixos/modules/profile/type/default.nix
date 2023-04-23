@@ -1,28 +1,30 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption;
+  inherit (lib.types) enum listOf str;
+
   baseTypes = [ "physical" "virtual" "container" "laptop" ];
   additionalTypes = config.confkit.extensions.profile.additionalTypes;
-  type = types.enum (baseTypes ++ additionalTypes);
+  type = enum (baseTypes ++ additionalTypes);
 in
 
 {
   options.confkit.profile.type = mkOption {
-    type = types.listOf type;
-    default = [];
+    type = listOf type;
+    default = [ ];
     example = [ "physical" "laptop" ];
     description = "The machine type.";
   };
 
   options.confkit.extensions.profile.additionalTypes = mkOption {
-    type = types.listOf types.str;
-    default = [];
+    type = listOf str;
+    default = [ ];
     example = [ "mainframe" ];
     description = ''
-      Additional machine types to accept in confkit.
+      Additional machine to accept in confkit.
 
-      This option can be used to extend confkit with you custom machine types.
+      This option can be used to extend confkit with you custom machine
     '';
   };
 

@@ -8,11 +8,12 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (builtins) readFile listToAttrs;
-  inherit (lib) mkOption mkEnableOption mkIf mkDefault mkMerge types;
+  inherit (lib) mkDefault mkEnableOption mkIf mkMerge mkOption;
+  inherit (lib.types) bool listOf str;
   cfg = config.confkit.programs.zsh;
 in
 
@@ -21,7 +22,7 @@ in
     enable = mkEnableOption "the confkit home configuration for Zsh";
 
     plugins = mkOption {
-      type = types.listOf types.str;
+      type = listOf str;
       default = [ "aliases" "nix" ];
       example = [ "aliases" "git" "nix" ];
       description = ''
@@ -33,7 +34,7 @@ in
     };
 
     ohMyZsh = mkOption {
-      type = types.bool;
+      type = bool;
       default = false;
       example = true;
       description = "Wether to enable Oh My Zsh.";
@@ -61,10 +62,12 @@ in
     }
 
     {
-      home.file = listToAttrs (map (plugin: {
-        name = ".zsh/${plugin}.zsh";
-        value.source = ../../../zsh + "/${plugin}.zsh";
-      }) cfg.plugins);
+      home.file = listToAttrs (map
+        (plugin: {
+          name = ".zsh/${plugin}.zsh";
+          value.source = ../../../zsh + "/${plugin}.zsh";
+        })
+        cfg.plugins);
     }
   ]);
 }

@@ -8,7 +8,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.features.zfs;
 in
 
@@ -35,5 +35,27 @@ in
     ########################################################################
 
     environment.systemPackages = [ pkgs.sanoid ];
+
+    ########################################################################
+    ##                           Shell aliases                            ##
+    ########################################################################
+
+    environment.shellAliases = {
+      disable-zfs-snapshots = mkDefault ''
+        sudo systemctl stop zfs-snapshot-frequent.timer && \
+        sudo systemctl stop zfs-snapshot-hourly.timer && \
+        sudo systemctl stop zfs-snapshot-daily.timer && \
+        sudo systemctl stop zfs-snapshot-weekly.timer && \
+        sudo systemctl stop zfs-snapshot-monthly.timer
+      '';
+
+      enable-zfs-snapshots = mkDefault ''
+        sudo systemctl start zfs-snapshot-frequent.timer && \
+        sudo systemctl start zfs-snapshot-hourly.timer && \
+        sudo systemctl start zfs-snapshot-daily.timer && \
+        sudo systemctl start zfs-snapshot-weekly.timer && \
+        sudo systemctl start zfs-snapshot-monthly.timer
+      '';
+    };
   };
 }

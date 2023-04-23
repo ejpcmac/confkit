@@ -24,6 +24,7 @@ in
       colordiff
       curl
       dcfldd
+      dmidecode
       dnsutils
       emv
       ffmpeg

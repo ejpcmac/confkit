@@ -7,10 +7,11 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
-  inherit (lib) mkOption mkIf mkDefault types;
+  inherit (lib) mkDefault mkIf mkOption;
+  inherit (lib.types) nullOr str;
   cfg = config.confkit.info;
   machineId = cfg.machineId;
 in
@@ -18,20 +19,20 @@ in
 {
   options.confkit.info = {
     name = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       example = "nixos";
       description = "The machine name";
     };
 
     machineId = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       description = "The systemd machine ID";
     };
 
     location = mkOption {
-      type = types.nullOr types.str;
+      type = nullOr str;
       default = null;
       example = "kerguelen";
       description = "The machine location";

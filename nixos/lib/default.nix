@@ -1,15 +1,13 @@
 let
-  inherit (builtins) elem;
   defaultFsOptions = [ "noatime" "nodev" "noexec" "nosuid" ];
 in
 
 {
   ## Generates a ZFS or btrfs file system mount.
   mkFs = config:
-    {
-      volumePath,
-      options ? defaultFsOptions,
-      neededForBoot ? false
+    { volumePath
+    , options ? defaultFsOptions
+    , neededForBoot ? false
     }:
 
     let
@@ -25,7 +23,7 @@ in
       fsType = "btrfs";
       options = [ "subvol=${volumePath}" "compress=zstd" ] ++ options;
       inherit neededForBoot;
-    } else {};
+    } else { };
 
   ## Default file system options.
   inherit defaultFsOptions;

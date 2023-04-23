@@ -6,6 +6,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.17] - 2023-04-23
+
+### Added
+
+* [Nixos/Features/Utilities] Add `dmidecode`.
+* [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
+    / disabling the ZFS auto-snapshot timers.
+* [Zsh/ZFS] Add `zl3` / `wzl3` as a `zfs list` alias with a different property
+    set than `zl` / `zl2`. Mainly suited for big screens.
+* [Zsh/ZFS] Add specialised `zfs list` aliases:
+    * `zlsp` / `wzlsp`: “ZFS List SPace” for `zfs list -o space`,
+    * `zlas` / `wzlas`: “ZFS List Auto-Snapshot” for listing sizes and
+        auto-snapshot info.
+    * `zlb` / `wzlb`: “ZFS List Bookmarks” to list the bookmarks for the given
+        dataset.
+* [Zsh/ZFS] Add `[s]zpp[d]` for `[sudo] zpool checkpoint [-d]`
+
+### Changed
+
+* **BREAKING** [NixOS/Profile/Physical] Require a `/system/data/fwupd`
+    filesystem when `confkit.features.fileSystems.enable` and
+    `confkit.features.fileSystems.rootOnTmpfs` are set to `true`.
+* [NixOS/Profile/Physical] Enable `services.fwupd`.
+* [NixOS/Profile/Workstation] Mount `/config` with `exec=on`.
+* [home-manager/Git] Set `push.autoSetupRemote = true`.
+* [Nix] Format the files with `nixpkgs-fmt`.
+* [ranger] Make compression / decompression shortcuts (`fa` / `fx` / `fz` /
+    `fdz`) able to work on multiple archives.
+* [Zsh/ZFS] Update `zl2` / `wzl2`: change `used` by `usedbydataset`, and remove
+    `quota` and `devices`.
+
+### Fixed
+
+* [NixOS/Profile/Workstation] Enable `services.udisks2`, which is now disabled
+    by default in NixOS 22.11.
+* [home-manager/Git] Set `pull.rebase = "merges"` instead of the deprecated
+    `pull.rebase = "preserve"`.
+* [home-manager/GPG] Set the `disable-ccid` option for `scdaemon`, so that it
+    properly works with `pcscd`.
+* Add missing `mkDefault`.
+
 ## [0.0.16] - 2022-12-27
 
 ### Changed
@@ -61,8 +102,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* [NixOS/Profiles/Laptop] Install udev rules for `brightnessctl`.
-* [NixOS/Profiles/Workstation] Switch the bépo layout from `fr bepo` to `fr
+* [NixOS/Profile/Laptop] Install udev rules for `brightnessctl`.
+* [NixOS/Profile/Workstation] Switch the bépo layout from `fr bepo` to `fr
     bepo_afnor`.
 * [Zsh/Rust] Make `ctw` use `cargo-watch` instead of `cargo-testify`.
 
@@ -916,6 +957,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.17]: https://github.com/ejpcmac/confkit/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/ejpcmac/confkit/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/ejpcmac/confkit/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/ejpcmac/confkit/compare/v0.0.13...v0.0.14

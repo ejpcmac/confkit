@@ -9,7 +9,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) mkDefault mkIf;
 
   fs = config.confkit.features.fileSystems;
   mkFs = pkgs.lib.confkit.mkFs config;
@@ -23,8 +23,17 @@ in
     ########################################################################
 
     fileSystems = mkIf (fs.enable && fs.rootOnTmpfs) {
+      "/persist/fwupd" = mkFs { volumePath = "/system/data/fwupd"; };
       "/var/lib/chrony" = mkFs { volumePath = "/system/data/chrony"; };
     };
+
+    ########################################################################
+    ##                            Persistence                             ##
+    ########################################################################
+
+    systemd.tmpfiles.rules = [
+      "L+ /var/lib/fwupd - - - - /persist/fwupd"
+    ];
 
     ########################################################################
     ##                              Services                              ##
@@ -32,6 +41,7 @@ in
 
     services = {
       chrony.enable = mkDefault true;
+      fwupd.enable = mkDefault true;
       smartd.enable = mkDefault true;
     };
 

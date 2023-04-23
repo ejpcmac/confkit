@@ -8,7 +8,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkDefault;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.features.base;
 in
 
@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     users = {
-      mutableUsers = false;
+      mutableUsers = mkDefault false;
       defaultUserShell = pkgs.zsh;
     };
   };

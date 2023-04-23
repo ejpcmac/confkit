@@ -16,7 +16,8 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) mkEnableOption mkOption mkIf mkDefault types optionalString;
+  inherit (lib) mkDefault mkEnableOption mkIf mkOption optionalString;
+  inherit (lib.types) bool;
   inherit (pkgs) stdenv;
 
   cfg = config.confkit.programs.vim;
@@ -33,14 +34,14 @@ in
     enable = mkEnableOption "the confkit configuration for Vim";
 
     defaultEditor = mkOption {
-      type = types.bool;
+      type = bool;
       default = true;
       example = false;
       description = "Wether to set Vim as the default editor.";
     };
 
     bepo = mkOption {
-      type = types.bool;
+      type = bool;
       default = config.confkit.keyboard.layout == "bépo";
       example = true;
       description = "Use keybindings optimised for BÉPO keyboards.";
@@ -48,18 +49,20 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = if stdenv.isLinux then [
-      (pkgs.vim_configurable.customize {
-        name = "vim";
-        vimrcConfig.customRC = vimConfig;
-      })
-    ] else [];
+    environment.systemPackages =
+      if stdenv.isLinux then [
+        (pkgs.vim_configurable.customize {
+          name = "vim";
+          vimrcConfig.customRC = vimConfig;
+        })
+      ] else [ ];
 
-    programs.vim = if stdenv.isDarwin then {
-      enable = true;
-      vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
-    } else {
-      defaultEditor = cfg.defaultEditor;
-    };
+    programs.vim =
+      if stdenv.isDarwin then {
+        enable = true;
+        vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
+      } else {
+        defaultEditor = cfg.defaultEditor;
+      };
   };
 }

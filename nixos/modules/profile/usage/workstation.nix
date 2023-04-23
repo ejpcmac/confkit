@@ -11,8 +11,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkIf;
-  inherit (lib.trivial) release;
+  inherit (lib) mkDefault mkIf;
 
   hostName = config.networking.hostName;
   layout = config.confkit.keyboard.layout;
@@ -29,7 +28,10 @@ in
     ########################################################################
 
     fileSystems = mkIf fs.enable {
-      "/config" = mkFs { volumePath = "/local/config"; };
+      "/config" = mkFs {
+        volumePath = "/local/config";
+        options = [ "noatime" "nodev" "nosuid" ];
+      };
 
       "/persist/cups" = mkIf fs.rootOnTmpfs (mkFs {
         volumePath = "/system/data/cups";
@@ -73,13 +75,13 @@ in
     ########################################################################
 
     hardware = {
-      pulseaudio.enable = true;
+      pulseaudio.enable = mkDefault true;
     };
 
     sound = {
       # Enable ALSA sound.
-      enable = true;
-      mediaKeys.enable = true;
+      enable = mkDefault true;
+      mediaKeys.enable = mkDefault true;
     };
 
     ########################################################################
@@ -87,7 +89,7 @@ in
     ########################################################################
 
     networking = {
-      networkmanager.enable = true;
+      networkmanager.enable = mkDefault true;
     };
 
     ########################################################################
@@ -95,11 +97,12 @@ in
     ########################################################################
 
     services = {
-      pcscd.enable = true;
-      printing.enable = true;
+      pcscd.enable = mkDefault true;
+      printing.enable = mkDefault true;
+      udisks2.enable = mkDefault true;
 
       xserver = {
-        enable = true;
+        enable = mkDefault true;
 
         # Configure the keyboard layout if it has been set in
         # confkit.keyboard.layout.
@@ -108,8 +111,8 @@ in
 
         # Enable touchpad support with natural scrolling.
         libinput = {
-          enable = true;
-          touchpad.naturalScrolling = true;
+          enable = mkDefault true;
+          touchpad.naturalScrolling = mkDefault true;
         };
       };
     };
