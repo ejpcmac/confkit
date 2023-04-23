@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+* [Zsh/Nix] Add aliases for the “new” `nix` command line.
+
+### Changed
+
+* **BREAKING** [Zsh/Nix] `nb` is now `nix build` instead of `nix-build`.
+* [Zsh/Nix] `nso` is now `nix store optimise` instead of `nix-store --optimise
+    -v`.
+
 ## [0.0.17] - 2023-04-23
 
 ### Added
@@ -957,6 +969,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
 [0.0.17]: https://github.com/ejpcmac/confkit/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/ejpcmac/confkit/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/ejpcmac/confkit/compare/v0.0.14...v0.0.15

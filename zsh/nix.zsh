@@ -2,6 +2,28 @@
 # Nix Aliases #
 ###############
 
+# nix
+alias nb='nix build'
+alias nd='nix develop'
+alias nfa='nix flake archive'
+alias nfcl='nix flake clone'
+alias nfl='nix flake lock'
+alias nflu='nix flake lock --update-input'
+alias nfu='nix flake update'
+alias npdc='nix profile diff-closures'
+alias nph='nix profile history'
+alias npi='nix profile install'
+alias npl='nix profile list'
+alias npr='nix profile remove'
+alias nprb='nix profile rollback'
+alias npu='nix profile upgrade'
+alias npua="nix profile upgrade '.*'"
+alias ns='nix search'
+alias nsp='nix search nixpkgs'
+alias nsh='nix shell'
+alias nso='nix store optimise'
+alias nwd='nix why-depends'
+
 # nix-channel
 alias nic='nix-channel'
 alias nicl='nix-channel --list'
@@ -63,9 +85,6 @@ alias hp='home-manager packages'
 alias hn='home-manager news'
 alias hgen='home-manager generations'
 
-# nix-build
-alias nb='nix-build'
-
 # nix-shell
 alias nis='nix-shell'
 alias nisp='nix-shell --pure'
@@ -75,9 +94,6 @@ alias niss='nix-instantiate shell.nix --indirect --add-root $PWD/shell.drv'
 alias ngc='nix-collect-garbage'
 alias ngcd='nix-collect-garbage -d'
 alias ngco='nix-collect-garbage --delete-older-than 30d'
-
-# nix-store
-alias nso='nix-store --optimise -v'
 
 ##
 ## Helpers to preview the changes to the package list prior to rebuild.
