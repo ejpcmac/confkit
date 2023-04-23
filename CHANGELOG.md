@@ -14,6 +14,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* **BREAKING** [NixOS/Profile/Workstation] Link `/etc/nixos/flake.nix` instead
+    of `/etc/nixos/configuration.nix.`.
 * **BREAKING** [Zsh/Nix] `nb` is now `nix build` instead of `nix-build`.
 * [Zsh/Nix] `nso` is now `nix store optimise` instead of `nix-store --optimise
     -v`.
