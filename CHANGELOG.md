@@ -10,6 +10,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [Flake] Expose the NixOS module as `nixosModules.confkit-nixos`.
+* [Flake] Expose the home-manager module as `nixosModules.confkit-home`.
+* [Flake] Expose the default root configuration as
+    `nixosModules.home-config-root`.
 * [Zsh/Nix] Add aliases for the “new” `nix` command line.
 * [Zsh/Nix] Add `diff-system` and `diff-home` to show the diff for system / home
     using `nix profile diff-closures`.
