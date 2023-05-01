@@ -38,6 +38,7 @@
   confkit = {
     info = {
       name = "nixos-host";
+      # TODO: Change the machineId.
       machineId = "c6dc57dbf4e9384215c6d0e6616d2ff2";
       location = "kerguelen";
     };
@@ -154,11 +155,12 @@
     texlive.combined.scheme-full
 
     # Applications
+    element-desktop
     firefox
     gimp
     gwenview
     kate
-    keepassx2
+    keepassxc
     konversation
     libreoffice
     mpv
