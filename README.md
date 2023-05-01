@@ -45,7 +45,7 @@ changes in a too harsh way.
 
 3. Initialise the configuraton using the template provided by `confkit`:
 
-        nix flake init -t github:ejpcmac/confkit/develop
+        nix flake init -t github:ejpcmac/confkit
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
 flake configuration using `confkit`.
