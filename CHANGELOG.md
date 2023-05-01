@@ -8,6 +8,87 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.0.18] - 2023-05-01
 
+### Highlights
+
+`confkit` is now designed to fit in a flake-powered configuration. For that
+purpose:
+
+* the NixOS and `home-manager` modules are available as the
+    `nixosModules.confkit-nixos` and `nixosModules.confkit-home` flake
+    attributes respectively,
+* the `workstation` profile links `/etc/nixos/flake.nix` instead of
+    `/etc/nixos/configuration.nix`,
+* aliases for the `nix` command line have been updated.
+
+To use `confkit` in your configuration, you do not need anymore to add `confkit`
+as a Git submodule. Instead, you can use a `flake.nix` like this:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    # Add this input.
+    confkit.url = "github:ejpcmac/confkit/v0.0.18";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-22.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, ... }@inputs: {
+    nixosConfigurations.nixos-host = inputs.nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      # Add this to make `inputs` available inside the NixOS configuration.
+      specialArgs = { inherit inputs system; };
+
+      modules = [
+        ./configuration.nix
+
+        {
+        # Add this to make `inputs` available inside the home configuration.
+          home-manager.extraSpecialArgs = { inherit inputs system; };
+        }
+      ];
+    };
+  };
+}
+```
+
+In your `configuration.nix`, you can then import the `confkit` NixOS module as
+follows:
+
+```nix
+# Add `inputs` here.
+{ inputs, pkgs, ... }:
+
+{
+  imports = [
+    # Import the confkit NixOS module.
+    inputs.confkit.nixosModules.confkit-nixos
+  ];
+
+  # ...
+}
+```
+
+Similarly, in your `home.nix`, you can import the `confkit` module for
+`home-manager`:
+
+```nix
+# Add `inputs` here.
+{ inputs, pkgs, ... }:
+
+{
+  imports = [
+    # Import the confkit home-manager module.
+    inputs.confkit.nixosModules.confkit-home
+  ];
+
+  # ...
+}
+```
+
 ### Added
 
 * [Flake] Expose the NixOS module as `nixosModules.confkit-nixos`.
@@ -18,6 +99,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Nix] Add aliases for the “new” `nix` command line.
 * [Zsh/Nix] Add `diff-system` and `diff-home` to show the diff for system / home
     using `nix profile diff-closures`.
+
 ### Changed
 
 * **BREAKING** [NixOS/Profile/Workstation] Link `/etc/nixos/flake.nix` instead
