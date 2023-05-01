@@ -4,7 +4,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # This value determines the NixOS release with which your system is to be
@@ -16,14 +16,15 @@
   imports = [
     # Import the confkit NixOS module to get ready-to-use configurations for
     # several tools.
-    ../../confkit/nixos
+    inputs.confkit.nixosModules.confkit-nixos
 
     # Import the home-manager NixOS module to handle user configurations
     # declaratively.
-    ../../home-manager/nixos
+    inputs.home-manager.nixosModules.home-manager
 
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    # TODO: Uncomment this once it has been generated.
+    # ./hardware-configuration.nix
 
     # Configuration for the users.
     ./users/root
@@ -102,6 +103,7 @@
 
   services = {
     avahi = { enable = true; nssmdns = true; };
+    tlp.enable = false;
 
     redshift = {
       enable = true;
@@ -147,7 +149,6 @@
     openssl
     pandoc
     redshift-plasma-applet
-    wine
 
     # TeXLive can be useful for tools like Pandoc or Org.
     texlive.combined.scheme-full

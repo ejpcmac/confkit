@@ -4,6 +4,8 @@
 ##                                                                            ##
 ################################################################################
 
+{ inputs, ... }:
+
 {
   users.users.root = {
     # Password: root
@@ -11,5 +13,5 @@
     hashedPassword = "$6$10ANBznle.bUMU$ex8BpjzUzYQKiOX5cYVT0v4NoPujGza0oPQEqZv.WQguj9p8MAOfiXiFkBkiY1Wt9ePe3fA4J3jw4KjG.pwDH1";
   };
 
-  home-manager.users.root = import ../../../../confkit/home-manager/configs/root.nix;
+  home-manager.users.root = inputs.confkit.nixosModules.home-config-root;
 }
