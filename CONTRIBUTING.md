@@ -24,14 +24,6 @@ branches. **Please never commit to `main`.**
 
         $ git checkout develop
 
-### Git-flow
-
-If you want to use `git-flow` and use the standard project configuration, please
-run:
-
-    $ direnv allow
-    $ ./.gitsetup
-
 ## Workflow
 
 To make a change, please use this workflow:

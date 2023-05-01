@@ -4,7 +4,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # This value determines the NixOS release with which your system is to be
@@ -15,7 +15,7 @@
 
   # Import the confkit home-manager module to get ready-to-use configurations
   # for several tools.
-  imports = [ ../../../../confkit/home-manager ];
+  imports = [ inputs.confkit.nixosModules.confkit-home ];
 
   ############################################################################
   ##                                confkit                                 ##
@@ -65,6 +65,7 @@
   ############################################################################
 
   programs = {
+    # direnv = { enable = true; nix-direnv.enable = true; };
     home-manager.enable = true;
 
     zsh = {
@@ -86,6 +87,5 @@
 
   home.packages = with pkgs; [
     bashInteractive
-    # direnv
   ];
 }

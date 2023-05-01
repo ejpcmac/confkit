@@ -56,7 +56,7 @@ in
 
     environment.etc = mkIf fs.rootOnTmpfs {
       # Link the NixOS configuration to the config repository.
-      "nixos/configuration.nix".source = "/config/Nix/${hostName}/configuration.nix";
+      "nixos/flake.nix".source = "/config/Nix/${hostName}/flake.nix";
       "nixos/hardware-configuration.nix".source = "/config/Nix/${hostName}/hardware-configuration.nix";
 
       # Persisted non-static files in /etc

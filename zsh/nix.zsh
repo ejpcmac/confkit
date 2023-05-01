@@ -2,6 +2,28 @@
 # Nix Aliases #
 ###############
 
+# nix
+alias nb='nix build'
+alias nd='nix develop'
+alias nfa='nix flake archive'
+alias nfcl='nix flake clone'
+alias nfl='nix flake lock'
+alias nflu='nix flake lock --update-input'
+alias nfu='nix flake update'
+alias npdc='nix profile diff-closures'
+alias nph='nix profile history'
+alias npi='nix profile install'
+alias npl='nix profile list'
+alias npr='nix profile remove'
+alias nprb='nix profile rollback'
+alias npu='nix profile upgrade'
+alias npua="nix profile upgrade '.*'"
+alias ns='nix search'
+alias nsp='nix search nixpkgs'
+alias nsh='nix shell'
+alias nso='nix store optimise'
+alias nwd='nix why-depends'
+
 # nix-channel
 alias nic='nix-channel'
 alias nicl='nix-channel --list'
@@ -21,16 +43,6 @@ alias snicrb='sudo nix-channel --rollback'
 # NixOS rebuild
 alias snors="sudo nixos-rebuild switch"
 alias snorb="sudo nixos-rebuild boot"
-alias bnors="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch"
-alias bnorb="nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild boot"
-alias sbnors="sudo su -c \"\
-    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild switch\""
-alias sbnorb="sudo su -c \"\
-    nix build --no-link -f '<nixpkgs/nixos>' config.system.build.toplevel && \
-    nixos-rebuild boot\""
 
 # nixos-container
 alias ncl='nixos-container list'
@@ -63,46 +75,10 @@ alias hp='home-manager packages'
 alias hn='home-manager news'
 alias hgen='home-manager generations'
 
-# nix-build
-alias nb='nix-build'
-
-# nix-shell
-alias nis='nix-shell'
-alias nisp='nix-shell --pure'
-alias niss='nix-instantiate shell.nix --indirect --add-root $PWD/shell.drv'
-
 # nix-collect-garbage
 alias ngc='nix-collect-garbage'
-alias ngcd='nix-collect-garbage -d'
 alias ngco='nix-collect-garbage --delete-older-than 30d'
 
-# nix-store
-alias nso='nix-store --optimise -v'
-
-##
-## Helpers to preview the changes to the package list prior to rebuild.
-##
-## Usage:
-##
-## 1. Run `csp` to create the cache. Note that it will not list what is
-##    currently installed on your system. It will instead evaluate what will be
-##    your system after a rebuild.
-##
-## 2. Update your configuration and/or your channels.
-##
-## 3. Run `dsp` to print a diff between the cached version and the version that
-##    would be applied by a rebuild.
-##
-
-alias esp='eval-system-packages'
-alias eval-system-packages="nix-instantiate --strict --json --eval -E \
-    'builtins.map (p: p.name) (import <nixpkgs/nixos> {}).config.environment.systemPackages' \
-    | jq -r '.[]' \
-    | sort -u"
-
-alias csp='cache-system-packages'
-alias cache-system-packages='eval-system-packages > ~/.cache/system-packages'
-
-alias dsp='diff-system-packages'
-alias diff-system-packages="eval-system-packages \
-    | colordiff -y ~/.cache/system-packages -"
+# Diff between versions
+alias diff-system='nix profile diff-closures --profile /nix/var/nix/profiles/system'
+alias diff-home='nix profile diff-closures --profile /nix/var/nix/profiles/per-user/$USER/home-manager'

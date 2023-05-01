@@ -32,56 +32,39 @@ changes in a too harsh way.
 
 1. Create a directory for your own configuration files:
 
-        $ sudo mkdir -m 700 /config
-        $ sudo chown $UID:$GID /config
+        sudo mkdir -m 700 /config
+        sudo chown $UID:$GID /config
 
     You can choose another name for the directory, but `oc` and `ocd` aliases
     are defined to use this directory.
 
-2. Optionally initialise a Git repository to track your configuration:
+2. Initialise a Git repository to track your configuration:
 
-        $ cd /config
-        $ git init
+        cd /config
+        git init
 
-3. Add `confkit` and `home-manager` as submodules:
+3. Initialise the configuraton using the template provided by `confkit`:
 
-        $ git submodule add https://github.com/ejpcmac/confkit.git
-        $ git submodule add https://github.com/rycee/home-manager.git
-
-    If you are not using Git to track your configuration, do instead:
-
-        $ git clone https://github.com/ejpcmac/confkit.git
-        $ git clone https://github.com/rycee/home-manager.git
-
-4. Switch to the `home-manager` branch matching your NixOS version, for
-   instance:
-
-        $ cd home-manager
-        $ git checkout release-22.05
-
-5. Copy the example in your own configuration:
-
-        $ cd /config
-        $ cp -r confkit/example/* .
+        nix flake init -t github:ejpcmac/confkit
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
-configuration using `confkit`.
+flake configuration using `confkit`.
 
 ### Initial configuration
 
-1. Rename the `nixos-host` directory to match your machine hostname. If you want
-   to share some configuration between different machines, you can create a
-   `common` directory and import `Nix/common/configuration.nix` in your
+1. Rename the `Nix/nixos-host` directory to match the hostname of your machine.
+   If you want to share some configuration between different machines, you can
+   create a `common` directory and import `Nix/common/configuration.nix` in your
    different `Nix/<hostname>/configuration.nix`.
 
-2. Edit your system configuration to match your needs. Don’t forget to configure
-   your users in `Nix/<hostname>/users/default.nix`.
+2. Edit the system configuration in `Nix/<hostname>/configuration.nix` to match
+   your needs. Don’t forget to review all the TODOs.
 
 3. Copy / rename as necessary `Nix/<hostname>/users/user` to create
    `home-manager` configurations for your users. Don’t forget to update their
-   imports in `Nix/<hostname>/users/default.nix`.
+   imports in `Nix/<hostname>/configuration.nix`.
 
-4. In `Nix/<hostname>/users/<username>/default.nix`, configure your identity
+4. In `Nix/<hostname>/users/<username>/home.nix`, configure your identity
    information via `confkit.identity`, so it can be used by the `confkit.git`
    module. If you are using GPG, you can also define `confkit.identity.gpgKey`
    and enable the `confkit.gpg` module: it will also enable Git commit signing
@@ -89,8 +72,10 @@ configuration using `confkit`.
 
 ### Installation
 
-On NixOS, link `/etc/nixos/configuration.nix` to
-`/config/Nix/<hostname>/configuration.nix`.
+On NixOS:
+
+1. link `/etc/nixos/flake.nix` to `/config/Nix/<hostname>/flake.nix`,
+2. run `sudo nixos-rebuild switch`.
 
 ## Supported NixOS versions
 

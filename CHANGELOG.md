@@ -6,6 +6,119 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.18] - 2023-05-01
+
+### Highlights
+
+`confkit` is now designed to fit in a flake-powered configuration. For that
+purpose:
+
+* the NixOS and `home-manager` modules are available as the
+    `nixosModules.confkit-nixos` and `nixosModules.confkit-home` flake
+    attributes respectively,
+* the `workstation` profile links `/etc/nixos/flake.nix` instead of
+    `/etc/nixos/configuration.nix`,
+* aliases for the `nix` command line have been updated.
+
+To use `confkit` in your configuration, you do not need anymore to add `confkit`
+as a Git submodule. Instead, you can use a `flake.nix` like this:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    # Add this input.
+    confkit.url = "github:ejpcmac/confkit/v0.0.18";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-22.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, ... }@inputs: {
+    nixosConfigurations.nixos-host = inputs.nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      # Add this to make `inputs` available inside the NixOS configuration.
+      specialArgs = { inherit inputs system; };
+
+      modules = [
+        ./configuration.nix
+
+        {
+        # Add this to make `inputs` available inside the home configuration.
+          home-manager.extraSpecialArgs = { inherit inputs system; };
+        }
+      ];
+    };
+  };
+}
+```
+
+In your `configuration.nix`, you can then import the `confkit` NixOS module as
+follows:
+
+```nix
+# Add `inputs` here.
+{ inputs, pkgs, ... }:
+
+{
+  imports = [
+    # Import the confkit NixOS module.
+    inputs.confkit.nixosModules.confkit-nixos
+  ];
+
+  # ...
+}
+```
+
+Similarly, in your `home.nix`, you can import the `confkit` module for
+`home-manager`:
+
+```nix
+# Add `inputs` here.
+{ inputs, pkgs, ... }:
+
+{
+  imports = [
+    # Import the confkit home-manager module.
+    inputs.confkit.nixosModules.confkit-home
+  ];
+
+  # ...
+}
+```
+
+### Added
+
+* [Flake] Expose the NixOS module as `nixosModules.confkit-nixos`.
+* [Flake] Expose the home-manager module as `nixosModules.confkit-home`.
+* [Flake] Expose the default root configuration as
+    `nixosModules.home-config-root`.
+* [Flake] Provide a flake template.
+* [Zsh/Nix] Add aliases for the “new” `nix` command line.
+* [Zsh/Nix] Add `diff-system` and `diff-home` to show the diff for system / home
+    using `nix profile diff-closures`.
+
+### Changed
+
+* **BREAKING** [NixOS/Profile/Workstation] Link `/etc/nixos/flake.nix` instead
+    of `/etc/nixos/configuration.nix.`.
+* **BREAKING** [Zsh/Nix] `nb` is now `nix build` instead of `nix-build`.
+* [Zsh/Nix] `nso` is now `nix store optimise` instead of `nix-store --optimise
+    -v`.
+
+### Removed
+
+* [Zsh/Nix] Remove `nis`, `nisp` and `niss` aliases for `nix-shell`.
+* [Zsh/Nix] Remove `bnorb`, `bnors`, `sbnorb` and `sbnorb`, which are not needed
+    anymore to show the progression while building a NixOS system with flakes.
+* [Zsh/Nix] Remove `esp`, `csp` and `dsp` which can be achieved by using `nix
+    profile diff-closures`.
+* [Zsh/Nix] Remove `ngcd` for `nix-garbage-collect -d` since it is a destructive
+    operation, and too similar to `ngco` (older than 30 days) and `ngc` (no
+    deletions).
+
 ## [0.0.17] - 2023-04-23
 
 ### Added
@@ -957,6 +1070,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.18]: https://github.com/ejpcmac/confkit/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/ejpcmac/confkit/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/ejpcmac/confkit/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/ejpcmac/confkit/compare/v0.0.14...v0.0.15
