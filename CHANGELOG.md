@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.0.19] - 2023-06-10
 
 ### Added
 
@@ -1076,7 +1076,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[Unreleased]: https://github.com/ejpcmac/confkit/compare/main...develop
+[0.0.19]: https://github.com/ejpcmac/confkit/compare/v0.0.18...v0.0.19
 [0.0.18]: https://github.com/ejpcmac/confkit/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/ejpcmac/confkit/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/ejpcmac/confkit/compare/v0.0.15...v0.0.16
