@@ -12,6 +12,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [NixOS] Add support for NixOS 23.11.
 
+### Changed
+
+* [NixOS/Fonts] Enable subpixel aliasing. This was the default in NixOS 23.05,
+    but NixOS 23.11 now aligns with fontconfig’s and GNOME’s default behaviour,
+    which is to use greyscale aliasing, which is less appealing.
+
 ### Removed
 
 * [NixOS] Remove support for NixOS 23.05.

@@ -46,6 +46,7 @@ in
 
       fontconfig = {
         includeUserConf = mkDefault false;
+        subpixel.rgba = "rgb";
         useEmbeddedBitmaps = mkDefault true; # Useful for fonts like Calibri.
       };
     };
