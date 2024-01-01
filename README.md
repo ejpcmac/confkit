@@ -79,7 +79,7 @@ On NixOS:
 
 ## Supported NixOS versions
 
-`confkit` currently supports NixOS 22.11.
+`confkit` currently supports NixOS 23.11.
 
 ## [Contributing](CONTRIBUTING.md)
 

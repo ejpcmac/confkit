@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.20] - 2024-01-01
+
+### Added
+
+* [NixOS] Add support for NixOS 23.11.
+* [home-manager/Services/Polybar] Add a `confkit.services.polybar` module to
+    configure Polybar with several built-in modules.
+
+### Changed
+
+* [NixOS/Fonts] Enable subpixel aliasing. This was the default in NixOS 23.05,
+    but NixOS 23.11 now aligns with fontconfig’s and GNOME’s default behaviour,
+    which is to use greyscale aliasing, which is less appealing.
+
+### Removed
+
+* [NixOS] Remove support for NixOS 23.05.
+
 ## [0.0.19] - 2023-06-10
 
 ### Added
@@ -129,7 +147,7 @@ Similarly, in your `home.nix`, you can import the `confkit` module for
 
 ### Added
 
-* [Nixos/Features/Utilities] Add `dmidecode`.
+* [NixOs/Features/Utilities] Add `dmidecode`.
 * [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
     / disabling the ZFS auto-snapshot timers.
 * [Zsh/ZFS] Add `zl3` / `wzl3` as a `zfs list` alias with a different property
@@ -1076,6 +1094,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[0.0.20]: https://github.com/ejpcmac/confkit/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/ejpcmac/confkit/compare/v0.0.18...v0.0.19
 [0.0.18]: https://github.com/ejpcmac/confkit/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/ejpcmac/confkit/compare/v0.0.16...v0.0.17

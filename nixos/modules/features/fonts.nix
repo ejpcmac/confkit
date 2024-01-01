@@ -28,9 +28,9 @@ in
 
   config = mkIf cfg.enable {
     fonts = {
-      enableDefaultFonts = true;
+      enableDefaultPackages = true;
 
-      fonts = with pkgs; mkIf cfg.installFonts [
+      packages = with pkgs; mkIf cfg.installFonts [
         carlito # Compatible with Calibri.
         eb-garamond
         fira
@@ -46,6 +46,7 @@ in
 
       fontconfig = {
         includeUserConf = mkDefault false;
+        subpixel.rgba = "rgb";
         useEmbeddedBitmaps = mkDefault true; # Useful for fonts like Calibri.
       };
     };
