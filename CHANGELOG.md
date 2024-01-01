@@ -11,6 +11,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 * [NixOS] Add support for NixOS 23.11.
+* [home-manager/Services/Polybar] Add a `confkit.services.polybar` module to
+    configure Polybar with several built-in modules.
 
 ### Changed
 
@@ -145,7 +147,7 @@ Similarly, in your `home.nix`, you can import the `confkit` module for
 
 ### Added
 
-* [Nixos/Features/Utilities] Add `dmidecode`.
+* [NixOs/Features/Utilities] Add `dmidecode`.
 * [NixOS/Features/ZFS] Add `[enable|disable]-zfs-snapshots` aliases for enabling
     / disabling the ZFS auto-snapshot timers.
 * [Zsh/ZFS] Add `zl3` / `wzl3` as a `zfs list` alias with a different property
