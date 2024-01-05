@@ -143,6 +143,7 @@ in
         "module/battery" = {
           type = mkDefault "internal/battery";
           full-at = mkDefault 100;
+          poll-interval = mkDefault 2;
 
           format-charging = mkDefault "<animation-charging> <label-charging>";
           format-charging-underline = mkDefault "#45dd00";

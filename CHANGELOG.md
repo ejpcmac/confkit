@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * [home-manager/Services/Polybar] Refresh network data every second.
+* [home-manager/Services/Polybar] Refresh battery data every two seconds.
 
 ## [0.0.20] - 2024-01-01
 
