@@ -116,24 +116,16 @@ in
 
         "module/eth" = {
           type = mkDefault "internal/network";
-          interval = mkDefault 3;
 
           format-connected-prefix = mkDefault "󰈀 ";
           format-connected-prefix-foreground = mkDefault "\${colors.icon}";
           format-connected-underline = mkDefault "#55aa55";
 
           label-connected = mkDefault "%local_ip% %netspeed:9%";
-
-          format-disconnected = mkDefault "";
-          # format-disconnected = mkDefault "<label-disconnected>";
-          # format-disconnected-underline = mkDefault "\${self.format-connected-underline}";
-          # label-disconnected = mkDefault "%ifname% disconnected";
-          # label-disconnected-foreground = mkDefault "\${colors.foreground-alt}";
         };
 
         "module/wlan" = {
           type = mkDefault "internal/network";
-          interval = mkDefault 3;
 
           format-connected = mkDefault "<ramp-signal> <label-connected>";
           format-connected-underline = mkDefault "#9f78e1";
