@@ -159,7 +159,7 @@ in
           animation-charging-8 = mkDefault "󰂋";
           animation-charging-9 = mkDefault "󰂅";
           animation-charging-foreground = mkDefault "\${colors.icon}";
-          animation-charging-framerate = mkDefault 750;
+          animation-charging-framerate = mkDefault 500;
 
           label-charging = mkDefault "%percentage%% %consumption%W";
 

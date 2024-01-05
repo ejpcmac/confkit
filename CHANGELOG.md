@@ -12,6 +12,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [home-manager/Services/Polybar] Refresh network data every second.
 * [home-manager/Services/Polybar] Refresh battery data every two seconds.
+* [home-manager/Services/Polybar] Set the charging battery animation rate to
+    500ms.
 
 ## [0.0.20] - 2024-01-01
 
