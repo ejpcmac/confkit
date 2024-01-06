@@ -45,6 +45,7 @@ in
       lsof
       mkpasswd
       mosh
+      neofetch
       openssh
       p7zip
       parted
@@ -52,7 +53,6 @@ in
       qpdf
       ripgrep
       rsync
-      screenfetch
       smartmontools
       sshfs
       testdisk

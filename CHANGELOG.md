@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* [NixOS/Utilities] Replace `screenfetch` by `neofetch`.
 * [home-manager/Services/Polybar] Refresh network data every second.
 * [home-manager/Services/Polybar] Refresh battery data every two seconds.
 * [home-manager/Services/Polybar] Set the charging battery animation rate to
