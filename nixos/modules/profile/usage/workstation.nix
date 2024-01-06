@@ -111,7 +111,6 @@ in
 
         # Enable touchpad support with natural scrolling.
         libinput = {
-          enable = mkDefault true;
           touchpad.naturalScrolling = mkDefault true;
         };
       };
