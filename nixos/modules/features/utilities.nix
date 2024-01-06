@@ -19,6 +19,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs = {
+      trippy.enable = true;
+    };
+
     environment.systemPackages = with pkgs; [
       bat
       colordiff

@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* [NixOS/Utilities] Add `trippy`.
+
 ### Changed
 
 * [NixOS/Utilities] Replace `screenfetch` by `neofetch`.
