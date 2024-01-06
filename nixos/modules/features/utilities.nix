@@ -27,8 +27,8 @@ in
       dmidecode
       dnsutils
       emv
-      ffmpeg
       fd
+      ffmpeg
       file
       fzf
       git
