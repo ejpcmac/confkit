@@ -75,7 +75,7 @@ in
         };
 
         "module/bspwm" = {
-          type = mkDefault "internal/bspwm";
+          type = "internal/bspwm";
 
           format = mkDefault "<label-state> <label-mode>";
 
@@ -103,7 +103,7 @@ in
         };
 
         "module/date" = {
-          type = mkDefault "internal/date";
+          type = "internal/date";
 
           format-prefix = mkDefault "󰃰 ";
           format-prefix-foreground = mkDefault "\${colors.icon}";
@@ -115,7 +115,7 @@ in
         };
 
         "module/eth" = {
-          type = mkDefault "internal/network";
+          type = "internal/network";
 
           format-connected-prefix = mkDefault "󰈀 ";
           format-connected-prefix-foreground = mkDefault "\${colors.icon}";
@@ -125,7 +125,7 @@ in
         };
 
         "module/wlan" = {
-          type = mkDefault "internal/network";
+          type = "internal/network";
 
           format-connected = mkDefault "<ramp-signal> <label-connected>";
           format-connected-underline = mkDefault "#9f78e1";
@@ -141,7 +141,7 @@ in
         };
 
         "module/battery" = {
-          type = mkDefault "internal/battery";
+          type = "internal/battery";
           full-at = mkDefault 100;
           poll-interval = mkDefault 2;
 
@@ -186,7 +186,7 @@ in
         };
 
         "module/cpu" = {
-          type = mkDefault "internal/cpu";
+          type = "internal/cpu";
           interval = mkDefault 1;
 
           format-prefix = mkDefault "󰘚 ";
@@ -197,7 +197,7 @@ in
         };
 
         "module/cpufreq" = {
-          type = mkDefault "custom/script";
+          type = "custom/script";
           interval = mkDefault 1;
           format-underline = mkDefault "#f90000";
           exec = mkDefault ("printf '%8s' \"$("
@@ -207,7 +207,7 @@ in
         };
 
         "module/memory" = {
-          type = mkDefault "internal/memory";
+          type = "internal/memory";
           interval = mkDefault "2";
 
           format-prefix = mkDefault " ";
@@ -218,7 +218,7 @@ in
         };
 
         "module/temperature" = {
-          type = mkDefault "internal/temperature";
+          type = "internal/temperature";
 
           thermal-zone = mkDefault 0;
 
@@ -231,7 +231,7 @@ in
         };
 
         "module/backlight" = {
-          type = mkDefault "internal/backlight";
+          type = "internal/backlight";
           card = mkDefault "intel_backlight";
 
           format-prefix = "󰖨 ";
@@ -241,7 +241,7 @@ in
         };
 
         "module/alsa" = {
-          type = mkDefault "internal/alsa";
+          type = "internal/alsa";
 
           # master-mixer = mkDefault "PCM";
           master-soundcard = mkDefault "hw:0";
