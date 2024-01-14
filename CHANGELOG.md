@@ -15,6 +15,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * [NixOS/Utilities] Replace `screenfetch` by `neofetch`.
+* [home-manager/Services/Polybar] Define a new `module/tray` of type
+    `internal/tray` and use it in `bar/main` instead of the legacy tray
+    mechanism. You can use this new module if you have custom bars.
 * [home-manager/Services/Polybar] Refresh network data every second.
 * [home-manager/Services/Polybar] Refresh battery data every two seconds.
 * [home-manager/Services/Polybar] Set the charging battery animation rate to

@@ -61,12 +61,9 @@ in
           font-0 = mkDefault "NotoSansM NF:size=10:weight=bold;0";
 
           modules-left = mkDefault "bspwm";
-          modules-right = mkDefault "alsa backlight temperature memory cpufreq cpu battery wlan eth date";
+          modules-right = mkDefault "alsa backlight temperature memory cpufreq cpu battery wlan eth date tray";
 
           locale = mkDefault "fr_FR.UTF-8";
-
-          tray-position = mkDefault "right";
-          tray-padding = mkDefault 2;
 
           wm-restack = mkDefault "bspwm";
 
@@ -100,6 +97,12 @@ in
           label-sticky-foreground = mkDefault "#fba922";
           label-private = mkDefault "";
           label-private-foreground = mkDefault "#bd2c40";
+        };
+
+        "module/tray" = {
+          type = "internal/tray";
+          tray-size = mkDefault "55%";
+          tray-spacing = mkDefault 2;
         };
 
         "module/date" = {
