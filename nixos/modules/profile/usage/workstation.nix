@@ -101,17 +101,19 @@ in
       printing.enable = mkDefault true;
       udisks2.enable = mkDefault true;
 
+      libinput = {
+        # Enable touchpad support with natural scrolling.
+        touchpad.naturalScrolling = mkDefault true;
+      };
+
       xserver = {
         enable = mkDefault true;
 
-        # Configure the keyboard layout if it has been set in
-        # confkit.keyboard.layout.
-        layout = mkIf (layout == "bépo") "fr";
-        xkbVariant = mkIf (layout == "bépo") "bepo_afnor";
-
-        # Enable touchpad support with natural scrolling.
-        libinput = {
-          touchpad.naturalScrolling = mkDefault true;
+        xkb = {
+          # Configure the keyboard layout if it has been set in
+          # confkit.keyboard.layout.
+          layout = mkIf (layout == "bépo") "fr";
+          variant = mkIf (layout == "bépo") "bepo_afnor";
         };
       };
     };

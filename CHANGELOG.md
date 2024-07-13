@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [NixOS] Add support for NixOS 24.05.
 * [NixOS/Utilities] Add `trippy`.
 
 ### Changed
@@ -22,6 +23,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [home-manager/Services/Polybar] Refresh battery data every two seconds.
 * [home-manager/Services/Polybar] Set the charging battery animation rate to
     500ms.
+
+### Removed
+
+* [NixOS] Remove support for NixOS 23.11.
 
 ## [0.0.20] - 2024-01-01
 
