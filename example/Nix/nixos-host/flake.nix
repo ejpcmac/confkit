@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    confkit.url = "github:ejpcmac/confkit/develop";
+    confkit.url = "github:ejpcmac/confkit/stable-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";

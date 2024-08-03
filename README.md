@@ -9,22 +9,25 @@ You can find an example of usage in the `example/` directory. As a more
 complete, but also more complex example, you can check [my public config
 repo](https://github.com/ejpcmac/config).
 
-## Stability status
+## Releases
 
-Since the long due refactor to a NixOS / `home-manager` module system has been
-done, `confkit` should be more stable than ever in its public interface. The
-exact configuration inside a module can still change though, and the new
-interface is still young: I may find something wrongly designed and break things
-to enhance it. That’s why `confkit` is still at 0.0.x. Before to release confkit
-0.1.0, I need to:
+`confkit` follows a rolling release scheme with stability guarantees. For each
+supported NixOS version, it comes with two levels of stability:
 
-* remove some hacky things,
-* remove the last really personal preferences,
-* add a proper documentation.
+* `stable` can be updated with new features and fixes but no breaking changes,
+* `develop` can contain breaking changes.
 
-If you find it useful, you can use it and even help me to reach a more stable
-state :) If I am aware of people using it, I’ll try not to introduce breaking
-changes in a too harsh way.
+The currently supported branches are:
+
+* [`stable-24.05`](https://github.com/ejpcmac/confkit/tree/stable-24.05) —
+    stable channel compatible with NixOS 24.05
+    ([changelog](https://github.com/ejpcmac/confkit/blob/stable-24.05/CHANGELOG.md)),
+* [`develop-24.05`](https://github.com/ejpcmac/confkit/tree/develop-24.05) —
+    development channel compatible with NixOS 24.05
+    ([changelog](https://github.com/ejpcmac/confkit/blob/develop-24.05/CHANGELOG.md)).
+
+When a new version of NixOS is supported, the `develop` channel from the
+previous version is promoted to `stable`.
 
 ## Usage
 
@@ -45,7 +48,7 @@ changes in a too harsh way.
 
 3. Initialise the configuration using the template provided by `confkit`:
 
-        nix flake init -t github:ejpcmac/confkit
+        nix flake init -t github:ejpcmac/confkit/stable-24.05
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
 flake configuration using `confkit`.
@@ -76,10 +79,6 @@ On NixOS:
 
 1. link `/etc/nixos/flake.nix` to `/config/Nix/<hostname>/flake.nix`,
 2. run `sudo nixos-rebuild switch`.
-
-## Supported NixOS versions
-
-`confkit` currently supports NixOS 24.05.
 
 ## [Contributing](CONTRIBUTING.md)
 

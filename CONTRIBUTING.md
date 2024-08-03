@@ -1,10 +1,5 @@
 # Contributing to confkit
 
-For branching management, this project uses
-[git-flow](https://github.com/petervanderdoes/gitflow-avh). The `main` branch is
-reserved for releases: the development process occurs on `develop` and feature
-branches. **Please never commit to `main`.**
-
 ## Setup
 
 ### Local repository
@@ -20,34 +15,27 @@ branches. **Please never commit to `main`.**
 
         $ git remote add upstream https://github.com/ejpcmac/confkit.git
 
-4. Checkout to `develop`:
-
-        $ git checkout develop
-
 ## Workflow
 
 To make a change, please use this workflow:
 
-1. Checkout to `develop` and apply the last upstream changes (use rebase, not
-    merge!):
+1. Select the base branch:
 
-        $ git checkout develop
+    * `stable-<version>` if there is no breaking change,
+    * `develop-<version>` if you plan to introduce a breaking change.
+
+2. Checkout the selected branch and apply the last upstream changes (use rebase,
+    not merge!). For instance, if the branch is `develop-24.05`:
+
+        $ git checkout develop-24.05
         $ git fetch --all --prune
-        $ git rebase upstream/develop
+        $ git rebase upstream/develop-24.05
 
-2. For a tiny patch, create a new branch with an explicit name:
+3. Create a new branch with an explicit name:
 
-        $ git checkout -b <my_branch>
+        $ git checkout -b <my-branch>
 
-    Alternatively, if you are working on a feature which would need more work,
-    you can create a feature branch with `git-flow`:
-
-        $ git flow feature start <my_feature>
-
-    *Note: always open an issue and ask before starting a big feature, to avoid
-    it not beeing merged and your time lost.*
-
-3. Work on your feature:
+4. Work on your feature:
 
         # Some work
         $ git commit -am "feat: add something"
@@ -55,28 +43,28 @@ To make a change, please use this workflow:
         $ git commit -am "refactor: change something"
         ...
 
-4. When your feature is ready, feel free to use
+5. When your feature is ready, feel free to use
     [interactive rebase](https://help.github.com/articles/about-git-rebase/) so
     your history looks clean and is easy to follow. Then, apply the last
-    upstream changes on `develop` to prepare integration:
+    upstream changes on the selected branch to prepare integration:
 
-        $ git checkout develop
+        $ git checkout develop-24.05
         $ git fetch --all --prune
-        $ git rebase upstream/develop
+        $ git rebase upstream/develop-24.05
 
-5. If there were commits on `develop` since the beginning of your feature
+5. If there were commits on the base branch since the beginning of your feature
     branch, integrate them by **rebasing** if your branch has few commits, or
     merging if you had a long-lived branch:
 
-        $ git checkout <my_feature_branch>
-        $ git rebase develop
+        $ git checkout <my-branch>
+        $ git rebase develop-24.05
 
     *Note: the only case you should merge is when you are working on a big
     feature. If it is the case, we should have discussed this before as stated
     above.*
 
-6. Open a pull request to merge your branch into the `develop` branch on the
-    main repository.
+6. Open a pull request to merge your branch into the branch you have selected on
+    the main repository (i.e. `develop-24.05` in the example).
 
 ## Coding style
 
