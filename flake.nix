@@ -2,13 +2,15 @@
   description = "An opinionated configuration framework using Nix.";
 
   outputs = { self, ... }: {
+    lib = import ./lib;
+
     nixosModules = {
       # Modules.
-      confkit-nixos = import ./nixos;
-      confkit-home = import ./home-manager;
+      confkit-nixos = ./nixos;
+      confkit-home = ./home-manager;
 
       # Home configurations.
-      home-config-root = import ./home-manager/configs/root.nix;
+      home-config-root = ./home-manager/configs/root.nix;
     };
 
     templates = {

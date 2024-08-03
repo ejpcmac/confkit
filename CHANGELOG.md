@@ -14,6 +14,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [Flake] Expose the newly created lib at `lib`.
+* [Lib] Introduce a library, featuring a `channel` attribute to get the current
+    channel.
 * [NixOS] Add support for NixOS 24.05.
 * [NixOS/Utilities] Add `trippy`.
 
