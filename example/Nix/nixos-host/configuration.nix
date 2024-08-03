@@ -11,7 +11,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
   imports = [
     # Import the confkit NixOS module to get ready-to-use configurations for
@@ -103,7 +103,8 @@
   ############################################################################
 
   services = {
-    avahi = { enable = true; nssmdns = true; };
+    avahi = { enable = true; nssmdns4 = true; };
+    displayManager.sddm.enable = true;
     tlp.enable = false;
 
     redshift = {
@@ -115,11 +116,10 @@
     xserver = {
       # TODO: Configure.
       # Configure the keyboard layout.
-      layout = "fr";
-      # xkbVariant = "bepo";
+      xkb.layout = "fr";
+      # xkb.variant = "bepo";
 
       # Use Plasma 5 as desktop manager.
-      displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
     };
   };

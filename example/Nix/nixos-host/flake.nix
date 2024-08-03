@@ -2,11 +2,11 @@
   description = "The configuration for nixos-host.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    confkit.url = "github:ejpcmac/confkit/v0.0.20";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    confkit.url = "github:ejpcmac/confkit/develop";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
