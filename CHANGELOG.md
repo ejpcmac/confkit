@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [develop-24.05]
+
+* No changes compared to the stable channel.
+
 ## [stable-24.05]
 
 ### Added
@@ -1116,6 +1120,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[develop-24.05]: https://github.com/ejpcmac/confkit/compare/stable-24.05...develop-24.05
 [stable-24.05]: https://github.com/ejpcmac/confkit/compare/v0.0.20...stable-24.05
 [0.0.20]: https://github.com/ejpcmac/confkit/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/ejpcmac/confkit/compare/v0.0.18...v0.0.19
