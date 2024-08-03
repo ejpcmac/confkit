@@ -43,7 +43,7 @@ changes in a too harsh way.
         cd /config
         git init
 
-3. Initialise the configuraton using the template provided by `confkit`:
+3. Initialise the configuration using the template provided by `confkit`:
 
         nix flake init -t github:ejpcmac/confkit
 
@@ -79,7 +79,7 @@ On NixOS:
 
 ## Supported NixOS versions
 
-`confkit` currently supports NixOS 23.11.
+`confkit` currently supports NixOS 24.05.
 
 ## [Contributing](CONTRIBUTING.md)
 
@@ -88,6 +88,6 @@ Before contributing to this project, please read the
 
 ## License
 
-Copyright © 2018-2023 Jean-Philippe Cugnet
+Copyright © 2018-2024 Jean-Philippe Cugnet
 
 [Do what the fuck you want to](LICENSE) with this project.
