@@ -2,6 +2,8 @@
   description = "An opinionated configuration framework using Nix.";
 
   outputs = { self, ... }: {
+    lib = import ./lib;
+
     nixosModules = {
       # Modules.
       confkit-nixos = ./nixos;
