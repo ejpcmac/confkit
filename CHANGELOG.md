@@ -39,6 +39,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Rust] Add aliases for `cargo nextest`:
     * `cnt` for `cargo nextest run`
     * `cntw` for `cargo watch -x "nextest run"`
+* [Zsh/Rust] Add `cxc` for `cargo xtask check`.
 
 ### Changed
 
