@@ -24,6 +24,9 @@ alias nsh='nix shell'
 alias nso='nix store optimise'
 alias nwd='nix why-depends'
 
+# nix-shell
+alias nisp='nix-shell -p'
+
 # nix-channel
 alias nic='nix-channel'
 alias nicl='nix-channel --list'
