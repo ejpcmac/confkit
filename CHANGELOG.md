@@ -8,6 +8,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [develop-24.05]
 
+### Added
+
+* [Zsh/Rust] Add aliases for managing crates in the `Cargo.toml`:
+    * `cad` for `cargo add --dev`
+    * `cab` for `cargo add --build`
+    * `crm` for `cargo remove`
+    * `cu` for `cargo update`
+
+### Changed
+
+* **BREAKING** [Zsh/Rust] Define `ca` for `cargo add` instead of `cargo audit`.
+
 ### Removed
 
 * [Zsh/Rust] Remove the `cia` alias that installed some arbitrary cargo plugins.
