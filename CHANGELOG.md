@@ -49,6 +49,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [home-manager/Services/Polybar] Refresh battery data every two seconds.
 * [home-manager/Services/Polybar] Set the charging battery animation rate to
     500ms.
+* [Zsh/Nix] Add `--print-build-logs` to the `nb` and `nd` aliases.
 
 ### Removed
 

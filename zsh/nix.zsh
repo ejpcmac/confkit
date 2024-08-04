@@ -3,8 +3,8 @@
 ###############
 
 # nix
-alias nb='nix build'
-alias nd='nix develop'
+alias nb='nix build --print-build-logs'
+alias nd='nix develop --print-build-logs'
 alias nfa='nix flake archive'
 alias nfcl='nix flake clone'
 alias nfl='nix flake lock'
