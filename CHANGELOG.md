@@ -18,6 +18,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* **BREAKING** [Zsh/direnv] Update `nixify` to use Nix Flakes.
 * **BREAKING** [Zsh/Rust] Define `ca` for `cargo add` instead of `cargo audit`.
 
 ### Removed

@@ -21,23 +21,55 @@ alias dr='direnv reload'
 ##
 
 nixify() {
-    if [ ! -e ./.envrc ]; then
-        echo "use nix" > .envrc
-        direnv allow
-    fi
+    if [ ! -e flake.nix ]; then
+        cat > flake.nix << 'EOF'
+{
+  description = "A generic development shell.";
 
-    if [ ! -e shell.nix ]; then
-        cat > shell.nix << 'EOF'
-{ pkgs ? import <nixpkgs> {} }:
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs";
 
-with pkgs;
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
-mkShell {
-  buildInputs = [
-    # Add dependencies here.
-  ];
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ inputs.devshell.flakeModule ];
+      systems = [ "x86_64-linux" ];
+
+      perSystem = { system, ... }:
+        let
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        in
+        {
+          devshells.default = {
+            name = "devshell";
+
+            packages = with pkgs; [
+              # Add dependencies here.
+            ];
+          };
+        };
+    };
 }
 EOF
-    $EDITOR shell.nix
+        git add --intent-to-add flake.nix
+        $EDITOR flake.nix
+    fi
+
+    if [ ! -e ./.envrc ]; then
+        cat > .envrc << 'EOF'
+watch_file flake.nix flake.lock rust-toolchain.toml
+use flake . --print-build-logs
+EOF
+        direnv allow
     fi
 }
