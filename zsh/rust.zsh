@@ -14,14 +14,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Setup
 alias rget='curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path'
-alias cia='cargo install \
-    cargo-update \
-    cargo-generate \
-    cargo-outdated \
-    cargo-crev \
-    cargo-binutils \
-    cargo-testify \
-    cargo-watch'
 
 # Rustup
 alias ru='rustup update'

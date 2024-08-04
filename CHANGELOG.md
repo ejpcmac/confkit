@@ -8,7 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [develop-24.05]
 
-* No changes compared to the stable channel.
+### Removed
+
+* [Zsh/Rust] Remove the `cia` alias that installed some arbitrary cargo plugins.
+    It is preferred to install them in the `flake.nix` of each project.
 
 ## [stable-24.05]
 
