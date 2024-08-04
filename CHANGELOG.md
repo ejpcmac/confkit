@@ -35,6 +35,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     channel.
 * [NixOS] Add support for NixOS 24.05.
 * [NixOS/Utilities] Add `trippy`.
+* [Zsh/Nix] Add `nisp` for `nix-shell -p`.
 * [Zsh/Rust] Add aliases for `cargo nextest`:
     * `cnt` for `cargo nextest run`
     * `cntw` for `cargo watch -x "nextest run"`
