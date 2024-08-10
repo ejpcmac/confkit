@@ -192,7 +192,7 @@ in
           type = "internal/cpu";
           interval = mkDefault 1;
 
-          format-prefix = mkDefault "󰘚 ";
+          format-prefix = mkDefault " ";
           format-prefix-foreground = mkDefault "\${colors.icon}";
           format-underline = mkDefault "#f90000";
 
@@ -213,7 +213,7 @@ in
           type = "internal/memory";
           interval = mkDefault "2";
 
-          format-prefix = mkDefault " ";
+          format-prefix = mkDefault "󰘚 ";
           format-prefix-foreground = mkDefault "\${colors.icon}";
           format-underline = mkDefault "#4bffdc";
 

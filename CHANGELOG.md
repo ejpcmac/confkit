@@ -33,6 +33,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     500ms.
 * [Zsh/Nix] Add `--print-build-logs` to the `nb` and `nd` aliases.
 
+### Fixed
+
+* [home-manager/Services/Polybar] Unswap the icons for memory and CPU.
+
 ### Removed
 
 * [NixOS] Remove support for NixOS 23.11.
