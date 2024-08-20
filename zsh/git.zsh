@@ -21,6 +21,14 @@ alias gli='git clean -dxn -e ".direnv/" -e "/config/"'
 alias gclean='git clean -idx -e ".direnv/" -e "/config/"'
 
 ##
+## git-z
+##
+
+alias gzi='git z init'
+alias gzu='git z update'
+alias gzc='git z commit'
+
+##
 ## GitHub CLI
 ##
 
