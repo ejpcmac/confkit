@@ -15,6 +15,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     channel.
 * [NixOS] Add support for NixOS 24.05.
 * [NixOS/Utilities] Add `trippy`.
+* [Zsh/Git] Add a `grbim [branch]` function for `git rebase -i $(git merge-base
+    HEAD $branch)`. The default value for `branch` is `develop`.
 * [Zsh/Git] Add aliases for `git-z`:
     * `gzi` for `git z init`,
     * `gzu` for `git z update`,
