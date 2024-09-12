@@ -42,6 +42,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 * [home-manager/Services/Polybar] Unswap the icons for memory and CPU.
+* [Tmux] Set the `default-terminal` to `tmux-256color`.
 
 ### Removed
 
