@@ -6,10 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [develop-24.05]
+## [stable-24.11]
 
 ### Added
 
+* [NixOS] Add support for NixOS 24.11.
 * [Zsh/Rust] Add aliases for managing crates in the `Cargo.toml`:
     * `cad` for `cargo add --dev`
     * `cab` for `cargo add --build`
@@ -18,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* **BREAKING** [NixOS/Profile/Workstation] Use PipeWire instead of PulseAudio.
 * **BREAKING** [Zsh/direnv] Update `nixify` to use Nix Flakes.
 * **BREAKING** [Zsh/Rust] Define `ca` for `cargo add` instead of `cargo audit`.
 
@@ -1156,7 +1158,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[develop-24.05]: https://github.com/ejpcmac/confkit/compare/stable-24.05...develop-24.05
+[stable-24.11]: https://github.com/ejpcmac/confkit/compare/stable-24.05...stable-24.11
 [stable-24.05]: https://github.com/ejpcmac/confkit/compare/v0.0.20...stable-24.05
 [0.0.20]: https://github.com/ejpcmac/confkit/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/ejpcmac/confkit/compare/v0.0.18...v0.0.19
