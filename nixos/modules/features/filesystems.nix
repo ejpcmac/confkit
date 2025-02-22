@@ -32,7 +32,7 @@ in
         type = bool;
         default = false;
         example = true;
-        description = "Wether to mount / on tmpfs.";
+        description = "Whether to mount / on tmpfs.";
       };
 
       tmpOnTmpfs = mkOption {
@@ -40,7 +40,7 @@ in
         default = false;
         example = true;
         description = ''
-          Wether to mount /tmp on tmpfs. This has no effect if
+          Whether to mount /tmp on tmpfs. This has no effect if
           confkit.features.fileSystem.rootOnTmpfs is set to true.
         '';
       };
@@ -170,24 +170,24 @@ in
       });
 
       #################################################
-      ## Persistance file systems when / is on tmpfs ##
+      ## Persistence file systems when / is on tmpfs ##
       #################################################
 
-      "/persist/systemd" = mkFs {
+      "/persist/systemd" = mkIf cfg.rootOnTmpfs (mkFs {
         volumePath = "/system/data/systemd";
         neededForBoot = true;
-      };
+      });
 
-      "/persist/utmp" = mkFs {
+      "/persist/utmp" = mkIf cfg.rootOnTmpfs (mkFs {
         volumePath = "/system/data/utmp";
         options = [ "nodev" "noexec" "nosuid" ];
-      };
+      });
 
-      "/var/log/journal" = mkFs {
+      "/var/log/journal" = mkIf cfg.rootOnTmpfs (mkFs {
         volumePath = "/system/data/journal";
         options = [ "nodev" "noexec" "nosuid" ];
         neededForBoot = true;
-      };
+      });
     };
 
     ########################################################################
