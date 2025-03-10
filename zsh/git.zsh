@@ -43,30 +43,3 @@ grbim() {
 alias gzi='git z init'
 alias gzu='git z update'
 alias gzc='git z commit'
-
-##
-## GitHub CLI
-##
-
-
-# Setup
-export HUB_PROTOCOL=https
-
-# Aliases
-alias hcl='hub clone --recurse-submodules'
-alias hcr='hub create'
-alias hf='hub fork'
-alias hprl='hub pr list'
-alias hprc='hub pr checkout'
-alias hprs='hub pr show'
-alias hprc='hub pull-request'
-alias hr='hub release'
-alias hrc='hub release create'
-alias hre='hub release edit'
-alias hci='hub ci-status'
-alias hi='hub issue'
-alias hic='hub issue create'
-
-his() {
-    hub issue show $@ | bat -l md
-}

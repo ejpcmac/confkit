@@ -25,6 +25,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `gsh` is now `git show --ext-diff`,
     * `glgp` is now `git log --stat --patch --ext-diff`.
 
+### Removed
+
+* [Zsh/Git] Remove aliases for the legacy `hub` GitHub CLI.
+
 ### Fixed
 
 * **BREAKING** [NixOS/Features/Filesystems] Create filesystems for pensistence
