@@ -55,6 +55,7 @@ in
         pull.rebase = mkDefault "merges";
         push.autoSetupRemote = mkDefault true;
         rebase.autosquash = mkDefault true;
+        rerere.enable = mkDefault true;
         mergetool.keepBackup = mkDefault false;
 
         "gitflow \"feature.finish\"".no-ff = mkDefault true;

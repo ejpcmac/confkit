@@ -21,6 +21,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     is breaking because `git diff` now print a human-readable, yet not
     patch-compatible output. Use `git diff --no-ext-diff` to generate a
     patch-compatible diff instead.
+* **BREAKING** [home-manager/Git] Enable `rerere`. This should not be a big
+    deal, but this changes the behaviour of Git when dealing with conflicts.
 * [Zsh/Git] Update aliases to use the external diff tool:
     * `gsh` is now `git show --ext-diff`,
     * `glgp` is now `git log --stat --patch --ext-diff`.
