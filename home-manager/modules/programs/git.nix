@@ -7,7 +7,7 @@
 ##                                                                            ##
 ################################################################################
 
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (lib) mkDefault mkEnableOption mkIf mkOption;
@@ -49,6 +49,7 @@ in
       };
 
       extraConfig = {
+        diff.external = mkDefault "${pkgs.difftastic}/bin/difft";
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
         pull.rebase = mkDefault "merges";
