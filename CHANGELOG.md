@@ -8,12 +8,22 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [develop-24.11]
 
+### Added
+
+* [Zsh/Git] Add `gdne` for `git diff --no-ext-diff` to allow creating a
+    patch-compatible diff when `diff.external` is set.
+* [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
+    --show-signature`.
+
 ### Changed
 
 * **BREAKING** [home-manager/Git] Set `diff.external` to use `diffstastic`. This
     is breaking because `git diff` now print a human-readable, yet not
     patch-compatible output. Use `git diff --no-ext-diff` to generate a
     patch-compatible diff instead.
+* [Zsh/Git] Update aliases to use the external diff tool:
+    * `gsh` is now `git show --ext-diff`,
+    * `glgp` is now `git log --stat --patch --ext-diff`.
 
 ### Fixed
 

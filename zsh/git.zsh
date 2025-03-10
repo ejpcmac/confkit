@@ -3,7 +3,12 @@
 ###############
 
 alias gi='git init'
+alias gdne='git diff --no-ext-diff'
+alias gsh='git show --ext-diff'
+alias glg='git log --stat'
+alias glgp='glg --patch --ext-diff'
 alias glgs='glg --show-signature'
+alias glgps='glgp --show-signature'
 alias glol="git log --graph --pretty=format:'%Cgreen%G?%Creset %C(yellow)%h%Creset - %s%C(auto)%d%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glola='glol --all'
 alias gbv='git branch -vv'
