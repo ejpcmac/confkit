@@ -28,8 +28,10 @@ in
       colordiff
       curl
       dcfldd
+      difftastic
       dmidecode
       dnsutils
+      dua
       emv
       fd
       ffmpeg

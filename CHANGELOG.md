@@ -55,6 +55,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 * [NixOS] Add support for NixOS 24.11.
+* [NixOS/Utilities] Add `difftastic` and `dua`.
 * [Zsh/Rust] Add aliases for managing crates in the `Cargo.toml`:
     * `cad` for `cargo add --dev`,
     * `cab` for `cargo add --build`,
