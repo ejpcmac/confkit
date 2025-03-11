@@ -46,6 +46,84 @@ alias szum='sudo zfs unmount'
 alias szlk='sudo zfs load-key'
 alias szulk='sudo zfs unload-key'
 
+# Helpers to work from within the current file system
+alias pwz='zfs list -Ho name,mountpoint | grep -e "\s$(pwd)$" | cut -f 1'
+alias zlc='zl -r $(pwz)'
+alias zl2c='zl2 -r $(pwz)'
+alias zl3c='zl3 -r $(pwz)'
+alias zlspc='zlsp $(pwz)'
+alias zlasc='zlas $(pwz)'
+alias zlsc='zls $(pwz)'
+alias zgac='zfs get all $(pwz)'
+alias zcc='zfs-create-current'
+alias zccnm='zcc -o canmount=off'
+alias zccnb='zcc -o com.sun:auto-snapshot=false -o syncoid:sync=false'
+alias zdc='zfs-destroy-current'
+alias zmvc='zfs-rename-current'
+
+zfs-create-current() {
+    if [ $# -lt 1 ]; then
+        echo "usage: zfs-create-current [options] <fs>"
+        return 1
+    fi
+
+    local options=(${@: 1:-1})
+    local fs=${@: -1}
+    local current_fs="$(pwz)"
+
+    if [[ "$current_fs" == "" ]]; then
+        echo "error: cannot find current filesystem"
+        return 1
+    fi
+
+    echo "will create $current_fs/$fs"
+    sudo zfs create $options $current_fs/$fs &&
+    sudo chown $UID:$GID $fs 2>/dev/null
+}
+
+zfs-destroy-current() {
+    if [ $# -ne 1 ]; then
+        echo "usage: zfs-destroy-current <fs>"
+        return 1
+    fi
+
+    local fs=$1
+    local current_fs="$(pwz)"
+
+    if [[ "$current_fs" == "" ]]; then
+        echo "error: cannot find current filesystem"
+        return 1
+    fi
+
+    zfs destroy -rvn $current_fs/$fs
+    echo
+    read "continue?Do you really want to destroy the mentioned file systems (y/n)? "
+    if [[ "$continue" == "y" ]]; then
+        sudo zfs destroy -rv $current_fs/$fs
+    else
+        echo "Aborting"
+    fi
+}
+
+zfs-rename-current() {
+    if [ $# -ne 2 ]; then
+        echo "usage: zfs-rename-current <old> <new>"
+        return 1
+    fi
+
+    local old=$1
+    local new=$2
+    local current_fs="$(pwz)"
+
+    if [[ "$current_fs" == "" ]]; then
+        echo "error: cannot find current filesystem"
+        return 1
+    fi
+
+    echo "will rename $current_fs/$old to $current_fs/$new"
+    sudo zfs rename $current_fs/$old $current_fs/$new
+}
+
 # zpool
 alias zp='zpool'
 alias zpl='zpool list'
