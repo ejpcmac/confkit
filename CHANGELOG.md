@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     patch-compatible diff when `diff.external` is set.
 * [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
     --show-signature`.
+* [Zsh/ZFS] Add the following new semantic listing aliases:
+    * `[w]zlb[c]` for listing properties related to backup,
+    * `[w]zlm[c]` for listing properties related to the mount status,
+    * `[w]zlp[c]` for listing general properties.
 
 ### Changed
 
@@ -23,13 +27,19 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     patch-compatible diff instead.
 * **BREAKING** [home-manager/Git] Enable `rerere`. This should not be a big
     deal, but this changes the behaviour of Git when dealing with conflicts.
+* **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
+    space for the new `zlb` alias that list backup information.
 * [Zsh/Git] Update aliases to use the external diff tool:
     * `gsh` is now `git show --ext-diff`,
     * `glgp` is now `git log --stat --patch --ext-diff`.
+* [Zsh/ZFS] Move `available` before `used` in `[w]zl[c]`.
+* [Zsh/ZFS] Add `quota`, `compressratio` and `compression` to `[w]zlsp[c]`.
 
 ### Removed
 
 * [Zsh/Git] Remove aliases for the legacy `hub` GitHub CLI.
+* [Zsh/ZFS] Remove the `[w]zl2[c]`, `[w]zl3[c]`, and `[w]zlas[c]` aliases in
+    favour of the new `[w]zlb[c]`, `[w]zlm[c]` and `[w]zlp[c]`.
 
 ### Fixed
 
