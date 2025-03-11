@@ -12,10 +12,25 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [NixOS] Add support for NixOS 24.11.
 * [Zsh/Rust] Add aliases for managing crates in the `Cargo.toml`:
-    * `cad` for `cargo add --dev`
-    * `cab` for `cargo add --build`
-    * `crm` for `cargo remove`
-    * `cu` for `cargo update`
+    * `cad` for `cargo add --dev`,
+    * `cab` for `cargo add --build`,
+    * `crm` for `cargo remove`,
+    * `cu` for `cargo update`.
+* [Zsh/ZFS] Add aliases for handling filesystems under the current working
+    directory by their relative name:
+    * `pwz` prints the ZFS filesystem whose mointpoint matches `$(pwd)`, if any
+        (even if it is not mounted);
+    * `zlc`, `zl2c`, `zl3c`, `zlspc`, `zlasc` and `zlsc` work like `zl`, `zl2`,
+        `zl3`, `zlsp`, `zlas` and `zls`, but start from `$(pwz)`;
+    * `zgac` for `zfs get all $(pwz)`;
+    * `zcc` creates a new filesystem under `$(pwz)` and changes its owner to the
+        current user;
+    * `zccnm` (no-mount) for `zcc -o canmount=off`;
+    * `zccnb` (no-backup) for `zcc -o com.sun:auto-snapshot=off -o
+        syncoid:sync=false`;
+    * `zdc` recursively destroys a filesystem under `$(pwz)`, showing upfront
+        what would be destroyed and asking for a confirmation;
+    * `zmvc` renames a filesystem under `$(pwz)`.
 
 ### Changed
 
