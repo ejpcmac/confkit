@@ -67,7 +67,7 @@ EOF
 
     if [ ! -e ./.envrc ]; then
         cat > .envrc << 'EOF'
-watch_file flake.nix flake.lock rust-toolchain.toml
+watch_file flake.nix flake.lock
 use flake . --print-build-logs
 EOF
         direnv allow
