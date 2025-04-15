@@ -61,6 +61,7 @@ alias zccnm='zcc -o canmount=off'
 alias zccnb='zcc -o com.sun:auto-snapshot=false -o syncoid:sync=false'
 alias zdc='zfs-destroy-current'
 alias zmvc='zfs-rename-current'
+alias ctz='convert-to-zfs'
 
 zfs-create-current() {
     if [ $# -lt 1 ]; then
@@ -123,6 +124,30 @@ zfs-rename-current() {
 
     echo "will rename $current_fs/$old to $current_fs/$new"
     sudo zfs rename $current_fs/$old $current_fs/$new
+}
+
+convert-to-zfs() {
+    if [ $# -lt 1 ]; then
+        echo "usage: convert-to-zfs [create-options] <dir>"
+        return 1
+    fi
+
+    local options=(${@: 1:-1})
+    local dir=${@: -1}
+    local current_fs="$(pwz)"
+
+    if [[ "$current_fs" == "" ]]; then
+        echo "error: cannot find current filesystem"
+        return 1
+    fi
+
+    echo "will convert $current_fs/$dir to a ZFS filesystem"
+    sudo echo &&
+    mv $dir __$dir &&
+    sudo zfs create $options $current_fs/$dir &&
+    sudo chown $UID:$GID $dir &&
+    rsync -a --progress __$dir/ $dir/ &&
+    rm -rf __$dir
 }
 
 # zpool
