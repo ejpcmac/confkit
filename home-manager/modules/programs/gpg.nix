@@ -3,7 +3,7 @@
 ## * Configure the default key from confkit.identity                          ##
 ## * Always ask level and expiration when certifying a key                    ##
 ## * Configure the keyserver                                                  ##
-## * Automatically retreive keys                                              ##
+## * Automatically retrieve keys                                              ##
 ##                                                                            ##
 ################################################################################
 
@@ -28,8 +28,7 @@ in
         default-key = mkDefault identity.gpgKey;
         ask-cert-level = mkDefault true;
         ask-cert-expire = mkDefault true;
-        keyserver-options = mkDefault "no-honor-keyserver-url auto-key-retrieve";
-        keyserver = mkDefault "hkps://hkps.pool.sks-keyservers.net";
+        keyserver = mkDefault "hkps://keys.openpgp.org";
       };
 
       scdaemonSettings = {
