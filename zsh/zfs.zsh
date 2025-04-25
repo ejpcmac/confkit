@@ -62,6 +62,7 @@ alias zccnb='zcc -o com.sun:auto-snapshot=false -o syncoid:sync=false'
 alias zdc='zfs-destroy-current'
 alias zmvc='zfs-rename-current'
 alias ctz='convert-to-zfs'
+alias uctz='unconvert-to-zfs'
 
 zfs-create-current() {
     if [ $# -lt 1 ]; then
@@ -141,13 +142,49 @@ convert-to-zfs() {
         return 1
     fi
 
+    zfs list $current_fs/$dir &> /dev/null
+    if [ $? -eq 0 ]; then
+        echo "error: $current_fs/$dir is already a ZFS filesystem"
+        return 1
+    fi
+
     echo "will convert $current_fs/$dir to a ZFS filesystem"
     sudo echo &&
     mv $dir __$dir &&
     sudo zfs create $options $current_fs/$dir &&
     sudo chown $UID:$GID $dir &&
-    rsync -a --progress __$dir/ $dir/ &&
+    rsync -a __$dir/ $dir/ &&
     rm -rf __$dir
+}
+
+unconvert-to-zfs() {
+    if [ $# -ne 1 ]; then
+        echo "usage: unconvert-to-zfs <dir>"
+        return 1
+    fi
+
+    local dir=$1
+    local current_fs="$(pwz)"
+
+    if [[ "$current_fs" == "" ]]; then
+        echo "error: cannot find current filesystem"
+        return 1
+    fi
+
+    zfs list $current_fs/$dir &> /dev/null
+    if [ $? -ne 0 ]; then
+        echo "error: $current_fs/$dir is not a ZFS filesystem"
+        return 1
+    fi
+
+    echo "will convert $current_fs/$dir back to a subdirectory"
+    sudo echo &&
+    rsync -a $dir/ __$dir/ &&
+    sudo zfs unmount $current_fs/$dir &&
+    sudo zfs set canmount=off $current_fs/$dir &&
+    sudo rmdir $dir &&
+    mv __$dir $dir &&
+    zfs-destroy-current $dir
 }
 
 # zpool

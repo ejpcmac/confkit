@@ -76,7 +76,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `zdc` recursively destroys a filesystem under `$(pwz)`, showing upfront
         what would be destroyed and asking for a confirmation;
     * `zmvc` renames a filesystem under `$(pwz)`,
-    * `ctz` converts a directory in a ZFS filesystem.
+    * `ctz` converts a directory to a ZFS filesystem,
+    * `uctz` unconverts a directory from a ZFS filesystem.
 
 ### Changed
 
