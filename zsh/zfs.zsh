@@ -140,6 +140,12 @@ convert-to-zfs() {
         return 1
     fi
 
+    zfs list $current_fs/$dir &> /dev/null
+    if [ $? -eq 0 ]; then
+        echo "error: $current_fs/$dir is already a ZFS filesystem"
+        return 1
+    fi
+
     echo "will convert $current_fs/$dir to a ZFS filesystem"
     sudo echo &&
     mv $dir __$dir &&
