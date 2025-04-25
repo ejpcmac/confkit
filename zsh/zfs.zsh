@@ -145,7 +145,7 @@ convert-to-zfs() {
     mv $dir __$dir &&
     sudo zfs create $options $current_fs/$dir &&
     sudo chown $UID:$GID $dir &&
-    rsync -a --progress __$dir/ $dir/ &&
+    rsync -a __$dir/ $dir/ &&
     rm -rf __$dir
 }
 
