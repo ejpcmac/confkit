@@ -10,6 +10,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [NixOS/Programs/dua] Add a `confkit.programs.dua.enable` option to use `dua`
+    instead of the original `du`.
 * [Zsh/Git] Add `gdne` for `git diff --no-ext-diff` to allow creating a
     patch-compatible diff when `diff.external` is set.
 * [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
