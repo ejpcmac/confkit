@@ -27,8 +27,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     patch-compatible diff instead.
 * **BREAKING** [home-manager/Git] Enable `rerere`. This should not be a big
     deal, but this changes the behaviour of Git when dealing with conflicts.
+* **BREAKING** [ranger] Map `dU` to `dua interactive`.
 * **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
     space for the new `zlb` alias that list backup information.
+* [ranger] Map `du` to `dua --apparent-size`.
 * [Zsh/Git] Update aliases to use the external diff tool:
     * `gsh` is now `git show --ext-diff`,
     * `glgp` is now `git log --stat --patch --ext-diff`.
