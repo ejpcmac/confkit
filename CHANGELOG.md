@@ -36,6 +36,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Git] Update aliases to use the external diff tool:
     * `gsh` is now `git show --ext-diff`,
     * `glgp` is now `git log --stat --patch --ext-diff`.
+* [Zsh/Nix] Add `--print-build-logs` and `--keep-going` to `snors` and `snorb`.
 * [Zsh/ZFS] Move `available` before `used` in `[w]zl[c]`.
 * [Zsh/ZFS] Add `quota`, `compressratio` and `compression` to `[w]zlsp[c]`.
 

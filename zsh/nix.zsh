@@ -44,8 +44,8 @@ alias snicu='sudo nix-channel --update'
 alias snicrb='sudo nix-channel --rollback'
 
 # NixOS rebuild
-alias snors="sudo nixos-rebuild switch"
-alias snorb="sudo nixos-rebuild boot"
+alias snors="sudo nixos-rebuild switch --print-build-logs --keep-going"
+alias snorb="sudo nixos-rebuild boot --print-build-logs --keep-going"
 
 # nixos-container
 alias ncl='nixos-container list'
