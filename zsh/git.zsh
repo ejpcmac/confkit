@@ -23,7 +23,7 @@ alias gwr='git worktree remove'
 alias gwm='git worktree move'
 alias gsa='git submodule add'
 alias gli='git clean -dxn -e ".direnv/" -e "/config/"'
-alias gclean='git clean -idx -e ".direnv/" -e "/config/"'
+alias gclean='git clean -idx -e ".jj/" -e ".direnv/" -e "/config/"'
 
 # Interactive rebase of the current branch.
 grbim() {
