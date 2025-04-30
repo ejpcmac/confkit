@@ -52,6 +52,7 @@ in
       mkpasswd
       mosh
       neofetch
+      nvd
       openssh
       p7zip
       parted
