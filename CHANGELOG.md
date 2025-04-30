@@ -77,7 +77,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-* **BREAKING** [NixOS/Features/Filesystems] Create filesystems for pensistence
+* **BREAKING** [NixOS/Features/Filesystems] Create filesystems for persistence
     only when `confkit.features.fileSystems.rootOnTmpfs` is `true`. This notably
     removes mounpoints for the following file systems if it is set to `false`:
     * `/persist/systemd`,
