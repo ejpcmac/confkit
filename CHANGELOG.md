@@ -20,14 +20,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     instead of the original `du`.
 * [home-manager/eza] Add a `confkit.programs.eza.enable` option to use
     `eza` instead of `ls`, defining several aliases:
-        * `ls` for `eza --icons`,
-        * `la` for `eza --icons -a`,
-        * `ll` for `eza --icons -lbghMS --group-directories-first`,
-        * `lla` for `ll -aa`,
-        * `llt` for `ll -TL2`,
-        * `llta` for `llt -a`,
-        * `lltt` for `ll -T`,
-        * `lltta` for `lltt -a`.
+    * `ls` for `eza --icons`,
+    * `la` for `eza --icons -a`,
+    * `ll` for `eza --icons -lbghMS --group-directories-first`,
+    * `lla` for `ll -aa`,
+    * `llt` for `ll -TL2`,
+    * `llta` for `llt -a`,
+    * `lltt` for `ll -T`,
+    * `lltta` for `lltt -a`.
 * [Zsh/Git] Add `gdne` for `git diff --no-ext-diff` to allow creating a
     patch-compatible diff when `diff.external` is set.
 * [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
