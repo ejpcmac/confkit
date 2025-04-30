@@ -80,6 +80,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `/persist/systemd`,
     * `/persist/utmp`,
     * `/var/log/journal`.
+* [home-manager/root] Switch `home.stateVersion` to `24.11`.
 
 [#1]: https://github.com/ejpcmac/confkit/issues/1
 
