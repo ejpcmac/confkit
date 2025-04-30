@@ -10,7 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-* [NixOS/Programs/dua] Add a `confkit.programs.dua.enable` option to use `dua`
+* [home-manager/dua] Add a `confkit.programs.dua.enable` option to use `dua`
     instead of the original `du`.
 * [Zsh/Git] Add `gdne` for `git diff --no-ext-diff` to allow creating a
     patch-compatible diff when `diff.external` is set.
@@ -32,6 +32,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * **BREAKING** [ranger] Map `dU` to `dua interactive`.
 * **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
     space for the new `zlb` alias that list backup information.
+* [home-manager/root] Use `dua` instead of `du`.
 * [ranger] Map `du` to `dua --apparent-size`.
 * [Zsh/Git] Update aliases to use the external diff tool:
     * `gsh` is now `git show --ext-diff`,

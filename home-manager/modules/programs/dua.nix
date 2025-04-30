@@ -7,22 +7,21 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkDefault mkEnableOption mkIf;
   cfg = config.confkit.programs.dua;
+  zsh = config.confkit.programs.zsh.enable;
 in
 
 {
   options.confkit.programs.dua = {
-    enable = mkEnableOption "the confkit configuration for dua";
+    enable = mkEnableOption "the confkit home configuration for dua";
   };
 
   config = mkIf cfg.enable {
-    environment = {
-      systemPackages = [ pkgs.dua ];
+    home.packages = [ pkgs.dua ];
 
-      shellAliases = {
-        du = "dua";
-      };
+    programs.zsh.shellAliases = mkIf zsh {
+      du = mkDefault "dua";
     };
   };
 }

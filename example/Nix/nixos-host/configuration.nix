@@ -70,7 +70,6 @@
     };
 
     programs = {
-      dua.enable = true;
       nix.enable = true;
       ranger.enable = true;
       tmux.enable = true;

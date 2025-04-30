@@ -1,6 +1,7 @@
 ####### Home configuration for root users ######################################
 ##                                                                            ##
 ## * Use Zsh                                                                  ##
+## * Use dua instead of du                                                    ##
 ## * Include custom Nix aliases (see `../zsh/nix.zsh`)                        ##
 ##                                                                            ##
 ################################################################################
@@ -10,9 +11,13 @@
 
   home.stateVersion = "23.11";
 
-  confkit.programs.zsh = {
-    enable = true;
-    plugins = [ "aliases" "nix" ];
+  confkit.programs = {
+    dua.enable = true;
+
+    zsh = {
+      enable = true;
+      plugins = [ "aliases" "nix" ];
+    };
   };
 
   programs.home-manager = {

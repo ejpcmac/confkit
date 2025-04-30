@@ -32,6 +32,7 @@
     };
 
     programs = {
+      dua.enable = true;
       git.enable = true;
       # gpg.enable = true;
       # screen.enable = true;

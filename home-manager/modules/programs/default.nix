@@ -1,5 +1,6 @@
 {
   imports = [
+    ./dua.nix
     ./git.nix
     ./gpg.nix
     ./pms.nix
