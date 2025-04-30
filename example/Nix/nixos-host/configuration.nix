@@ -70,7 +70,7 @@
     };
 
     programs = {
-      nix.enable = true;
+      nix = { enable = true; nh.enable = true; };
       ranger.enable = true;
       tmux.enable = true;
       vim.enable = true;

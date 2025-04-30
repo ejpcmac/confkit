@@ -10,6 +10,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [NixOS/Nix] Add a `confkit.programs.nix.nh.enable` option to enable `nh` for
+    OS operations, including replacing the standard `nix-gc` service by `nh
+    clean all`.
 * [home-manager/dua] Add a `confkit.programs.dua.enable` option to use `dua`
     instead of the original `du`.
 * [home-manager/eza] Add a `confkit.programs.eza.enable` option to use
