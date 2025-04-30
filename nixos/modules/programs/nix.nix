@@ -49,6 +49,10 @@ in
         keep-outputs = mkDefault true;
       };
 
+      # Garbage-collect at the end of each month.
+      #
+      # NOTE: On Darwin, this is actually on the beginning of each month since I
+      # don’t know how to set the last day of the month with launchd intervals.
       gc = mkIf (!cfg.nh.enable) (
         let
           gc-common = {
@@ -57,9 +61,9 @@ in
           };
         in
         if stdenv.isDarwin then gc-common // {
-          interval = mkDefault { Hour = 21; Minute = 0; };
+          interval = mkDefault { Day = 1; Hour = 0; Minute = 0; };
         } else gc-common // {
-          dates = mkDefault "21:00";
+          dates = mkDefault "*-*~01 21:00";
         }
       );
     };
@@ -71,7 +75,7 @@ in
       # Garbage-collect at the end of each month.
       clean = {
         enable = mkDefault true;
-        dates = mkDefault "21:00";
+        dates = mkDefault "*-*~01 21:00";
         extraArgs = mkDefault "--nogcroots --keep-since 1M";
       };
     };

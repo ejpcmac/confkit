@@ -45,6 +45,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * **BREAKING** [ranger] Map `dU` to `dua interactive`.
 * **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
     space for the new `zlb` alias that list backup information.
+* [NixOS/Nix] Garbage-collect at the end of each month ([#1]).
 * [home-manager/root] Use `eza` instead of `ls`.
 * [home-manager/root] Use `dua` instead of `du`.
 * [ranger] Map `du` to `dua --apparent-size`.
@@ -70,6 +71,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     * `/persist/systemd`,
     * `/persist/utmp`,
     * `/var/log/journal`.
+
+[#1]: https://github.com/ejpcmac/confkit/issues/1
 
 ## [stable-24.11]
 
