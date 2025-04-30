@@ -1,7 +1,7 @@
 ####### Home configuration for root users ######################################
 ##                                                                            ##
 ## * Use Zsh                                                                  ##
-## * Use dua instead of du                                                    ##
+## * Use eza and dua instead of ls and du                                     ##
 ## * Include custom Nix aliases (see `../zsh/nix.zsh`)                        ##
 ##                                                                            ##
 ################################################################################
@@ -13,6 +13,7 @@
 
   confkit.programs = {
     dua.enable = true;
+    eza.enable = true;
 
     zsh = {
       enable = true;

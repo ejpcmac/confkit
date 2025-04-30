@@ -33,6 +33,7 @@
 
     programs = {
       dua.enable = true;
+      eza.enable = true;
       git.enable = true;
       # gpg.enable = true;
       # screen.enable = true;

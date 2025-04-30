@@ -12,6 +12,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [home-manager/dua] Add a `confkit.programs.dua.enable` option to use `dua`
     instead of the original `du`.
+* [home-manager/eza] Add a `confkit.programs.eza.enable` option to use
+    `eza` instead of `ls`, defining several aliases:
+        * `ls` for `eza --icons`,
+        * `la` for `eza --icons -a`,
+        * `ll` for `eza --icons -lbghMS --group-directories-first`,
+        * `lla` for `ll -aa`,
+        * `llt` for `ll -TL2`,
+        * `llta` for `llt -a`,
+        * `lltt` for `ll -T`,
+        * `lltta` for `lltt -a`.
 * [Zsh/Git] Add `gdne` for `git diff --no-ext-diff` to allow creating a
     patch-compatible diff when `diff.external` is set.
 * [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
@@ -32,6 +42,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * **BREAKING** [ranger] Map `dU` to `dua interactive`.
 * **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
     space for the new `zlb` alias that list backup information.
+* [home-manager/root] Use `eza` instead of `ls`.
 * [home-manager/root] Use `dua` instead of `du`.
 * [ranger] Map `du` to `dua --apparent-size`.
 * [Zsh/Git] Update aliases to use the external diff tool:
