@@ -18,7 +18,6 @@ alias npr='nix profile remove'
 alias nprb='nix profile rollback'
 alias npu='nix profile upgrade'
 alias npua="nix profile upgrade '.*'"
-alias ns='nix search'
 alias nsp='nix search nixpkgs'
 alias nsh='nix shell'
 alias nso='nix store optimise'
@@ -44,8 +43,18 @@ alias snicu='sudo nix-channel --update'
 alias snicrb='sudo nix-channel --rollback'
 
 # NixOS rebuild
-alias snors="sudo nixos-rebuild switch --print-build-logs --keep-going"
-alias snorb="sudo nixos-rebuild boot --print-build-logs --keep-going"
+alias snors='sudo nixos-rebuild switch --print-build-logs --keep-going'
+alias snorb='sudo nixos-rebuild boot --print-build-logs --keep-going'
+
+# nh
+alias nos='nh os switch --ask -- --keep-going'
+alias nob='nh os boot --ask -- --keep-going'
+alias not='nh os test --ask -- --keep-going'
+alias nhs='nh home switch --ask -- --keep-going'
+alias nca='nh clean all --ask --nogcroots --keep-since 1M'
+alias ncaa='nh clean all --ask --keep-since 1M'
+alias ncaaa='nh clean all --ask'
+alias ns='nh search'
 
 # nixos-container
 alias ncl='nixos-container list'

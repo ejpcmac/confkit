@@ -29,6 +29,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     patch-compatible diff when `diff.external` is set.
 * [Zsh/Git] Add `glgps` for `git log --stat --patch --ext-diff
     --show-signature`.
+* [Zsh/Nix] Add aliases for `nh`:
+    * `nos` for `nh os switch --ask -- --keep-going`,
+    * `nob` for `nh os boot --ask -- --keep-going`,
+    * `not` for `nh os test --ask -- --keep-going`,
+    * `nhs` for `nh home switch --ask -- --keep-going`,
+    * `nca` for `nh clean all --ask --nogcroots --keep-since 1M`,
+    * `ncaa` for `nh clean all --ask --keep-since 1M`,
+    * `ncaaa` for `nh clean all --ask`.
 * [Zsh/ZFS] Add the following new semantic listing aliases:
     * `[w]zlb[c]` for listing properties related to backup,
     * `[w]zlm[c]` for listing properties related to the mount status,
@@ -43,6 +51,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * **BREAKING** [home-manager/Git] Enable `rerere`. This should not be a big
     deal, but this changes the behaviour of Git when dealing with conflicts.
 * **BREAKING** [ranger] Map `dU` to `dua interactive`.
+* **BREAKING** [Zsh/Nix] Remap `ns` to `nh search` instead of `nix search`.
 * **BREAKING** [Zsh/ZFS] Rename `zlb` to `zlbm` for listing bookmarks to let
     space for the new `zlb` alias that list backup information.
 * [NixOS/Nix] Garbage-collect at the end of each month ([#1]).
