@@ -22,7 +22,7 @@ in
       type = bool;
       default = true;
       example = false;
-      description = "Wether to install some fonts.";
+      description = "Whether to install some fonts.";
     };
   };
 

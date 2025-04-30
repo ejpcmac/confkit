@@ -507,7 +507,7 @@ and usages.
 
 #### Machine info
 
-In addition to configuration profiles, you can also now put relevent information
+In addition to configuration profiles, you can also now put relevant information
 about your machine directly in your `confkit` configuration:
 
 ```nix
@@ -524,7 +524,7 @@ about your machine directly in your `confkit` configuration:
 
 If `name` is set, `confkit` configures `networking.hostName` for you. If
 `machineId` is set, `confkit` sets the content of `/etc/machine-id` to it
-declaratively, and also derives `networking.hostId` from its 8 fisrt characters.
+declaratively, and also derives `networking.hostId` from its 8 first characters.
 The `location` is currently not used in `confkit` itself, but you can use this
 information in your own configuration framework to perform location-dependant
 configuration, for instance:
@@ -611,7 +611,7 @@ subvolume is mounted at the mandatory location.
 
 This layout is fully integrated with the new `confkit` profile system: each
 profile that configures services that needs persistence also configures the
-relevent datasets. Please note that missing datasets are not created at the
+relevant datasets. Please note that missing datasets are not created at the
 moment, so you may need to create them yourself.
 
 You can enable this new feature as follows:
@@ -760,7 +760,7 @@ To ease the configuration for simple bootloader cases, `confkit` provides a new
     `confkit.{git,gpg,pms,screen,tridactyl,zathura,zsh}` under
     `confkit.programs`.
 * **BREAKING**: [NixOS & home-manager] Replace `confkit.keyboard.bepo` by
-    `confkit.keyboard.layout`, wich can for now be set to `null` or `"bépo"`.
+    `confkit.keyboard.layout`, which can for now be set to `null` or `"bépo"`.
 * [Zsh/direnv] Do not setup the shell hook as using the `programs.direnv`
     options from `home-manager` is now preferred.
 * [Zsh/direnv] Make `dl` generic and straightforward by listing allowed `.envrc`
@@ -907,7 +907,7 @@ in
 
     # Some GPG configuration with manual concatenation.
     ".gnupg/gpg.conf".text = ''
-        default-key <some fpr>
+        default-key <some fingerprint>
       '' + readFile (confkit.file "misc/gpg.conf");
   };
 
@@ -923,7 +923,7 @@ in
     userName = "John Doe";
     userEmail = "john.doe@example.com";
     # Redundancy for the fingerprint.
-    signing.key = "<some fpr>";
+    signing.key = "<some fingerprint>";
   };
 
   # Some boilerplate.
@@ -959,7 +959,7 @@ You have to update it to:
     identity = {
       name = "John Doe";               # Used by confkit.git.
       email = "john.doe@example.com";  # Used by confkit.git.
-      gpgKey = "<some fpr>";           # Used by confkit.git and confkit.gpg.
+      gpgKey = "<some fingerprint>";   # Used by confkit.git and confkit.gpg.
     };
 
     # Like in the system configuration, you now have a switch to select
@@ -1032,7 +1032,7 @@ You have to update it to:
 * **BREAKING**: [NixOS/shell] Do not pre-build the configuration when running
     `nors`. The previous behaviour is now usable through the `bnors` alias,
     available in the Nix Zsh plugin, by adding `confkit.zsh.plugins = [ "nix"
-    ];` to your home conifguration.
+    ];` to your home configuration.
 * **BREAKING**: [home-manager/Zsh] Make Oh My Zsh an opt-in through
   `confkit.zsh.ohMyZsh`.
 * **BREAKING**: [Zsh/Aliases] `oc` and `ocd` now expect the configuration to be
@@ -1041,7 +1041,7 @@ You have to update it to:
     `snors`. The previous behaviour is usable through the `sbnors` alias.
 * [NixOS/shell] Bring in `nic{,l,a,r,u}` aliases from `confkit/zsh/nix.zsh`.
 * [NixOS/Zsh] Enable syntax highlighting.
-* [home-manager/Git] Make `programs.git.extraConfig` more overrideable.
+* [home-manager/Git] Make `programs.git.extraConfig` more overridable.
 * [home-manager/Git] Enable commit signing by default only when the confkit GPG
     module is enabled.
 * [home-manager/Zsh] Make the prompt work without Oh My Zsh.
@@ -1206,7 +1206,7 @@ You have to update it to:
 * [Zsh/Aliases] Add `ra` for `ranger`.
 * [Zsh/Aliases] Add `ec[c|t]` for `emacsclient [-c|-nw]`.
 * [Zsh/Elixir] Add `mcvf` pour `mix compile --verbose --force`.
-* [Scripts/open-editor] Add a script to open an editor. Trys Emacs, Vim, nano,
+* [Scripts/open-editor] Add a script to open an editor. Tries Emacs, Vim, nano,
     ee and vi.
 * [Vim] Add BÉPO mappings.
 * [Vim] Use `<C-l>` to center the cursor.
@@ -1216,14 +1216,14 @@ You have to update it to:
 ### Changed
 
 * **BREAKING**: [Zsh/zshrc] Automatically choose the editor in the out-of-Nix
-    system `zshrc`. The default editor is Emacs, using the deamon. If it is not
+    system `zshrc`. The default editor is Emacs, using the daemon. If it is not
     available or the daemon is not started, falls back to vim, then nano, then
     ee, then vi. For this to work, `scripts/open-editor` must be installed in
     `/usr/bin`.
 * **BREAKING**: [Zsh/Aliases] Use Emacs to edit the configuration.
 * **BREAKING**: [Zsh/Aliases] Move PostgreSQL aliases to the `dev` module.
 * **BREAKING**: [Tmux] Update the pane navigation to be a bit more Vim-like.
-    * Use `C-<c,t,s,r>` to move btween panes and `C-<v/q,n>` to move between
+    * Use `C-<c,t,s,r>` to move between panes and `C-<v/q,n>` to move between
       windows.
 * [Zsh/Elixir] Update the Nerves aliases to push firmwares.
 

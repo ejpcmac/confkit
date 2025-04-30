@@ -24,7 +24,7 @@ alias ec='emacsclient'
 alias ecc='emacsclient --create-frame --no-wait'
 alias ect='emacsclient --tty'
 
-# Miscellanous
+# Miscellaneous
 alias ra='ranger'
 alias sra='sudo ranger'
 alias e='codium .'

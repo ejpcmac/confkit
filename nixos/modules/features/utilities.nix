@@ -14,7 +14,7 @@ in
 {
   options.confkit.features.utilities = {
     enable = mkEnableOption {
-      description = "Wether to install a bunch of command-line utilities";
+      description = "Whether to install a bunch of command-line utilities";
     };
   };
 

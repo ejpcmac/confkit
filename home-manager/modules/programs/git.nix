@@ -25,7 +25,7 @@ in
       default = config.confkit.programs.gpg.enable;
       example = true;
       description = ''
-        Wether to sign commits with GPG. This defaults to true when the confkit
+        Whether to sign commits with GPG. This defaults to true when the confkit
         GPG module is enabled.
       '';
     };

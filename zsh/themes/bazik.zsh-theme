@@ -74,7 +74,7 @@ parse_git_branch() {
     (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
-# Show different symbols as appropirate for Git remote states
+# Show different symbols as appropriate for Git remote states
 parse_git_remote_state() {
     # Compose this value via multiple conditional appends.
     local GIT_STATE=""

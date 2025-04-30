@@ -2,7 +2,7 @@
 ##                                                                            ##
 ## * Options to configure the bootloader depending on the platform and        ##
 ##   program                                                                  ##
-## * 1-second default timeout, overrideable                                   ##
+## * 1-second default timeout, overridable                                   ##
 ##                                                                            ##
 ################################################################################
 

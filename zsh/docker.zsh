@@ -2,7 +2,7 @@
 # Docker Aliases #
 ##################
 
-# Manual start for the Docker deamon
+# Manual start for the Docker daemon
 alias dos='sudo $(which dockerd)'
 
 # Delete the VM image on macOS

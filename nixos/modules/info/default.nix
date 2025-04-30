@@ -2,7 +2,8 @@
 ##                                                                            ##
 ## * Provide options to configure the machine name, ID and location           ##
 ## * Set networking.hostName to the machine name if specified                 ##
-## * Set networking.hostId to the firt 8 characters of machineId if specified ##
+## * Set networking.hostId to the first 8 characters of machineId if          ##
+##   specified                                                                ##
 ## * Set /etc/machine-id to machineId if specified                            ##
 ##                                                                            ##
 ################################################################################

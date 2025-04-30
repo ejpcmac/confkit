@@ -37,7 +37,7 @@ in
       type = bool;
       default = false;
       example = true;
-      description = "Wether to enable Oh My Zsh.";
+      description = "Whether to enable Oh My Zsh.";
     };
   };
 

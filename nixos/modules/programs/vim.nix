@@ -37,7 +37,7 @@ in
       type = bool;
       default = true;
       example = false;
-      description = "Wether to set Vim as the default editor.";
+      description = "Whether to set Vim as the default editor.";
     };
 
     bepo = mkOption {

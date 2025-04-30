@@ -28,7 +28,7 @@
       # TODO: Update your information.
       name = "John Doe";
       email = "john.doe@example.com";
-      # gpgKey = "<some fpr>";
+      # gpgKey = "<some fingerprint>";
     };
 
     programs = {
