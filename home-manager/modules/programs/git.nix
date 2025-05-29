@@ -39,7 +39,7 @@ in
       userEmail = mkDefault identity.email;
 
       signing = mkIf cfg.gpgSign {
-        gpgPath = mkDefault "gpg2";
+        signer = mkDefault "gpg2";
         key = mkDefault identity.gpgKey;
         signByDefault = mkDefault true;
       };

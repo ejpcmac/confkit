@@ -6,12 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [develop-24.11] - Rolling release
+## [stable-25.05] - Rolling release
 
-*Development channel for NixOS 24.11 (status: ongoing development)*
+*Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*
+
+* No changes compared to the release.
+
+## [release-25.05] - 2025-05-29
+
+*Initial release for NixOS 25.05*
 
 ### Added
 
+* [NixOS] Add support for NixOS 25.05.
 * [NixOS/Nix] Add a `confkit.programs.nix.nh.enable` option to enable `nh` for
     OS operations, including replacing the standard `nix-gc` service by `nh
     clean all`.
@@ -71,6 +78,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
+* [NixOS] Remove support for NixOS 24.11.
 * [Zsh/Git] Remove aliases for the legacy `hub` GitHub CLI.
 * [Zsh/ZFS] Remove the `[w]zl2[c]`, `[w]zl3[c]`, and `[w]zlas[c]` aliases in
     favour of the new `[w]zlb[c]`, `[w]zlm[c]` and `[w]zlp[c]`.
@@ -87,9 +95,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 [#1]: https://github.com/ejpcmac/confkit/issues/1
 
-## [stable-24.11] - Rolling release
+## [stable-24.11] - 2024-12-22—2025-05-29
 
-*Maintenance channel for NixOS 24.11 (status: ongoing maintenance)*
+*Maintenance channel for NixOS 24.11 (status: closed)*
 
 ### Added
 
@@ -140,10 +148,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
+* [NixOS] Remove support for NixOS 24.05.
 * [Zsh/Rust] Remove the `cia` alias that installed some arbitrary cargo plugins.
     It is preferred to install them in the `flake.nix` of each project.
 
-## [stable-24.05] - 2024-08-03—2024-09-13
+## [stable-24.05] - 2024-08-03—2024-12-22
 
 *Maintenance channel for NixOS 24.05 (status: closed)*
 
@@ -1285,7 +1294,8 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[develop-24.11]: https://github.com/ejpcmac/confkit/compare/stable-24.11...develop-24.11
+[stable-25.05]: https://github.com/ejpcmac/confkit/compare/release-25.05...stable-25.05
+[release-25.05]: https://github.com/ejpcmac/confkit/compare/stable-24.11...release-25.05
 [stable-24.11]: https://github.com/ejpcmac/confkit/compare/release-24.11...stable-24.11
 [release-24.11]: https://github.com/ejpcmac/confkit/compare/stable-24.05...release-24.11
 [stable-24.05]: https://github.com/ejpcmac/confkit/compare/release-24.05...stable-24.05

@@ -45,7 +45,7 @@ in
     {
       programs.zsh = {
         enable = true;
-        initExtra = readFile ../../../zsh/config/home_init.zsh;
+        initContent = readFile ../../../zsh/config/home_init.zsh;
 
         oh-my-zsh = mkIf cfg.ohMyZsh {
           enable = true;
