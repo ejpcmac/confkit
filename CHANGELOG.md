@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [develop-25.05] - Rolling release
+
+*Development channel for NixOS 25.05 (status: ongoing development)*
+
+* No changes compared to the stable channel.
+
 ## [stable-25.05] - Rolling release
 
 *Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*
@@ -1294,6 +1300,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[develop-25.05]: https://github.com/ejpcmac/confkit/compare/stable-25.05...develop-25.05
 [stable-25.05]: https://github.com/ejpcmac/confkit/compare/release-25.05...stable-25.05
 [release-25.05]: https://github.com/ejpcmac/confkit/compare/stable-24.11...release-25.05
 [stable-24.11]: https://github.com/ejpcmac/confkit/compare/release-24.11...stable-24.11
