@@ -23,7 +23,24 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 *Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*
 
-* No changes compared to the release.
+### Added
+
+* [home-manager/Jujutsu] Add a configuration for Jujutsu, enabled via
+    `confkit.programs.jujutsu.enable`. As Jujutsu evolves fast, it requires that
+    `confkit.programs.jujutus.package` is set to the latest version of Jujutsu.
+    In the same way as the Git module, this module configures user information
+    and signature from `confkit.identity`.
+* [Zsh/Themes/bazik] Add support for Jujutsu in the VSC prompt, printing current
+    change, closest bookmark with distance information and status, and remote
+    status.
+* [Zsh/Jujutsu] Add `jujutsu` and `jujutsu-bépo` plugins defining aliases for
+    Jujutsu. The `jujutsu-bépo` replaces the initial `j` in all aliases with a
+    `t`, which is much more ergonomic when using the BÉPO keyboard layout.
+
+### Changed
+
+* [Zsh/Themes/bazik] Make the VCS prompt asynchronous.
+* [Zsh/Themes/bazik] Print the Git remote status right of the branch (was left).
 
 ## [release-25.05] - 2025-05-29
 
