@@ -15,6 +15,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 * [Zsh/Themes/bazik] Add support for Jujutsu in the VSC prompt, printing current
     change, closest bookmark with distance information and status, and remote
     status.
+* [Zsh/Jujutsu] Add `jujutsu` and `jujutsu-bépo` plugins defining aliases for
+    Jujutsu. The `jujutsu-bépo` replaces the initial `j` in all aliases with a
+    `t`, which is much more ergonomic when using the BÉPO keyboard layout.
 
 ### Changed
 
