@@ -10,7 +10,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 *Development channel for NixOS 25.05 (status: ongoing development)*
 
-* No changes compared to the stable channel.
+### Added
+
+* [Zsh/direnv] Add support for macOS in `nixify`.
 
 ## [stable-25.05] - Rolling release
 
