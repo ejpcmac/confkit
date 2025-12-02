@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 * [Zsh/direnv] Add support for macOS in `nixify`.
+* [Zsh/direnv] Add a `nixify-rust` function to initialise a Rust devshell.
 
 ### Changed
 
