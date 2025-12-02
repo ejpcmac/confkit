@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 * [Zsh/direnv] Add support for macOS in `nixify`.
 
+### Changed
+
+* **BREAKING** [Zsh/direnv] Use VSCodium to edit the `flake.nix` in `nixify`.
+
 ## [stable-25.05] - Rolling release
 
 *Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*

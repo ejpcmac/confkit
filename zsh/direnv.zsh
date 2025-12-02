@@ -62,7 +62,7 @@ nixify() {
 }
 EOF
         git add --intent-to-add flake.nix
-        $EDITOR flake.nix
+        codium --wait flake.nix
     fi
 
     if [ ! -e ./.envrc ]; then
