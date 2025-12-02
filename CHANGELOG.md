@@ -12,6 +12,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* [home-manager/Jujutsu] Add a configuration for Jujutsu, enabled via
+    `confkit.programs.jujutsu.enable`. As Jujutsu evolves fast, it requires that
+    `confkit.programs.jujutus.package` is set to the latest version of Jujutsu.
+    In the same way as the Git module, this module configures user information
+    and signature from `confkit.identity`.
 * [Zsh/Themes/bazik] Add support for Jujutsu in the VSC prompt, printing current
     change, closest bookmark with distance information and status, and remote
     status.
