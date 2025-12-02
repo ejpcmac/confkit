@@ -10,7 +10,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 *Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*
 
-* No changes compared to the release.
+### Added
+
+* [Zsh/Themes/bazik] Add support for Jujutsu in the VSC prompt, printing current
+    change, closest bookmark with distance information and status, and remote
+    status.
+
+### Changed
+
+* [Zsh/Themes/bazik] Make the VCS prompt asynchronous.
+* [Zsh/Themes/bazik] Print the Git remote status right of the branch (was left).
 
 ## [release-25.05] - 2025-05-29
 
