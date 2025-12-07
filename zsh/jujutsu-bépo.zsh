@@ -91,6 +91,13 @@ alias tbf='jj bookmark forget'
 alias tbt='jj bookmark track'
 alias tbu='jj bookmark untrack'
 
+# Tags
+alias ttl='jj tag list'
+alias tts='jj tag set -r'
+alias ttsc='jj tag set -r@'
+alias ttsp='jj tag set -r@-'
+alias ttd='jj tag delete'
+
 # Workspaces
 alias twl='jj workspace list'
 alias twa='jj workspace add'
