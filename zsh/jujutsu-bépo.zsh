@@ -50,15 +50,18 @@ alias tratp='trat @-'
 alias tde='jj describe'
 alias tdep='jj describe @-'
 alias tdemsg='jj describe --message'
-alias tdezp='tdez @-'
+alias tdez='jj-z describe'
+alias tdezp='jj-z describe @-'
 alias tc='jj commit'
 alias tcmsg='jj commit --message'
-alias tcz='tdez && tn'
+alias tcz='jj-z commit'
 alias tsp='jj split'
 alias tspm='jj split --tool meld'
+alias tspz='jj-z split'
 alias tsq='jj squash'
 alias tsqi='jj squash -i'
 alias tsqim='jj squash -i --tool meld'
+alias tsqz='jj-z squash'
 alias ta='jj absorb'
 alias tdup='jj duplicate'
 alias trb='jj rebase'
@@ -88,7 +91,7 @@ __jj_closest_bookmarks() {
     __jj log --no-graph -r "$revset" -T 'self.bookmarks()'
 }
 
-tdez() {
+jj-z() {
     if [[ "$(git z -V)" == "git-z 0.2.3" ]]; then
         local message
         message="$(git z commit --print-only)"
@@ -99,7 +102,7 @@ tdez() {
         fi
 
         message=$(echo $message | sed 's/^#\(.*\)/JJ:\1/')
-        jj describe $@ --edit --message "$message"
+        jj $@ --editor --message "$message"
     else
         local bookmarks="$(__jj_closest_bookmarks edit next)"
         if [[ -z "$bookmarks" ]]; then
@@ -112,12 +115,10 @@ tdez() {
         git z commit \
             --topic "$bookmarks" \
             --command "sh -c \"\
-                echo -n '\$message' \
-                | sed 's/^#\(.*\)/JJ:\1/' \
-                | jj describe $@ --edit --stdin\" \
+                msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
+                jj $@ --editor --message \\\"\$msg\\\"\" \
                 "
     fi
-
 }
 
 # Bookmarks
