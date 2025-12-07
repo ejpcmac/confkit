@@ -74,40 +74,6 @@ alias jsi='jj sign'
 alias jsip='jsi -r@-'
 alias jsu='jj unsign'
 
-__jj_closest_bookmarks() {
-    local workflow=$1
-    local direction=$2
-
-    local base="@"
-    if [[ "$workflow" == "squash" ]]; then
-        base="@-"
-    fi
-
-    local revset="roots($base:: & bookmarks())"
-    if [[ "$direction" == "prev" ]]; then
-        revset="heads(::@ & bookmarks())"
-    fi
-
-    __jj log --no-graph -r "$revset" -T 'self.bookmarks()'
-}
-
-jj-z() {
-    local bookmarks="$(__jj_closest_bookmarks edit next)"
-    if [[ -z "$bookmarks" ]]; then
-        bookmarks="$(__jj_closest_bookmarks squash next)"
-    fi
-    if [[ -z "$bookmarks" ]]; then
-        bookmarks="$(__jj_closest_bookmarks squash prev)"
-    fi
-
-    git z commit \
-        --topic "$bookmarks" \
-        --command "sh -c \"\
-            msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
-            jj $@ --editor --message \\\"\$msg\\\"\" \
-            "
-}
-
 # Bookmarks
 alias jbl='jj bookmark list --no-pager'
 alias jbla='jj bookmark list --all --no-pager'
@@ -155,3 +121,41 @@ alias jfu='jj file untrack'
 alias ju='jj undo'
 alias jrd='jj redo'
 alias jdi="jj config set --repo 'revset-aliases.\"immutable_heads()\"' 'builtin_immutable_heads() | develop@origin'"
+
+##
+## Integration with git-z
+##
+
+__jj_closest_bookmarks() {
+    local workflow=$1
+    local direction=$2
+
+    local base="@"
+    if [[ "$workflow" == "squash" ]]; then
+        base="@-"
+    fi
+
+    local revset="roots($base:: & bookmarks())"
+    if [[ "$direction" == "prev" ]]; then
+        revset="heads(::@ & bookmarks())"
+    fi
+
+    __jj log --no-graph -r "$revset" -T 'self.bookmarks()'
+}
+
+jj-z() {
+    local bookmarks="$(__jj_closest_bookmarks edit next)"
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash next)"
+    fi
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash prev)"
+    fi
+
+    git z commit \
+        --topic "$bookmarks" \
+        --command "sh -c \"\
+            msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
+            jj $@ --editor --message \\\"\$msg\\\"\" \
+            "
+}
