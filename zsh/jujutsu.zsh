@@ -92,33 +92,20 @@ __jj_closest_bookmarks() {
 }
 
 jj-z() {
-    if [[ "$(git z -V)" == "git-z 0.2.3" ]]; then
-        local message
-        message="$(git z commit --print-only)"
-
-        local st=$?
-        if [ $st -ne 0 ]; then
-            return $st
-        fi
-
-        message=$(echo $message | sed 's/^#\(.*\)/JJ:\1/')
-        jj $@ --editor --message "$message"
-    else
-        local bookmarks="$(__jj_closest_bookmarks edit next)"
-        if [[ -z "$bookmarks" ]]; then
-            bookmarks="$(__jj_closest_bookmarks squash next)"
-        fi
-        if [[ -z "$bookmarks" ]]; then
-            bookmarks="$(__jj_closest_bookmarks squash prev)"
-        fi
-
-        git z commit \
-            --topic "$bookmarks" \
-            --command "sh -c \"\
-                msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
-                jj $@ --editor --message \\\"\$msg\\\"\" \
-                "
+    local bookmarks="$(__jj_closest_bookmarks edit next)"
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash next)"
     fi
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash prev)"
+    fi
+
+    git z commit \
+        --topic "$bookmarks" \
+        --command "sh -c \"\
+            msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
+            jj $@ --editor --message \\\"\$msg\\\"\" \
+            "
 }
 
 # Bookmarks
