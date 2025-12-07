@@ -50,75 +50,29 @@ alias jratp='jrat @-'
 alias jde='jj describe'
 alias jdep='jj describe @-'
 alias jdemsg='jj describe --message'
-alias jdezp='jdez @-'
+alias jdez='jj-z describe'
+alias jdezp='jj-z describe @-'
 alias jc='jj commit'
 alias jcmsg='jj commit --message'
-alias jcz='jdez && tn'
+alias jcz='jj-z commit'
 alias jsp='jj split'
 alias jspm='jj split --tool meld'
+alias jspz='jj-z split'
 alias jsq='jj squash'
 alias jsqi='jj squash -i'
 alias jsqim='jj squash -i --tool meld'
+alias jsqz='jj-z squash'
 alias ja='jj absorb'
 alias jdup='jj duplicate'
 alias jrb='jj rebase'
-alias jrbd='jj rebase -d'
-alias jrbc='jj rebase -r@ -d'
+alias jrbd='jj rebase -o'
+alias jrbc='jj rebase -r@ -o'
 alias jrs='jj resolve'
 alias jrst='jj restore'
 alias jab='jj abandon'
 alias jsi='jj sign'
 alias jsip='jsi -r@-'
 alias jsu='jj unsign'
-
-__jj_closest_bookmarks() {
-    local workflow=$1
-    local direction=$2
-
-    local base="@"
-    if [[ "$workflow" == "squash" ]]; then
-        base="@-"
-    fi
-
-    local revset="roots($base:: & bookmarks())"
-    if [[ "$direction" == "prev" ]]; then
-        revset="heads(::@ & bookmarks())"
-    fi
-
-    __jj log --no-graph -r "$revset" -T 'self.bookmarks()'
-}
-
-jdez() {
-    if [[ "$(git z -V)" == "git-z 0.2.3" ]]; then
-        local message
-        message="$(git z commit --print-only)"
-
-        local st=$?
-        if [ $st -ne 0 ]; then
-            return $st
-        fi
-
-        message=$(echo $message | sed 's/^#\(.*\)/JJ:\1/')
-        jj describe $@ --edit --message "$message"
-    else
-        local bookmarks="$(__jj_closest_bookmarks edit next)"
-        if [[ -z "$bookmarks" ]]; then
-            bookmarks="$(__jj_closest_bookmarks squash next)"
-        fi
-        if [[ -z "$bookmarks" ]]; then
-            bookmarks="$(__jj_closest_bookmarks squash prev)"
-        fi
-
-        git z commit \
-            --topic "$bookmarks" \
-            --command "sh -c \"\
-                echo -n '\$message' \
-                | sed 's/^#\(.*\)/JJ:\1/' \
-                | jj describe $@ --edit --stdin\" \
-                "
-    fi
-
-}
 
 # Bookmarks
 alias jbl='jj bookmark list --no-pager'
@@ -136,6 +90,13 @@ alias jbd='jj bookmark delete'
 alias jbf='jj bookmark forget'
 alias jbt='jj bookmark track'
 alias jbu='jj bookmark untrack'
+
+# Tags
+alias jtl='jj tag list'
+alias jts='jj tag set -r'
+alias jtsc='jj tag set -r@'
+alias jtsp='jj tag set -r@-'
+alias jtd='jj tag delete'
 
 # Workspaces
 alias jwl='jj workspace list'
@@ -167,3 +128,41 @@ alias jfu='jj file untrack'
 alias ju='jj undo'
 alias jrd='jj redo'
 alias jdi="jj config set --repo 'revset-aliases.\"immutable_heads()\"' 'builtin_immutable_heads() | develop@origin'"
+
+##
+## Integration with git-z
+##
+
+__jj_closest_bookmarks() {
+    local workflow=$1
+    local direction=$2
+
+    local base="@"
+    if [[ "$workflow" == "squash" ]]; then
+        base="@-"
+    fi
+
+    local revset="roots($base:: & bookmarks())"
+    if [[ "$direction" == "prev" ]]; then
+        revset="heads(::@ & bookmarks())"
+    fi
+
+    __jj log --no-graph -r "$revset" -T 'self.bookmarks()'
+}
+
+jj-z() {
+    local bookmarks="$(__jj_closest_bookmarks edit next)"
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash next)"
+    fi
+    if [[ -z "$bookmarks" ]]; then
+        bookmarks="$(__jj_closest_bookmarks squash prev)"
+    fi
+
+    git z commit \
+        --topic "$bookmarks" \
+        --command "sh -c \"\
+            msg=\\\"\$(echo -n '\$message' | sed 's/^#\(.*\)/JJ:\1/')\\\"; \
+            jj $@ --editor --message \\\"\$msg\\\"\" \
+            "
+}
