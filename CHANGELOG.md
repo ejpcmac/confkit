@@ -4,12 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [develop-25.05] - Rolling release
+## [stable-25.11] - Rolling release
 
-*Development channel for NixOS 25.05 (status: ongoing development)*
+*Maintenance channel for NixOS 25.11 (status: ongoing maintenance)*
+
+* No changes compared to the release.
+
+## [release-25.11] - 2026-01-11
+
+*Initial release for NixOS 25.11*
 
 ### Added
 
+* [NixOS] Add support for NixOS 25.11.
 * [Zsh/direnv] Add support for macOS in `nixify`.
 * [Zsh/direnv] Add a `nixify-rust` function to initialise a Rust devshell.
 
@@ -18,9 +25,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * **BREAKING** [Zsh/direnv] Use VSCodium to edit the `flake.nix` in `nixify`.
 * **BREAKING** [Zsh/Rust] Put `$HOME/.cargo/bin` before system paths in `$PATH`.
 
-## [stable-25.05] - Rolling release
+### Removed
 
-*Maintenance channel for NixOS 25.05 (status: ongoing maintenance)*
+* [NixOS] Remove support for NixOS 25.05.
+
+## [stable-25.05] - 2025-05-29—2026-01-11
+
+*Maintenance channel for NixOS 25.05 (status: closed)*
 
 ### Added
 
@@ -1323,7 +1334,8 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
-[develop-25.05]: https://github.com/ejpcmac/confkit/compare/stable-25.05...develop-25.05
+[stable-25.11]: https://github.com/ejpcmac/confkit/compare/release-25.11...stable-25.11
+[release-25.11]: https://github.com/ejpcmac/confkit/compare/stable-25.05...release-25.11
 [stable-25.05]: https://github.com/ejpcmac/confkit/compare/release-25.05...stable-25.05
 [release-25.05]: https://github.com/ejpcmac/confkit/compare/stable-24.11...release-25.05
 [stable-24.11]: https://github.com/ejpcmac/confkit/compare/release-24.11...stable-24.11

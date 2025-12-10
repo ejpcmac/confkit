@@ -9,7 +9,7 @@
 {
   imports = [ ./.. ];
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   confkit.programs = {
     dua.enable = true;

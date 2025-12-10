@@ -35,28 +35,24 @@ in
     programs.git = {
       enable = true;
 
-      userName = mkDefault identity.name;
-      userEmail = mkDefault identity.email;
+      settings = {
+        user = {
+          name = mkDefault identity.name;
+          email = mkDefault identity.email;
+        };
 
-      signing = mkIf cfg.gpgSign {
-        signer = mkDefault "gpg2";
-        key = mkDefault identity.gpgKey;
-        signByDefault = mkDefault true;
-      };
+        alias = {
+          fixup = mkDefault "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
+        };
 
-      aliases = {
-        fixup = mkDefault "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup";
-      };
-
-      extraConfig = {
         diff.external = mkDefault "${pkgs.difftastic}/bin/difft";
         init.defaultBranch = mkDefault "main";
         merge.ff = mkDefault false;
+        mergetool.keepBackup = mkDefault false;
         pull.rebase = mkDefault "merges";
         push.autoSetupRemote = mkDefault true;
         rebase.autosquash = mkDefault true;
         rerere.enable = mkDefault true;
-        mergetool.keepBackup = mkDefault false;
 
         "gitflow \"feature.finish\"".no-ff = mkDefault true;
         "gitflow \"release.finish\"".sign = mkDefault true;
@@ -67,6 +63,12 @@ in
           clean = mkDefault "git-lfs clean -- %f";
           smudge = mkDefault "git-lfs smudge -- %f";
         };
+      };
+
+      signing = mkIf cfg.gpgSign {
+        signer = mkDefault "gpg2";
+        key = mkDefault identity.gpgKey;
+        signByDefault = mkDefault true;
       };
     };
   };

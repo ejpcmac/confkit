@@ -19,12 +19,12 @@ supported NixOS version, it comes with two levels of stability:
 
 The currently supported branches are:
 
-* [`stable-25.05`](https://github.com/ejpcmac/confkit/tree/stable-25.05) —
-    stable channel compatible with NixOS 25.05
-    ([changelog](https://github.com/ejpcmac/confkit/blob/stable-25.05/CHANGELOG.md)),
-* [`develop-25.05`](https://github.com/ejpcmac/confkit/tree/develop-25.05) —
-    development channel compatible with NixOS 25.05
-    ([changelog](https://github.com/ejpcmac/confkit/blob/develop-25.05/CHANGELOG.md)).
+* [`stable-25.11`](https://github.com/ejpcmac/confkit/tree/stable-25.11) —
+    stable channel compatible with NixOS 25.11
+    ([changelog](https://github.com/ejpcmac/confkit/blob/stable-25.11/CHANGELOG.md)),
+* [`develop-25.11`](https://github.com/ejpcmac/confkit/tree/develop-25.11) —
+    development channel compatible with NixOS 25.11
+    ([changelog](https://github.com/ejpcmac/confkit/blob/develop-25.11/CHANGELOG.md)).
 
 When a new version of NixOS is supported, the `develop` channel from the
 previous version is promoted to `stable`.
@@ -48,7 +48,7 @@ previous version is promoted to `stable`.
 
 3. Initialise the configuration using the template provided by `confkit`:
 
-        nix flake init -t github:ejpcmac/confkit/stable-25.05
+        nix flake init -t github:ejpcmac/confkit/stable-25.11
 
 In `Nix/`, you have now a `nixos-host` directory which contains a typical NixOS
 flake configuration using `confkit`.
@@ -87,6 +87,6 @@ Before contributing to this project, please read the
 
 ## License
 
-Copyright © 2018-2025 Jean-Philippe Cugnet
+Copyright © 2018-2026 Jean-Philippe Cugnet
 
 [Do what the fuck you want to](LICENSE) with this project.

@@ -54,7 +54,7 @@ in
     } // (if stdenv.isDarwin then {
       vimConfig = mkDefault (vimConfig + "set clipboard=unnamed");
     } else {
-      package = pkgs.vim_configurable.customize {
+      package = pkgs.vim-full.customize {
         name = "vim";
         vimrcConfig.customRC = vimConfig;
       };
