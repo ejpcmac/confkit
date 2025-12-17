@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 
 * **BREAKING** [Zsh/direnv] Use VSCodium to edit the `flake.nix` in `nixify`.
+* **BREAKING** [Zsh/Rust] Put `$HOME/.cargo/bin` before system paths in `$PATH`.
 
 ## [stable-25.05] - Rolling release
 

@@ -6,7 +6,7 @@
 ## Setup
 ##
 
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$HOME/.cargo/bin:$PATH
 
 ##
 ## Aliases
