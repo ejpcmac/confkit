@@ -32,7 +32,7 @@ in
         zsh-common = {
           enable = true;
           enableCompletion = mkDefault true;
-          syntaxHighlighting.enable = mkDefault true;
+          enableSyntaxHighlighting = mkDefault true;
           promptInit = mkDefault (readFile ../../../zsh/config/prompt.zsh);
 
           interactiveShellInit = ''
@@ -40,6 +40,7 @@ in
             unsetopt beep
             unsetopt hist_beep
             unsetopt list_beep
+            setopt EXTENDEDGLOB SHARE_HISTORY HIST_IGNORE_DUPS HIST_EXPIRE_DUPS_FIRST HIST_FIND_NO_DUPS HIST_FCNTL_LOCK
 
             # Complete to the common part and show the list of possible completion
             # the same tab hit.
@@ -51,14 +52,14 @@ in
             fi
           '';
 
-          setOptions = [
-            "EXTENDEDGLOB"
-            "SHARE_HISTORY"
-            "HIST_IGNORE_DUPS"
-            "HIST_EXPIRE_DUPS_FIRST"
-            "HIST_FIND_NO_DUPS"
-            "HIST_FCNTL_LOCK"
-          ];
+          # setOptions = [
+          #   "EXTENDEDGLOB"
+          #   "SHARE_HISTORY"
+          #   "HIST_IGNORE_DUPS"
+          #   "HIST_EXPIRE_DUPS_FIRST"
+          #   "HIST_FIND_NO_DUPS"
+          #   "HIST_FCNTL_LOCK"
+          # ];
         };
       in
       if stdenv.isDarwin then zsh-common // {

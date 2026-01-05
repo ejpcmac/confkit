@@ -7,6 +7,7 @@
     nixosModules = {
       # Modules.
       confkit-nixos = ./nixos;
+      confkit-darwin = ./nix-darwin;
       confkit-home = ./home-manager;
 
       # Home configurations.

@@ -19,17 +19,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs = {
-      trippy.enable = true;
-    };
+    # programs = {
+    #   trippy.enable = true;
+    # };
 
     environment.systemPackages = with pkgs; [
       bat
       colordiff
       curl
-      dcfldd
+      # dcfldd
       difftastic
-      dmidecode
+      # dmidecode
       dnsutils
       dua
       emv
@@ -47,7 +47,7 @@ in
       inxi
       jq
       killall
-      lshw
+      # lshw
       lsof
       mkpasswd
       mosh
@@ -55,7 +55,7 @@ in
       nvd
       openssh
       p7zip
-      parted
+      # parted
       pciutils
       qpdf
       ripgrep
@@ -63,11 +63,11 @@ in
       smartmontools
       sshfs
       testdisk
-      traceroute
+      # traceroute
       trash-cli
       tree
       unzip
-      usbutils
+      # usbutils
       vulnix
       watch
       wget

@@ -47,7 +47,7 @@ in
 
     networking = {
       hostName = mkIf (cfg.name != null) (mkDefault cfg.name);
-      hostId = mkIf (machineId != null) (mkDefault (builtins.substring 0 8 machineId));
+      # hostId = mkIf (machineId != null) (mkDefault (builtins.substring 0 8 machineId));
     };
   };
 }

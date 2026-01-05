@@ -68,16 +68,16 @@ in
       );
     };
 
-    programs.nh = mkIf cfg.nh.enable {
-      enable = true;
-      flake = mkDefault "/config/Nix/${config.networking.hostName}";
+    # programs.nh = mkIf cfg.nh.enable {
+    #   enable = true;
+    #   flake = mkDefault "/config/Nix/${config.networking.hostName}";
 
-      # Garbage-collect at the end of each month.
-      clean = {
-        enable = mkDefault true;
-        dates = mkDefault "*-*~01 21:00";
-        extraArgs = mkDefault "--nogcroots --keep-since 1M";
-      };
-    };
+    #   # Garbage-collect at the end of each month.
+    #   clean = {
+    #     enable = mkDefault true;
+    #     dates = mkDefault "*-*~01 21:00";
+    #     extraArgs = mkDefault "--nogcroots --keep-since 1M";
+    #   };
+    # };
   };
 }
