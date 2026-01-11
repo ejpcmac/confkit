@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [develop-25.11] - Rolling release
+
+*Development channel for NixOS 25.11 (status: ongoing development)*
+
+* No changes compared to the stable channel.
+
 ## [stable-25.11] - Rolling release
 
 *Maintenance channel for NixOS 25.11 (status: ongoing maintenance)*
@@ -1334,6 +1340,7 @@ You have to update it to:
 
 * Extraction from my personal configuration framework.
 
+[develop-25.11]: https://github.com/ejpcmac/confkit/compare/stable-25.11...develop-25.11
 [stable-25.11]: https://github.com/ejpcmac/confkit/compare/release-25.11...stable-25.11
 [release-25.11]: https://github.com/ejpcmac/confkit/compare/stable-25.05...release-25.11
 [stable-25.05]: https://github.com/ejpcmac/confkit/compare/release-25.05...stable-25.05
