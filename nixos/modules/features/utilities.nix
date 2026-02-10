@@ -43,7 +43,7 @@ in
       htop
       iftop
       imagemagick
-      inetutils
+      # inetutils
       inxi
       jq
       killall
