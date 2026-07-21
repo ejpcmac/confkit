@@ -51,7 +51,7 @@ in
       lsof
       mkpasswd
       mosh
-      neofetch
+      # neofetch
       nvd
       openssh
       p7zip
