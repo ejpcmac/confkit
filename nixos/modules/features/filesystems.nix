@@ -98,6 +98,7 @@ in
 
       "/boot" = {
         device = cfg.bootPartition;
+        fsType = "auto";
         options = defaultFsOptions;
       };
 
@@ -173,14 +174,14 @@ in
       ## Persistence file systems when / is on tmpfs ##
       #################################################
 
-      "/persist/systemd" = mkIf cfg.rootOnTmpfs (mkFs {
-        volumePath = "/system/data/systemd";
-        neededForBoot = true;
-      });
-
       "/persist/utmp" = mkIf cfg.rootOnTmpfs (mkFs {
         volumePath = "/system/data/utmp";
         options = [ "nodev" "noexec" "nosuid" ];
+      });
+
+      "/var/lib/systemd" = mkIf cfg.rootOnTmpfs (mkFs {
+        volumePath = "/system/data/systemd";
+        neededForBoot = true;
       });
 
       "/var/log/journal" = mkIf cfg.rootOnTmpfs (mkFs {
@@ -200,20 +201,6 @@ in
     environment.etc = mkIf cfg.rootOnTmpfs {
       # Provide custom rules to link utmp files to /persist.
       "tmpfiles.d/var.conf".source = lib.mkForce ../../res/tmpfiles-var.conf;
-    };
-
-    ########################################################################
-    ##                            Boot process                            ##
-    ########################################################################
-
-    boot = mkIf cfg.rootOnTmpfs {
-      # Pre-boot filesystem setup.
-      initrd.postMountCommands = ''
-        # Setup the link to the systemd data directory.
-        echo "linking /var/lib/systemd to /persist/systemd..."
-        mkdir -p /mnt-root/var/lib
-        ln -s /persist/systemd /mnt-root/var/lib/systemd
-      '';
     };
 
     ########################################################################

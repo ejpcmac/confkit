@@ -41,6 +41,7 @@ in
       git-lfs
       gnupg
       htop
+      hyfetch
       iftop
       imagemagick
       inetutils
@@ -51,7 +52,6 @@ in
       lsof
       mkpasswd
       mosh
-      neofetch
       nvd
       openssh
       p7zip

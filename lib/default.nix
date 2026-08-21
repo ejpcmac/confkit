@@ -2,5 +2,5 @@
   /**
     The current channel of confkit.
    */
-  channel = "develop-25.11";
+  channel = "stable-26.05";
 }
