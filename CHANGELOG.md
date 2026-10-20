@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * [Zsh/Jujutsu] Add `jors` / `tors` for `jj operation restore`.
 * [Zsh/Jujutsu] Add `jco` / `tco` for `jj converge`.
 * [Zsh/Jujutsu] Add `jce` / `tce` for `jj config edit`.
+* [Zsh/Jujutsu] Add `jarr` / `tarr` for `jj arrange`.
 
 ### Changed
 
