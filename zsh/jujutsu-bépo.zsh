@@ -130,6 +130,7 @@ alias tfu='jj file untrack'
 alias tu='jj undo'
 alias trd='jj redo'
 alias tors='jj operation restore'
+alias tce='jj config edit'
 alias tdi="jj config set --repo 'revset-aliases.\"immutable_heads()\"' 'builtin_immutable_heads() | develop@origin'"
 
 ##
