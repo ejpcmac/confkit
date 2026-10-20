@@ -101,7 +101,8 @@ alias jtd='jj tag delete'
 # Workspaces
 alias jwl='jj workspace list'
 alias jwa='jj workspace add'
-alias jwr='jj workspace forget'
+alias jwr='jj workspace remove'
+alias jwf='jj workspace forget'
 alias jwmv='jj workspace rename'
 
 # Remotes

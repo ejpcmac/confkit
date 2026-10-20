@@ -8,7 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 *Development channel for NixOS 26.05 (status: ongoing development)*
 
-* No changes compared to the stable channel.
+### Added
+
+* [Zsh/Jujutsu] Add `jwf` / `twf` for `jj workspace forget`.
+
+### Changed
+
+* **BREAKING** [Zsh/Jujutsu] Remap `jwr` / `twr`  to `jj workspace remove`
+    instead of `jj workspace forget`.
 
 ## [stable-26.05] - Rolling release
 
