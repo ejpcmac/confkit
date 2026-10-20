@@ -128,6 +128,7 @@ alias jfu='jj file untrack'
 # Misc
 alias ju='jj undo'
 alias jrd='jj redo'
+alias jors='jj operation restore'
 alias jdi="jj config set --repo 'revset-aliases.\"immutable_heads()\"' 'builtin_immutable_heads() | develop@origin'"
 
 ##
