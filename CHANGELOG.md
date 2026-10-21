@@ -21,6 +21,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * **BREAKING** [Zsh/Jujutsu] Remap `jwr` / `twr`  to `jj workspace remove`
     instead of `jj workspace forget`.
 
+### Fixed
+
+* [Zsh/ZFS] Do not fail in `zfs-create-current` / `zcc` when the created file
+    system is not mounted, like with `-o canmount=off`.
+
 ## [stable-26.05] - Rolling release
 
 *Maintenance channel for NixOS 26.05 (status: ongoing maintenance)*

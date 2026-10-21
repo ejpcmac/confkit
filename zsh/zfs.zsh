@@ -80,8 +80,12 @@ zfs-create-current() {
     fi
 
     echo "will create $current_fs/$fs"
-    sudo zfs create $options $current_fs/$fs &&
-    sudo chown $UID:$GID $fs 2>/dev/null
+    sudo zfs create $options $current_fs/$fs || return
+
+    # With canmount=off, the file system is not mounted: there is nothing to chown.
+    if [[ -d $fs ]]; then
+        sudo chown $UID:$GID $fs
+    fi
 }
 
 zfs-destroy-current() {
