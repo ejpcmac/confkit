@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+* [home-manager/Jujutsu] Add support for Jujutsu 0.47.1+.
 * [Zsh/Jujutsu] Add `jwf` / `twf` for `jj workspace forget`.
 * [Zsh/Jujutsu] Add `jors` / `tors` for `jj operation restore`.
 * [Zsh/Jujutsu] Add `jco` / `tco` for `jj converge`.
@@ -25,6 +26,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * [Zsh/ZFS] Do not fail in `zfs-create-current` / `zcc` when the created file
     system is not mounted, like with `-o canmount=off`.
+
+### Removed
+
+* [home-manager/Jujutsu] Remove support for Jujutsu versions prior to 0.47.1.
 
 ## [stable-26.05] - Rolling release
 

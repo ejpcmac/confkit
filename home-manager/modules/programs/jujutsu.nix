@@ -1,7 +1,7 @@
 ####### Configuration for Jujutsu ##############################################
 ##                                                                            ##
 ## * Configure the user information from confkit.identity                     ##
-## * Sign by default when confkit.programs.gpg is enabled##
+## * Sign by default when confkit.programs.gpg is enabled        ’            ##
 ## * Use difft for diffs                                                      ##
 ## * Show the log without pager when running `jj` without arguments           ##
 ## * Define and use by default a `log_oneline` template that shows both       ##
@@ -61,8 +61,11 @@ in
         };
 
         git = {
-          sign-on-push = mkDefault cfg.gpgSign;
           write-change-id-header = mkDefault true;
+        };
+
+        revsets = {
+          git-sign-on-push = mkIf cfg.gpgSign (mkDefault "~signed() & mine()");
         };
 
         ui = {

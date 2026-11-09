@@ -116,7 +116,7 @@ alias jrrm='jj git remote remove'
 alias jrmv='jj git remote rename'
 alias jp='jj git push'
 alias jup='jbup && tp'
-alias jpns='jj git push --config git.sign-on-push=false'
+alias jpns="jj git push --config 'revsets.git-sign-on-push=none()'"
 alias jpc='jp --change @-'
 alias jpn='jp --allow-new --bookmark'
 alias jpt='jp --tracked'

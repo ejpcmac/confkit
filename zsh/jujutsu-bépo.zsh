@@ -116,7 +116,7 @@ alias trrm='jj git remote remove'
 alias trmv='jj git remote rename'
 alias tp='jj git push'
 alias tup='tbup && tp'
-alias tpns='jj git push --config git.sign-on-push=false'
+alias tpns="jj git push --config 'revsets.git-sign-on-push=none()'"
 alias tpc='tp --change @-'
 alias tpn='tp --allow-new --bookmark'
 alias tpt='tp --tracked'
