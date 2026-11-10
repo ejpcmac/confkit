@@ -119,7 +119,7 @@ alias jp='jj git push'
 alias jup='jbap && jp'
 alias jpns="jj git push --config 'revsets.git-sign-on-push=none()'"
 alias jpc='jp --change @-'
-alias jpn='jp --allow-new --bookmark'
+alias jpb='jp --bookmark'
 alias jpt='jp --tracked'
 alias jpa='jp --all'
 alias jpd='jp --deleted'

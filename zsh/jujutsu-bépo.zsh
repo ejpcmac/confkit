@@ -119,7 +119,7 @@ alias tp='jj git push'
 alias tup='tbap && tp'
 alias tpns="jj git push --config 'revsets.git-sign-on-push=none()'"
 alias tpc='tp --change @-'
-alias tpn='tp --allow-new --bookmark'
+alias tpb='tp --bookmark'
 alias tpt='tp --tracked'
 alias tpa='tp --all'
 alias tpd='tp --deleted'

@@ -26,6 +26,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     using `jj bookmark advance --to @-`.
 * **BREAKING** [Zsh/Jujutsu] Remap `jwr` / `twr`  to `jj workspace remove`
     instead of `jj workspace forget`.
+* **BREAKING** [Zsh/Jujutsu] Rename `jpn` / `tpn` to `jpb` / `tpb`, as they no
+    longer pass `--allow-new`, removed in Jujutsu 0.47.1.
 
 ### Fixed
 
