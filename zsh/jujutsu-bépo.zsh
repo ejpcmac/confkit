@@ -100,6 +100,8 @@ alias tts='jj tag set -r'
 alias ttsc='jj tag set -r@'
 alias ttsp='jj tag set -r@-'
 alias ttd='jj tag delete'
+alias ttt='jj tag track'
+alias ttu='jj tag untrack'
 
 # Workspaces
 alias twl='jj workspace list'

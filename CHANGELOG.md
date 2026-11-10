@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * [Zsh/Jujutsu] Add `jarr` / `tarr` for `jj arrange`.
 * [Zsh/Jujutsu] Add `jco` / `tco` for `jj converge`.
 * [Zsh/Jujutsu] Add `jba` / `tba` for `jj bookmark advance`.
+* [Zsh/Jujutsu] Add `jtt` / `ttt` for `jj tag track` and `jtu` / `ttu` for
+    `jj tag untrack`.
 * [Zsh/Jujutsu] Add `jwf` / `twf` for `jj workspace forget`.
 * [Zsh/Jujutsu] Add `jce` / `tce` for `jj config edit`.
 * [Zsh/Jujutsu] Add `jors` / `tors` for `jj operation restore`.
