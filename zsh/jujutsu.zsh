@@ -125,6 +125,7 @@ alias jpb='jp --bookmark'
 alias jpt='jp --tracked'
 alias jpa='jp --all'
 alias jpd='jp --deleted'
+alias jptag='jp --tag'
 
 # Files
 alias jft='jj file track'

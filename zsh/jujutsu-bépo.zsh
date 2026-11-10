@@ -125,6 +125,7 @@ alias tpb='tp --bookmark'
 alias tpt='tp --tracked'
 alias tpa='tp --all'
 alias tpd='tp --deleted'
+alias tptag='tp --tag'
 
 # Files
 alias tft='jj file track'
