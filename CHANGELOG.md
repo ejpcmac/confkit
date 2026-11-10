@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * [home-manager/Jujutsu] Add support for Jujutsu 0.47.1+.
 * [Zsh/Jujutsu] Add `jarr` / `tarr` for `jj arrange`.
 * [Zsh/Jujutsu] Add `jco` / `tco` for `jj converge`.
+* [Zsh/Jujutsu] Add `jba` / `tba` for `jj bookmark advance`.
 * [Zsh/Jujutsu] Add `jwf` / `twf` for `jj workspace forget`.
 * [Zsh/Jujutsu] Add `jce` / `tce` for `jj config edit`.
 * [Zsh/Jujutsu] Add `jors` / `tors` for `jj operation restore`.
@@ -21,6 +22,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * **BREAKING** [Zsh/Jujutsu] Rename `jrbd` to `jrbo`, to match `trbo` and
     `jj rebase -o`.
+* **BREAKING** [Zsh/Jujutsu] Rename `jbup` / `tbup` to `jbap` / `tbap`, now
+    using `jj bookmark advance --to @-`.
 * **BREAKING** [Zsh/Jujutsu] Remap `jwr` / `twr`  to `jj workspace remove`
     instead of `jj workspace forget`.
 
