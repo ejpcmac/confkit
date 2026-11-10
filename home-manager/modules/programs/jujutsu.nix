@@ -81,6 +81,7 @@ in
 
         templates = {
           log = mkDefault "log_oneline";
+          arrange = mkDefault "log_oneline";
         };
 
         template-aliases = {
