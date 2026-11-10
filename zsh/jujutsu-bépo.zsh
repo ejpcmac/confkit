@@ -78,7 +78,7 @@ alias tsu='jj unsign'
 
 # Bookmarks
 alias tbl='jj bookmark list --no-pager'
-alias tbla='jj bookmark list --all --no-pager'
+alias tbla='jj bookmark list --all-remotes --no-pager'
 alias tbc='jj bookmark create -r'
 alias tbcc='jj bookmark create -r@'
 alias tbcp='jj bookmark create -r@-'

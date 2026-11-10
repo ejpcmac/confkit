@@ -24,6 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+* [Zsh/Jujutsu] Fix `jbla` / `tbla` for Jujutsu 0.47.1, which removed
+    `jj bookmark list --all`.
 * [Zsh/Jujutsu] Fix `jup` calling `tp` instead of `jp`.
 * [Zsh/ZFS] Do not fail in `zfs-create-current` / `zcc` when the created file
     system is not mounted, like with `-o canmount=off`.
