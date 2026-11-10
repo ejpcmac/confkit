@@ -19,6 +19,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
+* **BREAKING** [Zsh/Jujutsu] Rename `jrbd` to `jrbo`, to match `trbo` and
+    `jj rebase -o`.
 * **BREAKING** [Zsh/Jujutsu] Remap `jwr` / `twr`  to `jj workspace remove`
     instead of `jj workspace forget`.
 
