@@ -32,6 +32,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * **BREAKING** [Zsh/Jujutsu] Rename `jpn` / `tpn` to `jpb` / `tpb`, as they no
     longer pass `--allow-new`, removed in Jujutsu 0.47.1.
 * [home-manager/Jujutsu] Use the one-line template in `jj arrange`.
+* [home-manager/Jujutsu] Use the pager in the default `jj` command.
+* [Zsh/Jujutsu] Use the pager in `js` / `ts`, `jbl` / `tbl` and `jbla` / `tbla`.
 
 ### Fixed
 

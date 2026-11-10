@@ -71,7 +71,6 @@ in
         ui = {
           default-command = mkDefault [
             "log"
-            "--no-pager"
             "--config"
             "ui.show-cryptographic-signatures=true"
           ];

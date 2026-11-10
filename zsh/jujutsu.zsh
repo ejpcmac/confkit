@@ -9,7 +9,7 @@ alias ji='jj git init --colocate'
 alias jcl='jj git clone --colocate'
 
 # Information
-alias js='jj status --no-pager'
+alias js='jj status'
 alias jl='jj log --config ui.show-cryptographic-signatures=true'
 alias jla='jl -r ::'
 alias jll='jl -T builtin_log_detailed --stat'
@@ -77,8 +77,8 @@ alias jsip='jsi -r@-'
 alias jsu='jj unsign'
 
 # Bookmarks
-alias jbl='jj bookmark list --no-pager'
-alias jbla='jj bookmark list --all-remotes --no-pager'
+alias jbl='jj bookmark list'
+alias jbla='jj bookmark list --all-remotes'
 alias jbc='jj bookmark create -r'
 alias jbcc='jj bookmark create -r@'
 alias jbcp='jj bookmark create -r@-'
