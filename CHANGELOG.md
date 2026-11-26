@@ -51,7 +51,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 *Maintenance channel for NixOS 26.05 (status: ongoing maintenance)*
 
-* No changes compared to the release.
+### Fixed
+
+* [NixOS/Profile/Physical] Mount `/system/data/fwupd` directly on
+    `/var/lib/fwupd` instead of linking it from `/persist/fwupd`, as systemd
+    refuses a symlink as the `StateDirectory` of `fwupd-refresh.service`.
 
 ## [release-26.05] - 2026-10-04
 
