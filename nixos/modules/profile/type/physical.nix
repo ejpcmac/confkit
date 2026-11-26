@@ -23,17 +23,9 @@ in
     ########################################################################
 
     fileSystems = mkIf (fs.enable && fs.rootOnTmpfs) {
-      "/persist/fwupd" = mkFs { volumePath = "/system/data/fwupd"; };
       "/var/lib/chrony" = mkFs { volumePath = "/system/data/chrony"; };
+      "/var/lib/fwupd" = mkFs { volumePath = "/system/data/fwupd"; };
     };
-
-    ########################################################################
-    ##                            Persistence                             ##
-    ########################################################################
-
-    systemd.tmpfiles.rules = [
-      "L+ /var/lib/fwupd - - - - /persist/fwupd"
-    ];
 
     ########################################################################
     ##                              Services                              ##
